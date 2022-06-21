@@ -5,4 +5,4 @@ API IRIS-DP pour FHIR, le nouveau service permettant d’exposer des données pu
 
 
 #### Wiki ####
-Pour plus d'informations, veuillez cliquer [ici](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
+Pour plus d'informations, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
