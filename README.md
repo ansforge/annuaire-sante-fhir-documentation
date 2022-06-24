@@ -14,6 +14,22 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 > - HealthcareService-Activite de soins, 
 > - Device et HealthcareService-Equipement Social.
 
+## Exemples de cas d'utilisation ## 
+> Pour un éditeur de solutions numériques en santé : 
+-	Annuaire de professionnels (focus médecins) lié à un portail patient pour prendre des rendez-vous.  
+-	Focus sur les médecins mais intérêt également pour les autres professionnels de santé.  
+- Besoin de récupérer les médecins, les lieux d'exercice, le savoir-faire / spécialité de chaque professionnel.  
+- Besoin de monter de manière complète une base (FULL). Puis de mettre à jour unitairement les informations pour un professionnel donné et/ou une spécialité donnée. 
+- Besoin de récupérer en one-shot une ressource depuis le service pour récupérer toutes les informations, si les données ne sont pas présentes localement dans leur base.  
+
+> Pour un hôpital :
+- Construire une base de données from scratch : besoin d’établir la correspondance et de récupérer les données sur l’ensemble des médecins libéraux de sa région (ici, différentes combinaisons de filtrage possibles). => Utilisation du service FULL avec filtres sur la profession médecin et sur la région.  
+- Mettre à jour une base de données existante : besoin de mettre à jour les données des professionnels de façon hebdomadaire. => Utilisation du service DELTA toutes les semaines. 
+
+> Pour un coordinateur de parcours de soin : 
+- Besoin de trouver les coordonnées de contact d'un médecin spécialiste  pour adresser en urgence un patient. => Utilisation du service d’appel unitaire pour retrouver les informations de ce médecin.    
+- Le médecin en question n'étant pas joignable (en vacances par exemple), besoin de trouver d'autres médecins de cette spécialité sur le territoire pour pouvoir adresser le patient. => Utilisation du service full avec filtres sur la spécialité et le département (la région si nécessaire).  
+
 ## Première connexion ##
 L'authentification se fait par API-Key/Clé-API. Pour chaque requête (get) au serveur, vous devez fournir un header/entête avec la clé d'API :
 > - Header : ESANTE-API-KEY
