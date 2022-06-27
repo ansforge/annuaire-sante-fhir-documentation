@@ -15,6 +15,7 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 > - Device et HealthcareService-Equipement Social.
 
 ## Quelles sont les fonctionnalités prévues à l’ouverture du Service ? ##
+[Image1](https://github.com/ansforge/annuaire-sante-api-openfhir/issues/1#issue-1285886920)
 
 ## Exemples de cas d'utilisation ## 
 > Pour un éditeur de solutions numériques en santé : 
