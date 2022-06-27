@@ -16,6 +16,7 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 
 ## Quelles sont les fonctionnalités prévues à l’ouverture du Service ? ##
 ![IRIS_DP_Img1](https://user-images.githubusercontent.com/70761903/175964172-161d53c2-e0b6-44d4-8413-e6e7f11ccdcd.jpg)
+![IRIS_DP_Img2](https://user-images.githubusercontent.com/70761903/175964301-f4f1fe38-3b54-4e6b-bf20-e44c2d153855.jpg)
 
 ## Exemples de cas d'utilisation ## 
 > Pour un éditeur de solutions numériques en santé : 
