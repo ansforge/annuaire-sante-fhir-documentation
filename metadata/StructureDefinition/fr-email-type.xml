@@ -1,0 +1,54 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fr-email-type" />
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2> Email Types</h2>
+      <div>
+        <p> The type of Email</p>
+      </div>
+      <p> This value set includes codes from the following code systems:</p>
+      <ul>
+        <li> Include all codes defined in 
+          <a href="valuset-emailType.html"><code> https://mos.esante.gouv.fr/NOS/TRE_R256-TypeMessagerie/FHIR/TRE-R256-TypeMessagerie</code></a></li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status">
+    <valueString value="Informative" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir" />
+  </extension>
+  <url value="http://interopsante.org/fhir/ValueSet/fr-email-type" />
+  <identifier>
+    <system value="http://interopsante.org/fhir/valueset" />
+    <value value="urn:oid:2.16.840.1.113883.2.8.1.3.11" />
+  </identifier>
+  <version value="1.0" />
+  <name value="fr-email-type" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2021-05-17" />
+  <publisher value="InteropSanté" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://interopsante.fr" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="" />
+    </telecom>
+  </contact>
+  <description value="The type of email" />
+  <immutable value="true" />
+  <compose>
+    <include>
+      <system value="https://mos.esante.gouv.fr/NOS/TRE_R256-TypeMessagerie/FHIR/TRE-R256-TypeMessagerie" />
+    </include>
+  </compose>
+</ValueSet>

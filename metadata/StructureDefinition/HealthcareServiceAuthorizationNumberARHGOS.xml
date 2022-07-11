@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="0b9e0305-7158-4c6c-a7d0-62bd3fd82d13" />
+  <meta>
+    <lastUpdated value="2022-07-08T13:08:43.5625792+00:00" />
+  </meta>
+  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationNumberARHGOS" />
+  <version value="0.1" />
+  <name value="HealthcareServiceAuthorizationNumberARHGOS" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@asipsante.fr" />
+  </contact>
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="HealthcareService" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Numéro autorisation ARGHOS" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationNumberARHGOS" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
