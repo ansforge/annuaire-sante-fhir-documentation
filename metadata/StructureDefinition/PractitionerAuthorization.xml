@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="d1067aa8-3c33-491f-8b45-d75facee56d3" />
+  <id value="Practitioner-Authorization" />
   <meta>
-    <lastUpdated value="2022-07-08T13:13:53.9996871+00:00" />
+    <lastUpdated value="2022-07-25T17:28:43.7645544+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-authorization" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" />
+  <version value="0.2" />
   <name value="PractitionerAuthorization" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -136,7 +136,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-authorization" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="0b9e0305-7158-4c6c-a7d0-62bd3fd82d13" />
+  <id value="HealthcareService-AuthorizationNumberARHGOS" />
   <meta>
-    <lastUpdated value="2022-07-08T13:08:43.5625792+00:00" />
+    <lastUpdated value="2022-07-25T17:34:00.7673353+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationNumberARHGOS" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-AuthorizationNumberARHGOS" />
+  <version value="0.2" />
   <name value="HealthcareServiceAuthorizationNumberARHGOS" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationNumberARHGOS" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-AuthorizationNumberARHGOS" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

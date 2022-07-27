@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="afa2f2cd-fc43-4d63-9b68-f8b43724d862" />
+  <id value="PractitionerRole-ActivityType" />
   <meta>
-    <lastUpdated value="2022-07-08T13:16:31.9472072+00:00" />
+    <lastUpdated value="2022-07-25T17:24:45.7871829+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-activityType" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-ActivityType" />
+  <version value="0.2" />
   <name value="PractitionerRoleActivityType" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -30,7 +30,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-activityType" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-ActivityType" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="ac783fbc-0d6b-43f8-8b80-3446c6f09b00" />
+  <id value="Fr-Address-Extended" />
   <meta>
-    <lastUpdated value="2022-07-08T13:07:27.8895238+00:00" />
+    <lastUpdated value="2022-07-25T17:40:40.0522362+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/fr-address-extended" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
+  <version value="0.2" />
   <name value="FrAddressExtended" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -37,7 +37,7 @@
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/french-department" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/French-Department" />
       </type>
     </element>
     <element id="Address.extension:countryCode">
@@ -47,7 +47,7 @@
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/address-country-code" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Address-Country-Code" />
       </type>
     </element>
     <element id="Address.line.extension">

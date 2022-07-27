@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="f496c0a4-67ec-4b1f-9a80-8b6853b13824" />
+  <id value="Device-AuthorizationDateDevice" />
   <meta>
-    <lastUpdated value="2022-07-08T07:48:56.6185766+00:00" />
+    <lastUpdated value="2022-07-25T17:42:58.2169384+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-authorizationDateDevice" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-AuthorizationDateDevice" />
+  <version value="0.2" />
   <name value="DeviceAuthorizationDateDevice" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-authorizationDateDevice" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-AuthorizationDateDevice" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

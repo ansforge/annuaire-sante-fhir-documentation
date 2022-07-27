@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <url value="http://interopsante.org/fhir/StructureDefinition/FrOrganizationShortName" />
   <version value="4.0.0" />
@@ -14,7 +15,7 @@
     </telecom>
   </contact>
   <purpose value="The Organization short name | Libellé court de l'organisation" />
-  <fhirVersion value="4.0.0" />
+  <fhirVersion value="4.0.1" />
   <kind value="complex-type" />
   <abstract value="false" />
   <context>

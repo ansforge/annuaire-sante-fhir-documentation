@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="b67ec90e-e843-4aa4-a3d4-b1b85ea5955a" />
+  <id value="Practitioner-BirthPlace" />
   <meta>
-    <lastUpdated value="2022-07-08T13:14:14.2478966+00:00" />
+    <lastUpdated value="2022-07-25T17:26:30.8116702+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-birthPlace" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-BirthPlace" />
+  <version value="0.2" />
   <name value="PractitionerBirthPlace" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -25,7 +25,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-birthPlace" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-BirthPlace" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
@@ -42,7 +42,7 @@
       <sliceName value="valueAddress" />
       <type>
         <code value="Address" />
-        <profile value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/fr-address-extended" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
       </type>
     </element>
   </differential>

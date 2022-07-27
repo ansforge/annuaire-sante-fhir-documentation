@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="3138190b-4c4c-4c67-af3b-449091e3d523" />
+  <id value="DigitalCertificate" />
   <meta>
-    <lastUpdated value="2022-07-08T13:06:58.0132473+00:00" />
+    <lastUpdated value="2022-07-25T17:41:29.7781308+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/digitalCertificate" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
+  <version value="0.2" />
   <name value="DigitalCertificate" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -173,7 +173,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/digitalCertificate" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

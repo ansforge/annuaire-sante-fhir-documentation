@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="e0a53379-3f1f-4d21-b570-639c17c16b18" />
+  <id value="MailboxMSS" />
   <meta>
-    <lastUpdated value="2022-07-08T13:11:51.0407981+00:00" />
+    <lastUpdated value="2022-07-25T17:30:22.3422387+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/mailboxMSS" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+  <version value="0.2" />
   <name value="MailboxMSS" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -220,7 +220,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/mailboxMSS" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

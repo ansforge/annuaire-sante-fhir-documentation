@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="328f1322-d0f8-4922-bc27-4df1d54cf6c4" />
+  <id value="HealthcareService-InstallationDate" />
   <meta>
-    <lastUpdated value="2022-07-08T13:10:47.7438642+00:00" />
+    <lastUpdated value="2022-07-25T17:31:04.3510739+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-installationDate" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-InstallationDate" />
+  <version value="0.2" />
   <name value="HealthcareServiceInstallationDate" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-installationDate" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-InstallationDate" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

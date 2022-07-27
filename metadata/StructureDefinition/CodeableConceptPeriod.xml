@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="9b6b12cb-3792-4274-93cf-bfc53b97df97" />
+  <id value="CodeableConcept-Period" />
   <meta>
-    <lastUpdated value="2022-07-08T13:00:47.1125621+00:00" />
+    <lastUpdated value="2022-07-25T17:44:28.256626+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/codeableConcept-period" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/CodeableConcept-Period" />
+  <version value="0.2" />
   <name value="CodeableConceptPeriod" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -31,7 +31,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/codeableConcept-period" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/CodeableConcept-Period" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

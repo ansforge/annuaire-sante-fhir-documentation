@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="4742b41b-1bf3-4d61-a177-9d72bca7b8db" />
+  <id value="Practitioner-Nationality" />
   <meta>
-    <lastUpdated value="2022-07-08T13:15:41.7025338+00:00" />
+    <lastUpdated value="2022-07-25T17:25:24.6900037+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-nationality" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Nationality" />
+  <version value="0.2" />
   <name value="PractitionerNationality" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -99,7 +99,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-nationality" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Nationality" />
     </element>
     <element id="Extension.value[x]">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">

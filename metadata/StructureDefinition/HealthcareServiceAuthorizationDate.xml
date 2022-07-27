@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="9029b721-e28c-4be8-91fd-339688880866" />
+  <id value="HealthcareService-AuthorizationDate" />
   <meta>
-    <lastUpdated value="2022-07-08T13:08:27.8137067+00:00" />
+    <lastUpdated value="2022-07-25T17:34:41.6381343+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationDate" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-AuthorizationDate" />
+  <version value="0.2" />
   <name value="HealthcareServiceAuthorizationDate" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-authorizationDate" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-AuthorizationDate" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

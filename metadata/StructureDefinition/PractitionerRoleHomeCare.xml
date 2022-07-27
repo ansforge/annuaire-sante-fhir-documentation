@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="d29a369e-3940-41aa-a646-db6b5aa1cc6a" />
+  <id value="PractitionerRole-HomeCare" />
   <meta>
     <lastUpdated value="2022-07-08T13:18:54.8596606+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-homeCare" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HomeCare" />
+  <version value="0.2" />
   <name value="PractitionerRoleHomeCare" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-homeCare" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HomeCare" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="9b6c3c4e-76a9-47df-b9ce-b463825ce563" />
+  <id value="PractitionerRole-AppointmentRequired" />
   <meta>
     <lastUpdated value="2022-07-08T13:17:18.9970158+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-appointmentRequired" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
+  <version value="0.2" />
   <name value="PractitionerRoleAppointmentRequired" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-appointmentRequired" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

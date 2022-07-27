@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="43907108-8dfc-4d1c-9d14-83a2c3c862b5" />
+  <id value="HealthcareService-ActivityType" />
   <meta>
-    <lastUpdated value="2022-07-08T13:08:12.5359779+00:00" />
+    <lastUpdated value="2022-07-25T17:35:25.9463394+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-activityType" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-ActivityType" />
+  <version value="0.2" />
   <name value="HealthcareServiceActivityType" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -30,7 +30,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-activityType" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-ActivityType" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

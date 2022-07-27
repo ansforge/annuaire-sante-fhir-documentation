@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="a7ac1751-3cb0-43fb-a22f-6f3ba5d05acd" />
+  <id value="Practitioner-DeceasedDateTime" />
   <meta>
-    <lastUpdated value="2022-07-08T13:15:26.7585243+00:00" />
+    <lastUpdated value="2022-07-25T17:25:57.5901528+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-deceasedDateTime" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-DeceasedDateTime" />
+  <version value="0.2" />
   <name value="PractitionerDeceasedDateTime" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -26,7 +26,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitioner-deceasedDateTime" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-DeceasedDateTime" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="f34f3957-6457-4e45-845b-324aeb69ce9a" />
+  <id value="Address-Country-Code" />
   <meta>
-    <lastUpdated value="2022-07-08T13:05:46.193835+00:00" />
+    <lastUpdated value="2022-07-25T17:43:41.0379585+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/address-country-code" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Address-Country-Code" />
+  <version value="0.2" />
   <name value="CountryCode" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -26,7 +26,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/address-country-code" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Address-Country-Code" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

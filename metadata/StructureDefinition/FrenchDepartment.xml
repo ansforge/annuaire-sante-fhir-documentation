@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="a72d9979-ed3f-43e1-a4e5-c00f9c9bf251" />
+  <id value="French-Department" />
   <meta>
-    <lastUpdated value="2022-07-08T13:07:53.1611269+00:00" />
+    <lastUpdated value="2022-07-25T17:39:24.3766484+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/french-department" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/French-Department" />
+  <version value="0.2" />
   <name value="FrenchDepartment" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -30,7 +30,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/french-department" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/French-Department" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

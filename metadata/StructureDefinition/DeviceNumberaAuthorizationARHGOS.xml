@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="256fbba4-45bb-4e5a-8991-d4601eff09c6" />
+  <id value="Device-NumberAuthorizationARHGOS" />
   <meta>
-    <lastUpdated value="2022-07-08T13:06:11.1006084+00:00" />
+    <lastUpdated value="2022-07-25T17:42:26.8637043+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-NumberAuthorizationARHGOS" />
+  <version value="0.2" />
   <name value="DeviceNumberaAuthorizationARHGOS" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-NumberAuthorizationARHGOS" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

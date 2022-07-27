@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="6ee53fc7-8fd9-4391-a984-454c007c219b" />
+  <id value="practitionerRole-PracticeRegion" />
   <meta>
-    <lastUpdated value="2022-07-08T13:23:08.8336958+00:00" />
+    <lastUpdated value="2022-07-25T17:20:08.6607218+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-practiceRegion" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/practitionerRole-PracticeRegion" />
+  <version value="0.2" />
   <name value="PractitionerRolePracticeRegion" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -35,7 +35,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-practiceRegion" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/practitionerRole-PracticeRegion" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

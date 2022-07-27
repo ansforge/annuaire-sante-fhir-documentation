@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="8c534198-22ce-4ab5-abad-481f60b4080a" />
+  <id value="HealthcareService-DateUpdateActivity" />
   <meta>
-    <lastUpdated value="2022-07-08T13:09:06.897194+00:00" />
+    <lastUpdated value="2022-07-25T17:33:21.1229573+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-dateUpdateActivity" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DateUpdateActivity" />
+  <version value="0.2" />
   <name value="HealthcareServiceDateUpdateActivity" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-dateUpdateActivity" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DateUpdateActivity" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

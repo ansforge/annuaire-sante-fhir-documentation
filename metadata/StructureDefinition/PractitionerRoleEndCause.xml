@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="c199c417-bb60-47bc-ade9-a3ba0c7ef891" />
+  <id value="PractitionerRole-EndCause" />
   <meta>
     <lastUpdated value="2022-07-08T13:18:13.46655+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-endCause" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EndCause" />
+  <version value="0.2" />
   <name value="PractitionerRoleEndCause" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -31,7 +31,7 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-endCause" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EndCause" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

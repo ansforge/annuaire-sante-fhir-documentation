@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="bd9b8b6c-03de-4519-994e-953f0bd818bf" />
+  <id value="PractitionerRole-HasCAS" />
   <meta>
     <lastUpdated value="2022-07-08T13:19:10.1242412+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-hasCAS" />
-  <version value="0..1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS" />
+  <version value="0.2" />
   <name value="PractitionerRoleHasCAS" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-hasCAS" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <url value="http://interopsante.org/fhir/StructureDefinition/FrAddressInseeCode" />
   <version value="4.0.0" />
@@ -15,7 +16,7 @@
   </contact>
   <description value="This extension adds the insee code (5 digits) to the address | Ajout du code insee (5 chiffres) à l'adresse postale" />
   <purpose value="This extension adds to the address data type:&#xD;&#xA;-  &quot;Code commune INSEE&quot; (5 digits)" />
-  <fhirVersion value="4.0.0" />
+  <fhirVersion value="4.0.1" />
   <kind value="complex-type" />
   <abstract value="false" />
   <context>

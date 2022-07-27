@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="d04c0d85-189d-4c98-825f-3108864c7ae8" />
+  <id value="PractitionerRole-SmartCard" />
   <meta>
-    <lastUpdated value="2022-07-08T13:24:12.4321953+00:00" />
+    <lastUpdated value="2022-07-25T17:18:48.1178465+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-smartCard" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" />
+  <version value="0.2" />
   <name value="PractitionerRoleSmartCard" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -148,11 +148,11 @@
     </element>
     <element id="Extension.extension:date.value[x].profile">
       <path value="Extension.extension.value[x].profile" />
-      <fixedCanonical value="https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-smartCard" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" />
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-smartCard" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

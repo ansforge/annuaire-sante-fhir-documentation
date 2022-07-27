@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="8afdedb7-7d05-420b-8b3d-058bc823f2ac" />
+  <id value="PractitionerRole-EducationLevel" />
   <meta>
-    <lastUpdated value="2022-07-08T13:17:55.9234151+00:00" />
+    <lastUpdated value="2022-07-25T17:22:37.3111839+00:00" />
   </meta>
-  <url value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-educationLevel" />
-  <version value="0.1" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" />
+  <version value="0.2" />
   <name value="PractitionerRoleEducationLevel" />
   <status value="draft" />
   <publisher value="ANS" />
@@ -199,7 +199,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/practitionerRole-educationLevel" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

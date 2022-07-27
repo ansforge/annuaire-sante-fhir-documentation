@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <url value="http://interopsante.org/fhir/StructureDefinition/FrAddress" />
   <version value="1.0" />
@@ -30,12 +31,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="Address.extension:inseeCode">
       <path value="Address.extension" />
       <sliceName value="inseeCode" />
       <min value="0" />
-      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://interopsante.org/fhir/StructureDefinition/FrAddressInseeCode" />
