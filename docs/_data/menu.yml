@@ -1,0 +1,43 @@
+header:
+  - title: Accueil
+    url: /
+  - title: Quick start
+    url: /pages/quick-start/readme
+  - title: Documentation
+    subfolderitems:
+      - page: Démarrage
+        subfolderitems:
+          - page: Java
+            url: /pages/documentation/starters/java-starter.html
+          - page: PHP
+            url: /pages/documentation/starters/php-starter.html
+      - page: Ressources
+        url: /pages/documentation/resources/practitioner.html
+        subfolderitems:
+          - page: Organization
+            url: /pages/documentation/resources/organization.html
+          - page: Practitioner
+            url: /pages/documentation/resources/practitioner.html
+          - page: PractitionerRole
+            url: /pages/documentation/resources/practitioner-role.html
+          - page: HealthcareService
+            url: /pages/documentation/resources/healthcare-service.html
+          - page: Device
+            url: /pages/documentation/resources/device.html
+      - page: Techniques avancées
+        url: /pages/documentation/resources/practitioner.html
+        subfolderitems:
+          - page: Liaison entre plusieurs ressources
+            url: /pages/documentation/advanced/link.html
+          - page: Stockage
+            url: /pages/documentation/advanced/storage.html
+
+  - title: Uses cases
+    subfolderitems:
+      - page: Synchronisation de l'annuaire
+        url: /pages/use-cases/full/index
+      - page: Appels unitaires
+        url: /pages/use-cases/practitioner-detail/index
+  - title: IHM Fhir
+    url: http://console.fhir.com
+    external: true
