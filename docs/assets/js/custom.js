@@ -1,43 +1,53 @@
-const removeActiveClasses = function (ulElement) {
-    const lis = ulElement.querySelectorAll('li');
-    Array.prototype.forEach.call(lis, function(li) {
-        li.classList.remove('active');
-    });
-  }
+function normalizeText(s){
+   return s.replace(/[^\w ]/g, '')
+}
+/**
+ * Code tabs generation.
+ * This code that use jquery will create tabs for code snip.
+ */
+jQuery(() => {
+    // for each tabs
+    jQuery('div.code-sample').each((i,elemRaw) => {
+        var li = [];
+        var elem = jQuery(elemRaw);
 
-  const getChildPosition = function (element) {
-        var parent = element.parentNode;
-        var i = 0;
-        for (var i = 0; i < parent.children.length; i++) {
-            if (parent.children[i] === element) {
-                return i;
-            }
+        // find all contents to build ids:
+        elem.find('.tab-content').each((k,subElemRaw) => {
+            var subElem = jQuery(subElemRaw);
+            var currentId = 'sub-'+normalizeText(subElem.attr('data-name'));
+            li.push({
+                tab: currentId,
+                label: subElem.attr('data-name')
+            })
+            subElem.attr('id', currentId);
+        });
+
+        // generate tabs:
+        var stringTabs = '';
+        for(var i=0;i<li.length;i++){
+            var liElem  = li[i];
+            stringTabs = stringTabs + '<li><a data-tab="'+liElem.tab+'">'+  liElem.label +'</a></li>'
         }
+        elem.prepend('<ul class="tab">'+stringTabs+'</ul>');
 
-        throw new Error('No parent found');
-    }
+        // tab logic:
+        elem.find('li a').click((event) => {
+            const link = jQuery(event.target);
+            const target = link.attr('data-tab');
+            link.parents('ul.tab').find('.active').removeClass('active');
+            link.parent().addClass('active');
+            link.parents('.code-sample').find('.tab-content').each((j, tabRaw) => {
+                const tab = jQuery(tabRaw);
+                if(tab.attr('id') === target){
+                    tab.show();
+                }else{
+                    tab.hide();
+                }
+            })
+        })
 
-window.addEventListener('load', function () {
-    const tabLinks = document.querySelectorAll('ul.tab li a');
+        // click the first tab:
+        elem.find('li a')[0].click();
 
-    Array.prototype.forEach.call(tabLinks, function(link) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        liTab = link.parentNode;
-        ulTab = liTab.parentNode;
-        position = getChildPosition(liTab);
-        if (liTab.className.includes('active')) {
-          return;
-        }
-
-        removeActiveClasses(ulTab);
-        tabContentId = ulTab.getAttribute('data-tab');
-        tabContentElement = document.getElementById(tabContentId);
-        removeActiveClasses(tabContentElement);
-
-        tabContentElement.querySelectorAll('li')[position].classList.add('active');
-        liTab.classList.add('active');
-      }, false);
-    });
-});
+    })
+})

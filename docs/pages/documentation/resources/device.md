@@ -14,4 +14,3 @@ Requête basique + quelques requêtes spécifiques, comme dans les démo
 ### First tabs
 
 
-<script src="/docs/assets/js/tabs.js"></script>
