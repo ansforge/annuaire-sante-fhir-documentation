@@ -15,17 +15,15 @@ dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être u
 
 
 
-<div class="tab">
-<div class="tab-content" data-name="composer">
-
-```json
+<div class="code-sample"><div class="tab-content" data-name="composer">
+{% highlight php %}
 {
   "require": {
     "dcarbone/php-fhir-generated": "v2.0.*",
     "guzzlehttp/guzzle": "^7.0"
   }
 }
-```
+{% endhighlight %}
 
 </div>
 </div>
@@ -38,10 +36,9 @@ Les requêtes sont des requêtes REST auquels nous précisons un header http.
 Voici un exemple minimal: 
 
 
-<div class="tab">
-<div class="tab-content" data-name="PHP">
+<div class="code-sample"><div class="tab-content" data-name="PHP">
 
-```php
+{% highlight php %}
 require_once '../vendor/autoload.php';
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParser;
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParserConfig;
@@ -63,11 +60,9 @@ $client = new GuzzleHttp\Client([
 $response = $client->request('GET', '/fhir/v1/metadata');
 /** @var  $object  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement*/
 $capabilityStatement = $parser->parse((string) $response->getBody());
+{% endhighlight %}
 
-```
-
-</div>
-</div>
+</div></div>
 
 
 

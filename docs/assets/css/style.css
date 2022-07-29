@@ -30,8 +30,12 @@ main{
     text-transform: uppercase;
 }
 
-div.highlight{
-    padding: 12px;
+
+.code-sample{
+    margin-bottom: 16px;
+}
+div.highlight, figure.highlight{
+    padding: 12px 12px 6px;
     border-radius: 6px;
 }
 

@@ -58,10 +58,9 @@ Par rapport à l'utilisation de base du client HAPI, nous spécifions un Interce
 
 Voici un exemple minimal: 
 
-<div class="tab">
-<div class="tab-content" data-name="JAVA/HAPI">
 
-```java
+<div class="code-sample"><div class="tab-content" data-name="java">
+{% highlight java %}
 // register the interceptor only one time:
 var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
 client.registerInterceptor(new IClientInterceptor() {
@@ -77,10 +76,8 @@ var conf = client
    .capabilities()
    .ofType(CapabilityStatement.class)
    .execute();
-```
-
-</div>
-</div>
+{% endhighlight %}
+</div></div>
 
 A noter que la création de client est couteuse, nous recommandons conserver le client pour plusieurs appels.
 
