@@ -14,8 +14,10 @@ NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dca
 dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être utilise par exemple pour la complétion. 
 
 
-{% tabs phpstarter01 %}
-{% tab phpstarter01 composer %}
+
+<div class="tab">
+<div class="tab-content" data-name="composer">
+
 ```json
 {
   "require": {
@@ -24,9 +26,9 @@ dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être u
   }
 }
 ```
-{% endtab %}
-{% endtabs %}
 
+</div>
+</div>
 
 
 ## Configuration du client HTTP FHIR avec Guzzle
@@ -35,8 +37,10 @@ Les requêtes sont des requêtes REST auquels nous précisons un header http.
 
 Voici un exemple minimal: 
 
-{% tabs phpstarter02 %}
-{% tab phpstarter02 PHP %}
+
+<div class="tab">
+<div class="tab-content" data-name="PHP">
+
 ```php
 require_once '../vendor/autoload.php';
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParser;
@@ -61,7 +65,9 @@ $response = $client->request('GET', '/fhir/v1/metadata');
 $capabilityStatement = $parser->parse((string) $response->getBody());
 
 ```
-{% endtab %}
-{% endtabs %}
+
+</div>
+</div>
+
 
 

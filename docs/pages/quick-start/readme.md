@@ -12,13 +12,11 @@ Pour cette section nous utilisons curl qui est un outil présent sur la pluspart
 
 Lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités du serveur) : 
 
-{% tabs tab01 %}
-{% tab tab01 bash %}
-```bash
+<div class="tab"><div class="tab-content" data-name="bash">
+<code>
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
-```
-{% endtab %}
-{% endtabs %}
+</code>
+</div></div>
 
 
 
@@ -40,13 +38,12 @@ NOTE| Le capability statement permet de connaitre les fonctionnalités disponibl
 
 Vous pouvez lancer la même requête sur une ressource par exemple pour récupérer les Practitioner:
 
-{% tabs tab02 %}
-{% tab tab02 bash %}
-```bash
+
+<div class="tab"><div class="tab-content" data-name="bash">
+<code>
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?_pretty=true&_format=json
-```
-{% endtab %}
-{% endtabs %}
+</code>
+</div></div>
 
 
 La réponse devrait ressembler à cela :

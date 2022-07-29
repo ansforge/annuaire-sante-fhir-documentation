@@ -11,13 +11,16 @@ Pour chaque requête vous devez positionner ce header :
 
 Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) pour obtenir le jeton.
 
-{% tabs auth %}
-{% tab auth bash %}
+<div class="tab">
+<div class="tab-content" data-name="bash">
+
 ```bash
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
-```()
-{% endtab %}
-{% tab auth java/HAPI %}
+```
+
+</div>
+<div class="tab-content" data-name="java/HAPI">
+
 ```java
 // register the interceptor only one time:
 var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
@@ -35,8 +38,9 @@ var conf = client
    .ofType(CapabilityStatement.class)
    .execute();
 ```
-{% endtab %}
-{% tab auth Php/Guzzle %}
+</div>
+<div class="tab-content" data-name="PHP">
+
 ```php
 require_once '../vendor/autoload.php';
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParser;
@@ -59,9 +63,6 @@ $response = $client->request('GET', '/fhir/v1/metadata');
 /** @var  $object  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement*/
 $object = $parser->parse((string) $response->getBody());
 ```
-{% endtab %}
 
-
-
-
-{% endtabs %}
+</div>
+</div>
