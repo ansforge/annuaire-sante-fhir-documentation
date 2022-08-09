@@ -20,6 +20,7 @@ Lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste 
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
 {% endhighlight %}
 
+  
 </div></div>
 
 
