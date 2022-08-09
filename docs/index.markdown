@@ -10,7 +10,7 @@ Trouvez ici tous les guides pour implémenter un client au service FHIR d'IRIS D
 
 ## Quick start
 
-Démarrez rapidement dans l'intégration des données de l'API ANS. 
+Démarrez rapidement avec l'intégration des données de l'API ANS. 
 
 [Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
 
