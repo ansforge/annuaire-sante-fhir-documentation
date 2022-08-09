@@ -4,7 +4,7 @@ title: "Synchronisation complète des ressources"
 subTitle: Use cases
 ---
 
-Dans ce cas d'utilisation nous allons montrer comment synchroniser un système locale avec les données l'annuaire santé. 
+Dans ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'annuaire santé. 
 Les données que nous allons chercher à récupérer sont : 
 
 <div class="wysiwyg" markdown="1">
