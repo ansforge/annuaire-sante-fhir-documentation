@@ -3,7 +3,7 @@ layout: documentation
 title: Authentification
 ---
 
-L'autentification se fait via une API Key à positionner dans le header.
+L'authentification se fait via une API Key à positionner dans le header.
 
 Pour chaque requête, vous devez positionner ce header : 
 
