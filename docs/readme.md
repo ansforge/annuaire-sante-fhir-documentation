@@ -27,7 +27,7 @@ Le menu du haut est géré avec le fichier _data/menu.yml. Quand vous ajoutez un
 
 # Publication (déploiement)
 
-Pour mettre en ligne, publiez le projet sur un projet GitHub et dans la section "Settings > Pages", activez la fonctionalité github pages. 
+Pour mettre en ligne, publiez le projet sur un projet GitHub et dans la section "Settings > Pages", activez la fonctionnalité Github pages. 
 
 Dans la version gratuite de Github, vous devez mettre le projet public pour que cela fonctionne. 
 
