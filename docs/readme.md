@@ -1,14 +1,14 @@
-Projet de documentation sur l'utilisation de l'api Iris DP. 
+Projet de documentation sur l'utilisation de l'API IRIS-DP. 
 
-Ce projet a été pensé pour être distribué au travers de github pages. Il utilise Jekyll qui est supporté par github. 
+Ce projet a été pensé pour être distribué au travers de Github pages. Il utilise Jekyll qui est supporté par Github. 
 
-Le projet Jekyll se trouve dans le dossier docs/
+Le projet Jekyll se trouve dans le dossier docs/.
 
 # Développement
 
-Pour lancer le projet localement, allez dans le dossier docs puis lancez la commande `bundle exec jekyll serve`.
+Pour lancer le projet localement, allez dans le dossier docs/ puis lancez la commande `bundle exec jekyll serve`.
 
-Le site sera accéssible sur l'url : `http://localhost:4000/docs/`.
+Le site sera accessible sur l'url : `http://localhost:4000/docs/`.
 
 # Rédaction 
 
@@ -27,7 +27,7 @@ Le menu du haut est géré avec le fichier _data/menu.yml. Quand vous ajoutez un
 
 # Publication (déploiement)
 
-Pour mettre en ligne, publiez le projet sur un projet GitHub et dans la section "Settings > Pages", activez la fonctionalité github pages. 
+Pour mettre en ligne, publiez le projet sur un projet GitHub et dans la section "Settings > Pages", activez la fonctionnalité Github pages. 
 
-Dans la version gratuite de Github, vous devez mettre le projet publique pour que cela fonctionne. 
+Dans la version gratuite de Github, vous devez mettre le projet public pour que cela fonctionne. 
 

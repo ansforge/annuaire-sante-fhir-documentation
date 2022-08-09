@@ -1,15 +1,15 @@
 ---
 layout: documentation
-title: Autetification
+title: Authentification
 ---
 
-L'autentification se fait par un jeton positioné dans le header.
+L'authentification se fait via une API Key à positionner dans le header.
 
-Pour chaque requête vous devez positionner ce header : 
+Pour chaque requête, vous devez positionner ce header : 
 
 
 
-Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) pour obtenir le jeton.
+Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) pour obtenir l'API Key.
 
 <div class="tab">
 <div class="tab-content" data-name="bash">

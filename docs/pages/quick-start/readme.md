@@ -1,14 +1,15 @@
 ---
 layout: default
-title: Démarrer avec l'api FHIR d'Iris Dp
+title: Démarrer avec l'API FHIR d'IRIS DP
 ---
 
-Chaque appel à l'api doit être fait avec une clé d'api. La clé d'api peut se générer avec l'interface de [création de compte]().
-Une fois votre clé obtenue vous aurez accès à l'api. 
+Chaque appel à l'API doit être fait avec une API Key. L'API Key peut se générer avec l'interface de [création de compte]().
 
-## Votre premier appel Api
+Une fois votre clé obtenue vous aurez accès à l'API. 
 
-Pour cette section nous utilisons curl qui est un outil présent sur la pluspart des plateformes windows 10+, macos, linux.
+## Votre premier appel API
+
+Pour cette section, nous utilisons curl qui est un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 
 Lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités du serveur) : 
 
@@ -19,11 +20,12 @@ Lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste 
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
 {% endhighlight %}
 
+  
 </div></div>
 
 
 
-Si tout c'est bien passé, vous devriez avoir un résultat similaire à : 
+Si tout s'est bien passé, vous devriez avoir un résultat similaire à : 
 
 ```json
 {
@@ -36,7 +38,7 @@ Si tout c'est bien passé, vous devriez avoir un résultat similaire à :
 
 &nbsp;
 
-NOTE| Le capability statement permet de connaitre les fonctionnalités disponible sur le serveur FHIR (paramètres, ressources...).
+NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
 
 Vous pouvez lancer la même requête sur une ressource par exemple pour récupérer les Practitioner:
@@ -47,6 +49,7 @@ Vous pouvez lancer la même requête sur une ressource par exemple pour récupé
 curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?_pretty=true&_format=json
 </code>
 </div></div>
+
 
 
 La réponse devrait ressembler à cela :
@@ -76,10 +79,10 @@ La réponse devrait ressembler à cela :
 &nbsp;
 
 
-## Aller plus loins 
+## Aller plus loin
 
 
-### Ressources interne 
+### Ressources internes 
 
 <div class="wysiwyg" markdown="1">
 * Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
