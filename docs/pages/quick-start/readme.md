@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Démarrer avec l'api FHIR d'Iris Dp
+title: Démarrer avec l'API FHIR d'IRIS DP
 ---
 
-Chaque appel à l'api doit être fait avec une clé d'api. La clé d'api peut se générer avec l'interface de [création de compte]().
-Une fois votre clé obtenue vous aurez accès à l'api. 
+Chaque appel à l'PAI doit être fait avec une API Key. L'API Key peut se générer avec l'interface de [création de compte]().
+Une fois votre clé obtenue vous aurez accès à l'API. 
 
-## Votre premier appel Api
+## Votre premier appel API
 
-Pour cette section nous utilisons curl qui est un outil présent sur la pluspart des plateformes windows 10+, macos, linux.
+Pour cette section, nous utilisons curl qui est un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 
 Lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités du serveur) : 
 
@@ -23,7 +23,7 @@ curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=tr
 
 
 
-Si tout c'est bien passé, vous devriez avoir un résultat similaire à : 
+Si tout s'est bien passé, vous devriez avoir un résultat similaire à : 
 
 ```json
 {
@@ -36,7 +36,7 @@ Si tout c'est bien passé, vous devriez avoir un résultat similaire à :
 
 &nbsp;
 
-NOTE| Le capability statement permet de connaitre les fonctionnalités disponible sur le serveur FHIR (paramètres, ressources...).
+NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
 
 Vous pouvez lancer la même requête sur une ressource par exemple pour récupérer les Practitioner:
@@ -76,7 +76,7 @@ La réponse devrait ressembler à cela :
 &nbsp;
 
 
-## Aller plus loins 
+## Aller plus loin
 
 
 ### Ressources interne 
