@@ -21,7 +21,7 @@ Démarrez rapidement avec l'intégration des données de l'API ANS.
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#edit' | relative_url }}"></use></svg><br/>
         <span  class="doc-section-title"><a href="#">Documentation</a></span>
-        : Explorez la documentation des différentes api.
+        : Explorez la documentation des différentes API.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#folder' | relative_url }}"></use></svg><br/>
