@@ -82,7 +82,7 @@ La réponse devrait ressembler à cela :
 ## Aller plus loin
 
 
-### Ressources interne 
+### Ressources internes 
 
 <div class="wysiwyg" markdown="1">
 * Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
