@@ -15,13 +15,13 @@ Les données que nous allons chercher à récupérer sont :
 
 &nbsp;
 
-![Schema](img/full-import-schema-01.png){:class="img-responsive" style="width:500px"}
+![Schema](img/full-import-schema-01.png)
 
 ## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
-* Vous avez une base de données dans votre SI et vous souhaitez periodiquement compléter vos données avec celles de l'annuaire
-* Vous souhaitez avoir une image de l'annuaire santé chez vous dans votre SI
+* Vous avez une base de données dans votre SI et vous souhaitez périodiquement compléter vos données avec celles de l'annuaire
+* Vous souhaitez avoir une image de l'annuaire santé dans votre SI
 </div>
 
 &nbsp;
@@ -31,7 +31,7 @@ Les données que nous allons chercher à récupérer sont :
 ## Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
-* Un jeton d'accès à l'api que vous pouvez récupérer en ligne sur le site: [TODO](TODO)
+* Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette adresse : [TODO](TODO)
 * Java 11+
 * Un IDE (IntelliJ, Eclipse...)
 * Maven 3+
@@ -43,10 +43,10 @@ Les données que nous allons chercher à récupérer sont :
 ## Etapes
 
 <div class="wysiwyg" markdown="1">
-* Nous allons écupérer tous les PractitionerRole de l'annuaire santé selon nos critères
+* Nous allons récupérer tous les PractitionerRole de l'annuaire santé selon nos critères
 * Nous allons transformer et stocker les éléments
 * Nous allons modifier notre requête pour aller chercher des ressources liées à la première requête
-* Enfin nous verons comment mettre à jour les données de notre annuaire
+* Enfin, nous verrons comment mettre à jour les données de notre annuaire
 </div>
 
 &nbsp;
