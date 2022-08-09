@@ -50,6 +50,7 @@ curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?_prett
 </div></div>
 
 
+
 La réponse devrait ressembler à cela :
 
 ```json
