@@ -1,6 +1,6 @@
 ---
 layout: documentation
-title: Autetification
+title: Authentification
 ---
 
 L'autentification se fait via une API Key à positionner dans le header.
