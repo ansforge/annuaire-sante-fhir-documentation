@@ -14,6 +14,8 @@ header:
       - page: Ressources
         url: /pages/documentation/resources/practitioner.html
         subfolderitems:
+          - page: Search Parameters
+            url: /pages/documentation/resources/search-params.html
           - page: Organization
             url: /pages/documentation/resources/organization.html
           - page: Practitioner
