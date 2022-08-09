@@ -6,15 +6,15 @@ title: Documentation
 
 ATTENTION| Cette documentation est en cours de redaction. Veuillez ne pas l'utiliser pour des développement de production.
 
-Trouvez ici tous les guides pour implémenter un client au service FHIR Iris de l'Ans.
+Trouvez ici tous les guides pour implémenter un client au service FHIR d'IRIS DP de l'ANS.
 
 ## Quick start
 
-Démarrez rapidement dans l'intégration des données de l'Api ANS. 
+Démarrez rapidement dans l'intégration des données de l'API ANS. 
 
 [Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
 
-## Aller plus loins
+## Aller plus loin
 
 
 <div class="row">
