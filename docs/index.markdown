@@ -20,18 +20,18 @@ Démarrez rapidement avec l'intégration des données de l'API ANS.
 <div class="row">
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#edit' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="#">Documentation</a></span>
-        : Explorez la documentation des différentes API.
+        <span  class="doc-section-title"><a href="#">Documentation : </a></span>
+        Explorez la documentation des différentes API.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#folder' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="#">Use cases</a></span>
-        : Les cas d'utilisation pourront vous servir d'inspiration pour vos développements.
+        <span  class="doc-section-title"><a href="#">Use cases : </a></span>
+        Les cas d'utilisation pourront vous servir d'inspiration pour vos développements.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#view-projection' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="#" target="_blank">IHM FHIR </a></span>
-        : Découvrez le service et ses données au travers de l'interface IHM.
+        <span  class="doc-section-title"><a href="#" target="_blank">IHM FHIR : </a></span>
+        Découvrez le service et ses données au travers de l'interface IHM.
     </div>
 
 </div>
