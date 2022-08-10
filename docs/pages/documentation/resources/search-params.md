@@ -180,7 +180,7 @@ Organization found: id=org-148 name=Renard et Renard
 
 # Paramètres de type date
 
-La recherche par date supporte les prefixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète
+La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète
 
 ## Recherche par date
 
@@ -228,8 +228,8 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 
 # Paramètres combinés
 
-Les paramètres combinés permettent d'effectuer des recherches en cumulant ces paramètres.
-Ce cumule se fait de manière inclusive ou alternative.
+Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
+Ce cumul se fait de manière inclusive ou alternative.
 
 ## Paramètres ET (AND)
 
