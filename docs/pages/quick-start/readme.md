@@ -3,9 +3,9 @@ layout: default
 title: Démarrer avec l'API FHIR d'IRIS DP
 ---
 
-Chaque appel à l'API doit être fait avec une API Key. L'API Key peut se générer avec l'interface de [création de compte]().
+Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header. Pour obtenir cette clé, vosu devez vous rendre sur l'interface de [création de compte]().
 
-Une fois votre clé obtenue vous aurez accès à l'API. 
+Une fois votre clé obtenue, vous aurez accès à l'API. 
 
 ## Votre premier appel API
 
