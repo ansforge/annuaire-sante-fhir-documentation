@@ -136,7 +136,7 @@ Organization found: id=org-358 name=Gautier EURL
 
 # Paramètres de type token
 
-Le serveur supporte la recherche par code, par système ou par système+code
+Le serveur supporte la recherche par code, par système ou par système+code.
 
 ## Recherche par code
 
