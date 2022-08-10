@@ -20,7 +20,7 @@ Les données que nous allons chercher à récupérer sont :
 ## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
-* Vous avez une base de données dans votre SI et vous souhaitez périodiquement compléter vos données avec celles de l'annuaire
+* Vous avez une base de données dans votre SI et vous souhaitez périodiquement compléter vos données avec celles de l'annuaire santé
 * Vous souhaitez avoir une image de l'annuaire santé dans votre SI
 </div>
 
@@ -60,7 +60,7 @@ Voir la section [Démarrage/Java]({{ '' | relative_url }})
 
 ### Récupération des ressources PractitionerRole
 
-Pour le cas d'exemple, nous allons chercher uniquement les ressources PractitionerRole qui ont une spécialité à SM02 (correspond à Anesthésie-réanimation)
+Pour l'exemple, nous allons chercher uniquement les ressources PractitionerRole qui ont une spécialité à SM02 (correspond à Anesthésie-réanimation)
 
 Créer un client FHIR avec la librairie Hapi en utilisant l'api Hapi:
 
@@ -71,7 +71,7 @@ var client = ctx.newRestfulGenericClient("https://server.ans.fr/fhir");
 
 La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server.ans.fr/fhir/PractitionerRole?specialty=SM02.
 
-Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "[TODO Authorization]: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02`
+Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "ESANTE-API-KEY: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02`
 
 En java+Hapi, cela va se traduire par: 
 
@@ -121,7 +121,7 @@ Les PractitionerRole que nous recherchons se trouvent dans le champs "entry" de 
 
 Si le nombre de résultat est supérieur au total demandé par le paramètre "_count", un lien va apparaitre dans la réponse FHIR au niveau du champs "link". Un appel à cette url nous donnera la page suivante. 
 
-En java+Hapi, cela se fait comme cela: 
+En java+Hapi, cela se fait comme suit : 
 
 ```java
 do {
@@ -157,19 +157,19 @@ do {
 
 ### Récupération des éléments liés : Organization et Practitioner
 
-Désormais nous allons modifier le code afin de récupérer les également les Practitioner associés ainsi que les Organization. 
+Désormais, nous allons modifier le code afin de récupérer également les Practitioner associés ainsi que les Organization. 
 
-Pour faire cela FHIR propose le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
+Pour ce faire, le standard FHIR propose le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
 
 
 
 La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server.ans.fr/fhir/PractitionerRole?specialty=SM02&_include=PractionerRole:organization&_include=PractionerRole:practitioner.
 
-Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "[TODO Authorization]: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02&_include=PractionerRole:organization&_include=PractionerRole:practitioner`
+Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "ESANTE-API-KEY: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02&_include=PractionerRole:organization&_include=PractionerRole:practitioner`
 
 
 Si cette requête fonctionne, alors la réponse sera un bundle de type fhir qui contiendra à la fois les PractitionerRole comme précédement 
-ainsi que les Practitioner et Organization liés aux Practitioner de la précédente requête : 
+ainsi que les Practitioner et les Organization liés aux Practitioner de la précédente requête : 
 
 ```json
 {
@@ -211,8 +211,8 @@ ainsi que les Practitioner et Organization liés aux Practitioner de la précéd
 }
 ```
 
-On remarquera que dans le champs entry, il y a désormais les PractitionerRole mais également les Organization et Practitioner associés. 
-Dans la synchronisation, il conviendra donc de sauvegarder chacune des entrés en fonction de leurs type.
+On remarquera que dans le champs entry, il y a désormais les PractitionerRole mais également les Organization et les Practitioner associés. 
+Lors de la synchronisation, il conviendra donc de sauvegarder chacune des entrés en fonction de leurs types.
 
 
 En java+Hapi, cela va se traduire par:
@@ -255,15 +255,17 @@ Lien du projet GitHub contenant le projet: [http://github.com](TODO)
 
 ### L'exemple du filtre par département 
 
-Parfois vous souhaiterez faire des filtres sur des données qui ne sont pas présentes dans la ressource PractitionerRole. Dans ce cas, il ne sera pas possible de faire le cas d'utilisation.
+Parfois, vous souhaiterez faire des filtres sur des données qui ne sont pas présentes dans la ressource PractitionerRole. 
 
-Imaginons par exemple que vous souhaitez faire la même recherche mais uniquement sur les Practitioner qui ont au moins un PractitionerRole qui est rataché à une Organization du département 28. 
+Dans ce cas, il ne sera pas possible de faire le cas d'utilisation.
+
+Imaginons par exemple que vous souhaitez faire la même recherche mais uniquement sur les Practitioner qui ont au moins un PractitionerRole rattaché à une Organization dans le département 28. 
 
 Dans ce cas, vous allez devoir faire la requête en plusieurs étapes.
 
 <div class="wysiwyg" markdown="1">
-1. Premièrement il vous faut faire la requête sur la ressource qui contient le paramètre souhaite. Dans notre cas Organization. Vous pouvez avec cette requête récupérer les PractitionerRole associés grâce à la fonction "_revinclude".
-2. Ensuite, afin de trouver les Practitioner associés à vos PractitionerRoles vous avez plusiseurs possibilités. Dans cet exemple nous allons parcourir nos PractitionerRoles et faire une requête par référence.
+1. Premièrement, il faut faire la requête sur la ressource qui contient le paramètre souhaité. Dans notre cas, c'est Organization. Vous pouvez avec cette requête récupérer les PractitionerRole associés grâce à la fonction "_revinclude".
+2. Ensuite, afin de trouver les Practitioner associés à vos PractitionerRoles, vous avez plusiseurs possibilités. Dans cet exemple, nous allons parcourir nos PractitionerRoles et faire une requête par référence.
 </div>
 
 &nbsp;
