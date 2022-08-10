@@ -15,7 +15,7 @@ Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) po
 <div class="tab-content" data-name="bash">
 
 ```bash
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
 ```
 
 </div>
