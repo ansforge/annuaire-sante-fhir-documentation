@@ -5,12 +5,12 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les services santés qui sont représentées dans le serveur FHIR par la ressource HealthCareService
+Voici des exemples de requêtes sur les services de santé qui sont représentées dans le serveur FHIR par la ressource HealthCareService.
 
 
 ## Rechercher tout
 
-Pour rechercher des services santés, il faut faire une recherche sur le endpoint FHIR HealthcareService
+Pour rechercher des services de santé, il faut faire une recherche sur le endpoint FHIR HealthcareService
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -35,7 +35,7 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdentifierFi
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Healthcare Service found: id=hcs-hcs-413
@@ -77,7 +77,7 @@ logger.info("Healthcare Service found: id={} | system={}", healthcareService.get
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Healthcare Service found: id=hcs-hcs-413 | system=http://sample/pr/ids
@@ -117,7 +117,7 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Healthcare Service found: id=hcs-hcs-413 | status=true
