@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les rôles des praticiens qui sont représentées dans le serveur FHIR par la ressource PractitionerRole
+Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource PractitionerRole
 
 
 ## Rechercher tout
