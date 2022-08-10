@@ -7,7 +7,7 @@ subTitle: Ressources
 
 # Paramètres de type texte
 
-Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles
+Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
 
 ## Recherche sans "modifier"
@@ -15,7 +15,7 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name=Renard
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name=Renard
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -42,7 +42,7 @@ for (var organizationEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: name=Renard et Renard
@@ -57,7 +57,7 @@ Organization found: name=Renard EURL
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name%3Acontains=EURL
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=EURL
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -84,7 +84,7 @@ logger.info("Organization found: name={}", organization.getName());
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: name=Perez EURL
@@ -98,7 +98,7 @@ Organization found: name=Gautier EURL
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name%3Aexact=Gautier%20EURL
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Aexact=Gautier%20EURL
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -125,7 +125,7 @@ for (var organizationEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-183 name=Gautier EURL
@@ -143,7 +143,7 @@ Le serveur supporte la recherche par code, par système ou par système+code
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?identifier=org-org-148
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?identifier=org-org-148
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -170,7 +170,7 @@ logger.info("Organization found: id={} name={}", organization.getIdElement().get
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-148 name=Renard et Renard
@@ -187,7 +187,7 @@ La recherche par date supporte les prefixes: gt, lt, le, ge, eq. Plusiseurs "pr�
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -214,7 +214,7 @@ logger.info("Organization found: id={} lastUpdate={}", organization.getIdElement
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
@@ -236,7 +236,7 @@ Ce cumule se fait de manière inclusive ou alternative.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -265,7 +265,7 @@ for (var organizationEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-148 | name=Renard et Renard
@@ -281,7 +281,7 @@ Organization found: id=org-128 | name=Renard et Renard
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name%3Acontains=Renard%2Cet 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=Renard%2Cet 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -308,7 +308,7 @@ for (var organizationEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-148 | name=Renard et Renard
