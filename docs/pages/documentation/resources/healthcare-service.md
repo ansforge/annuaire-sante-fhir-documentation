@@ -47,7 +47,7 @@ Healthcare Service found: id=hcs-hcs-897
 
 ## Rechercher par identifiant
 
-Pour rechercher des services santés, il faut faire une recherche sur le endpoint FHIR HealthcareService
+Pour rechercher des services de santé, il faut faire une recherche sur le endpoint FHIR HealthcareService.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -87,7 +87,7 @@ Healthcare Service found: id=hcs-hcs-413 | system=http://sample/pr/ids
 
 ## Rechercher le status actif
 
-Pour rechercher des services santés, il faut faire une recherche sur le endpoint FHIR HealthcareService
+Pour rechercher des services de santé, il faut faire une recherche sur le endpoint FHIR HealthcareService.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
