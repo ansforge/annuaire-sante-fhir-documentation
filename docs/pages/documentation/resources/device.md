@@ -34,7 +34,7 @@ for (var deviceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Device found: id=device-147 name=Ronstr
@@ -79,7 +79,7 @@ for (var deviceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Device found: id=device-385 name=Tin
@@ -124,7 +124,7 @@ for (var deviceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Device found: id=device-147 type=Scanographe à utilisation médicale
@@ -167,7 +167,7 @@ for (var deviceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Device found: id=dev-device-147
@@ -210,7 +210,7 @@ for (var deviceEntry : bundle.getEntry()) {
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Device found: id=device-147 | status=Active
