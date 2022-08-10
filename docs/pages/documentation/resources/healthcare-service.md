@@ -15,7 +15,7 @@ Pour rechercher des services de santé, il faut faire une recherche sur le endpo
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/HealthcareService
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -52,7 +52,7 @@ Pour rechercher des services de santé, il faut faire une recherche sur le endpo
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/HealthcareService?identifier=http%3A%2F%2Fsample%2Fpr%2Fids%7Chcs-hcs-413
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?identifier=http%3A%2F%2Fsample%2Fpr%2Fids%7Chcs-hcs-413
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -92,7 +92,7 @@ Pour rechercher des services de santé, il faut faire une recherche sur le endpo
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/HealthcareService?active=true
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?active=true
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
