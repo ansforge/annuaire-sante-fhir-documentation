@@ -4,18 +4,18 @@ title: Organization
 subTitle: Ressources
 ---
 
-Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource Organization
+Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource Organization.
 
 
 
 ## Rechercher tout
 
-Pour rechercher des structures, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -33,7 +33,7 @@ for(var organizationEntry : bundle.getEntry()){
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-399 name=Weber, Weber and Weber
@@ -49,12 +49,12 @@ Organization found: id=org-153 name=Wilkinson Group
 
 ## Rechercher selon une date de modification
 
-Pour rechercher des structures selon la date de modification, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures selon la date de modification, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -80,7 +80,7 @@ for(var organizationEntry : bundle.getEntry()){
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
@@ -95,12 +95,12 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 
 ## Rechercher selon un ou plusieurs identifiants
 
-Pour rechercher des structures selon un identifiant, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures selon un identifiant, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?identifier=org-org-148%2Corg-org-149%2Corg-85054-852 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?identifier=org-org-148%2Corg-org-149%2Corg-85054-852 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -127,7 +127,7 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-org-148
@@ -140,12 +140,12 @@ Organization found: id=org-org-144
 
 ## Rechercher selon un ou plusieurs numéro finess
 
-Pour rechercher des structures selon un numéro finess, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures selon un numéro finess, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C135-03-8573%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C697-57-5733%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C802-22-0946 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C135-03-8573%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C697-57-5733%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C802-22-0946 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -173,7 +173,7 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=org-org-148
@@ -191,7 +191,7 @@ Pour rechercher des structures selon un numéro finess, il faut faire une recher
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir//Orgnization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -220,7 +220,7 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=Haag Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
@@ -234,12 +234,12 @@ Organization found: id=Schinner Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
 
 ## Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
 
-Pour rechercher des structures selon la sous-classe de la Nomenclature d'Activités Française, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures selon la sous-classe de la Nomenclature d'Activités Française, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -268,7 +268,7 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
@@ -283,12 +283,12 @@ Organization found: id=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 
 Voici la liste des secteurs d'activités : <a href="https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite">https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite</a>
 
-Pour rechercher des structures selon leur secteur d'activité, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures selon leur secteur d'activité, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -317,7 +317,7 @@ for(var organizationEntry : bundle.getEntry()){
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: id=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
@@ -331,12 +331,12 @@ Organization found: id=Stiedemann and Sons activity=Laboratoire d'analyses et de
 
 ## Rechercher par nom qui contient deux termes
 
-Pour rechercher des structures par nom, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures par nom, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?name%3Acontains=imagerie%2Ccentre 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=imagerie%2Ccentre 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -363,7 +363,7 @@ logger.info("Organization found: name={}", organization.getName());
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: name=Mills Inc centre
@@ -377,12 +377,12 @@ Organization found: name=Imagerie médicale République
 
 ## Rechercher par code postal
 
-Pour rechercher des structures par adresse, il faut faire une recherche sur le endpoint FHIR Organization
+Pour rechercher des structures par adresse, il faut faire une recherche sur le endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/Organization?address-postalcode%3Aexact=91794%2C10228 
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?address-postalcode%3Aexact=91794%2C10228 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -409,7 +409,7 @@ for(var organizationEntry : bundle.getEntry()){
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Organization found: name=Renard et Renard | zipCode=91794
