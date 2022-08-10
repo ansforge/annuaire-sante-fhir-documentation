@@ -5,17 +5,17 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource PractitionerRole
+Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource PractitionerRole.
 
 
 ## Rechercher tout
 
-Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole
+Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/PractitionerRole
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -35,7 +35,7 @@ logger.info("Practitioner Role found: id={} code={}", role.getIdentifierFirstRep
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Practitioner Role found: id=prr-prarole-293 code=Audioprothésiste
@@ -47,12 +47,12 @@ Practitioner Role found: id=prr-prarole-860 code=Pharmacien
 
 ## Rechercher ayant un status actif
 
-Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole
+Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/PractitionerRole?active=true
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?active=true
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -77,7 +77,7 @@ logger.info("Practitioner Role found: id={} active={}", role.getIdentifierFirstR
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Practitioner Role found: id=prr-prarole-946 active=true
@@ -89,12 +89,12 @@ Practitioner Role found: id=prr-prarole-899 active=true
 
 ## Rechercher le rôle par code
 
-Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole
+Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/PractitionerRole?role=10
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?role=10
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -119,7 +119,7 @@ logger.info("Practitioner Role found: id={} role={}", role.getIdentifierFirstRep
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Practitioner Role found: id=prr-prarole-981 role=Médecin
@@ -129,12 +129,12 @@ Practitioner Role found: id=prr-prarole-981 role=Médecin
 
 ## Rechercher un rôle par code de spécialité
 
-Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole
+Pour rechercher des rôles de praticiens, il faut faire une recherche sur le endpoint FHIR PractitionerRole.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "E-SANTE-API: XXXX-XXXXX-XXXXX" http://localhost:8083/fhir/PractitionerRole?specialty=C
+curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?specialty=C
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -159,7 +159,7 @@ logger.info("Practitioner Role found: id={} speciality={}", role.getIdentifierFi
 
 </div>
 
-Devrait vous retourner une réponse du type:
+L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
 Practitioner Role found: id=prr-prarole-293 speciality=C
