@@ -27,7 +27,7 @@ var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
-        iHttpRequest.addHeader("E-SANTE-API", "XXXX-XXXXX-XXXXX");
+        iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
     }
     @Override
     public void interceptResponse(IHttpResponse iHttpResponse) throws IOException {}
@@ -52,7 +52,7 @@ $config = new PHPFHIRResponseParserConfig([
 ]);
 $parser = new PHPFHIRResponseParser($config);
 
-$header = ['E-SANTE-API' => 'XXXX-XXXXX-XXXXX'];
+$header = ['ESANTE-API-KEY' => 'XXXX-XXXXX-XXXXX'];
 $client = new GuzzleHttp\Client([
     'base_uri' => 'http://host.docker.internal:8080',
     'timeout'  => 2.0,]);
