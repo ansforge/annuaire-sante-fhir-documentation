@@ -3,15 +3,15 @@ layout: documentation
 title: Mettre en place un projet Java
 ---
 
-Cette partie montre comment ajouter à un projet Java des appels à l'api de l'annuaire santé.
+Cette partie montre comment ajouter à un projet Java des appels à l'API.
 
-Si vous n'avez pas de jeton, suivez la [procédure]({{ '/pages/quick-start/readme' | relative_url}}).
+Si vous n'avez pas d'API Key, suivez la [procédure]({{ '/pages/quick-start/readme' | relative_url}}).
 
-NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. FHIR reste une api HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
+NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
 ## Dépendances maven
 
-Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/) qui permet entre autre de faire des appels FHIR.
+Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/) qui permet entre autres de faire des appels FHIR.
 
 Pour utiliser les livrairies Hapi, nous allons ajouter au fichier pom.xml les dépendances suivantes: 
 
@@ -54,9 +54,9 @@ Pour utiliser les livrairies Hapi, nous allons ajouter au fichier pom.xml les d�
 
 ## Configuration du client HTTP FHIR avec HAPI
 
-Par rapport à l'utilisation de base du client HAPI, nous spécifions un Intercepeur afin d'ajouter le jeton d'autentification. 
+Par rapport à l'utilisation de base du client HAPI, nous spécifions un Intercepeur afin d'ajouter l'API Key d'authentification. 
 
-Voici un exemple minimal: 
+Voici un exemple nominal: 
 
 
 <div class="code-sample"><div class="tab-content" data-name="java">
@@ -66,7 +66,7 @@ var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
-        iHttpRequest.addHeader("E-SANTE-API", "XXXX-XXXXX-XXXXX");
+        iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
     }
     @Override
     public void interceptResponse(IHttpResponse iHttpResponse) throws IOException {}
@@ -79,7 +79,7 @@ var conf = client
 {% endhighlight %}
 </div></div>
 
-A noter que la création de client est couteuse, nous recommandons conserver le client pour plusieurs appels.
+A noter que la création du client est coûteuse, nous recommandons de conserver le client pour plusieurs appels.
 
 La document Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html)
 
