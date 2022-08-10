@@ -27,7 +27,7 @@ header:
           - page: Device
             url: /pages/documentation/resources/device.html
       - page: Techniques avancées
-        url: /pages/documentation/resources/practitioner.html
+        url: /pages/documentation/advanced/link.html
         subfolderitems:
           - page: Liaison entre plusieurs ressources
             url: /pages/documentation/advanced/link.html
