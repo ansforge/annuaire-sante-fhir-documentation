@@ -223,10 +223,10 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: id=Haag Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
-Organization found: id=Ward Inc type=SA08 - GEOGRAPHICAL-ENTITY - someorg
-Organization found: id=Lubowitz-Lubowitz type=SA08 - GEOGRAPHICAL-ENTITY - some
-Organization found: id=Schinner Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
+Organization found: name=Haag Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
+Organization found: name=Ward Inc type=SA08 - GEOGRAPHICAL-ENTITY - someorg
+Organization found: name=Lubowitz-Lubowitz type=SA08 - GEOGRAPHICAL-ENTITY - some
+Organization found: name=Schinner Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
 ```
 
 
@@ -271,9 +271,9 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: id=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-Organization found: id=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-Organization found: id=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 ```
 
 
@@ -320,9 +320,9 @@ for(var organizationEntry : bundle.getEntry()){
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: id=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
-Organization found: id=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
-Organization found: id=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
+Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
+Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
+Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
 ```
 
 
@@ -416,3 +416,14 @@ Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 
+
+<br/>
+
+## Ressource suivante
+<div class="text-right">
+    <a href="practitioner.html">
+        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
+            Rechercher dans les Practitioner
+        </button>
+    </a>
+</div>

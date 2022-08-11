@@ -6,40 +6,52 @@ header:
   - title: Documentation
     subfolderitems:
       - page: Démarrage
+        url: /pages/hub.html
         subfolderitems:
           - page: Java
             url: /pages/documentation/starters/java-starter.html
+            title: Démarrer en JAVA
           - page: PHP
             url: /pages/documentation/starters/php-starter.html
+            title: Démarrer en PHP
       - page: Ressources
-        url: /pages/documentation/resources/practitioner.html
+        url: /pages/hub.html
         subfolderitems:
           - page: Search Parameters
             url: /pages/documentation/resources/search-params.html
+            title: Utiliser les paramètres de recherche
           - page: Organization
             url: /pages/documentation/resources/organization.html
+            title: Rechercher dans les Organization
           - page: Practitioner
             url: /pages/documentation/resources/practitioner.html
+            title: Rechercher dans les Practitioner
           - page: PractitionerRole
             url: /pages/documentation/resources/practitioner-role.html
+            title: Rechercher dans les PractitionerRole
           - page: HealthcareService
             url: /pages/documentation/resources/healthcare-service.html
+            title: Rechercher dans les HealthcareService
           - page: Device
             url: /pages/documentation/resources/device.html
+            title: Rechercher dans les Device
       - page: Techniques avancées
-        url: /pages/documentation/advanced/link.html
+        url: /pages/hub.html
         subfolderitems:
           - page: Liaison entre plusieurs ressources
             url: /pages/documentation/advanced/link.html
+            title: Liaison entre plusieurs ressources
           - page: Stockage
             url: /pages/documentation/advanced/storage.html
-
+            title: Stockage
   - title: Uses cases
     subfolderitems:
       - page: Synchronisation de l'annuaire
         url: /pages/use-cases/full/index
+        title: Synchronisation complète des ressources
       - page: Appels unitaires
         url: /pages/use-cases/practitioner-detail/index
+        title: Fiche du professionnel de santé
   - title: IHM Fhir
     url: http://console.fhir.com
     external: true
