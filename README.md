@@ -1,4 +1,4 @@
-# annuaire-sante-api-openfhir
+# annuaire-sante-fhir-documentation
 ![Logo FHIR](/img/fhir_hl7_logo.png?raw=true "HL7 FHIR")
 
 <B>IRIS-DP</B>, le nouveau service permettant au grand public de consulter les données en accès libre de l'annuaire-santé au format JSON, structurées selon le standard d’interopérabilité [FHIR](https://www.hl7.org/fhir/), développé et maintenu par l’Agence du Numérique en Santé ([ANS](https://esante.gouv.fr/)).
