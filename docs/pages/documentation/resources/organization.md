@@ -6,8 +6,6 @@ subTitle: Ressources
 
 Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource Organization.
 
-
-
 ## Rechercher tout
 
 Pour rechercher des structures, il faut faire une recherche sur le endpoint FHIR Organization.
@@ -416,14 +414,3 @@ Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 
-
-<br/>
-
-## Ressource suivante
-<div class="text-right">
-    <a href="practitioner.html">
-        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
-            Rechercher dans les Practitioner
-        </button>
-    </a>
-</div>

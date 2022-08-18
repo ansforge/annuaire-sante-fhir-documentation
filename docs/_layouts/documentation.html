@@ -11,7 +11,9 @@ layout: base
                         <a>{{ item.page }}</a>
                         <ul class="navbar-nav nav-lvl-1">
                             {% for item in item.subfolderitems %}
-                                <li class="nav-item common-nav-item"><a href="{{ item.url | relative_url }}">{{ item.page }}</a></li>
+                                <li class="nav-item common-nav-item {% if item.url == page.url %}active{% endif %}">
+                                    <a href="{{ item.url | relative_url }}">{{ item.page }}</a>
+                                </li>
                             {% endfor %}
                         </ul>                    
                     </li>
@@ -23,7 +25,7 @@ layout: base
     </div>
     <div class="col">
         <main>
-            <div class="container container-content">            
+            <div class="container container-content">
                 {%- if page.title -%}
                     {%- if page.subTitle -%}
                         <p class="sub-title">{{ page.subTitle }}</p>
@@ -32,6 +34,8 @@ layout: base
                 {%- endif -%}
 
                 {{ content }}
+
+                {% include next-resource.html %}
             </div>
         </main>
     </div>

@@ -1,3 +1,5 @@
+const contactEmail = 'LT-DTEX-Annuaire@esante.gouv.fr';
+
 function normalizeText(s){
    return s.replace(/[^\w ]/g, '')
 }
@@ -49,5 +51,12 @@ jQuery(() => {
         // click the first tab:
         elem.find('li a')[0].click();
 
-    })
+    });
+
+    const email = jQuery('#contact-email');
+
+    if (email && email.length > 0) {
+       email[0].innerText = contactEmail;
+       jQuery(email[0]).attr('href', `mailto:${contactEmail}`);
+    }
 })

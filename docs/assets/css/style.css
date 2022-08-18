@@ -30,13 +30,28 @@ main{
     text-transform: uppercase;
 }
 
-
 .code-sample{
     margin-bottom: 16px;
 }
+
 div.highlight, figure.highlight{
     padding: 12px 12px 6px;
     border-radius: 6px;
 }
 
+[data-contrast=high-c] .highlight .nv {
+    color: #6c006c;
+}
 
+
+[data-contrast=high-c] .highlight .nc {
+    color: #094862;
+}
+
+[data-contrast=high-c] .highlight .mi {
+    color: #245b41;
+}
+
+[data-contrast=high-c] .highlight .c1 {
+    color: #3e6772;
+}

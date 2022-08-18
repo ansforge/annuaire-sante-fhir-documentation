@@ -217,15 +217,3 @@ Practitioner found: id=pra-739 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
 Practitioner found: id=pra-736 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
 Practitioner found: id=pra-978 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
 ```
-
-
-<br/>
-
-## Ressource suivante
-<div class="text-right">
-    <a href="organization-role.html">
-        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
-            Rechercher dans les PractitionerRole
-        </button>
-    </a>
-</div>

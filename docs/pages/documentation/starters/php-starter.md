@@ -65,4 +65,3 @@ $capabilityStatement = $parser->parse((string) $response->getBody());
 </div></div>
 
 
-

@@ -83,14 +83,3 @@ A noter que la création du client est coûteuse, nous recommandons de conserver
 
 La document Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html)
 
-
-<br/>
-
-## Autre langage
-<div class="text-right">
-    <a href="php-starter.html">
-        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
-            Démarrer en PHP
-        </button>
-    </a>
-</div>

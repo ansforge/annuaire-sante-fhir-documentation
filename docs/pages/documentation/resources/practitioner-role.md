@@ -303,15 +303,3 @@ Practitioner Role found: id=prr-prarole-946 active=true
 Practitioner Role found: id=prr-prarole-256 active=true
 Practitioner Role found: id=prr-prarole-899 active=true
 ```
-
-
-<br/>
-
-## Ressource suivante
-<div class="text-right">
-    <a href="healthcare-service.html">
-        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
-            Rechercher dans les HealthcareService
-        </button>
-    </a>
-</div>

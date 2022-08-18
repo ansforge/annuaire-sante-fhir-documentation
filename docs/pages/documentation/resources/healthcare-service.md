@@ -263,14 +263,3 @@ HealthcarService found: id=hcs-413 lastUpdate=Thu Aug 11 15:10:24 CEST 2022
 HealthcarService found: id=hcs-655 lastUpdate=Thu Aug 11 15:10:24 CEST 2022
 HealthcarService found: id=hcs-897 lastUpdate=Thu Aug 11 15:10:24 CEST 2022
 ```
-
-<br/>
-
-## Ressource suivante
-<div class="text-right">
-    <a href="device.html">
-        <button type="button" class=" btn btn--plain btn--primary btn--icon-before">
-            Rechercher dans les Device
-        </button>
-    </a>
-</div>

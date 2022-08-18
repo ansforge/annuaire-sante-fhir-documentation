@@ -31,6 +31,10 @@
                 color: var(--primary);
                 font-weight: 600;
             }
+
+.left-menu > ul > .nav-item ul .nav-item.active{
+    background-color: var(--gray-300);
+}
 /*
 
 
