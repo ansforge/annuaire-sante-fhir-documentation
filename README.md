@@ -47,7 +47,7 @@ Vous y trouvrez notamment, pour chaque use case, des exemples de codes des diff�
 
 ![Logo java](/img/java_logo.png?raw=true "Java") ![Logo JS](/img/js_logo.png?raw=true "JS") ![Logo Python](/img/python_logo.png?raw=true "Python") ![Logo dotnet](/img/dotnet_logo.png?raw=true ".Net") 
 
-### FAQ 
+### Wiki 
 Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
 
 
