@@ -1,10 +1,13 @@
-# annuaire-sante-api-openfhir
+# annuaire-sante-fhir 
 ![Logo FHIR](/img/fhir_hl7_logo.png?raw=true "HL7 FHIR")
 
 Documentation sur <B>IRIS-DP</B>, le nouveau service permettant au grand public de consulter les données en accès libre de l'annuaire-santé au format JSON, structurées selon le standard d’interopérabilité [FHIR](https://www.hl7.org/fhir/), développé et maintenu par l’Agence du Numérique en Santé ([ANS](https://esante.gouv.fr/)).
 
+## Vue d'ensemble
+### A propos du service Annuaire-Santé
 [L’annuaire-Santé](https://esante.gouv.fr/produits-services/annuaire-sante) est le répertoire partagé des professionnels de Santé. Il rassemble les données d’identification des professionnels de santé et de leurs structures des différents référentiels nationaux : le répertoire partagé des professionnels intervenant dans le système de santé (RPPS), le répertoire ADELI et le répertoire FINESS.
 
+### A propos du service FHIR d'IRIS DP
 IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécification HL7 FHIR. Il implémente les ressources FHIR suivantes : 
 > - Practitioner, 
 > - PractionerRole-Exercice professionnel, 
@@ -14,12 +17,12 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 > - HealthcareService-Activite de soins, 
 > - Device et HealthcareService-Equipement Social.
 
-## Quelles sont les fonctionnalités prévues à l’ouverture du Service ? ##
+### Fonctionnalités FHIR prises en charge 
 ![IRIS_DP_Img1](https://user-images.githubusercontent.com/70761903/175964172-161d53c2-e0b6-44d4-8413-e6e7f11ccdcd.jpg)
 ![IRIS_DP_Img2](https://user-images.githubusercontent.com/70761903/175964301-f4f1fe38-3b54-4e6b-bf20-e44c2d153855.jpg)
 ![IRIS_DP_Img3](https://user-images.githubusercontent.com/70761903/175964348-2cc629d8-53b9-4550-b2dd-f22f1dc3919b.jpg)
 
-## Exemples de cas d'utilisation ## 
+### Cas d'utilisation pour le service FHIR 
 > Pour un éditeur de solutions numériques en santé : 
 -	Annuaire de professionnels (focus médecins) lié à un portail patient pour prendre des rendez-vous.  
 -	Focus sur les médecins mais intérêt également pour les autres professionnels de santé.  
@@ -35,18 +38,19 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 - Besoin de trouver les coordonnées de contact d'un médecin spécialiste  pour adresser en urgence un patient. => Utilisation du service d’appel unitaire pour retrouver les informations de ce médecin.    
 - Le médecin en question n'étant pas joignable (en vacances par exemple), besoin de trouver d'autres médecins de cette spécialité sur le territoire pour pouvoir adresser le patient. => Utilisation du service full avec filtres sur la spécialité et le département (la région si nécessaire).  
 
-## Première connexion ##
-L'authentification se fait par API-Key/Clé-API. Pour chaque requête (get) au serveur, vous devez fournir un header/entête avec la clé d'API :
-> - Header : ESANTE-API-KEY
-> - API Key : XXXX XXXX XXXX XXXXX
+## Documentation 
+### Prise en main du service FHIR 
+Ici, vous allez trouver des outils permettant de faciliter votre on-boarding sur IRIS DP : Best practices, Reference Libraries, code Examples,...
 
-L'obtention d'une clé d'API se fait via le portail APIM de l'ANS (l'url vous sera communiquée utlérieurement).
+Vous y trouvrez notamment, pour chaque use case, des exemples de codes des différentes technologies (Java, JS, Python, .net, ...), de l’explication de texte, tout élément significatif pour les développeurs...
 
-## Wiki ##
+![Logo java](/img/java_logo.png?raw=true "Java") ![Logo JS](/img/js_logo.png?raw=true "JS") ![Logo Python](/img/python_logo.png?raw=true "Python") ![Logo dotnet](/img/dotnet_logo.png?raw=true ".Net") 
+
+### Wiki 
 Pour plus d'informations, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
 
 
-## Espace Early adopters ##
+### Espace Early adopters 
 !!! Cet espace est résevé aux membres du club Utilisateurs participant à la co-construction du nouveau service de publication FHIR en libre accès !!! 
 
 Pour y accéder, veuillez cliquer [ici.](https://esantegouv.sharepoint.com/sites/PartenairesRPPS/SitePages/Service-d'interrogation-IRIS-donn%C3%A9es-publiques.aspx)
