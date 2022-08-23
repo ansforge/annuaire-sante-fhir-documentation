@@ -34,7 +34,7 @@ highlighter: rouge
 
 # Build settings
 # theme: 
-remote_theme: Synodis/jekill-theme-ans
+remote_theme: ansforge/ans-jekyll-theme
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
