@@ -25,7 +25,7 @@ Démarrez rapidement avec l'intégration des données de l'API IRIS DP.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#folder' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="./pages/hub.html">Use cases : </a></span>
+        <span  class="doc-section-title"><a href="./pages/hub.html#usecase">Use cases : </a></span>
         Les cas d'utilisation pourront vous servir d'inspiration pour vos développements.
     </div>
     <div class="col col-12 col-md-3">
