@@ -43,9 +43,9 @@ title: Documentation de l'API FHIR d'IRIS DP
     </div>
 </div>
 
-<div id="usecase" class="row">
+<div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Cas d'utilisation</h3>
+        <h3><a id="usecase"></a>Cas d'utilisation</h3>
         <hr aria-hidden="true">
         <div>
             {% for item in site.data.menu.header[3].subfolderitems %}
