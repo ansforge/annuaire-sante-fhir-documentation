@@ -22,23 +22,6 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 ![IRIS_DP_Img2](https://user-images.githubusercontent.com/70761903/175964301-f4f1fe38-3b54-4e6b-bf20-e44c2d153855.jpg)
 ![IRIS_DP_Img3](https://user-images.githubusercontent.com/70761903/175964348-2cc629d8-53b9-4550-b2dd-f22f1dc3919b.jpg)
 
-### Cas d'utilisation pour le service FHIR 
-> Pour un éditeur de solutions numériques en santé : 
--	Annuaire de professionnels (focus médecins) lié à un portail patient pour prendre des rendez-vous.  
--	Focus sur les médecins mais intérêt également pour les autres professionnels de santé.  
-- Besoin de récupérer les médecins, les lieux d'exercice, le savoir-faire / spécialité de chaque professionnel.  
-- Besoin de monter de manière complète une base (FULL). Puis de mettre à jour unitairement les informations pour un professionnel donné et/ou une spécialité donnée. 
-- Besoin de récupérer en one-shot une ressource depuis le service pour récupérer toutes les informations, si les données ne sont pas présentes localement dans leur base.  
-
-> Pour un hôpital :
-- Construire une base de données from scratch : besoin d’établir la correspondance et de récupérer les données sur l’ensemble des médecins libéraux de sa région (ici, différentes combinaisons de filtrage possibles). => Utilisation du service FULL avec filtres sur la profession médecin et sur la région.  
-- Mettre à jour une base de données existante : besoin de mettre à jour les données des professionnels de façon hebdomadaire. => Utilisation du service DELTA toutes les semaines. 
-
-> Pour un coordinateur de parcours de soin : 
-- Besoin de trouver les coordonnées de contact d'un médecin spécialiste  pour adresser en urgence un patient. => Utilisation du service d’appel unitaire pour retrouver les informations de ce médecin.    
-- Le médecin en question n'étant pas joignable (en vacances par exemple), besoin de trouver d'autres médecins de cette spécialité sur le territoire pour pouvoir adresser le patient. => Utilisation du service full avec filtres sur la spécialité et le département (la région si nécessaire).  
-
-
 ## Documentation et Wiki
 ### Prise en main rapide du service FHIR 
 [Ici](https://ansforge.github.io/annuaire-sante-fhir-documentation/), vous allez trouver la documentation complète permettant de faciliter votre on-boarding sur IRIS DP : Guides de prise en main, Démonstrations, Implémentations de clients API, Bonnes pratiques, Bibliothèques de référence, Examples de code,...
@@ -52,8 +35,10 @@ Cliquez [ici](https://demo.portail.openfhir.annuaire.asipsante.fr/) pour tester 
 ### Wiki 
 Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
 
-
 ### Espace Early adopters (accès restreint)
 !!! Cet espace est résevé aux membres du club Utilisateurs participant à la co-construction du nouveau service de publication FHIR en libre accès !!! 
 
 Pour y accéder, veuillez cliquer [ici.](https://esantegouv.sharepoint.com/sites/PartenairesRPPS/SitePages/Service-d'interrogation-IRIS-donn%C3%A9es-publiques.aspx)
+
+### Code source
+Le code open source du serveur FHIR est disponible ici : (ttps://github.com/ansforge/annuaire-sante-fhir-serveur)
