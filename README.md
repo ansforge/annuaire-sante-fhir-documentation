@@ -39,7 +39,7 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 - Le médecin en question n'étant pas joignable (en vacances par exemple), besoin de trouver d'autres médecins de cette spécialité sur le territoire pour pouvoir adresser le patient. => Utilisation du service full avec filtres sur la spécialité et le département (la région si nécessaire).  
 
 
-## Documentation 
+## Documentation et Wiki
 ### Prise en main rapide du service FHIR 
 [Ici](https://ansforge.github.io/annuaire-sante-fhir-documentation/), vous allez trouver des outils permettant de faciliter votre on-boarding sur IRIS DP : Best practices, Reference Libraries, code Examples,...
 
