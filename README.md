@@ -41,4 +41,4 @@ Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP,
 Pour y accéder, veuillez cliquer [ici.](https://esantegouv.sharepoint.com/sites/PartenairesRPPS/SitePages/Service-d'interrogation-IRIS-donn%C3%A9es-publiques.aspx)
 
 ### Code source
-Le code open source du serveur FHIR est disponible ici : (https://github.com/ansforge/annuaire-sante-fhir-serveur)
+Le code open source du serveur FHIR est disponible ici : https://github.com/ansforge/annuaire-sante-fhir-serveur
