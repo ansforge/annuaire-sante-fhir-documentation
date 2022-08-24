@@ -41,12 +41,14 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 
 ## Documentation et Wiki
 ### Prise en main rapide du service FHIR 
-[Ici](https://ansforge.github.io/annuaire-sante-fhir-documentation/), vous allez trouver des outils permettant de faciliter votre on-boarding sur IRIS DP : Best practices, Reference Libraries, code Examples,...
+[Ici](https://ansforge.github.io/annuaire-sante-fhir-documentation/), vous allez trouver la documentation complète permettant de faciliter votre on-boarding sur IRIS DP : Guides de prise en main, Démonstrations, Implémentations de clients API, Bonnes pratiques, Bibliothèques de référence, Examples de code,...
 
 Vous y trouvrez notamment, pour chaque use case, des exemples de codes des différentes technologies (Java, JS, Python, .net, ...), de l’explication de texte, tout élément significatif pour les développeurs...
 
 ![Logo java](/img/java_logo.png?raw=true "Java") ![Logo JS](/img/js_logo.png?raw=true "JS") ![Logo Python](/img/python_logo.png?raw=true "Python") ![Logo dotnet](/img/dotnet_logo.png?raw=true ".Net") 
 
+### Démonstration du serveur FHIR (accès restreint)
+Cliquez [ici](https://demo.portail.openfhir.annuaire.asipsante.fr/) pour tester l'API.
 ### Wiki 
 Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
 
