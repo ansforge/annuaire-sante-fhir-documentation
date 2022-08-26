@@ -4,7 +4,7 @@ title: Device
 subTitle: Ressources
 ---
 
-Voici des exemples de requêtes sur les matériels qui sont représentés dans le serveur FHIR par la ressource Device.
+Voici des exemples de requêtes sur les matériels qui sont représentés dans le serveur FHIR par la ressource [Device.](https://hl7.org/FHIR/device.html)
 
 
 ## Rechercher tout
