@@ -4,7 +4,7 @@ title: Organization
 subTitle: Ressources
 ---
 
-Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource [Organization](https://hl7.org/FHIR/organization.html).
+Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource [Organization.](https://hl7.org/FHIR/organization.html)
 
 ## Rechercher tout
 
