@@ -81,5 +81,5 @@ var conf = client
 
 A noter que la création du client est coûteuse, nous recommandons de conserver le client pour plusieurs appels.
 
-La document Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html)
+La documentation Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html)
 
