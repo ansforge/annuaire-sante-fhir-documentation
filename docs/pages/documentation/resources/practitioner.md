@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les praticiens qui sont représentés dans le serveur FHIR par la ressource Practitioner.
+Voici des exemples de requêtes sur les praticiens qui sont représentés dans le serveur FHIR par la ressource [Practitioner.](https://hl7.org/FHIR/practitioner.html)
 
 
 ## Rechercher tout
