@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Documentation de l'API FHIR d'IRIS DP
+title: Documentation technique de l'API FHIR IRIS-DP
 ---
 
 <div>
-    L'API FHIR d'IRIS DP de l'ANS offre une solution pour l'accès aux données de santé.
+    L'API FHIR d'IRIS-DP offre une solution clé en main permettant d'acéder aux données publiques de l'annuaire santé.
 </div>
 <div>
     Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet selon le langage de programmation souhaité.
@@ -15,7 +15,7 @@ title: Documentation de l'API FHIR d'IRIS DP
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Démarrer</h3>
+        <h3>Implémentation de clients applicatifs</h3>
         <hr aria-hidden="true">
         <div>
             {% for item in site.data.menu.header[2].subfolderitems[0].subfolderitems %}
