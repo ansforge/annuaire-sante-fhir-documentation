@@ -6,11 +6,11 @@ title: Documentation
 
 ATTENTION| Cette documentation est en cours de redaction. Veuillez ne pas l'utiliser pour des développement de production.
 
-Trouvez ici tous les guides pour implémenter un client au service FHIR d'IRIS DP de l'ANS.
+Trouvez ici tous les guides d'implémentation des nouveaux services FHIR d'IRIS-DP.
 
 ## Quick start
 
-Démarrez rapidement avec l'API FHIR IRIS-DP. 
+Démarrez rapidement avec IRIS-DP. 
 
 [Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
 
