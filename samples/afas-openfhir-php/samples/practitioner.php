@@ -16,7 +16,7 @@ foreach($practitioners->getEntry() as $entry){
     /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
     $practitioner = $entry->getResource();
 
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()."\n");
+    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
 }
 
 echo "Find by identifier:\n";
@@ -27,7 +27,7 @@ foreach($practitioners->getEntry() as $entry){
     /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
     $practitioner = $entry->getResource();
 
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()."\n");
+    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
 }
 
 echo "Find by name:\n";
@@ -38,7 +38,7 @@ foreach($practitioners->getEntry() as $entry){
     /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
     $practitioner = $entry->getResource();
 
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()."\n");
+    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
 }
 
 echo "Find by active:\n";
@@ -49,7 +49,7 @@ foreach($practitioners->getEntry() as $entry){
     /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
     $practitioner = $entry->getResource();
 
-    echo("Practitioner found: name=".$practitioner->getName()." | active=". $practitioner->getActive(). "\n");
+    echo("Practitioner found: name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()." | active=". $practitioner->getActive(). "\n");
 }
 
 echo "Find by last updated:\n";

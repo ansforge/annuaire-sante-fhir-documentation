@@ -97,13 +97,14 @@ foreach($organizations->getEntry() as $entry){
 
 
 echo "Find by postal code:\n";
-$response = $client->request('GET', '/fhir/Organization?name%3Acontains=imagerie%2Ccentre');
+$response = $client->request('GET', '/fhir/Organization?address-postalcode%3Aexact=13290%2C13321');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
     /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
     $organization = $entry->getResource();
-    echo("Organization found: name=".$organization->getName()." | zipCode=".$organization->getAddress()[0]->getPostalCode()->getValue()."\n");
+    $zip = count($organization->getAddress()) == 0 ? '-' : $organization->getAddress()[0]->getPostalCode()->getValue();
+    echo("Organization found: name=".$organization->getName()." | zipCode=".$zip."\n");
 }
 
 

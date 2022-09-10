@@ -19,4 +19,11 @@ In the samples folder:
 
 ```bash
 php authentication.php
+php organization.php
+php device.php
+php practitioner.php
+php practitionerrole.php
+php healthcareservice.php
+php search-params.php
+php resource-linking.php
 ```

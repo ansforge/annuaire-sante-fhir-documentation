@@ -13,7 +13,7 @@ $parser = new PHPFHIRResponseParser($config);
 $header = ['ESANTE-API-KEY' => 'eb2e94fa-ffe6-491f-aa9d-073f6a5a2415'];
 $client = new GuzzleHttp\Client([
     'base_uri' => 'https://gateway.api.esante.gouv.fr',
-    'timeout'  => 2.0,
+    'timeout'  => 20.0,
     'headers'  => $header]);
 
 
