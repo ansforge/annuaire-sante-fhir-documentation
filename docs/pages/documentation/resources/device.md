@@ -14,7 +14,7 @@ Pour rechercher du matériel, il faut faire une recherche sur le endpoint FHIR D
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Device
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Device
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -53,7 +53,7 @@ Pour rechercher du matériel, il faut faire une recherche sur le endpoint FHIR D
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -97,7 +97,7 @@ Pour rechercher du matériel, il faut faire une recherche sur le endpoint FHIR D
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -141,7 +141,7 @@ Pour rechercher du matériel par identifiant, il faut faire une recherche sur le
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Device?identifier=dev-device-147%2Cdev-device-388
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Device?identifier=dev-device-147%2Cdev-device-388
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -184,7 +184,7 @@ Pour rechercher du matériel par statut, il faut faire une recherche sur le endp
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Device?status=active
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Device?status=active
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

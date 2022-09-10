@@ -15,7 +15,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -54,7 +54,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?identifier=p-pra-738%2Cp-pra-978
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?identifier=p-pra-738%2Cp-pra-978
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -95,7 +95,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?name=Dr
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?name=Dr
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -139,7 +139,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?active=true
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?active=true
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -182,7 +182,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

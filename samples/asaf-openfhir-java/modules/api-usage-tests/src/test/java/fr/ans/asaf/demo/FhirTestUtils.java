@@ -30,7 +30,7 @@ public final class FhirTestUtils {
         client.registerInterceptor(new IClientInterceptor() {
             @Override
             public void interceptRequest(IHttpRequest iHttpRequest) {
-                iHttpRequest.addHeader("E-SANTE-API", "XXXX-XXXXX-XXXXX");
+                iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
             }
 
             @Override

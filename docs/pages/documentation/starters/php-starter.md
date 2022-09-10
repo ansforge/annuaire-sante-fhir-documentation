@@ -50,7 +50,7 @@ $config = new PHPFHIRResponseParserConfig([
 $parser = new PHPFHIRResponseParser($config);
 
 
-$header = ['ESANTE-API-KEY' => 'XXXX-XXXXX-XXXXX'];
+$header = ['ESANTE-API-KEY' => '{{site.ans.demo_key }}'];
 $client = new GuzzleHttp\Client([
     'base_uri' => 'http://host.docker.internal:8080',
     'timeout'  => 2.0,]);

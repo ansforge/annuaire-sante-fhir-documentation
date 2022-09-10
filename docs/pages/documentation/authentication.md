@@ -15,7 +15,7 @@ Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) po
 <div class="tab-content" data-name="bash">
 
 ```bash
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/metadata?_pretty=true&_format=json
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/metadata?_pretty=true&_format=json
 ```
 
 </div>
@@ -27,7 +27,7 @@ var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
-        iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
+        iHttpRequest.addHeader("ESANTE-API-KEY", "{{site.ans.demo_key }}");
     }
     @Override
     public void interceptResponse(IHttpResponse iHttpResponse) throws IOException {}
@@ -52,7 +52,7 @@ $config = new PHPFHIRResponseParserConfig([
 ]);
 $parser = new PHPFHIRResponseParser($config);
 
-$header = ['ESANTE-API-KEY' => 'XXXX-XXXXX-XXXXX'];
+$header = ['ESANTE-API-KEY' => '{{site.ans.demo_key }}'];
 $client = new GuzzleHttp\Client([
     'base_uri' => 'http://host.docker.internal:8080',
     'timeout'  => 2.0,]);

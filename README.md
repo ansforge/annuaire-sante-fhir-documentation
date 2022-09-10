@@ -33,7 +33,7 @@ Vous y trouvrez notamment, pour chaque use case, des exemples de codes des diff�
 ### Démonstration du serveur FHIR (accès restreint)
 Cliquez [ici](https://demo.portail.openfhir.annuaire.asipsante.fr/) pour tester l'API.
 ### Wiki 
-Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP, veuillez cliquer [ici.](https://github.com/ansforge/annuaire-sante-api-openfhir/wiki)
+Pour consulter les questions fréquemment posées sur le service FHIR d'IRIS DP, veuillez cliquer [ici.](https://github.com/ansforge/annuairESANTE-API-KEY-openfhir/wiki)
 
 ### Espace Early adopters (accès restreint)
 !!! Cet espace est résevé aux membres du club Utilisateurs participant à la co-construction du nouveau service de publication FHIR en libre accès !!! 

@@ -10,7 +10,7 @@ $config = new PHPFHIRResponseParserConfig([
 $parser = new PHPFHIRResponseParser($config);
 
 
-$header = ['E-SANTE-API' => 'XXXX-XXXXX-XXXXX'];
+$header = ['ESANTE-API-KEY' => 'XXXX-XXXXX-XXXXX'];
 $client = new GuzzleHttp\Client([
     'base_uri' => 'http://host.docker.internal:8080',
     'timeout'  => 2.0,]);

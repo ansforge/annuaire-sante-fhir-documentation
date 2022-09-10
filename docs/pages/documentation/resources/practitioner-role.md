@@ -15,7 +15,7 @@ Appel de la ressource PractitionerRole pour restituer les données correspondant
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -52,7 +52,7 @@ La recherche unitaire permet de récupérer les données spécifiques d'une ress
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole/prarole-981
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole/prarole-981
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -86,7 +86,7 @@ Exemple de recherche pour le "chirurgien dentiste" (code 40) Etudiant (code E).
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?role=40&role=E
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole?role=40&role=E
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -132,7 +132,7 @@ Exemple de recherche pour les "chirurgiens dentiste" (code 40) qui ont une spéc
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?role=40&specialty=SCD01
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole?role=40&specialty=SCD01
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -188,7 +188,7 @@ Exemple de recherche de toutes les cartes de type CPS.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?type-smartcard=CPS
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole?type-smartcard=CPS
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -230,7 +230,7 @@ Exemple de recherche de toutes les situations d'exercice et exercice professionn
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?type-smartcard=CPS
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole?type-smartcard=CPS
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -271,7 +271,7 @@ Exemple de recherche pour toutes les données au statut "actif".
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/PractitionerRole?active=true
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/PractitionerRole?active=true
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

@@ -66,7 +66,7 @@ var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
-        iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
+        iHttpRequest.addHeader("ESANTE-API-KEY", "{{site.ans.demo_key }}");
     }
     @Override
     public void interceptResponse(IHttpResponse iHttpResponse) throws IOException {}

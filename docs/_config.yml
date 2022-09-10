@@ -59,3 +59,5 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+ans:
+  demo_key: XXXX-XXXXX-XXXXXX-XXXXX

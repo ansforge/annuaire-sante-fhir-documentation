@@ -15,7 +15,7 @@ Pour rechercher des services de santé, il faut faire une recherche sur le endpo
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -52,7 +52,7 @@ Pour rechercher un service de santé par son identifiant logique.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?identifier=http%3A%2F%2Fsample%2Fpr%2Fids%7Chcs-hcs-413
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService?identifier=http%3A%2F%2Fsample%2Fpr%2Fids%7Chcs-hcs-413
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -92,7 +92,7 @@ Pour rechercher toutes les activités de soins qui ont comme forme d’activité
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?characteristic=https%3A%2F%2Fapifhir.annuaire.sante.fr%2Fwssync%2Fexposed%2Fstructuredefinition%2FHealthcareService-HealthCareActivity-rass%7C07
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService?characteristic=https%3A%2F%2Fapifhir.annuaire.sante.fr%2Fwssync%2Fexposed%2Fstructuredefinition%2FHealthcareService-HealthCareActivity-rass%7C07
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -138,7 +138,7 @@ Pour rechercher tous les équipements Sociaux qui ont comme type d’activité �
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?characteristic=https%3A%2F%2Fapifhir.annuaire.sante.fr%2Fws-sync%2Fexposed%2Fstructuredefinition%2FHealthcareService-SocialEquipment-rass%7C11
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService?characteristic=https%3A%2F%2Fapifhir.annuaire.sante.fr%2Fws-sync%2Fexposed%2Fstructuredefinition%2FHealthcareService-SocialEquipment-rass%7C11
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -185,7 +185,7 @@ Pour rechercher tous les services de santé qui sont actifs
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?active=true
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService?active=true
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -229,7 +229,7 @@ Pour rechercher toutes les données complémentaires FINESS dont leurs données 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/HealthcareService?_lastUpdated=le2022-08-18
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/HealthcareService?_lastUpdated=le2022-08-18
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

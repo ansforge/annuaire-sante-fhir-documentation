@@ -15,7 +15,7 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name=Renard
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name=Renard
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -57,7 +57,7 @@ Organization found: name=Renard EURL
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=EURL
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name%3Acontains=EURL
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -98,7 +98,7 @@ Organization found: name=Gautier EURL
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Aexact=Gautier%20EURL
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name%3Aexact=Gautier%20EURL
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -143,7 +143,7 @@ Le serveur supporte la recherche par code, par système ou par système+code.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?identifier=org-org-148
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?identifier=org-org-148
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -187,7 +187,7 @@ La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "pr
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -236,7 +236,7 @@ Ce cumul se fait de manière inclusive ou alternative.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -281,7 +281,7 @@ Organization found: id=org-128 | name=Renard et Renard
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: XXXX-XXXXX-XXXXX" https://ans.com/fhir/Organization?name%3Acontains=Renard%2Cet 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name%3Acontains=Renard%2Cet 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
