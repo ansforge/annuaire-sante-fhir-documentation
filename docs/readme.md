@@ -8,7 +8,7 @@ Le projet Jekyll se trouve dans le dossier docs/.
 
 Pour lancer le projet localement, allez dans le dossier docs/ puis lancez la commande `bundle exec jekyll serve`.
 
-Le site sera accessible sur l'url : `http://localhost:4000/docs/`.
+Le site sera accessible sur l'url : `http://127.0.0.1:4000/annuaire-sante-fhir-documentation/`.
 
 # Rédaction 
 

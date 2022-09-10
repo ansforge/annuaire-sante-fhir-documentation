@@ -45,12 +45,12 @@ title: Documentation technique de l'API FHIR IRIS-DP
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3><a id="usecase"></a>Cas d'utilisation</h3>
+        <h3>Cas d'utilisation</h3>
         <hr aria-hidden="true">
         <div>
             {% for item in site.data.menu.header[3].subfolderitems %}
                 <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-            {% endfor %<a id="usecase"></a> }
+            {% endfor %}
         </div>
     </div>
 </div>
