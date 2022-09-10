@@ -41,6 +41,15 @@ for (var organizationEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?name=Renard');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -88,6 +97,15 @@ logger.info("Organization found: name={}", organization.getName());
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?name%3Acontains=EURL');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -134,6 +152,15 @@ for (var organizationEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?name%3Aexact=Gautier%20EURL');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: id=".$organization->getId()." name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -184,6 +211,15 @@ logger.info("Organization found: id={} name={}", organization.getIdElement().get
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?identifier=01604103000');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: id=".$organization->getId()." name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -233,6 +269,15 @@ logger.info("Organization found: id={} lastUpdate={}", organization.getIdElement
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: id=".$organization->getId()." lastUpdate=".$organization->getMeta()->getLastUpdated()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -289,6 +334,15 @@ for (var organizationEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?name%3Acontains=Renard&name%3Acontains=et');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: id=".$organization->getId()." | name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 
@@ -337,6 +391,15 @@ for (var organizationEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
+$response = $client->request('GET', '/fhir/v1/Organization?name%3Acontains=Renard%2Cet');
+/** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$organizations = $parser->parse((string) $response->getBody());
+foreach($organizations->getEntry() as $entry){
+    /** @var  $organization  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+    $organization = $entry->getResource();
+
+    echo("Organization found: id=".$organization->getId()." | name=".$organization->getName()."\n");
+}
 {% endhighlight %}
 </div>
 

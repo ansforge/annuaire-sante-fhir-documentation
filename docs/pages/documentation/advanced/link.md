@@ -35,6 +35,13 @@ var bundleWithAllResources = (Bundle) client.search().forResource(PractitionerRo
     .execute();
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+$response = $client->request('GET', '/fhir/v1/PractitionerRole?_include=PractitionerRole:practitioner&_include=PractitionerRole:organization');
+/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
+$practitionerRoles = $parser->parse((string) $response->getBody());
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -72,9 +79,32 @@ var organizations = bundleWithAllResources.getEntry().stream().map(Bundle.Bundle
 </div>
 
 
-<div class="tab-content" data-name="php">
-{% highlight bash %}
-    // TODO
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+foreach($practitionerRoles->getEntry() as $entry){
+    /** @var  $oneResource  \DCarbone\PHPFHIRGenerated\R4\PHPFHIRContainedTypeInterface */
+    $oneResource = $entry->getResource();
+    switch ($oneResource->_getFHIRTypeName()):
+        case 'PractitionerRole':
+            // TODO treatment
+            /** @var  $oneResource  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole */
+            echo $oneResource->getId();
+            break;
+        case 'Practitioner':
+            // TODO treatment
+            /** @var  $oneResource  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
+            echo $oneResource->getId();
+            break;
+        case 'Organization':
+            // TODO treatment
+            /** @var  $oneResource  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization */
+            echo $oneResource->getId();
+            break;
+        default:
+            // TODO treatment
+            break;
+    endswitch;
+}
 {% endhighlight %}
 </div>
 </div>
