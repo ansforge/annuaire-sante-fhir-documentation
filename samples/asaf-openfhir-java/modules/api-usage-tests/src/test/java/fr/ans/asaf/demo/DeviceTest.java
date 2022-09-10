@@ -31,7 +31,7 @@ public class DeviceTest {
         for (var deviceEntry : bundle.getEntry()) {
             // print Organization ids:
             var device = (Device) deviceEntry.getResource();
-            logger.info("Device found: id={} name={}", device.getIdElement().getIdPart(), device.getDeviceNameFirstRep().getName());
+            logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().getIdPart(), device.getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS").getValue());
         }
     }
 
@@ -54,12 +54,11 @@ public class DeviceTest {
         for (var deviceEntry : bundle.getEntry()) {
             // print Organization ids:
             var device = (Device) deviceEntry.getResource();
-            logger.info("Device found: id={} name={}", device.getIdElement().getIdPart(), device.getDeviceNameFirstRep().getName());
+            logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().getIdPart(), device.getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS").getValue());
         }
     }
 
     /**
-     * FIXME : filter isn't right
      * Search all devices containing arhgos number
      */
     @Test
@@ -67,19 +66,18 @@ public class DeviceTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        // FIXME : filter isn't right
         // create the type search parameter :
-        var arhgosParam = new StringClientParam("_number-authorization-arhgos");
+        var arhgosParam = new StringClientParam("number-authorization-arhgos");
 
         var bundle = client.search()
                 .forResource(Device.class)
-                .where(arhgosParam.contains().value("44-sdf"))
+                .where(arhgosParam.contains().value("93-93-67204"))
                 .returnBundle(Bundle.class).execute();
 
         for (var deviceEntry : bundle.getEntry()) {
             // print Organization ids:
             var device = (Device) deviceEntry.getResource();
-            logger.info("Device found: id={} type={}", device.getIdElement().getIdPart(), device.getType().getCodingFirstRep().getDisplay());
+            logger.info("Device found: id={} type={}", device.getIdElement().getIdPart(), device.getType().getCodingFirstRep().getCode());
         }
     }
 
@@ -92,7 +90,7 @@ public class DeviceTest {
         var client = FhirTestUtils.createClient();
 
         // create the identifier search parameters :
-        var identifierParams = Device.IDENTIFIER.exactly().codes("dev-device-147", "dev-device-388");
+        var identifierParams = Device.IDENTIFIER.exactly().codes("32-31-1156", "93-93-4364");
 
         var bundle = client.search()
                 .forResource(Device.class)
@@ -126,6 +124,31 @@ public class DeviceTest {
             // print Device data
             var device = (Device) deviceEntry.getResource();
             logger.info("Device found: id={} | status={}", device.getIdElement().getIdPart(), device.getStatus().getDisplay());
+        }
+    }
+
+
+
+    /**
+     * Search devices by type
+     */
+    @Test
+    public void searchByType() {
+        // create the client:
+        var client = FhirTestUtils.createClient();
+
+        // create the active search parameters :
+        var typeParams = Device.TYPE.exactly().systemAndCode("https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd", "05602");
+
+        var bundle = client.search()
+                .forResource(Device.class)
+                .where(typeParams)
+                .returnBundle(Bundle.class).execute();
+
+        for (var deviceEntry : bundle.getEntry()) {
+            // print Device data
+            var device = (Device) deviceEntry.getResource();
+            logger.info("Device found: id={} | type={}", device.getIdElement().getIdPart(), device.getType().getCodingFirstRep().getCode());
         }
     }
 

@@ -61,7 +61,7 @@ TIPS| Dans chaque exemple, veuillez remplacer {{site.ans.demo_key }} par votre c
 <div class="code-sample"><div class="tab-content" data-name="bash">
 
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "https://gateway.api.esante.gouv.fr/fhir/metadata?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/metadata?_pretty=true&_format=json"
 {% endhighlight %}
 
   
@@ -91,7 +91,7 @@ Vous pouvez lancer la même requête sur une ressource par exemple pour récupé
 <div class="code-sample"><div class="tab-content" data-name="bash">
 
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "https://gateway.api.esante.gouv.fr/fhir/Practitioner?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?_pretty=true&_format=json"
 {% endhighlight %}
 
 </div></div>

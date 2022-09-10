@@ -11,7 +11,7 @@ NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. 
 
 ## Dépendances maven
 
-Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/) qui permet entre autres de faire des appels FHIR.
+Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/){:target="_blank"} qui permet entre autres de faire des appels FHIR.
 
 Pour utiliser les livrairies Hapi, nous allons ajouter au fichier pom.xml les dépendances suivantes: 
 
@@ -62,7 +62,7 @@ Voici un exemple nominal:
 <div class="code-sample"><div class="tab-content" data-name="java">
 {% highlight java %}
 // register the interceptor only one time:
-var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
+var client = ctx.newRestfulGenericClient("{{site.ans.api_url}}/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
@@ -81,5 +81,5 @@ var conf = client
 
 A noter que la création du client est coûteuse, nous recommandons de conserver le client pour plusieurs appels.
 
-La documentation Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html)
+La documentation Hapi est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages: [Documentation Client HAPI](https://hapifhir.io/hapi-fhir/docs/client/generic_client.html){:target="_blank"}
 

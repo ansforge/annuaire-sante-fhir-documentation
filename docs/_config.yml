@@ -60,4 +60,6 @@ plugins:
 #   - vendor/ruby/
 
 ans:
-  demo_key: XXXX-XXXXX-XXXXXX-XXXXX
+  api_url: https://gateway.api.esante.gouv.fr
+  demo_key: XXXX-XXXX-XXXX-XXXXX
+

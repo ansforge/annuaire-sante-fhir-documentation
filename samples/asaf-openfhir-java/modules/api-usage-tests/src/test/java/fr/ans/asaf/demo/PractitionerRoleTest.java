@@ -32,7 +32,7 @@ public class PractitionerRoleTest {
         for (var roleEntry : bundle.getEntry()) {
             // print PractitionerRole data:
             var role = (PractitionerRole) roleEntry.getResource();
-            logger.info("Practitioner Role found: id={} code={}", role.getIdentifierFirstRep().getValue(), role.getCodeFirstRep().getCodingFirstRep().getDisplay());
+            logger.info("Practitioner Role found: id={} code={}", role.getIdElement().getIdPart(), role.getCodeFirstRep().getCodingFirstRep().getCode());
         }
     }
 
@@ -46,10 +46,10 @@ public class PractitionerRoleTest {
 
         var practitionerRole = client.read()
                 .resource(PractitionerRole.class)
-                .withId("prarole-981")
+                .withId("005-5087586-6923328")
                 .execute();
 
-        logger.info("Practitioner Role found: id={}", practitionerRole.getIdentifierFirstRep().getValue());
+        logger.info("Practitioner Role found: id={}", practitionerRole.getIdElement().getIdPart());
     }
 
     /**
@@ -73,10 +73,10 @@ public class PractitionerRoleTest {
             // print PractitionerRole data:
             var role = (PractitionerRole) roleEntry.getResource();
             var roleCodes = role.getCode().stream().map(code ->
-                    code.getCoding().stream().map(coding -> coding.getCode() + ":" + coding.getDisplay()).collect(Collectors.joining("|"))
+                    code.getCoding().stream().map(coding -> coding.getSystem() + ":" + coding.getCode()).collect(Collectors.joining("|"))
             ).collect(Collectors.joining(" - "));
 
-            logger.info("Practitioner Role found: id={} codes={}", role.getIdentifierFirstRep().getValue(), roleCodes);
+            logger.info("Practitioner Role found: id={} codes={}", role.getIdElement().getIdPart(), roleCodes);
         }
     }
 
@@ -103,16 +103,16 @@ public class PractitionerRoleTest {
 
             // concat roles
             var roleCodes = role.getCode().stream().map(code ->
-                    code.getCoding().stream().map(coding -> coding.getCode().concat(":").concat(coding.getDisplay())).collect(Collectors.joining("|"))
+                    code.getCoding().stream().map(coding -> coding.getSystem().concat(":").concat(coding.getCode())).collect(Collectors.joining("|"))
             ).collect(Collectors.joining(" - "));
 
             // concat speciality
             roleCodes = roleCodes.concat("|")
-                    .concat(role.getSpecialtyFirstRep().getCodingFirstRep().getCode())
+                    .concat(role.getSpecialtyFirstRep().getCodingFirstRep().getSystem())
                     .concat(":")
-                    .concat(role.getSpecialtyFirstRep().getCodingFirstRep().getDisplay());
+                    .concat(role.getSpecialtyFirstRep().getCodingFirstRep().getCode());
 
-            logger.info("Practitioner Role found: id={} codes={}", role.getIdentifierFirstRep().getValue(), roleCodes);
+            logger.info("Practitioner Role found: id={} codes={}", role.getIdElement().getIdPart(), roleCodes);
         }
     }
 
@@ -158,7 +158,7 @@ public class PractitionerRoleTest {
         for (var roleEntry : bundle.getEntry()) {
             // print PractitionerRole data:
             var role = (PractitionerRole) roleEntry.getResource();
-            logger.info("Practitioner Role found: id={} active={}", role.getIdentifierFirstRep().getValue(), role.getActive());
+            logger.info("Practitioner Role found: id={} active={}", role.getIdElement().getIdPart(), role.getActive());
         }
     }
 
@@ -170,7 +170,7 @@ public class PractitionerRoleTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        var pratictionerSearchClause = PractitionerRole.PRACTITIONER.hasId("pra-982");
+        var pratictionerSearchClause = PractitionerRole.PRACTITIONER.hasId("003-138020");
 
         var bundle = client.search()
                 .forResource(PractitionerRole.class)
@@ -180,7 +180,7 @@ public class PractitionerRoleTest {
         for (var roleEntry : bundle.getEntry()) {
             // print PractitionerRole data:
             var role = (PractitionerRole) roleEntry.getResource();
-            logger.info("Practitioner Role found: id={} practitioner={}", role.getIdentifierFirstRep().getValue(), role.getPractitioner().getReference());
+            logger.info("Practitioner Role found: id={} practitioner={}", role.getIdElement().getIdPart(), role.getPractitioner().getReference());
         }
     }
 
@@ -202,7 +202,7 @@ public class PractitionerRoleTest {
         for (var roleEntry : bundle.getEntry()) {
             // print PractitionerRole data:
             var role = (PractitionerRole) roleEntry.getResource();
-            logger.info("Practitioner Role found: id={} role={}", role.getIdentifierFirstRep().getValue(), role.getCodeFirstRep().getCodingFirstRep().getDisplay());
+            logger.info("Practitioner Role found: id={} code={}", role.getIdElement().getIdPart(), role.getCodeFirstRep().getCodingFirstRep().getCode());
         }
     }
 

@@ -15,7 +15,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -38,10 +38,9 @@ for (var practitionerEntry : bundle.getEntry()) {
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Practitioner found: id=pra-978 name=Prof Noémie Bonnet Gabriel
-Practitioner found: id=pra-737 name=Mme Carla Garnier Mathéo
-Practitioner found: id=pra-979 name=Mme Alexandre Prof Lucie Moreau
-Practitioner found: id=pra-734 name=Dr Alexis Charpentier Sacha
+Practitioner found: id=003-137722 name=M
+Practitioner found: id=003-138668 name=M
+Practitioner found: id=003-138612 name=M
 ```
 
 <br>
@@ -54,7 +53,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?identifier=p-pra-738%2Cp-pra-978
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?identifier=0012807590%2C810000005479"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -62,7 +61,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practition
 // create the client:
 var client = FhirTestUtils.createClient();
 
-var identifierParams = Practitioner.IDENTIFIER.exactly().codes("p-pra-738", "p-pra-978");
+var identifierParams = Practitioner.IDENTIFIER.exactly().codes("0012807590", "810000005479");
 
 var bundle = client.search()
 .forResource(Practitioner.class)
@@ -82,8 +81,8 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Practitioner found: id=p-pra-738 name=Mlle Baptiste Philippe Mael
-Practitioner found: id=p-pra-978 name=Prof Noémie Bonnet Gabriel
+Practitioner found: id=0012807590 name=MME
+Practitioner found: id=810000005479 name=MME
 ```
 
 <br>
@@ -95,7 +94,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?name=Dr
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?name=MME"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -103,7 +102,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practition
 // create the client:
 var client = FhirTestUtils.createClient();
 
-var nameSearchClause = Practitioner.NAME.matches().value("Dr");
+var nameSearchClause = Practitioner.NAME.matches().value("MME");
 
 var bundle = client.search()
 .forResource(Practitioner.class)
@@ -123,11 +122,8 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Practitioner found: id=p-pra-734 name=Dr Alexis Charpentier Sacha
-Practitioner found: id=p-pra-732 name=Dr Nathan Prof Jade Marchal
-Practitioner found: id=p-pra-974 name=Dr Elisa Mattéo Dupuy
-Practitioner found: id=p-pra-975 name=Dr Romane Mathis Menard
-Practitioner found: id=p-pra-971 name=Dr Charlotte Prof Lina Marty
+Practitioner found: id=0102800000 name=MME
+Practitioner found: id=0102800273 name=MME
 ```
 
 <br>
@@ -139,7 +135,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?active=true
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -167,10 +163,9 @@ logger.info("Practitioner found: name={} | active={}", practitioner.getNameFirst
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Practitioner found: name=Mlle Baptiste Philippe Mael | active=true
-Practitioner found: name=Prof Pierre Prof Alexandre Le gall | active=true
-Practitioner found: name=Prof Sarah Lefebvre Romain | active=true
-Practitioner found: name=Prof Noémie Bonnet Gabriel | active=true
+Practitioner found: name=M | active=true
+Practitioner found: name=MME | active=true
+Practitioner found: name=M | active=true
 ```
 
 <br>
@@ -182,7 +177,7 @@ Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -212,8 +207,8 @@ for (var practitionerEntry : bundle.getEntry()) {
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Practitioner found: id=pra-738 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
-Practitioner found: id=pra-739 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
-Practitioner found: id=pra-736 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
-Practitioner found: id=pra-978 | lastUpdate=Mon Aug 08 15:55:53 CEST 2022
+Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```

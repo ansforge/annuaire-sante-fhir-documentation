@@ -30,7 +30,7 @@ public class PractitionerTest {
         for (var practitionerEntry : bundle.getEntry()) {
             // print Organization ids:
             var practitioner = (Practitioner) practitionerEntry.getResource();
-            logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirstRep().getValue(), practitioner.getNameFirstRep().getNameAsSingleString());
+            logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
         }
     }
 
@@ -42,7 +42,7 @@ public class PractitionerTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        var identifierParams = Practitioner.IDENTIFIER.exactly().codes("p-pra-738", "p-pra-978");
+        var identifierParams = Practitioner.IDENTIFIER.exactly().codes("0012807590", "810000005479");
 
         var bundle = client.search()
                 .forResource(Practitioner.class)
@@ -64,7 +64,7 @@ public class PractitionerTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        var nameSearchClause = Practitioner.NAME.matches().value("Dr");
+        var nameSearchClause = Practitioner.NAME.matches().value("MME");
 
         var bundle = client.search()
                 .forResource(Practitioner.class)

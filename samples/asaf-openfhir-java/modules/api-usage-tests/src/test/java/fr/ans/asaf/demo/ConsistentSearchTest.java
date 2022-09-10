@@ -28,18 +28,6 @@ public class ConsistentSearchTest {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleSearchTest.class);
 
-    // Create the Hapi fhir client:
-
-    /**
-     * Create the Fhir client and set an interceptor
-     * @return the client
-     */
-    IGenericClient createClient(){
-        var ctx = FhirContext.forR4();
-        var client = ctx.newRestfulGenericClient("https://hapi.fhir.org/baseR4");
-        // TODO set the interceptor
-        return client;
-    }
 
     /**
      * In this sample, we want to get all practitioner, practitioner roles and organizations that have a PractitionerRole with specialty "s3".
@@ -49,7 +37,7 @@ public class ConsistentSearchTest {
      */
     @Test
     public void searchPractitionerRoleRelatedDataWithConsistency(){
-        var client = createClient();
+        var client = FhirTestUtils.createClient();
 
         // The practitioner role know the practitioner and the organization, so the main request is on PractitionerRole and then we ask
         // the server to include related Organization and Practitioner:

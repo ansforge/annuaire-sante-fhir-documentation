@@ -42,7 +42,7 @@ public class HealthCareServiceTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        var typeSearchClause = HealthcareService.IDENTIFIER.exactly().systemAndValues("http://sample/pr/ids", "hcs-hcs-413");
+        var typeSearchClause = HealthcareService.IDENTIFIER.exactly().codes("52-52-49883");
 
         var bundle = client.search()
                 .forResource(HealthcareService.class)
@@ -52,7 +52,7 @@ public class HealthCareServiceTest {
         for (var healthcareServiceEntry : bundle.getEntry()) {
             // print HealthcareService data:
             var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
-            logger.info("Healthcare Service found: id={} | system={}", healthcareService.getIdentifierFirstRep().getValue(), healthcareService.getIdentifierFirstRep().getSystem());
+            logger.info("Healthcare Service found: id={}", healthcareService.getIdElement().getIdPart());
         }
     }
 
@@ -86,8 +86,8 @@ public class HealthCareServiceTest {
         // create the client:
         var client = FhirTestUtils.createClient();
 
-        var characteristicSearchClause = HealthcareService.CHARACTERISTIC.exactly().systemAndValues(
-                "https://apifhir.annuaire.sante.fr/wssync/exposed/structuredefinition/HealthcareService-HealthCareActivity-rass",
+        var characteristicSearchClause = HealthcareService.CHARACTERISTIC.exactly().codes(
+      "https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite",
                 "07"
         );
 
@@ -100,8 +100,8 @@ public class HealthCareServiceTest {
             // print HealthcareService data:
             var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
             var healthcareServiceCoding = healthcareService.getCharacteristicFirstRep().getCodingFirstRep();
-            String characteristicData = healthcareServiceCoding.getCode().concat("|").concat(healthcareServiceCoding.getSystem()).concat("|").concat(healthcareServiceCoding.getDisplay());
-            logger.info("Healthcare Service found: id={} | characteristic={}", healthcareService.getIdentifierFirstRep().getValue(), characteristicData);
+            String characteristicData = healthcareServiceCoding.getSystem().concat("|").concat(healthcareServiceCoding.getCode());
+            logger.info("Healthcare Service found: id={} | characteristic={}", healthcareService.getIdElement().getIdPart(), characteristicData);
         }
     }
 
@@ -114,7 +114,7 @@ public class HealthCareServiceTest {
         var client = FhirTestUtils.createClient();
 
         var characteristicSearchClause = HealthcareService.CHARACTERISTIC.exactly().systemAndValues(
-                "https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-SocialEquipment-rass",
+                "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite",
                 "11"
         );
 
@@ -127,8 +127,8 @@ public class HealthCareServiceTest {
             // print HealthcareService data:
             var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
             var healthcareServiceCoding = healthcareService.getCharacteristicFirstRep().getCodingFirstRep();
-            String characteristicData = healthcareServiceCoding.getCode().concat("|").concat(healthcareServiceCoding.getSystem()).concat("|").concat(healthcareServiceCoding.getDisplay());
-            logger.info("Healthcare Service found: id={} | characteristic={}", healthcareService.getIdentifierFirstRep().getValue(), characteristicData);
+            String characteristicData = healthcareServiceCoding.getSystem().concat("|").concat(healthcareServiceCoding.getCode());
+            logger.info("Healthcare Service found: id={} | characteristic={}", healthcareService.getIdElement().getIdPart(), characteristicData);
         }
     }
 
@@ -142,7 +142,7 @@ public class HealthCareServiceTest {
 
         var bundle = client.search()
                 .forResource(HealthcareService.class)
-                .where(dateParam.beforeOrEquals().day("2022-08-18"))
+                .where(dateParam.afterOrEquals().day("2022-08-18"))
                 .returnBundle(Bundle.class).execute();
 
         for (var healthcareServiceEntry : bundle.getEntry()) {

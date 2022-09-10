@@ -13,7 +13,7 @@ Pour rechercher des structures, il faut faire une recherche sur le endpoint FHIR
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" {{site.ans.api_url}}/fhir/Organization
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -52,7 +52,7 @@ Pour rechercher des structures selon la date de modification, il faut faire une 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -98,7 +98,7 @@ Pour rechercher des structures selon un identifiant, il faut faire une recherche
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?identifier=org-org-148%2Corg-org-149%2Corg-85054-852 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=001604103000%2C01603998400%2C001604252500"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -111,7 +111,7 @@ var idParam = new StringClientParam("identifier");
 
 var bundle = client.search()
 .forResource(Organization.class)
-.where(idParam.matches().values("org-org-148", "org-org-149", "org-85054-852"))
+.where(idParam.matches().values("001604103000", "01603998400", "001604252500"))
 .returnBundle(Bundle.class).execute();
 
 for(var organizationEntry : bundle.getEntry()){
@@ -128,9 +128,9 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: id=org-org-148
-Organization found: id=org-org-149
-Organization found: id=org-org-144
+Organization found: id=001604103000
+Organization found: id=001603998400
+Organization found: id=001604252500
 ```
 
 
@@ -143,7 +143,7 @@ Pour rechercher des structures selon un numéro finess, il faut faire une recher
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C135-03-8573%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C697-57-5733%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C802-22-0946 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -153,7 +153,7 @@ var client = FhirTestUtils.createClient();
 
 // create finess where clause
 var finessSearchClause = Organization.IDENTIFIER.exactly().systemAndValues(
-"http://finess.sante.gouv.fr", "135-03-8573", "697-57-5733", "802-22-0946");
+"http://finess.sante.gouv.fr", "010000602", "010000628", "010000735");
 
 var bundle = client.search()
 .forResource(Organization.class)
@@ -174,22 +174,31 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: id=org-org-148
-Organization found: id=org-org-149
-Organization found: id=org-org-145
+Organization found: id=1010000602
+Organization found: id=1010000628
+Organization found: id=1010000735
 ```
 
 
 <br>
 
-## Rechercher selon le type "GEOGRAPHICAL-ENTITY"
+## Rechercher selon le type "GEOGRAPHICAL"/"LEGAL"
 
-Pour rechercher des structures selon un numéro finess, il faut faire une recherche sur le endpoint FHIR Organization
+Vous pouvez chercher les structures par type grâce au paramètre type.
+
+Les deux types possible sont : 
+
+* GEOGRAPHICAL-ENTITY
+* LEGAL-ENTITY
+
+
+Voici un exemple pour obtenir les structures de type géographique :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir//Orgnization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=GEOGRAPHICAL-ENTITY" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -211,7 +220,7 @@ for(var organizationEntry : bundle.getEntry()){
 var organization = (Organization) organizationEntry.getResource();
 // print data :
 var organizationCodes = organization.getType().stream().map(type -> type.getCodingFirstRep().getCode()).collect(Collectors.joining(" - "));
-logger.info("Organization found: id={} type={}", organization.getName(), organizationCodes);
+logger.info("Organization found: name={} type={}", organization.getName(), organizationCodes);
 }
 {% endhighlight %}
 </div>
@@ -221,10 +230,10 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: name=Haag Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
-Organization found: name=Ward Inc type=SA08 - GEOGRAPHICAL-ENTITY - someorg
-Organization found: name=Lubowitz-Lubowitz type=SA08 - GEOGRAPHICAL-ENTITY - some
-Organization found: name=Schinner Group type=SA08 - GEOGRAPHICAL-ENTITY - someorg
+Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A - 
+Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
+Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
+Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
 ```
 
 
@@ -234,10 +243,14 @@ Organization found: name=Schinner Group type=SA08 - GEOGRAPHICAL-ENTITY - someor
 
 Pour rechercher des structures selon la sous-classe de la Nomenclature d'Activités Française, il faut faire une recherche sur le endpoint FHIR Organization.
 
+Cela utilise le référenciel NOS TRE-R75-InseeNAFrev2Niveau5 que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
+
+Voici un exemple avec 82.19Z qui correspond aux "Photocopie prépa. documents & aut. activ. spéc. soutien de bureau" :
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -279,14 +292,18 @@ Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 
 ## Rechercher par secteur d'activité
 
-Voici la liste des secteurs d'activités : <a href="https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite">https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite</a>
 
 Pour rechercher des structures selon leur secteur d'activité, il faut faire une recherche sur le endpoint FHIR Organization.
+
+La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
+
+
+Voici un exemple avec SA29 qui correspond aux "Laboratoire d'analyses et de biologie médicale" :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -334,7 +351,7 @@ Pour rechercher des structures par nom, il faut faire une recherche sur le endpo
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?name%3Acontains=imagerie%2Ccentre 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=imagerie%2Ccentre"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -380,7 +397,7 @@ Pour rechercher des structures par adresse, il faut faire une recherche sur le e
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organization?address-postalcode%3Aexact=91794%2C10228 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?address-postalcode%3Aexact=13290%2C13321"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -389,7 +406,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/Organizati
 var client = FhirTestUtils.createClient();
 
 // create the postal code search parameter :
-var nameSearchClause = Organization.ADDRESS_POSTALCODE.matchesExactly().values("91794", "10228");
+var nameSearchClause = Organization.ADDRESS_POSTALCODE.matchesExactly().values("13290", "13321");
 
 var bundle = client.search()
         .forResource(Organization.class)

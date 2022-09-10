@@ -66,7 +66,7 @@ public class OrganizationTest {
 
         var bundle = client.search()
                 .forResource(Organization.class)
-                .where(idParam.matches().values("org-org-148", "org-org-149", "org-85054-852"))
+                .where(idParam.matches().values("001604103000", "01603998400", "001604252500"))
                 .returnBundle(Bundle.class).execute();
 
         for (var organizationEntry : bundle.getEntry()) {
@@ -84,7 +84,7 @@ public class OrganizationTest {
 
         // create finess where clause
         var finessSearchClause = Organization.IDENTIFIER.exactly().systemAndValues(
-                "http://finess.sante.gouv.fr", "135-03-8573", "697-57-5733", "802-22-0946");
+                "http://finess.sante.gouv.fr", "010000602", "010000628", "010000735");
 
         var bundle = client.search()
                 .forResource(Organization.class)
@@ -118,7 +118,7 @@ public class OrganizationTest {
             var organization = (Organization) organizationEntry.getResource();
             // print id :
             var organizationCodes = organization.getType().stream().map(type -> type.getCodingFirstRep().getCode()).collect(Collectors.joining(" - "));
-            logger.info("Organization found: id={} type={}", organization.getName(), organizationCodes);
+            logger.info("Organization found: name={} type={}", organization.getName(), organizationCodes);
         }
     }
 
@@ -196,7 +196,7 @@ public class OrganizationTest {
         var client = FhirTestUtils.createClient();
 
         // create the postal code search parameter :
-        var nameSearchClause = Organization.ADDRESS_POSTALCODE.matchesExactly().values("91794", "10228");
+        var nameSearchClause = Organization.ADDRESS_POSTALCODE.matchesExactly().values("13290", "13321");
 
         var bundle = client.search()
                 .forResource(Organization.class)

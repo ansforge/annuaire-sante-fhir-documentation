@@ -25,12 +25,12 @@ public final class FhirTestUtils {
      */
     public static IGenericClient createClient(){
         var ctx = FhirContext.forR4();
-        var client = ctx.newRestfulGenericClient("http://localhost:8083/fhir/");
+        var client = ctx.newRestfulGenericClient("https://gateway.api.esante.gouv.fr/fhir");
         client.registerInterceptor(new LoggingInterceptor());
         client.registerInterceptor(new IClientInterceptor() {
             @Override
             public void interceptRequest(IHttpRequest iHttpRequest) {
-                iHttpRequest.addHeader("ESANTE-API-KEY", "XXXX-XXXXX-XXXXX");
+                iHttpRequest.addHeader("ESANTE-API-KEY", "eb2e94fa-ffe6-491f-aa9d-073f6a5a2415");
             }
 
             @Override
