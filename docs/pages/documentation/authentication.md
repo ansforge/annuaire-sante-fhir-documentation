@@ -15,7 +15,7 @@ Voir la section [Quickstart]({{ '/pages/quick-start/readme' | relative_url}}) po
 <div class="tab-content" data-name="bash">
 
 ```bash
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/metadata?_pretty=true&_format=json
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" ""{{site.ans.api_url}}/fhir/metadata?_pretty=true&_format=json"
 ```
 
 </div>
@@ -23,7 +23,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" https://ans.com/fhir/metadata?_
 
 ```java
 // register the interceptor only one time:
-var client = ctx.newRestfulGenericClient("https://ans.com/fhir");
+var client = ctx.newRestfulGenericClient("{{site.ans.api_url}}/fhir");
 client.registerInterceptor(new IClientInterceptor() {
     @Override
     public void interceptRequest(IHttpRequest iHttpRequest) {
