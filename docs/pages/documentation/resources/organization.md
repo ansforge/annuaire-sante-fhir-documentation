@@ -233,6 +233,33 @@ Organization found: id=1010000735
 
 <br>
 
+## Recherches par types 
+
+Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
+
+| Type                    | Description                          | Système                                                                                           | Lien / Options                                                                                    |
+|-------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| EJ/EG                   | Type d'organization                  | http://interopsante.org/fhir/CodeSystem/fr-v2-3307                                                | GEOGRAPHICAL-ENTITY ou LEGAL-ENTITY                                                               |
+| APE                     | JDV_J99-InseeNAFrav2Niveau5-RASS     | https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5       | https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5       |
+| Catégorie juridique     | JDV_J100-FinessStatutJuridique-RASS  | https://mos.esante.gouv.fr/NOS/TRE_R72-FinessStatutJuridique/FHIR/TRE-R72-FinessStatutJuridique   | https://mos.esante.gouv.fr/NOS/TRE_R72-FinessStatutJuridique/FHIR/TRE-R72-FinessStatutJuridique   |
+| Secteur d’activité      | JDV_J101-SecteurActivite-RASS        | https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite               | https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite               |
+| Catégorie Etablissement | JDV_J129-CategorieEtablissement-RASS | https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement | https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement |
+| SPH                     | JDV_162-ESPIC-RASS                   | https://mos.esante.gouv.fr/NOS/TRE_R73-ESPIC/FHIR/TRE-R73-ESPIC                                   | https://mos.esante.gouv.fr/NOS/TRE_R73-ESPIC/FHIR/TRE-R73-ESPIC                                   |
+
+Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinaison du système et du code souhaité : 
+
+`Organization?type=<system>%7C<code>`
+
+Quelques exemples : 
+
+<div class="wysiwyg" markdown="1">
+* `Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C01.11Z` Recherche par code APE 01.11Z : "Culture de céréales (sf riz) légumineuses, graines oléagineuses" 
+* `Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R72-FinessStatutJuridique/FHIR/TRE-R72-FinessStatutJuridique%7C02` Recherche par code Statuts juridiques provenant de FINESS, code 02 : "Département" 
+* `Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C101` Recherche par Catégorie d'établissements, code 101 "Centre Hospitalier Régional (C.H.R.)"
+</div>
+
+Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
+
 ## Rechercher selon le type "GEOGRAPHICAL"/"LEGAL"
 
 Vous pouvez chercher les structures par type grâce au paramètre type.
@@ -294,7 +321,7 @@ foreach($organizations->getEntry() as $entry){
 L'API devrait vous retourner une réponse de ce genre :
 
 ```bash
-Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A - 
+Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A
 Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
 Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
 Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9

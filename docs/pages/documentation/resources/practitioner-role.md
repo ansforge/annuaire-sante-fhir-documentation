@@ -104,6 +104,37 @@ Practitioner Role found: id=005-5087586-6923328
 
 ## Recherche par rôles
 
+La recherche par le paramètre role permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
+
+| Type                                        | Description                      | Système                                                                                               | Lien / Options                                                                                        |
+|---------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Profession                                  | Type d'organization              | http://interopsante.org/fhir/CodeSystem/fr-v2-3307                                                    | GEOGRAPHICAL-ENTITY ou LEGAL-ENTITY                                                                   |
+| Catégorie professionnelle                   | JDV_J99-InseeNAFrav2Niveau5-RASS | https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle | https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle |
+| Fonction TRE_R21-Fonction                   | TRE_R21-Fonction                 | https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction                                 | https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction                                 |
+| Fonction TRE-R96-AutreFonctionSanitaire     | TRE-R96-AutreFonctionSanitaire   | https://mos.esante.gouv.fr/NOS/TRE_R96-AutreFonctionSanitaire/FHIR/TRE-R96-AutreFonctionSanitaire     | https://mos.esante.gouv.fr/NOS/TRE_R96-AutreFonctionSanitaire/FHIR/TRE-R96-AutreFonctionSanitaire     |
+| Genre activité                              | JDV_J94-GenreActivite-RASS       | https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite                       | https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite                       |
+| Mode d'exercice                             | JDV_J95-ModeExercice-RASS        | https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice                         | https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice                         |
+| Metier Pharmacien Section Tableau CNOP      | TRE_R06-SectionTableauCNOP       | https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP             | https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP             |
+| Metier Pharmacien Sous Section Tableau CNOP | TRE_G05-SousSectionTableauCNOP   | https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP     | https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP     |
+
+
+Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinaison du système et du code souhaité :
+
+`PractitionerRole?role=<system>%7C<code>`
+
+Quelques exemples :
+
+<div class="wysiwyg" markdown="1">
+* `PractitionerRole?role=http://interopsante.org/fhir/CodeSystem/fr-v2-3307%7CLEGAL-ENTITY` Recherche par type d'organization LEGAL-ENTITY
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle%7CC` Recherche par catégorie professionnelle TRE_R09-CategorieProfessionnelle avec le code C "Civil"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction%7CFON-02` Recherche par fonction TRE_R21-Fonction avec le code FON-02 "Associé dans une société d'exercice (SEL ou SCP)"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R96-AutreFonctionSanitaire/FHIR/TRE-R96-AutreFonctionSanitaire%7CGENR03` Recherche par autres fonctions du domaine sanitaire TRE-R96-AutreFonctionSanitaire avec le code 400 "Aide-soignant"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite%7CGENR03` Recherche par genre d'activité JDV_J94-GenreActivite-RASS avec le code GENR03 "Remplacement dans une activité de soins"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice%7CS` Recherche par Mode d'exercice JDV_J95-ModeExercice-RASS avec le code S "Salarié"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP%7CS` Recherche par Section du tableau de l'Ordre des Pharmaciens TRE_R06-SectionTableauCNOP avec le code A "Pharmacien titulaire officine"
+* `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP%7CDA` Recherche par Sous-Section du tableau de l'Ordre des Pharmaciens TRE_G05-SousSectionTableauCNOP avec le code DA "Pharmacien adjoint"
+</div>
+
 Exemple de recherche pour le "chirurgien dentiste" (code 40) Etudiant (code E).
 
 <div class="code-sample">
