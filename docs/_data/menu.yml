@@ -8,6 +8,9 @@ header:
       - page: Démarrage
         url: /pages/hub.html
         subfolderitems:
+          - page: Postman
+            url: /pages/documentation/starters/postman-starter.html
+            title: Démarrer avec l'api et Postman
           - page: Java
             url: /pages/documentation/starters/java-starter.html
             title: Démarrer en JAVA
