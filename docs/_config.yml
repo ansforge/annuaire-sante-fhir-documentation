@@ -61,5 +61,5 @@ plugins:
 
 ans:
   api_url: https://gateway.api.esante.gouv.fr
-  demo_key: XXXX-XXXX-XXXX-XXXXX
+  demo_key: eb2e94fa-ffe6-491f-aa9d-073f6a5a2415
 

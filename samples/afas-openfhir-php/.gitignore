@@ -1,9 +1,10 @@
 Thumbs.db
 Desktop.ini
 
+
 # ignore Composer downloads
 /vendor/*
-
+composer.phar
 
 ### IntelliJ IDEA ###
 .idea
@@ -23,3 +24,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+

@@ -32,6 +32,11 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdElement().
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -74,6 +79,11 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdentifierFi
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -123,6 +133,11 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -169,6 +184,11 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -211,6 +231,11 @@ logger.info("Healthcare Service found: id={} | status={}", healthcareService.get
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -257,6 +282,11 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 

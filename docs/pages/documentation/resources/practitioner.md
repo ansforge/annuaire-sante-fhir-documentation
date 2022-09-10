@@ -32,6 +32,11 @@ for (var practitionerEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -75,6 +80,11 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -116,6 +126,11 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -157,6 +172,11 @@ logger.info("Practitioner found: name={} | active={}", practitioner.getNameFirst
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -201,6 +221,11 @@ for (var practitionerEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 

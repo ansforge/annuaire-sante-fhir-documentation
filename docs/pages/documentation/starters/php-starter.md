@@ -39,6 +39,7 @@ Voici un exemple nominal :
 <div class="code-sample"><div class="tab-content" data-name="PHP">
 
 {% highlight php %}
+<?php
 require_once '../vendor/autoload.php';
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParser;
 use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParserConfig;
@@ -50,16 +51,11 @@ $config = new PHPFHIRResponseParserConfig([
 $parser = new PHPFHIRResponseParser($config);
 
 
-$header = ['ESANTE-API-KEY' => '{{site.ans.demo_key }}'];
+$header = ['ESANTE-API-KEY' => 'eb2e94fa-ffe6-491f-aa9d-073f6a5a2415'];
 $client = new GuzzleHttp\Client([
-    'base_uri' => 'http://host.docker.internal:8080',
-    'timeout'  => 2.0,]);
-
-// Make requests:
-
-$response = $client->request('GET', '/fhir/v1/metadata');
-/** @var  $object  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRCapabilityStatement*/
-$capabilityStatement = $parser->parse((string) $response->getBody());
+    'base_uri' => 'https://gateway.api.esante.gouv.fr',
+    'timeout'  => 2.0,
+    'headers'  => $header]);
 {% endhighlight %}
 
 </div></div>

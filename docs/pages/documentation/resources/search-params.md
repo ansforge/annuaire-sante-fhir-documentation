@@ -39,6 +39,11 @@ for (var organizationEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -81,6 +86,11 @@ logger.info("Organization found: name={}", organization.getName());
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -122,6 +132,11 @@ for (var organizationEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -167,6 +182,11 @@ logger.info("Organization found: id={} name={}", organization.getIdElement().get
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -211,6 +231,11 @@ logger.info("Organization found: id={} lastUpdate={}", organization.getIdElement
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -262,6 +287,11 @@ for (var organizationEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -305,6 +335,11 @@ for (var organizationEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 

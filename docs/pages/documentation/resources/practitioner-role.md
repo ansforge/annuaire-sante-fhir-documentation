@@ -32,6 +32,11 @@ logger.info("Practitioner Role found: id={} code={}", role.getIdElement().getIdP
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -68,6 +73,11 @@ var practitionerRole = client.read()
 logger.info("Practitioner Role found: id={}", practitionerRole.getIdElement().getIdPart());
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -114,6 +124,11 @@ code.getCoding().stream().map(coding -> coding.getSystem() + ":" + coding.getCod
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -169,6 +184,11 @@ for (var roleEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -213,6 +233,11 @@ logger.info("Organization found: id={}", role.getIdElement().getIdPart());
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -255,6 +280,11 @@ for (var roleEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
@@ -296,6 +326,11 @@ logger.info("Practitioner Role found: id={} active={}", role.getIdElement().getI
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="PHP">
+{% highlight php %}
+{% endhighlight %}
+</div>
+
 
 </div>
 
