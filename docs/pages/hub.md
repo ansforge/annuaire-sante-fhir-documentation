@@ -4,7 +4,7 @@ title: Documentation technique de l'API FHIR IRIS-DP
 ---
 
 <div>
-    L'API FHIR d'IRIS-DP offre une solution clé en main permettant d'acéder aux données publiques de l'annuaire santé.
+    L'API FHIR d'IRIS-DP offre une solution clé en main permettant d'accéder aux données publiques de l'annuaire santé.
 </div>
 <div>
     Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet selon le langage de programmation souhaité.
