@@ -10,7 +10,7 @@ header:
         subfolderitems:
           - page: Postman
             url: /pages/documentation/starters/postman-starter.html
-            title: Démarrer avec l'api et Postman
+            title: Démarrer avec Postman
           - page: Java
             url: /pages/documentation/starters/java-starter.html
             title: Démarrer en JAVA
