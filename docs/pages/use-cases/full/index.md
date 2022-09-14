@@ -41,7 +41,7 @@ Les données que nous allons chercher à récupérer sont :
 ## Etapes
 
 <div class="wysiwyg" markdown="1">
-* Nous allons récupérer tous les PractitionerRole de l'annuaire santé selon nos critères
+* Nous allons récupérer toutes les ressources "PractitionerRole" de l'annuaire santé selon nos critères
 * Nous allons transformer et stocker les éléments
 * Nous allons modifier notre requête pour aller chercher des ressources liées à la première requête
 * Enfin, nous verrons comment mettre à jour les données de notre annuaire
@@ -58,20 +58,20 @@ Voir la section [Démarrage/Java]({{ '' | relative_url }})
 
 ### Récupération des ressources "PractitionerRole"
 
-Pour l'exemple, nous allons chercher uniquement les ressources PractitionerRole qui ont une spécialité à SM02 (correspond à Anesthésie-réanimation)
+Pour l'exemple, nous allons chercher uniquement les ressources "PractitionerRole" ayant une spécialité à "SM02" (correspond à Anesthésie-réanimation)
 
 Créer un client FHIR avec la librairie Hapi en utilisant l'api Hapi:
 
 ```java
 var ctx = FhirContext.forR4();
-var client = ctx.newRestfulGenericClient("https://server.ans.fr/fhir");
+var client = ctx.newRestfulGenericClient("https://server-url/fhir/v1/");
 ```
 
-La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server.ans.fr/fhir/PractitionerRole?specialty=SM02.
+La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server_url/fhir/v1/PractitionerRole?specialty=SM02.
 
-Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "ESANTE-API-KEY: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02`
+Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "ESANTE-API-KEY: XXXX-XXXX-XXXX"  https://server_url/fhir/v1/PractitionerRole?specialty=SM02`
 
-En java+Hapi, cela va se traduire par: 
+En java+Hapi, cela va se traduire comme suit : 
 
 ```java
 var client = createClient();
