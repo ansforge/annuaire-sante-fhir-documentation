@@ -12,7 +12,7 @@ title: Documentation
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Implémentation de clients applicatifs</h3>
+        <h3>Guides d'implémentation</h3>
         <hr aria-hidden="true">
         <div>
             {% for item in site.data.menu.header[2].subfolderitems[0].subfolderitems %}
