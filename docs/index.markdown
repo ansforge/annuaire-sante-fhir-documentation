@@ -9,9 +9,6 @@ title: Bienvenue sur la documentation technique de l'API FHIR Annuaire Santé en
 Ici, vous allez trouver toute la documentation technique permettant de faciliter l'utilisation de l'API : des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, des exemples de code,...
 
 ## Démarrage rapide
-
-Démarrez rapidement avec l'API. 
-
 [Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
 
 ## Aller plus loin
