@@ -11,6 +11,8 @@ header:
           - page: Postman
             url: /pages/documentation/starters/postman-starter.html
             title: Démarrer avec Postman
+            next-url: /pages/documentation/starters/java-starter.html
+            next-title: Démarrer en JAVA
           - page: Java
             url: /pages/documentation/starters/java-starter.html
             title: Démarrer en JAVA
