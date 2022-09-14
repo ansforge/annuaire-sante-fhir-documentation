@@ -4,11 +4,11 @@ title: Liaison entre plusieurs ressources
 subTitle: Ressources
 ---
 
-L'interrogation d'une API FHIR permet de pouvoir récupérer des données liées.
-Il est par exemple possible de récupérer les HealthcareServices liés à un PractitionerRole.
+Voici des exemples de requêtes permettant de récupérer plusieurs ressources liées en un seul appel.
+Il est par exemple possible de récupérer les ressources "HealthcareServices" liées à une ressource "PractitionerRole".
 
 
-## Les données liées à un PractitionerRole
+## Les données liées à une ressource "PractitionerRole"
 
 Le but ici est de récupérer les ressources "Organization" et "Practitioner" liées à un Practitioner.
 
