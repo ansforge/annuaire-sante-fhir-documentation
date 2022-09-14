@@ -16,9 +16,9 @@ Une fois le projet importé dans votre espace Postman, vous devez renseigner les
 
 ![img.png](postman-config.png)
 
-Voici les variables utilisées dans le projet postman: 
+Voici les variables utilisées dans le projet Postman: 
 
 | variable | description                                                                                                                                      | valeur                                |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-|  api_key        | Clé de l'api. Vous pouvez la générer grâce à la procédure [Démarrage rapide](/annuaire-sante-fhir-documentation/pages/quick-start/readme)      | Saisissez votre clé                   |
-|  api_url        | L'url de l'api IRIS DP                                                                                                                    | https://gateway.api.esante.gouv.fr/fhir |
+|  api_key        | Clé API (Pour obtenir cette clé, vous devez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/readme))     | Saisissez votre clé                   |
+|  api_url        | L'url d'accès à l'API                                                                                                                    | https://gateway.api.esante.gouv.fr/fhir |
