@@ -3,9 +3,9 @@ layout: documentation
 title: Mettre en place un projet PHP
 ---
 
-Cette partie montre comment ajouter à un projet PHP des appels à l'API.
+Ce guide décrit comment intégrer l'API à un projet PHP.
 
-Si vous n'avez pas d'API Key, suivez la [procédure]({{ '/pages/quick-start/readme' | relative_url}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/quick-start/readme' | relative_url}}).
 
 NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dcarbone/php-fhir pour FHIR et Guzzle pour le REST. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
