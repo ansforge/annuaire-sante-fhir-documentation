@@ -14,6 +14,7 @@ Une fois le projet importé dans votre espace Postman, vous devez renseigner les
 > - votre clé d'API dans la variable "api_key".
 > - l'url d'accès à l'API dans la variable "api_url" .
 
+
 ![img.png](postman-config.png)
 
 Voici les variables utilisées dans le projet Postman: 
