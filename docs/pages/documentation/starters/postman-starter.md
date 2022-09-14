@@ -10,16 +10,13 @@ Vous pouvez utiliser cette collection Postman pour tester l'API via des exemples
 
 # Configuration de la clé d'API
 
-Une fois le projet importé dans votre espace Postman, vous devez renseigner les variables se trouvant dans  "Envionnements > Prod" :
-> - votre clé d'API dans la variable "api_key".
-> - l'url d'accès à l'API dans la variable "api_url" .
-
+Une fois le projet importé dans votre espace Postman, vous devez renseigner les variables se trouvant dans  "Envionnements > Prod".
 
 ![img.png](postman-config.png)
 
 Voici les variables utilisées dans le projet Postman: 
 
-| variable | description                                                                                                                                      | valeur                                |
+| Variable | Description                                                                                                                                      | Valeur                                |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 |  api_key        | Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/readme))     | Saisissez votre clé                   |
 |  api_url        | L'url d'accès à l'API                                                                                                                    | https://gateway.api.esante.gouv.fr/fhir |
