@@ -1,5 +1,5 @@
 ---
-layout: Documentation
+layout: documentation
 title: Démarrer avec Postman
 ---
 Vous pouvez utiliser Postman pour tester l'API via des exemples d'appels FHIR.
