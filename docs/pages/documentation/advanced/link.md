@@ -10,7 +10,7 @@ Il est par exemple possible de récupérer les HealthcareServices liés à un Pr
 
 ## Les données liées à un PractitionerRole
 
-Le but ici est de récupérer les Organization et les Practitioner liés à un Practitioner.
+Le but ici est de récupérer les ressources "Organization" et "Practitioner" liées à un Practitioner.
 
 Pour cela, nous devons utiliser l'inclusion ("include").
 
