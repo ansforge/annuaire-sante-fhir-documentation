@@ -1,6 +1,6 @@
 ---
 layout: documentation
-title: Search Params
+title: Paramètres de recherche
 subTitle: Ressources
 ---
 
