@@ -9,9 +9,9 @@ Vous pouvez utiliser Postman pour tester l'API via des exemples d'appels FHIR.
 
 # Configuration de la clé API
 
-Une fois le projet importé dans votre espace Postman, vous devez saisir :
-- votre clé API dans la variable "api_key" se trouvant dans "Environments > Authorization".
-- l'url d'accès à l'API dans la variable "api-url" se trouvant dans "Environments > Variables".
+Une fois le projet importé dans votre espace Postman, vous devez renseigner les variables se trouvant dans  "Envionnements > Prod" :
+- votre clé API dans la variable "api_key".
+- l'url d'accès à l'API dans la variable "api-url" .
 
 ![img.png](postman-config.png)
 
