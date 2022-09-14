@@ -11,8 +11,8 @@ Vous pouvez utiliser cette collection Postman pour tester l'API via des exemples
 # Configuration de la clé API
 
 Une fois le projet importé dans votre espace Postman, vous devez renseigner les variables se trouvant dans  "Envionnements > Prod" :
-- votre clé API dans la variable "api_key".
-- l'url d'accès à l'API dans la variable "api-url" .
+* votre clé API dans la variable "api_key".
+* l'url d'accès à l'API dans la variable "api_url" .
 
 ![img.png](postman-config.png)
 
