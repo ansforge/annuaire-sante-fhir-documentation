@@ -65,7 +65,7 @@ header:
           - page: Stockage
             url: /pages/documentation/advanced/storage.html
             title: Stockage
-  - title: Uses cases
+  - title: Use cases
     subfolderitems:
       - page: Synchronisation de l'annuaire
         url: /pages/use-cases/full/index
@@ -73,6 +73,6 @@ header:
       - page: Appels unitaires
         url: /pages/use-cases/practitioner-detail/index
         title: Fiche du professionnel de santé
-  - title: IHM Fhir
-    url: http://console.fhir.com
+  - title: Démonstrateiur FHIR
+    url: https://portail.openfhir.annuaire.sante.fr/
     external: true
