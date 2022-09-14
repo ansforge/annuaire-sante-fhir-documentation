@@ -1,10 +1,10 @@
 ---
 layout: default
 title: "Synchronisation complète des ressources"
-subTitle: Use cases
+subTitle: Cas d'utilisation
 ---
 
-Dans ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'annuaire santé. 
+Au travers de ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'annuaire santé. 
 Les données que nous allons chercher à récupérer sont : 
 
 <div class="wysiwyg" markdown="1">
@@ -25,8 +25,6 @@ Les données que nous allons chercher à récupérer sont :
 </div>
 
 &nbsp;
-
-
 
 ## Ce dont vous aurez besoin
 
@@ -58,7 +56,7 @@ Voir la section [Démarrage/Java]({{ '' | relative_url }})
 
 &nbsp;
 
-### Récupération des ressources PractitionerRole
+### Récupération des ressources "PractitionerRole"
 
 Pour l'exemple, nous allons chercher uniquement les ressources PractitionerRole qui ont une spécialité à SM02 (correspond à Anesthésie-réanimation)
 
@@ -155,7 +153,7 @@ do {
 
 &nbsp;
 
-### Récupération des éléments liés : Organization et Practitioner
+### Récupération des éléments liés : "Organization" et "Practitioner"
 
 Désormais, nous allons modifier le code afin de récupérer également les Practitioner associés ainsi que les Organization. 
 
