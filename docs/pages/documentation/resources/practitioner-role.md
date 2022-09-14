@@ -10,7 +10,7 @@ Voici des exemples de requêtes sur les rôles des praticiens qui sont représen
 
 ## Rechercher tout
 
-Appel de la ressource PractitionerRole pour restituer les données correspondant aux situation d'exercice et exercices professionnels des PS.
+Appel de la ressource PractitionerRole pour restituer les données correspondant aux situations d'exercice et exercices professionnels des PS.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
