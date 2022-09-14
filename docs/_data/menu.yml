@@ -1,7 +1,7 @@
 header:
   - title: Accueil
     url: /
-  - title: Quick start
+  - title: Démarrage rapide
     url: /pages/quick-start/readme
   - title: Documentation
     subfolderitems:
@@ -24,34 +24,34 @@ header:
       - page: Ressources
         url: /pages/hub.html
         subfolderitems:
-          - page: Search Parameters
+          - page: Paramètres de recherche (Search Parameters)
             url: /pages/documentation/resources/search-params.html
             title: Utiliser les paramètres de recherche
             next-url: /pages/documentation/resources/organization.html
-            next-title: Rechercher dans les Organization
+            next-title: Rechercher dans la ressource "Organization"
           - page: Organization
             url: /pages/documentation/resources/organization.html
-            title: Rechercher dans les Organization
+            title: Rechercher dans la ressource "Organization"
             next-url: /pages/documentation/resources/practitioner.html
-            next-title: Rechercher dans les Practitioner
+            next-title: Rechercher dans la ressource "Practitioner"
           - page: Practitioner
             url: /pages/documentation/resources/practitioner.html
-            title: Rechercher dans les Practitioner
+            title: Rechercher dans la ressource "Practitioner"
             next-url: /pages/documentation/resources/practitioner-role.html
-            next-title: Rechercher dans les PractitionerRole
+            next-title: Rechercher dans la ressource "PractitionerRole"
           - page: PractitionerRole
             url: /pages/documentation/resources/practitioner-role.html
-            title: Rechercher dans les PractitionerRole
+            title: Rechercher dans la ressource "PractitionerRole"
             next-url: /pages/documentation/resources/healthcare-service.html
-            next-title: Rechercher dans les HealthcareService
+            next-title: Rechercher dans la ressource "HealthcareService"
           - page: HealthcareService
             url: /pages/documentation/resources/healthcare-service.html
-            title: Rechercher dans les HealthcareService
+            title: Rechercher dans la ressource "HealthcareService"
             next-url: /pages/documentation/resources/device.html
-            next-title: Rechercher dans les Device
+            next-title: Rechercher dans la ressource "Device"
           - page: Device
             url: /pages/documentation/resources/device.html
-            title: Rechercher dans les Device
+            title: Rechercher dans la ressource "Device"
             next-url: /pages/documentation/advanced/link.html
             next-title: Liaison entre plusieurs ressources
       - page: Techniques avancées
@@ -65,7 +65,7 @@ header:
           - page: Stockage
             url: /pages/documentation/advanced/storage.html
             title: Stockage
-  - title: Use cases
+  - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation de l'annuaire
         url: /pages/use-cases/full/index
