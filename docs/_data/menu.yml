@@ -73,6 +73,6 @@ header:
       - page: Appels unitaires
         url: /pages/use-cases/practitioner-detail/index
         title: Fiche du professionnel de santé
-  - title: Démonstrateiur FHIR
+  - title: Démonstrateur FHIR
     url: https://portail.openfhir.annuaire.sante.fr/
     external: true
