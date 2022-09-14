@@ -29,7 +29,7 @@ Les données que nous allons chercher à récupérer sont :
 ## Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
-* Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette adresse : [TODO](TODO)
+* Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
 * Java 11+
 * Un IDE (IntelliJ, Eclipse...)
 * Maven 3+
