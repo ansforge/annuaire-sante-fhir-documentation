@@ -20,5 +20,5 @@ Voici les variables utilisées dans le projet Postman:
 
 | variable | description                                                                                                                                      | valeur                                |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-|  api_key        | Clé API (Pour obtenir cette clé, vous devez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/readme))     | Saisissez votre clé                   |
+|  api_key        | Clé API (Si vous n'avez pas de clé API, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/readme))     | Saisissez votre clé                   |
 |  api_url        | L'url d'accès à l'API                                                                                                                    | https://gateway.api.esante.gouv.fr/fhir |
