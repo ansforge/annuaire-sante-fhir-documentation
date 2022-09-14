@@ -1,16 +1,13 @@
 ---
 layout: default
-title: Documentation technique de l'API FHIR IRIS-DP
+title: Documentation
 ---
 
 <div>
-    L'API FHIR d'IRIS-DP offre une solution clé en main permettant d'accéder aux données publiques de l'annuaire santé.
-</div>
-<div>
-    Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet selon le langage de programmation souhaité.
+    Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet en fonction de la technologie utilisée. A ce stade du projet, les technologies disponibles dont : Java et PHP.
 </div>
 <div class="mb-2">
-    Vous trouverez aussi des exemples de requêtes pour les différentes ressources mises à disposition.
+    Aussi, vous trouverez des exemples de requêtes pour les différentes ressources mises à disposition.
 </div>
 
 <div class="row">
