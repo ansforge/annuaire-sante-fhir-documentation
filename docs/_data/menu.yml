@@ -6,6 +6,7 @@ header:
   - title: Documentation
     subfolderitems:
       - page: Démarrage
+        url: /pages/hub.html
         subfolderitems:
           - page: Postman
             url: /pages/documentation/starters/postman-starter.html
