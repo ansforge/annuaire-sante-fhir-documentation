@@ -414,4 +414,4 @@ Organization found: id=org-386 | name=Lopez et Lopez
 Organization found: id=org-145 | name=Maillard et Maillard
 ```
 
-<b>A noter : Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : https://hl7.org/FHIR/search.html</b>
+NOTE | Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : https://hl7.org/FHIR/search.html
