@@ -5,7 +5,7 @@ header:
     url: /pages/quick-start/readme
   - title: Documentation
     subfolderitems:
-      - page: Démarrage
+      - page: Guides d'implémentation
         url: /pages/hub.html
         subfolderitems:
           - page: Postman
@@ -23,7 +23,7 @@ header:
             title: Démarrer en PHP
             next-url: /pages/documentation/resources/search-params.html
             next-title: Utiliser les paramètres de recherche
-      - page: Ressources
+      - page: Ressources FHIR
         url: /pages/hub.html
         subfolderitems:
           - page: Paramètres de recherche (Search Parameters)
