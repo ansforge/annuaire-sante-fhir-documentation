@@ -5,7 +5,7 @@ header:
     url: /pages/quick-start/readme
   - title: Documentation
     subfolderitems:
-      - page: Démarrage
+      - page: Guides
         url: /pages/hub.html
         subfolderitems:
           - page: Postman
