@@ -11,9 +11,10 @@ Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header.
 L’outil de gestion d’API « Gravitee », permet à l’utilisateur de récupérer son jeton d’authentification « API KEY » de façon automatique. Une fois le jeton récupéré, l’utilisateur peut s’authentifier et utiliser l'API.
 
 Pour pouvoir récupérer la clé d'API et utiliser l’API, l’utilisateur doit :
-> - Créer au moins une application dans l’interface Portail
-> - Souscrire cette application à l’API 
-> 
+<div class="wysiwyg" markdown="1">
+ - Créer au moins une application dans l’interface Portail
+ - Souscrire cette application à l’API 
+</div> 
 
 ### Souscrire à l'API sans application existante
 Cette partie concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
