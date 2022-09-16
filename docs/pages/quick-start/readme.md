@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Démarrer avec l'API FHIR d'IRIS DP
+title: Démarrer avec l'API
 ---
 
-Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header. Pour obtenir cette clé, vous devez vous rendre sur l'interface de [création de compte](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
+Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API
+[Gravitee](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
 1) Accédez au site
 
