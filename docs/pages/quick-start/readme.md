@@ -16,14 +16,22 @@ Pour pouvoir récupérer la clé d'API et utiliser l’API, l’utilisateur doit
 ## Souscrire à l'API sans application existante
 Cette partie concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez vous rendre sur le Portail APIM, onglet Applications, et cliquer sur Créer une App :
-![accueil.png](img/home-gw.png){:style="max-width:600px"}
+
+![accueil.png](img/apim_creer_app.png){:style="max-width:600px"}
+
 Ensuite, remplissez les informations générales requises pour l'application :
 
+![accueil.png](img/apim_creer_app_1.png){:style="max-width:600px"}
+
 Pour souscrire votre application à l’API vous pouvez rechercher API Annuaire Santé en libre accès.
+
+![accueil.png](img/apim_creer_app_2.png){:style="max-width:600px"}
+![accueil.png](img/apim_creer_app_3.png){:style="max-width:600px"}
 
 Lorsque la création de l’application et sa souscription à l’API sont terminées, une clé d'API vous sera automatiquement générée.
 Vous pourrez retrouver cette clé dans l’onglet "Souscriptions" de votre Application :
 
+![accueil.png](img/apim_creer_app_4.png){:style="max-width:600px"}
 
 ## Souscrire une application déjà existante à l'API
 Votre premier appel à l'API
