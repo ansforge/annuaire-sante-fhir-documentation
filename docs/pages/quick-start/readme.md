@@ -6,6 +6,29 @@ title: Démarrer avec l'API
 Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API
 [Gravitee](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
+## Comment souscrire à l'API?
+L’outil de gestion d’API « Gravitee », permet à l’utilisateur de récupérer son jeton d’authentification « API KEY » de façon automatique. Une fois le jeton récupéré, l’utilisateur peut s’authentifier et utiliser l'API.
+
+Pour pouvoir récupérer la clé d'API et utiliser l’API, l’utilisateur doit :
+> • Créer au moins une application dans l’interface Portail
+> • Souscrire cette application à l’API 
+
+## Souscrire à l'API sans application existante
+Cette partie concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
+Pour créer une application, vous devez vous rendre sur le Portail APIM, onglet Applications, et cliquer sur Créer une App :
+![accueil.png](img/home-gw.png){:style="max-width:600px"}
+Ensuite, remplissez les informations générales requises pour l'application :
+
+Pour souscrire votre application à l’API vous pouvez rechercher API Annuaire Santé en libre accès.
+
+Lorsque la création de l’application et sa souscription à l’API sont terminées, une clé d'API vous sera automatiquement générée.
+Vous pourrez retrouver cette clé dans l’onglet "Souscriptions" de votre Application :
+
+
+## Souscrire une application déjà existante à l'API
+Votre premier appel à l'API
+
+
 1) Accédez au site
 
 ![accueil.png](img/home-gw.png){:style="max-width:600px"}
