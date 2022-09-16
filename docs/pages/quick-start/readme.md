@@ -119,7 +119,7 @@ La réponse devrait ressembler à cela :
 ### Ressources internes 
 
 <div class="wysiwyg" markdown="1">
-* Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
+* Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }}),  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
 * [Accéder aux ressources]({{ '/pages/hub' | relative_url }})
 * [Cas d'utilisation de synchronisation]({{ '/pages/use-cases/full/index' | relative_url }})
 * [Cas d'utilisation d'appels unitaires]({{ '/pages/use-cases/practitioner-detail/index' | relative_url }})
