@@ -13,6 +13,7 @@ L’outil de gestion d’API « Gravitee », permet à l’utilisateur de récup
 Pour pouvoir récupérer la clé d'API et utiliser l’API, l’utilisateur doit :
 > - Créer au moins une application dans l’interface Portail
 > - Souscrire cette application à l’API 
+> 
 
 ### Souscrire à l'API sans application existante
 Cette partie concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
