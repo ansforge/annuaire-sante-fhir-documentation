@@ -14,6 +14,7 @@ Pour pouvoir récupérer la clé d'API et utiliser l’API, l’utilisateur doit
 <div class="wysiwyg" markdown="1">
  - Créer au moins une application dans l’interface Portail
  - Souscrire cette application à l’API 
+ 
 </div> 
 
 ### Souscrire à l'API sans application existante
