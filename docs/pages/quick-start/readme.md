@@ -24,7 +24,7 @@ Ensuite, remplissez les informations générales requises pour l'application :
 
 ![accueil.png](img/apim_creer_app_1.png){:style="max-width:600px"}
 
-Pour souscrire votre application à l’API vous pouvez rechercher API Annuaire Santé en libre accès.
+Pour souscrire votre application à l’API, vous pouvez rechercher API Annuaire Santé en libre accès.
 
 ![accueil.png](img/apim_creer_app_2.png){:style="max-width:600px"}
 ![accueil.png](img/apim_creer_app_3.png){:style="max-width:600px"}
