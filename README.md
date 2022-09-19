@@ -5,7 +5,7 @@ Documentation sur <B>l'API FHIR de l'Annuaire Santé en accès libre</B>, le nou
 ## A propos de l'API
 Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
 > - Une IHM de consultation, 
-> - 6 endpoints (Practitioner, PractitionerRole, Organization, Healthcareservice, Device et Metadata)
+> - 6 endpoints ([Practitioner](https://www.hl7.org/fhir/practitioner.html), PractitionerRole, Organization, Healthcareservice, Device et Metadata)
 
 ## Documentation et Wiki
 Documentation : https://ansforge.github.io/annuaire-sante-fhir-documentation/
