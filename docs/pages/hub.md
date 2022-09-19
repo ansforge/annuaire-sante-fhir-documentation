@@ -4,7 +4,7 @@ title: Documentation
 ---
 
 <div>
-    Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet en fonction de la technologie utilisée. A ce stade du projet, les technologies disponibles dont : Java et PHP.
+    Vous trouverez ci-dessous l'ensemble de la documentation permettant de démarrer un nouveau projet en fonction de la technologie utilisée. A ce stade du projet, les technologies disponibles sont : Java et PHP.
 </div>
 <div class="mb-2">
     Aussi, vous trouverez des exemples de requêtes pour les différentes ressources mises à disposition.
