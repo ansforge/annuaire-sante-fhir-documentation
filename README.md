@@ -10,7 +10,7 @@ Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose 
 ## Documentation et Wiki
 Documentation : https://ansforge.github.io/annuaire-sante-fhir-documentation/
 
-Démonstration : https://demo.portail.openfhir.annuaire.asipsante.fr/
+Démonstration : https://portail.openfhir.annuaire.sante.fr/
 
 Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
 
