@@ -14,4 +14,4 @@ Démonstration : https://demo.portail.openfhir.annuaire.asipsante.fr/
 
 Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
 
-Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur
+Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur/
