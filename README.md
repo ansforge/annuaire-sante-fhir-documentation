@@ -1,6 +1,6 @@
 # annuaire-sante-fhir 
 
-Documentation sur <B>l'API FHIR de l'Annuaire Santé en accès libre</B>, le nouveau service permettant au grand public de consulter les données en accès libre de l'Annuaire Santé au format JSON, structurées selon le standard d’interopérabilité [FHIR](https://www.hl7.org/fhir/), développé et maintenu par l’Agence du Numérique en Santé ([ANS](https://esante.gouv.fr/)).
+Documentation sur <B>l'API FHIR de l'[Annuaire Santé](https://esante.gouv.fr/produits-services/annuaire-sante) en accès libre</B>, le nouveau service permettant au grand public de consulter les données en accès libre de l'Annuaire Santé au format JSON, structurées selon le standard d’interopérabilité [FHIR](https://www.hl7.org/fhir/), développé et maintenu par l’Agence du Numérique en Santé ([ANS](https://esante.gouv.fr/)).
 
 ## A propos de l'API
 Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
