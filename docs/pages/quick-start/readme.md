@@ -13,12 +13,14 @@ Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obteni
 ### 1. Création d'un compte dans Gravitee
 Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un compte.
 <div class="wysiwyg" markdown="1">
-- Rendez-vous sur le portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/registration){:target="_blank"}
-- Saisissez votre prénom, votre nom et une adresse email, puis valider votre saisie en cliquant sur le bouton 
-- À l'issue de la création de votre compte, un email de confirmation vous est envoyé à l'adresse email que vous avez indiquée. Cet email contient un lien permettant de terminer le processus de validation de votre compte.
+* Rendez-vous sur le portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/registration){:target="_blank"}
+* Saisissez votre prénom, votre nom et une adresse email, puis valider votre saisie en cliquant sur le bouton 
+* À l'issue de la création de votre compte, un email de confirmation vous est envoyé à l'adresse email que vous avez indiquée. Cet email contient un lien permettant de terminer le processus de validation de votre compte.
 </div>
 &nbsp;
+
 ![accueil.png](img/apim_creer_compte.png){:style="max-width:600px"}
+
 NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si vous n'avez pas d'adresse email, vous devez en créer une.
    
 
@@ -26,22 +28,22 @@ NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si v
 Cette étape concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez suivre les étapes suivantes :
 <div class="wysiwyg" markdown="1">
-- Connectez-vous sur le portail portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/login>{:target="_blank"}
-- Dans l'onglet "Applications", cliquer sur Créer une App :
+* Connectez-vous sur le portail portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/login>{:target="_blank"}
+* Dans l'onglet "Applications", cliquer sur Créer une App :
 </div>
 &nbsp;
 
 ![accueil.png](img/apim_creer_app.png){:style="max-width:600px"}
 
 <div class="wysiwyg" markdown="1">
-- Ensuite, remplissez les informations générales requises pour l'application :
+* Ensuite, remplissez les informations générales requises pour l'application :
 </div>
 &nbsp;
 
 ![accueil.png](img/apim_creer_app_1.png){:style="max-width:600px"}
 
 <div class="wysiwyg" markdown="1">
-- Pour souscrire votre application à l’API, vous pouvez rechercher "API Annuaire Santé en libre accès".
+* Pour souscrire votre application à l’API, vous pouvez rechercher "API Annuaire Santé en libre accès".
 </div>
 &nbsp;
 
@@ -49,7 +51,7 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 ![accueil.png](img/apim_creer_app_3.png){:style="max-width:600px"}
 
 <div class="wysiwyg" markdown="1">
-- Une fois la création de l’application terminée, une clé d'API vous est automatiquement générée. Celle-ci est disponible dans l’onglet "Souscriptions" de votre Application.
+* Une fois la création de l’application terminée, une clé d'API vous est automatiquement générée. Celle-ci est disponible dans l’onglet "Souscriptions" de votre Application.
 </div>
 &nbsp;
 
