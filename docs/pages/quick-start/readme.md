@@ -28,7 +28,7 @@ NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si v
 Cette étape concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez suivre les étapes suivantes :
 <div class="wysiwyg" markdown="1">
-* Connectez-vous sur le portail portail Gravitee à l'adresse : [IDENTIFIEZ-VOUS](https://portal.api.esante.gouv.fr/user/login){:target="_blank"}
+* Connectez-vous sur le portail Gravitee à l'adresse : [IDENTIFIEZ-VOUS](https://portal.api.esante.gouv.fr/user/login){:target="_blank"}
 * Dans l'onglet "Applications", cliquer sur "CREER UNE APP".
 </div>
 &nbsp;
@@ -59,11 +59,12 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 
 
 ### 3. Tester l'API
-Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. cURL étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
+Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 <div class="wysiwyg" markdown="1">
-* Test 1 : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
+* <b>Test 1</b> : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
 </div>
 &nbsp;
+
 TIPS| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
 <div class="code-sample"><div class="tab-content" data-name="bash">
@@ -74,7 +75,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 <div class="wysiwyg" markdown="1">
 * La réponse de l'API devrait ressembler à ceci : 
 </div>
-&nbsp;
+
 ```json
 {
   "resourceType": "CapabilityStatement",
@@ -85,11 +86,10 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 ```
 
 &nbsp;
-
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
 <div class="wysiwyg" markdown="1">
-* Test 2 : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
+* <b>Test 2</b> : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
 </div>
 &nbsp;
 
