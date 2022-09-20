@@ -64,6 +64,7 @@ Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](ht
 * <b>Test 1</b> : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
 </div>
 &nbsp;
+
 TIPS| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
 <div class="code-sample"><div class="tab-content" data-name="bash">
