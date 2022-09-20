@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Démarrer avec l'API
+title: Guide de démarrage rapide avec l'API
 ---
 
 Pour appeler l'API, il est nécessaire de spécifier une API Key dans le header. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API
