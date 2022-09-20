@@ -63,8 +63,6 @@ Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](ht
 <div class="wysiwyg" markdown="1">
 * <b>Test 1</b> : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
 </div>
-&nbsp;
-
 TIPS| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
 <div class="code-sample"><div class="tab-content" data-name="bash">
@@ -75,7 +73,6 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 <div class="wysiwyg" markdown="1">
 * La réponse de l'API devrait ressembler à ceci : 
 </div>
-
 ```json
 {
   "resourceType": "CapabilityStatement",
@@ -84,7 +81,6 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
   "rest": [ {
     ...
 ```
-
 &nbsp;
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
