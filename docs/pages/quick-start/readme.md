@@ -7,13 +7,13 @@ Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer
 
 ### 0. Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
-[Gravitee](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
+[Portail APIM Gravitee](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
 
 ### 1. Création d'un compte dans Gravitee
 Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un compte.
 <div class="wysiwyg" markdown="1">
-* Rendez-vous sur le portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/registration){:target="_blank"}
+* Rendez-vous sur le portail Gravitee à l'adresse : [Enregistrez-vous] (https://portal.api.esante.gouv.fr/user/registration){:target="_blank"}
 * Saisissez votre prénom, votre nom et une adresse email, puis valider votre saisie en cliquant sur le bouton 
 * À l'issue de la création de votre compte, un email de confirmation vous est envoyé à l'adresse email que vous avez indiquée. Cet email contient un lien permettant de terminer le processus de validation de votre compte.
 </div>
@@ -28,7 +28,7 @@ NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si v
 Cette étape concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez suivre les étapes suivantes :
 <div class="wysiwyg" markdown="1">
-* Connectez-vous sur le portail portail Gravitee à l'adresse : https://portal.api.esante.gouv.fr/user/login>{:target="_blank"}
+* Connectez-vous sur le portail portail Gravitee à l'adresse : [Identifiez-vous](https://portal.api.esante.gouv.fr/user/login({:target="_blank"}
 * Dans l'onglet "Applications", cliquer sur Créer une App :
 </div>
 &nbsp;
