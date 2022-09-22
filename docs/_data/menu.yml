@@ -74,5 +74,5 @@ header:
         url: /pages/use-cases/practitioner-detail/index
         title: Fiche du professionnel de santé
   - title: IHM Fhir
-    url: http://console.fhir.com
+    url: https://portail.openfhir.annuaire.sante.fr
     external: true
