@@ -5,12 +5,12 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource [PractitionerRole.](https://hl7.org/FHIR/practitionerrole.html)
+Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
 
 
 ## Rechercher tout
 
-Appel de la ressource PractitionerRole pour restituer les données correspondant aux situation d'exercice et exercices professionnels des PS.
+Appel de la ressource PractitionerRole pour restituer les données correspondant aux situations d'exercice et exercices professionnels des PS.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">

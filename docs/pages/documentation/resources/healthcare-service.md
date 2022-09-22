@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 
-Voici des exemples de requêtes sur les services de santé qui sont représentés dans le serveur FHIR par la ressource [HealthCareService.](https://hl7.org/FHIR/healthcareservice.html)
+Voici des exemples de requêtes sur les services de santé qui sont représentés dans le serveur FHIR par la ressource ["HealthCareService".](https://hl7.org/FHIR/healthcareservice.html)
 
 
 ## Rechercher tout

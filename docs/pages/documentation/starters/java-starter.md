@@ -3,9 +3,9 @@ layout: documentation
 title: Mettre en place un projet Java
 ---
 
-Cette partie montre comment ajouter à un projet Java des appels à l'API.
+Ce guide décrit comment intégrer l'API à un projet Java.
 
-Si vous n'avez pas d'API Key, suivez la [procédure]({{ '/pages/quick-start/readme' | relative_url}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/quick-start/readme' | relative_url}}).
 
 NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
@@ -13,7 +13,7 @@ NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. 
 
 Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/){:target="_blank"} qui permet entre autres de faire des appels FHIR.
 
-Pour utiliser les livrairies Hapi, nous allons ajouter au fichier pom.xml les dépendances suivantes: 
+Pour utiliser les librairies Hapi, nous allons ajouter les dépendances suivantes dans le fichier pom.xml : 
 
 ```xml
 <properties>
@@ -57,8 +57,6 @@ Pour utiliser les livrairies Hapi, nous allons ajouter au fichier pom.xml les d�
 Par rapport à l'utilisation de base du client HAPI, nous spécifions un Intercepeur afin d'ajouter l'API Key d'authentification. 
 
 Voici un exemple nominal: 
-
-
 <div class="code-sample"><div class="tab-content" data-name="java">
 {% highlight java %}
 // register the interceptor only one time:

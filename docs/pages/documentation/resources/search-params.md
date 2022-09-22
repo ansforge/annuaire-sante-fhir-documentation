@@ -1,16 +1,16 @@
 ---
 layout: documentation
-title: Search Params
+title: Paramètres de recherche
 subTitle: Ressources
 ---
 
 
-# Paramètres de type texte
+## Paramètres de type texte
 
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
 
-## Recherche sans "modifier"
+### Recherche sans "modifier"
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -66,7 +66,7 @@ Organization found: name=Renard EURL
 <br/>
 
 
-## Recherche avec le "modifier" "contains"
+### Recherche avec le "modifier" "contains"
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -121,7 +121,7 @@ Organization found: name=Gautier EURL
 <br/>
 
 
-## Recherche avec le "modifier" "exact"
+### Recherche avec le "modifier" "exact"
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -176,11 +176,11 @@ Organization found: id=org-358 name=Gautier EURL
 
 <br/>
 
-# Paramètres de type token
+## Paramètres de type token
 
 Le serveur supporte la recherche par code, par système ou par système+code.
 
-## Recherche par code
+### Recherche par code
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -234,11 +234,11 @@ Organization found: id=org-148 name=Renard et Renard
 
 <br/>
 
-# Paramètres de type date
+## Paramètres de type date
 
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète
 
-## Recherche par date
+### Recherche par date
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -296,17 +296,17 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 
 <br/>
 
-# Paramètres combinés
+## Paramètres combinés
 
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
 
-## Paramètres ET (AND)
+### Paramètres ET (AND)
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et"
+curl -H# "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -359,7 +359,7 @@ Organization found: id=org-128 | name=Renard et Renard
 
 <br/>
 
-## Paramètres OU (OR)
+### Paramètres OU (OR)
 
 
 <div class="code-sample">
@@ -414,4 +414,5 @@ Organization found: id=org-386 | name=Lopez et Lopez
 Organization found: id=org-145 | name=Maillard et Maillard
 ```
 
-<b>A noter : Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : https://hl7.org/FHIR/search.html</b>
+
+NOTE | Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : [https://hl7.org/FHIR/search.htm](https://hl7.org/FHIR/search.html)

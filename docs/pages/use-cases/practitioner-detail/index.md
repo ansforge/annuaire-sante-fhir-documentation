@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Fiche du professionel de santé"
-subTitle: Use cases
+subTitle: Cas d'utilisation
 ---
 
-Ici on met le use case
+!!! Page en cours de construction !!!

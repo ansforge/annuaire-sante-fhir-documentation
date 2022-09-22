@@ -1,17 +1,14 @@
 ---
 layout: home
-title: Documentation
+title: Bienvenue sur la documentation technique de l'API FHIR Annuaire Santé en libre accès
 ---
 
 
-ATTENTION| Cette documentation est en cours de redaction. Veuillez ne pas l'utiliser pour des développement de production.
+!!! ATTENTION !!! Cette documentation est en cours de rédaction. 
 
-Trouvez ici tous les guides d'implémentation des nouveaux services FHIR d'IRIS-DP.
+Ici, vous allez trouver toute la documentation technique permettant de faciliter l'utilisation de l'API : des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, des exemples de code,...
 
-## Quick start
-
-Démarrez rapidement avec IRIS-DP. 
-
+## Démarrage rapide
 [Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
 
 ## Aller plus loin
@@ -21,17 +18,17 @@ Démarrez rapidement avec IRIS-DP.
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#edit' | relative_url }}"></use></svg><br/>
         <span  class="doc-section-title"><a href="./pages/hub.html">Documentation : </a></span>
-        Explorez la documentation complète.
+        Explorez la documentation.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#folder' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="./pages/hub.html#usecase">Use cases : </a></span>
-        Les cas d'utilisation pourront vous servir d'inspiration pour vos développements.
+        <span  class="doc-section-title"><a href="./pages/hub.html">Cas d'utilisation : </a></span>
+        Les cas d'utilisation pouvant vous servir d'inspiration pour vos développements.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#view-projection' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="https://demo.portail.openfhir.annuaire.asipsante.fr/" target="_blank">IHM FHIR : </a></span>
-        Découvrez le service et ses données au travers de l'interface IHM.
+        <span  class="doc-section-title"><a href="https://portail.openfhir.annuaire.sante.fr/" target="_blank">Démonstrateur : </a></span>
+        Découvrez l'API au travers de l'interface IHM.
     </div>
 
 </div>
