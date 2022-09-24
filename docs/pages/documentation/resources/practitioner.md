@@ -45,6 +45,24 @@ foreach($practitioners->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var bundle = client.Search<Practitioner>();
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitioner = be.Resource as Practitioner;
+    var name = "";
+    foreach (var n in practitioner.Name[0].Prefix) {
+        name = name + " " + n;
+    }
+    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -102,6 +120,29 @@ foreach($practitioners->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("identifier=0012807590,810000005479")
+  .LimitTo(50);
+var bundle = client.Search<Practitioner>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitioner = be.Resource as Practitioner;
+    var name = "";
+    foreach (var n in practitioner.Name[0].Prefix)
+    {
+        name = name + " " + n;
+    }
+    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+}
+{% endhighlight %}
+</div>
+
 
 
 </div>
@@ -158,6 +199,29 @@ foreach($practitioners->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("name=MME")
+  .LimitTo(50);
+var bundle = client.Search<Practitioner>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitioner = be.Resource as Practitioner;
+    var name = "";
+    foreach (var n in practitioner.Name[0].Prefix)
+    {
+        name = name + " " + n;
+    }
+    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+}
+{% endhighlight %}
+</div>
+
 
 
 </div>
@@ -213,6 +277,24 @@ foreach($practitioners->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("active=true")
+  .LimitTo(50);
+var bundle = client.Search<Practitioner>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitioner = be.Resource as Practitioner;
+    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | active={practitioner.Active.Value}");
+}
+{% endhighlight %}
+</div>
+
 
 
 </div>
@@ -271,6 +353,24 @@ foreach($practitioners->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("_lastUpdated=ge2022-08-08T06:47:02")
+  .LimitTo(50);
+var bundle = client.Search<Practitioner>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitioner = be.Resource as Practitioner;
+    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | lastUpdate={practitioner.Meta.LastUpdated}");
+}
+{% endhighlight %}
+</div>
+
 
 
 </div>
@@ -283,3 +383,7 @@ Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```
+
+
+{% include_relative _source-ref.md %}
+

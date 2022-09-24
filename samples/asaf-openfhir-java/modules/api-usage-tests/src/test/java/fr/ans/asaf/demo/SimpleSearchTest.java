@@ -54,7 +54,7 @@ public class SimpleSearchTest {
 
 
     /**
-     * This exemple show how to query elements with the _lastUpdated param.
+     * This example show how to query elements with the _lastUpdated param.
      * With this query, you can make incremental updated of your repository.
      */
     @Test

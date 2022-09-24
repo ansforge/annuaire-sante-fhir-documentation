@@ -36,21 +36,6 @@ public class PractitionerRoleTest {
         }
     }
 
-    /**
-     * Search practitioner role by identifier
-     */
-    @Test
-    public void searchByIdentifier() {
-        // create the client:
-        var client = FhirTestUtils.createClient();
-
-        var practitionerRole = client.read()
-                .resource(PractitionerRole.class)
-                .withId("005-5087586-6923328")
-                .execute();
-
-        logger.info("Practitioner Role found: id={}", practitionerRole.getIdElement().getIdPart());
-    }
 
     /**
      * Search practitioner role by roles
@@ -106,7 +91,7 @@ public class PractitionerRoleTest {
                     code.getCoding().stream().map(coding -> coding.getSystem().concat(":").concat(coding.getCode())).collect(Collectors.joining("|"))
             ).collect(Collectors.joining(" - "));
 
-            // concat speciality
+            // concat specialty
             roleCodes = roleCodes.concat("|")
                     .concat(role.getSpecialtyFirstRep().getCodingFirstRep().getSystem())
                     .concat(":")
@@ -163,7 +148,7 @@ public class PractitionerRoleTest {
     }
 
     /**
-     * Search active practitioner role by practitioner
+     * Search practitioner role by practitioner
      */
     @Test
     public void searchByPractitioner() {
@@ -185,7 +170,7 @@ public class PractitionerRoleTest {
     }
 
     /**
-     * Search active practitioner roles by role
+     * Search practitioner roles by role
      */
     @Test
     public void searchByRole() {

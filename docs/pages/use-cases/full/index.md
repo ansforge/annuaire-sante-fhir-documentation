@@ -52,7 +52,7 @@ Les données que nous allons chercher à récupérer sont :
 
 ### Initialisation du projet 
 
-Voir la section [Démarrage/Java]({{ '' | relative_url }})
+Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 &nbsp;
 
@@ -64,7 +64,7 @@ Créer un client FHIR avec la librairie Hapi en utilisant l'api Hapi:
 
 ```java
 var ctx = FhirContext.forR4();
-var client = ctx.newRestfulGenericClient("https://server-url/fhir/v1/");
+var client = ctx.newRestfulGenericClient("https://{{site.ans.api_url}}/fhir/v1/");
 ```
 
 La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server_url/fhir/v1/PractitionerRole?specialty=SM02.
@@ -102,7 +102,7 @@ Si cette requête est exécutée, le code retourné sera:
   ],
   "entry": [
     {
-      "fullUrl": "http://localhost:8080/fhir/v1/PractitionerRole/prarole-1089",
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/PractitionerRole/prarole-1089",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "prarole-1089"
@@ -175,7 +175,7 @@ ainsi que les Practitioner et les Organization liés aux Practitioner de la pré
   "total": 1401,
   "entry": [
     {
-      "fullUrl": "http://localhost:8080/fhir/v1/PractitionerRole/prarole-6922",
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/PractitionerRole/prarole-6922",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "prarole-6922",
@@ -189,7 +189,7 @@ ainsi que les Practitioner et les Organization liés aux Practitioner de la pré
       }
     },
     {
-      "fullUrl": "http://localhost:8080/fhir/v1/Practitioner/pra-6922",
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/Practitioner/pra-6922",
       "resource": {
         "resourceType": "Practitioner",
         "id": "pra-6922",
@@ -197,7 +197,7 @@ ainsi que les Practitioner et les Organization liés aux Practitioner de la pré
       }
     },
     {
-      "fullUrl": "http://localhost:8080/fhir/v1/Organization/org-6922",
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/Organization/org-6922",
       "resource": {
         "resourceType": "Organization",
         "id": "org-6922",

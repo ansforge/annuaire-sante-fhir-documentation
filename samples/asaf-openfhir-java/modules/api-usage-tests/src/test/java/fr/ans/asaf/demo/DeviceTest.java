@@ -29,7 +29,7 @@ public class DeviceTest {
         var bundle = client.search().forResource(Device.class).returnBundle(Bundle.class).execute();
 
         for (var deviceEntry : bundle.getEntry()) {
-            // print Organization ids:
+            // print ids:
             var device = (Device) deviceEntry.getResource();
             logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().getIdPart(), device.getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS").getValue());
         }
@@ -62,7 +62,7 @@ public class DeviceTest {
      * Search all devices containing arhgos number
      */
     @Test
-    public void searchFromType() {
+    public void searchForArhgosNumber() {
         // create the client:
         var client = FhirTestUtils.createClient();
 

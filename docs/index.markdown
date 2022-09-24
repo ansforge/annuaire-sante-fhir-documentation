@@ -8,8 +8,71 @@ title: Bienvenue sur la documentation technique de l'API FHIR Annuaire Santé en
 
 Ici, vous allez trouver toute la documentation technique permettant de faciliter l'utilisation de l'API : des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, des exemples de code,...
 
-## Démarrage rapide
-[Démarrer](pages/quick-start/readme.md){:class="btn  btn--style1"}
+<div style="display: flex; justify-content: space-around;" class="m-5">
+<div markdown="1">
+[Documentation complète](pages/hub.md){:class="btn  btn--style1"}
+</div>
+<div markdown="1">
+[Démarrage rapide](pages/quick-start/readme.md){:class="btn  btn--style1"}
+</div>
+</div>
+
+## Présentation
+
+IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécification HL7 FHIR. Il implémente les ressources FHIR suivantes :
+
+<div class="wysiwyg" markdown="1">
+* Practitioner,
+* PractionerRole-Exercice professionnel,
+* PractionerRole-Situation d’exercice,
+* Organization,
+* PractitionerRole-Ameli,
+* HealthcareService-Activite de soins,
+* Device et HealthcareService-Equipement Social.
+</div>
+
+
+![](./assets/img/home-schema.png)
+
+## Exemples de cas d'utilisation
+
+
+<div class="row"><div class="col-sm" markdown="1">
+
+### Pour un éditeur de solutions numériques en santé :
+
+<div class="wysiwyg"  markdown="1">
+* Annuaire de professionnels (focus médecins) lié à un portail patient pour prendre des rendez-vous.
+* Focus sur les médecins mais intérêt également pour les autres professionnels de santé.
+* Besoin de récupérer les médecins, les lieux d'exercice, le savoir-faire / spécialité de chaque professionnel.
+* Besoin de monter de manière complète une base (FULL). Puis de mettre à jour unitairement les informations pour un professionnel donné et/ou une spécialité donnée.
+* Besoin de récupérer en one-shot une ressource depuis le service pour récupérer toutes les informations, si les données ne sont pas présentes localement dans leur base.
+</div>
+
+</div><div class="col-sm" markdown="1">
+
+### Pour un hôpital :
+
+<div class="wysiwyg" markdown="1">
+* Construire une base de données from scratch : besoin d’établir la correspondance et de récupérer les données sur l’ensemble des médecins libéraux de sa région (ici, différentes combinaisons de filtrage possibles). => Utilisation du service FULL avec filtres sur la profession médecin et sur la région.
+* Mettre à jour une base de données existante : besoin de mettre à jour les données des professionnels de façon hebdomadaire. => Utilisation du service DELTA toutes les semaines.
+</div>
+
+</div><div class="col-sm" markdown="1">
+
+### Pour un coordinateur de parcours de soin :
+
+<div class="wysiwyg" markdown="1">
+* Besoin de trouver les coordonnées de contact d'un médecin spécialiste  pour adresser en urgence un patient. => Utilisation du service d’appel unitaire pour retrouver les informations de ce médecin.
+* Le médecin en question n'étant pas joignable (en vacances par exemple), besoin de trouver d'autres médecins de cette spécialité sur le territoire pour pouvoir adresser le patient. => Utilisation du service full avec filtres sur la spécialité et le département (la région si nécessaire).
+</div>
+
+
+</div></div>
+
+
+
+&nbsp;
 
 ## Aller plus loin
 

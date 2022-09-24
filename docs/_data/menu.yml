@@ -6,25 +6,30 @@ header:
   - title: Documentation
     subfolderitems:
       - page: Guides
-        url: /pages/hub.html
+        url: /pages/documentation/starters/postman-starter.html
         subfolderitems:
           - page: Postman
             url: /pages/documentation/starters/postman-starter.html
             title: Démarrer avec Postman
-            next-url: /pages/documentation/starters/java-starter.html
-            next-title: Démarrer en JAVA
+            next-url: /pages/documentation/resources/search-params.html
+            next-title: Utiliser les paramètres de recherche
           - page: Java
             url: /pages/documentation/starters/java-starter.html
             title: Démarrer en JAVA
-            next-url: /pages/documentation/starters/php-starter.html
-            next-title: Démarrer en PHP
+            next-url: /pages/documentation/resources/search-params.html
+            next-title: Utiliser les paramètres de recherche
           - page: PHP
             url: /pages/documentation/starters/php-starter.html
             title: Démarrer en PHP
             next-url: /pages/documentation/resources/search-params.html
             next-title: Utiliser les paramètres de recherche
+          - page: C#
+            url: /pages/documentation/starters/dotnet-starter.html
+            title: Démarrer en C#
+            next-url: /pages/documentation/resources/search-params.html
+            next-title: Utiliser les paramètres de recherche
       - page: Ressources FHIR
-        url: /pages/hub.html
+        url: /pages/documentation/resources/search-params.html
         subfolderitems:
           - page: Paramètres de recherche (Search Parameters)
             url: /pages/documentation/resources/search-params.html
@@ -57,7 +62,7 @@ header:
             next-url: /pages/documentation/advanced/link.html
             next-title: Liaison entre plusieurs ressources
       - page: Techniques avancées
-        url: /pages/hub.html
+        url: /pages/documentation/advanced/link.html
         subfolderitems:
           - page: Liaison entre plusieurs ressources
             url: /pages/documentation/advanced/link.html

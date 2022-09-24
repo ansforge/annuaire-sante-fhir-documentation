@@ -40,6 +40,20 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var bundle = client.Search<Organization>();
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -99,7 +113,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("_lastUpdated=ge2022-08-05T14:51:04")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} lastUpdate={organization.Meta.LastUpdated}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -159,7 +189,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("identifier=001604103000,01603998400,001604252500")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -218,7 +264,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("identifier=http://finess.sante.gouv.fr|010000602,http://finess.sante.gouv.fr|010000628")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -314,7 +376,28 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("type=http://interopsante.org/fhir/CodeSystem/fr-v2-3307|GEOGRAPHICAL-ENTITY")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    var types = "";
+    foreach(var type in organization.Type)
+    {
+        types = types + " - " +type.Coding[0].Code;
+    }
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} type={types}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -379,7 +462,28 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5|82.19Z")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    var types = "";
+    foreach (var type in organization.Type)
+    {
+        types = types + " - " + type.Coding[0].Code;
+    }
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} type={types}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -445,7 +549,28 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite|SA29")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    var types = "";
+    foreach (var type in organization.Type)
+    {
+        types = types + " - " + type.Coding[0].Code;
+    }
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} activity={types}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -505,7 +630,23 @@ foreach($organizations->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("name:contains=imagerie").Add("name:contains", "centre")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -565,7 +706,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+  .Where("address-postalcode=13290,13290")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: name={organization.Name} | zipCode={organization.Address[0].PostalCode}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -575,4 +732,8 @@ L'API devrait vous retourner une réponse de ce genre :
 Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
+
+
+{% include_relative _source-ref.md %}
+
 

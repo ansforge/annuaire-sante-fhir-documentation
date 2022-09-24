@@ -45,6 +45,19 @@ foreach($devices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+var client = FhirTestUtils.CreateClient();
+
+var bundle = client.Search<Device>();
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -104,6 +117,26 @@ foreach($devices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("_lastUpdated=ge2022-08-07T14:51:04")
+  .LimitTo(50);
+var bundle = client.Search<Device>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
+}
+
+{% endhighlight %}
+</div>
+
 </div>
 
 L'API devrait vous retourner une réponse de ce genre :
@@ -161,6 +194,26 @@ foreach($devices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("number-authorization-arhgos=93-93-67204")
+  .LimitTo(50);
+var bundle = client.Search<Device>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
+}
+
+{% endhighlight %}
+</div>
+
 </div>
 
 
@@ -222,6 +275,24 @@ foreach($devices->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("type=https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd|05602")
+  .LimitTo(50);
+var bundle = client.Search<Device>(q);
+foreach (var be in bundle.Entry)
+{
+    // print Device data
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value}  | type={device.Type.Coding[0].Code}");
+}
+{% endhighlight %}
+</div>
+
 </div>
 
 L'API devrait vous retourner une réponse de ce genre :
@@ -278,6 +349,24 @@ foreach($devices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("identifier=32-31-1156,93-93-4364")
+  .LimitTo(50);
+var bundle = client.Search<Device>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value}");
+}
+{% endhighlight %}
+</div>
+
 </div>
 
 L'API devrait vous retourner une réponse de ce genre :
@@ -333,6 +422,24 @@ foreach($devices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("status=active")
+  .LimitTo(50);
+var bundle = client.Search<Device>(q);
+foreach (var be in bundle.Entry)
+{
+    // print Device data
+    var device = be.Resource as Device;
+    Console.WriteLine($"Device found: id={device.IdElement.Value}  | status={device.Status.Value}");
+}
+{% endhighlight %}
+</div>
+
 </div>
 
 L'API devrait vous retourner une réponse de ce genre :
@@ -343,7 +450,11 @@ Device found: id=device-389 | status=Active
 Device found: id=device-146 | status=Active
 ```
 
-<br>
+&nbsp;
+
+
+
+{% include_relative _source-ref.md %}
 
 
 

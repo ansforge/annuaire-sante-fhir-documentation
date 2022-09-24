@@ -52,6 +52,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("name=Renard")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -108,7 +125,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("name:contains=EURL")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -163,7 +196,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("name:exact=Gautier EURL")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -211,7 +260,7 @@ logger.info("Organization found: id={} name={}", organization.getIdElement().get
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?identifier=01604103000');
+$response = $client->request('GET', '/fhir/v1/Organization?identifier=org-org-148');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -222,7 +271,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("identifier=org-org-148")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -236,7 +301,19 @@ Organization found: id=org-148 name=Renard et Renard
 
 ## Paramètres de type date
 
-La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète
+La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
+
+Quelques exemples: 
+
+<div class="wysiwyg" markdown="1">
+* _lastUpdated=gt2020 : après 2020
+* _lastUpdated=ge2020 : 2020 et après (2020 inclus)
+* _lastUpdated=lt2022-12-15 : avant le 15 décembre 2022 exclus
+* _lastUpdated=lt2022-12-15T15:00:00 : avant le 15 décembre 2022 15h (GMT)
+* _lastUpdated=eq2021 : durant l'année 2021
+</div>
+
+&nbsp;
 
 ### Recherche par date
 
@@ -280,7 +357,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("_lastUpdated=ge2022-08-05T14:51:04")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} lastUpdate={organization.Meta.LastUpdated.Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -345,7 +438,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("name:contains=Renard").Add("name:contains", "et")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} | name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -402,7 +511,23 @@ foreach($organizations->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+// create the name search parameter :
+var q = new SearchParams()
+  .Where("name:contains=Renard,et")
+  .LimitTo(50);
+var bundle = client.Search<Organization>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var organization = be.Resource as Organization;
+    Console.WriteLine($"Organization found: id={organization.IdElement.Value} | name={organization.Name}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -414,5 +539,10 @@ Organization found: id=org-386 | name=Lopez et Lopez
 Organization found: id=org-145 | name=Maillard et Maillard
 ```
 
+&nbsp;
 
 NOTE | Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : [https://hl7.org/FHIR/search.htm](https://hl7.org/FHIR/search.html)
+
+
+{% include_relative _source-ref.md %}
+

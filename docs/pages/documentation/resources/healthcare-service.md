@@ -45,7 +45,20 @@ foreach($healthcareServices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var bundle = client.Search<HealthcareService>();
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -101,7 +114,23 @@ foreach($healthcareServices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var q = new SearchParams()
+   .Where("identifier=52-52-49883")
+  .LimitTo(50);
+var bundle = client.Search<HealthcareService>(q);
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -166,6 +195,25 @@ foreach($healthcareServices->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07")
+  .LimitTo(50);
+var bundle = client.Search<HealthcareService>(q);
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    var healthcareServiceCoding = healthcareService.Characteristic[0].Coding[0];
+
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value} | characteristic={healthcareServiceCoding.System}|{healthcareServiceCoding.Code}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -227,6 +275,25 @@ foreach($healthcareServices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("characteristic=https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite|11")
+  .LimitTo(50);
+var bundle = client.Search<HealthcareService>(q);
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    var healthcareServiceCoding = healthcareService.Characteristic[0].Coding[0];
+
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value} | characteristic={healthcareServiceCoding.System}|{healthcareServiceCoding.Code}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -280,6 +347,23 @@ foreach($healthcareServices->getEntry() as $entry){
     $healthcareService = $entry->getResource();
 
     echo("Healthcare Service found: id=".$healthcareService->getId()." | status=". $healthcareService->getActive() ."\n");
+}
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("active=true")
+  .LimitTo(50);
+var bundle = client.Search<HealthcareService>(q);
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value} | status={healthcareService.Active.Value}");
 }
 {% endhighlight %}
 </div>
@@ -342,6 +426,23 @@ foreach($healthcareServices->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+   .Where("_lastUpdated=ge2022-08-18")
+  .LimitTo(50);
+var bundle = client.Search<HealthcareService>(q);
+foreach (var be in bundle.Entry)
+{
+    // print HealthcareService data:
+    var healthcareService = be.Resource as HealthcareService;
+    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value} lastUpdate={healthcareService.Meta.LastUpdated.Value}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -353,3 +454,7 @@ HealthcarService found: id=004-1014038 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
 HealthcarService found: id=004-1014044 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
 HealthcarService found: id=004-1014050 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
 ```
+
+
+{% include_relative _source-ref.md %}
+

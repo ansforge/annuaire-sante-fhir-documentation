@@ -79,7 +79,7 @@ public class HealthCareServiceTest {
     }
 
     /**
-     * Search healthcare services "Chirurgie ambulatoire"
+     * Search healthcare services of characteristic : "Chirurgie ambulatoire"
      */
     @Test
     public void searchByCharacteristic1() {
@@ -132,6 +132,9 @@ public class HealthCareServiceTest {
         }
     }
 
+    /**
+    * Search by lastUpdate
+    */
     @Test
     public void searchModifiedFrom() {
         // create the client:

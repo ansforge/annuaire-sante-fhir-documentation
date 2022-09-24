@@ -45,7 +45,20 @@ foreach($practitionerRoles->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var bundle = client.Search<PractitionerRole>();
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} code={practitionerRole.Code[0].Coding[0].Code}");
+}
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -90,7 +103,15 @@ $practitionerRole = $parser->parse((string) $response->getBody());
 echo("Practitioner Role found: id=".$practitionerRole->getId()."\n");
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
 
+var practitionerRole = client.Read<PractitionerRole>("PractitionerRole/005-5087586-6923328");
+Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value}");
+{% endhighlight %}
+</div>
 
 </div>
 
@@ -193,6 +214,36 @@ foreach($practitionerRoles->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("role=40").Add("role","E")
+  .LimitTo(50);
+
+var bundle = client.Search<PractitionerRole>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+
+    var roleCodes = "";
+    foreach(var c in practitionerRole.Code)
+    {
+        var codings = "";
+        foreach(var code in c.Coding)
+        {
+            codings = codings + code.System + ":" + code.Code + "|";
+        }
+        roleCodes = roleCodes + " - " + codings;
+    }
+
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} code={roleCodes}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -273,6 +324,48 @@ foreach($practitionerRoles->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+
+var q = new SearchParams()
+  .Where("role=40").Add("specialty", "SCD01")
+  .LimitTo(50);
+
+var bundle = client.Search<PractitionerRole>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+
+    var roleCodes = "";
+    // concat roles
+    foreach(var c in practitionerRole.Code)
+    {
+        var codings = "";
+        foreach(var code in c.Coding)
+        {
+            codings = codings + code.System + ":" + code.Code + "|";
+        }
+        roleCodes = roleCodes + " - " + codings;
+    }
+
+    // concat specialty
+    foreach (var c in practitionerRole.Specialty)
+    {
+        var codings = "";
+        foreach (var code in c.Coding)
+        {
+            codings = codings + code.System + ":" + code.Code + "|";
+        }
+        roleCodes = roleCodes + " - " + codings;
+    }
+
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} code={roleCodes}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -328,6 +421,22 @@ foreach($practitionerRoles->getEntry() as $entry){
     $practitionerRole = $entry->getResource();
 
     echo("Practitioner Role found: id=".$practitionerRole->getId()."\n");
+}
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+var q = new SearchParams()
+  .Where("type-smartcard=CPS")
+  .LimitTo(50);
+var bundle = client.Search<PractitionerRole>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value}");
 }
 {% endhighlight %}
 </div>
@@ -387,6 +496,22 @@ foreach($practitionerRoles->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+var q = new SearchParams()
+  .Where("practitioner=003-138020")
+  .LimitTo(50);
+var bundle = client.Search<PractitionerRole>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} practitioner={practitionerRole.Practitioner.Reference}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -443,6 +568,22 @@ foreach($practitionerRoles->getEntry() as $entry){
 
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="C#">
+{% highlight csharp %}
+// create the client:
+var client = FhirTestUtils.CreateClient();
+var q = new SearchParams()
+  .Where("active=true")
+  .LimitTo(50);
+var bundle = client.Search<PractitionerRole>(q);
+foreach (var be in bundle.Entry)
+{
+    // print ids:
+    var practitionerRole = be.Resource as PractitionerRole;
+    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} active={practitionerRole.Active.Value}");
+}
+{% endhighlight %}
+</div>
 
 
 </div>
@@ -454,3 +595,7 @@ Practitioner Role found: id=prr-prarole-946 active=true
 Practitioner Role found: id=prr-prarole-256 active=true
 Practitioner Role found: id=prr-prarole-899 active=true
 ```
+
+
+{% include_relative _source-ref.md %}
+
