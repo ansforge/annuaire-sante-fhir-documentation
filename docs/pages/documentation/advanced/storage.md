@@ -11,7 +11,7 @@ Beaucoup d'autres techniques existent.
 
 ### Fhir to Fhir
 
-Dans le mode de stockage Fhir to Fhir, vous stockez la donnée tel que vous la recevez au format FHIR. 
+Dans le mode de stockage Fhir to Fhir, vous stockez la donnée telle que vous la recevez au format FHIR. 
 
 Comme le format est du json (ou xml), vous devrez utiliser un système qui supporte le stockage de ce format de données comme par exemple mongodb, elasticsearch...
 Il est aussi tout à fait possible d'utiliser un serveur FHIR du marché.
@@ -31,8 +31,8 @@ Avantages:
 Inconvénients:
 
 <div class="wysiwyg" markdown="1">
-* Controle d'intégrité 
-  * Le stockage en objet json nécéssite en générale une surcouche logicielle pour gérer l'intégrité
+* Contrôle d'intégrité 
+  * Le stockage en objet json nécessite en général une surcouche logicielle pour gérer l'intégrité
 * Donnée dénormalisée
   * Le format fhir est de base dénormalisé notamment sur les objets profonds
 </div>
@@ -46,14 +46,14 @@ Dans le mode de stockage Fhir to Sql, vous allez convertir les données fhir en 
 Comme les données Fhir sont profondes et proposent des cardinalités complexes, 
 vous allez avoir plusieurs tables relationnelles pour une seule ressource FHIR. 
 
-Representer le format FHIR en un schéma relationnel est complexe et va entrainer de nombreuses relations.
+Représenter le format FHIR en un schéma relationnel est complexe et va entrainer de nombreuses relations.
 
-**Si vos besoins ne nécéssitent pas d'avoir un schéma relationnel fhir, il est alors préférable de créer un schéma propre à vos besoins.**
+**Si vos besoins ne nécessitent pas d'avoir un schéma relationnel fhir, il est alors préférable de créer un schéma propre à vos besoins.**
 
 
-NOTE | Certaines implémentations sont basés sur le pattern [EAV](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model) dont nous ne parlerons pas ici. 
+NOTE | Certaines implémentations sont basées sur le pattern [EAV](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model) dont nous ne parlerons pas ici. 
 
-Imaginons par exemple que vous ne souhaitiez récupérer que les id rpps des Practitioner ainsi leurs qualification, vous pourriez avoir un schéma de type: 
+Imaginons par exemple que vous ne souhaitiez récupérer que les id rpps des Practitioner ainsi que leurs qualifications, vous pourriez avoir un schéma de type: 
 
 ![](simple-practitioner-specialty.png)
 

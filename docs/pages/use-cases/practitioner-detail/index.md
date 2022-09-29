@@ -43,7 +43,7 @@ Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter
 Pour l'exemple, nous allons rechercher un practitioner role qui a un numéro RPPS : 10000001111
 
 Effectuer une recherche FHIR par identifier. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous 
-cherchons par RPPS, si il y a un résultat, il sera unique. 
+cherchons par RPPS, s'il y a un résultat, il sera unique. 
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -93,9 +93,9 @@ Professionnel 10000001111:
 
 &nbsp;
 
-### Récupérer les PractitionerRole du Practitioner précédement trouvé
+### Récupérer les PractitionerRole du Practitioner précédemment trouvé
 
-Pour aller plus loins, nous allons aller chercher les exercices professionnels de ce practitioner pour obtenir plus d'informations. 
+Pour aller plus loin, nous allons chercher les exercices professionnels de ce practitioner pour obtenir plus d'informations. 
 
 Nous faisons donc une requête sur la ressource PractitionerRole en précisant de trouver les PractitionerRole qui sont liés à ce Practitioner : 
 
@@ -115,7 +115,7 @@ var practitionerRoles = practitionerRoleBundle.getEntry().stream().map(pre -> pr
 </div>
 
 
-Le point important ici est de mettre la clause where sur le paramètre practitioner en spécifiant l'id du Practitioner précédement trouvé. 
+Le point important ici est de mettre la clause where sur le paramètre practitioner en spécifiant l'id du Practitioner précédemment trouvé. 
 
 Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à ce Practitioner : 
 
@@ -134,7 +134,7 @@ Exercices:
 
 Dans cette étape, nous allons récupérer les Organization rattachées aux Exercices professionels. 
 
-Pour ce faire nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Organization attachées dans  une même requête. 
+Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Organization attachées dans une même requête. 
 Cela se fait par le biais du paramètre _include :
 
 
@@ -154,8 +154,8 @@ var organizations = practitionerRolesAndOrganizations.stream().filter(pre -> pre
 </div>
 </div>
 
-Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Organization. Votre programme devra lui même lier les PractitionerRole aux Organization grâce au champs "PractitionerRole.organization" et "Organization.id".
-Dans l'exemple ci-dessous on voit par exemple que le PractitionerRole est lié à la ressource Organization qui à l'id  `"organization": {"reference": "Organization/org-6922"}` et cet Organization est une autre entrée dans le Bundle 
+Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Organization. Votre programme devra lui-même lier les PractitionerRole aux Organization grâce aux champs "PractitionerRole.organization" et "Organization.id".
+Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est lié à la ressource Organization qui à l'id  `"organization": {"reference": "Organization/org-6922"}` et cette Organization est une autre entrée dans le Bundle 
 qui a pour champs 'id' org-6922.
 
 ```json
@@ -188,11 +188,11 @@ qui a pour champs 'id' org-6922.
 ```
 &nbsp;
 
-### Aller plus loins
+### Aller plus loin
 
 #### Récupération par lots
 
-Vous pouvez tout à fait imaginer récupérer des Practitioner complets par lot. Cela nécéssitera cependant à minima 2 requêtes.
+Vous pouvez tout à fait imaginer récupérer des Practitioner complets par lot. Cela nécessitera cependant à minima 2 requêtes.
 
 La première requête va vous premettre de trouver les Practitioner, la seconde vous permettra de chercher des informations complémentaires dans des PractitionerRole ou Organization. 
 
