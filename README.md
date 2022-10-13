@@ -8,10 +8,10 @@ Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose 
 > - 6 endpoints ([Practitioner](https://www.hl7.org/fhir/practitioner.html), [PractitionerRole](https://hl7.org/fhir/practitionerrole.html), [Organization](https://hl7.org/fhir/organization.html), [Healthcareservice](https://hl7.org/fhir/Healthcareservice.html), [Device](https://hl7.org/fhir/device.html) et [Metadata](https://www.hl7.org/fhir/capabilitystatement.html))
 
 ## Documentation et Wiki
-Documentation : https://ansforge.github.io/annuaire-sante-fhir-documentation/
-)
-Démonstration : https://portail.openfhir.annuaire.sante.fr/
+> - Documentation : https://ansforge.github.io/annuaire-sante-fhir-documentation/
 
-Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
+> - Démonstration : https://portail.openfhir.annuaire.sante.fr/
 
-Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur/
+> - Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
+
+> - Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur/
