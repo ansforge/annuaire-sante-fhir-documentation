@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AS-Organization" />
   <meta>
-    <lastUpdated value="2022-10-28T09:41:33.609065+00:00" />
+    <lastUpdated value="2022-07-29T12:28:18.6354657+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization" />
   <version value="0.2" />
@@ -29,7 +29,7 @@
     </element>
     <element id="Organization.meta.profile">
       <path value="Organization.meta.profile" />
-      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Organization-AS" />
     </element>
     <element id="Organization.meta.security">
       <path value="Organization.meta.security" />
@@ -83,7 +83,6 @@
       <path value="Organization.extension" />
       <sliceName value="digitalCertificate" />
       <min value="0" />
-      <max value="0" />
       <type>
         <code value="Extension" />
         <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
@@ -173,9 +172,6 @@
       <path value="Organization.type" />
       <sliceName value="secteurActiviteRASS" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OrganizationType" />
-        </extension>
         <strength value="required" />
         <description value="Un secteur d'activité regroupe les établissements partageant la même activité de santé." />
       </binding>
@@ -184,9 +180,6 @@
       <path value="Organization.type" />
       <sliceName value="categorieEtablissementRASS" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OrganizationType" />
-        </extension>
         <strength value="required" />
         <description value="La catégorie d'établissement est le cadre réglementaire dans lequel s'exerce l'activité de l'entité géographique" />
       </binding>
@@ -196,9 +189,6 @@
       <sliceName value="activiteINSEE" />
       <comment value="Toute entité juridique et chacun de ses établissements (EG) se voit attribuer par l'Insee, lors de son inscription au répertoire SIRENE, un code caractérisant son activité principale par référence à la nomenclature d'activités française (NAF rév. 2).&#xD;&#xA;Plus précisément, on distingue le code APET pour les EG." />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OrganizationType" />
-        </extension>
         <strength value="required" />
         <description value="Sous-classes de la Nomenclature d'Activités Française - INSEE" />
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J99-InseeNAFrav2Niveau5-RASS/FHIR/JDV-J99-InseeNAFrav2Niveau5-RASS" />
@@ -212,9 +202,6 @@
       <path value="Organization.type" />
       <sliceName value="statutJuridiqueINSEE" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OrganizationType" />
-        </extension>
         <strength value="required" />
         <description value="Statut juridique FINESS qui caracterise la situation juridique de la personne morale" />
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J100-FinessStatutJuridique-RASS/FHIR/JDV-J100-FinessStatutJuridique-RASS" />
@@ -228,9 +215,6 @@
       <path value="Organization.type" />
       <sliceName value="SPH" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OrganizationType" />
-        </extension>
         <strength value="required" />
         <description value="Modalités de participation au service public hospitalier" />
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J162-ESPIC-RASS/FHIR/JDV-J162-ESPIC-RASS" />

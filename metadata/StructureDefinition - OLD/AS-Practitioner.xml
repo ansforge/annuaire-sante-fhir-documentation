@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AS-Practitioner" />
   <meta>
-    <lastUpdated value="2022-10-28T09:46:26.2219259+00:00" />
+    <lastUpdated value="2022-07-26T16:54:58.7487389+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner" />
   <version value="0.2" />
@@ -31,14 +31,6 @@
     <element id="Practitioner.meta.profile">
       <path value="Practitioner.meta.profile" />
       <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner" />
-    </element>
-    <element id="Practitioner.meta.security">
-      <path value="Practitioner.meta.security" />
-      <max value="0" />
-    </element>
-    <element id="Practitioner.meta.tag">
-      <path value="Practitioner.meta.tag" />
-      <max value="0" />
     </element>
     <element id="Practitioner.implicitRules">
       <path value="Practitioner.implicitRules" />
@@ -143,12 +135,6 @@
       </slicing>
       <min value="0" />
     </element>
-    <element id="Practitioner.extension:mailboxMSS.extension:description">
-      <path value="Practitioner.extension.extension" />
-      <sliceName value="description" />
-      <min value="0" />
-      <max value="0" />
-    </element>
     <element id="Practitioner.extension:mailboxMSS.extension:responsible">
       <path value="Practitioner.extension.extension" />
       <sliceName value="responsible" />
@@ -185,12 +171,6 @@
       <comment value="Les code ADELI, RPPS et IDNPS proviennent du system  http://interopsante.org/fhir/CodeSystem/fr-v2-0203 ; Les code 1, 3, 4, 5, 6 proviennent du system : https://mos.esante.gouv.fr/NOS/TRE_G08-TypeIdentifiantPersonne/FHIR/TRE-G08-TypeIdentifiantPersonne" />
       <min value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="IdentifierType" />
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true" />
-        </extension>
         <strength value="extensible" />
         <description value="ValueSet défini par Interop’Santé « fr-practioner-identifier-type" />
         <valueSet value="http://interopsante.org/fhir/ValueSet/fr-practioner-identifier-type" />

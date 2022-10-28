@@ -16,14 +16,6 @@
     <element id="PractitionerRole.meta">
       <path value="PractitionerRole.meta" />
     </element>
-    <element id="PractitionerRole.meta.source">
-      <path value="PractitionerRole.meta.source" />
-      <fixedUri value="https://annuaire.sante.fr" />
-    </element>
-    <element id="PractitionerRole.meta.profile">
-      <path value="PractitionerRole.meta.profile" />
-      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole" />
-    </element>
     <element id="PractitionerRole.meta.security">
       <path value="PractitionerRole.meta.security" />
       <max value="0" />
@@ -245,12 +237,6 @@
         <rules value="open" />
       </slicing>
       <min value="0" />
-    </element>
-    <element id="PractitionerRole.extension:mailboxMSS.extension:description">
-      <path value="PractitionerRole.extension.extension" />
-      <sliceName value="description" />
-      <min value="0" />
-      <max value="0" />
     </element>
     <element id="PractitionerRole.extension:mailboxMSS.extension:responsible">
       <path value="PractitionerRole.extension.extension" />

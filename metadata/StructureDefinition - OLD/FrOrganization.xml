@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://interopsante.org/fhir/StructureDefinition/FrOrganization" />
+  <version value="1.0" />
+  <name value="FrOrganization" />
+  <status value="active" />
+  <date value="2021-05-17" />
+  <publisher value="InteropSanté" />
+  <contact>
+    <name value="François Macary/Isabelle Gibaud" />
+    <telecom>
+      <system value="email" />
+      <value value="francois.macary@phast.fr" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="New Profile of the Organization resource for France | New Profil de la ressource Organization pour la France&#xD;&#xA;This profile specifies the types of identifiers for organizations in France, and adds a number of French extensions. | Ce profil spécifie les types d'identifiants pour l'organisation en France, et ajoute des extensions françaises." />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Organization" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Organization" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Organization.extension">
+      <path value="Organization.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Organization.extension:shortName">
+      <path value="Organization.extension" />
+      <sliceName value="shortName" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrOrganizationShortName" />
+      </type>
+    </element>
+    <element id="Organization.extension:description">
+      <path value="Organization.extension" />
+      <sliceName value="description" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrOrganizationDescription" />
+      </type>
+    </element>
+    <element id="Organization.extension:usePeriod">
+      <path value="Organization.extension" />
+      <sliceName value="usePeriod" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/organization-period" />
+      </type>
+    </element>
+    <element id="Organization.identifier.use">
+      <path value="Organization.identifier.use" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use" />
+      </binding>
+    </element>
+    <element id="Organization.identifier.type">
+      <path value="Organization.identifier.type" />
+      <min value="1" />
+      <binding>
+        <strength value="extensible" />
+        <valueSet value="http://interopsante.org/fhir/ValueSet/fr-organization-identifier-type" />
+      </binding>
+    </element>
+    <element id="Organization.identifier.system">
+      <path value="Organization.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Organization.identifier.value">
+      <path value="Organization.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Organization.type">
+      <path value="Organization.type" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="coding.system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Organization.type:organizationType">
+      <path value="Organization.type" />
+      <sliceName value="organizationType" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://interopsante.org/fhir/ValueSet/fr-organization-type" />
+      </binding>
+    </element>
+    <element id="Organization.type:organizationType.coding">
+      <path value="Organization.type.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Organization.type:organizationType.coding.system">
+      <path value="Organization.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://interopsante.org/fhir/CodeSystem/fr-v2-3307" />
+      <example>
+        <label value="CodeSystem des types d'organisations" />
+        <valueUri value="http://interopsante.org/fhir/CodeSystem/fr-v2-3307" />
+      </example>
+    </element>
+    <element id="Organization.type:secteurActiviteRASS">
+      <path value="Organization.type" />
+      <sliceName value="secteurActiviteRASS" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Secteurs d'activité des établissements avec la même activité dans le RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J101-SecteurActivite-RASS/FHIR/JDV-J101-SecteurActivite-RASS" />
+      </binding>
+    </element>
+    <element id="Organization.type:secteurActiviteRASS.coding">
+      <path value="Organization.type.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Organization.type:secteurActiviteRASS.coding.system">
+      <path value="Organization.type.coding.system" />
+      <short value="Secteur d'activité" />
+      <definition value="Secteur d'activité" />
+      <min value="1" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite" />
+      <example>
+        <label value="CodeSystem ASIP des types d'activité de structures" />
+        <valueUri value="https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite" />
+      </example>
+    </element>
+    <element id="Organization.type:categorieEtablissementRASS">
+      <path value="Organization.type" />
+      <sliceName value="categorieEtablissementRASS" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Catégorie d'établissement du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J129-CategorieEtablissement-RASS/FHIR/JDV-J129-CategorieEtablissement-RASS" />
+      </binding>
+    </element>
+    <element id="Organization.type:categorieEtablissementRASS.coding">
+      <path value="Organization.type.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Organization.type:categorieEtablissementRASS.coding.system">
+      <path value="Organization.type.coding.system" />
+      <short value="Catégorie d'établissements" />
+      <definition value="Catégorie d'établissements" />
+      <min value="1" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement" />
+    </element>
+    <element id="Organization.telecom">
+      <path value="Organization.telecom" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrContactPoint" />
+      </type>
+    </element>
+    <element id="Organization.address">
+      <path value="Organization.address" />
+      <type>
+        <code value="Address" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrAddress" />
+      </type>
+    </element>
+    <element id="Organization.partOf">
+      <path value="Organization.partOf" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://interopsante.org/fhir/StructureDefinition/FrOrganization" />
+      </type>
+    </element>
+    <element id="Organization.partOf.type">
+      <path value="Organization.partOf.type" />
+      <binding>
+        <strength value="extensible" />
+        <valueSet value="http://interopsante.org/fhir/ValueSet/fr-organization-type" />
+      </binding>
+    </element>
+    <element id="Organization.contact.telecom">
+      <path value="Organization.contact.telecom" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrContactPoint" />
+      </type>
+    </element>
+    <element id="Organization.contact.address">
+      <path value="Organization.contact.address" />
+      <type>
+        <code value="Address" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrAddress" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
