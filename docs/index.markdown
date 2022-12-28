@@ -23,12 +23,11 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 
 <div class="wysiwyg" markdown="1">
 * Practitioner,
-* PractionerRole-Exercice professionnel,
-* PractionerRole-Situation d’exercice,
+* PractionerRole,
 * Organization,
-* PractitionerRole-Ameli,
 * HealthcareService-Activite de soins,
-* Device et HealthcareService-Equipement Social.
+* HealthcareService-Equipement Social,
+* Device.
 </div>
 
 
