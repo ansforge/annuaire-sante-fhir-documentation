@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Extraction pour les couloirs du SEGUR"
+title: "Extraction spécifique FINESS et RPPSRANG pour le Ségur"
 subTitle: Cas d'utilisation
 ---
  
@@ -20,7 +20,7 @@ Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attend
 
 Liste des codes catégorie: 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462
 
-Pour information, ces codes font partis de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
+Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
@@ -82,7 +82,7 @@ do {
 
 </div>
 
-Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retourné par la requête qui peuvent être récupérés sur les pages suivantes.
+Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
 ## Obtenir les établissements sanitaires (hôpitaux), hors établissements médico-sociaux
@@ -96,7 +96,7 @@ Afin de récupérer les établissements sanitaires, nous devons interroger l'end
 <br/>
 La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
-Liste des sécteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
+Liste des secteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
 
 
 <div class="code-sample">
