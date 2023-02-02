@@ -82,7 +82,7 @@ header:
         title: Fiche du professionnel de santé
       - page: Acteurs des couloirs du Ségur
         url: /pages/use-cases/segur/index
-        title: Récupération des acteurs des couloirs du Ségur du Numérique en Santé
+        title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
   - title: Démonstrateur FHIR
     url: https://portail.openfhir.annuaire.sante.fr/
     external: true
