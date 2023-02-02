@@ -7,7 +7,9 @@ subTitle: Cas d'utilisation
 Le Ségur du numérique vise à développer le partage des données de santé entre les différents acteurs de la prise en charge et les patients, par le financement d’une mise à jour logicielle prise en charge par l’Etat pour favoriser l’augmentation des usages numériques dans les établissements. 
 
 Les établissements de santé peuvent être accompagnés par les acteurs régionaux (ARS, GRADeS) dans leur déploiement, le pilotage de services socles nationaux et leur mise en conformité réglementaire.
-Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
+
+Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. 
+Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
 ## Le couloir Médico-Social
 
@@ -307,6 +309,8 @@ Total filtered - 523
 
 ## Le couloir Radiologie (A venir)
 <br/>
+ 
 ## Le couloir Médecine de ville (A venir)
 <br/>
+ 
 ## Le couloir Pharmacie (A venir)
