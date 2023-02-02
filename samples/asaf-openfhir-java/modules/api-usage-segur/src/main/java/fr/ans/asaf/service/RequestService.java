@@ -1,7 +1,6 @@
 package fr.ans.asaf.service;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.model.api.Include;
 import ca.uhn.fhir.rest.client.api.IClientInterceptor;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.client.api.IHttpRequest;
@@ -32,6 +31,8 @@ public class RequestService {
         var logger = new LoggingInterceptor();
         logger.setLogRequestSummary(true);
         logger.setLogResponseBody(false);
+
+        ctx.getRestfulClientFactory().setSocketTimeout(200 * 1000);
 
         client.registerInterceptor(logger);
         client.registerInterceptor(new IClientInterceptor() {
@@ -220,5 +221,275 @@ public class RequestService {
 
         logger.info("Total global - {}", totalElements);
         logger.info("Total Biology with  - {}", goodElements.size());
+    }
+
+    public void radiologyWithMedic() {
+        var client = createClient();
+        var hasNext = true;
+        Bundle orgBundle = null;
+        var totalElements = 0;
+        var goodElements = new ArrayList<>();
+        var treated = 0;
+        var nbRoles = 0;
+
+        // construct radiology facility request
+        try {
+            orgBundle = client.search().forResource(Organization.class)
+                    .where(Organization.TYPE.exactly().codes("SA07", "SA08", "SA09"))
+                    .revInclude(PractitionerRole.INCLUDE_ORGANIZATION)
+                    .returnBundle(Bundle.class).execute();
+
+            totalElements = orgBundle.getTotal();
+        } catch (Exception e) {
+            e.printStackTrace();
+            hasNext = false;
+        }
+
+        logger.info("Total results - {}", orgBundle.getTotal());
+
+        do {
+            var bundleContent = orgBundle.getEntry();
+            var organizationMap = new LinkedHashMap<String, Organization>();
+
+            for (var e : bundleContent) {
+                // store the organization inside a map
+                if(e.getResource() instanceof Organization) {
+                    var org = (Organization) e.getResource();
+                    organizationMap.put(org.getId(), org);
+                    treated++;
+                }
+
+                if(e.getResource() instanceof PractitionerRole) {
+                    var role = (PractitionerRole) e.getResource();
+                    var medic = false;
+                    var radiologist = false;
+
+                    nbRoles++;
+
+                    // check if the Role contains a medic
+                    for(var code : role.getCode()) {
+                        for(var coding : code.getCoding()) {
+                            if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante") &&
+                                    coding.getCode().equals("10")) {
+                                medic = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(medic) {
+                        var specialtyStringList = Arrays.asList("SM28", "SM44", "SM45", "SM55");
+
+                        // if a medic was found, check its specialties to filter only radiologist
+                        for (var code : role.getSpecialty()) {
+                            for (var coding : code.getCoding()) {
+                                logger.info("Specialty Coding {} - {}", coding.getSystem(), coding.getCode());
+                                if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale") &&
+                                        specialtyStringList.contains(coding.getCode())) {
+                                    radiologist = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    // if the Role is right and still practicing, link it to the right Organization
+                    if(radiologist && !role.getPeriod().hasEnd() && role.getOrganization() != null) {
+                        var org = (Organization) role.getOrganization().getResource();
+
+                        if(organizationMap.containsKey(org.getId())) {
+                            organizationMap.get(org.getId()).addContained(role);
+                        }
+                    }
+                }
+            }
+
+            // loop over Organization and keep only those with roles
+            for(var org : organizationMap.values()) {
+                if(!org.getContained().isEmpty()) {
+                    goodElements.add(org);
+                }
+            }
+
+            // check if result has a next page
+            if (orgBundle.getLink("next")!=null) {
+                try {
+                    orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+                } catch (Exception e) {
+                    logger.error("Error getting next page");
+                    e.printStackTrace();
+                    hasNext = false;
+                }
+            } else {
+                hasNext = false;
+            }
+
+            logger.info("Progress treated - {} / {} / {} role(s)", treated, orgBundle.getTotal(), nbRoles);
+        } while (hasNext);
+
+        logger.info("Total organization - {}", totalElements);
+        logger.info("Total radiology  - {}", goodElements.size());
+    }
+
+    public void cityMedicWithoutRadiology() {
+        var client = createClient();
+        var hasNext = true;
+        Bundle orgBundle = null;
+        var totalElements = 0;
+        var goodElements = new ArrayList<>();
+        var treated = 0;
+        var nbRoles = 0;
+
+        // construct radiology facility request
+        try {
+            orgBundle = client.search().forResource(Organization.class)
+                    .where(Organization.TYPE.exactly().codes("SA05", "SA07", "SA08", "SA09", "SA52"))
+                    .revInclude(PractitionerRole.INCLUDE_ORGANIZATION)
+                    .returnBundle(Bundle.class).execute();
+
+            totalElements = orgBundle.getTotal();
+        } catch (Exception e) {
+            e.printStackTrace();
+            hasNext = false;
+        }
+
+        logger.info("Total results - {}", orgBundle.getTotal());
+
+        do {
+            var bundleContent = orgBundle.getEntry();
+            var organizationMap = new LinkedHashMap<String, Organization>();
+
+            for (var e : bundleContent) {
+                // store the organization inside a map
+                if(e.getResource() instanceof Organization) {
+                    var org = (Organization) e.getResource();
+                    organizationMap.put(org.getId(), org);
+                    treated++;
+                }
+
+                if(e.getResource() instanceof PractitionerRole) {
+                    var role = (PractitionerRole) e.getResource();
+                    var medic = false;
+                    var radiologist = false;
+
+                    nbRoles++;
+
+                    // check if the Role contains a medic
+                    for(var code : role.getCode()) {
+                        for(var coding : code.getCoding()) {
+                            if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante") &&
+                                    coding.getCode().equals("10")) {
+                                medic = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(medic) {
+                        var specialtyStringList = Arrays.asList("SM28", "SM44", "SM45", "SM55");
+
+                        // if a medic was found, check its specialties to filter only radiologist
+                        for (var code : role.getSpecialty()) {
+                            for (var coding : code.getCoding()) {
+                                logger.info("Specialty Coding {} - {}", coding.getSystem(), coding.getCode());
+                                if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale") &&
+                                        specialtyStringList.contains(coding.getCode())) {
+                                    radiologist = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    // if the Role is right and still practicing, link it to the right Organization
+                    if(medic && !radiologist && !role.getPeriod().hasEnd() && role.getOrganization() != null) {
+                        var org = (Organization) role.getOrganization().getResource();
+
+                        if(organizationMap.containsKey(org.getId())) {
+                            organizationMap.get(org.getId()).addContained(role);
+                        }
+                    }
+                }
+            }
+
+            // loop over Organization and keep only those with roles
+            for(var org : organizationMap.values()) {
+                if(!org.getContained().isEmpty()) {
+                    goodElements.add(org);
+                }
+            }
+
+            // check if result has a next page
+            if (orgBundle.getLink("next")!=null) {
+                try {
+                    orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+                } catch (Exception e) {
+                    logger.error("Error getting next page");
+                    e.printStackTrace();
+                    hasNext = false;
+                }
+            } else {
+                hasNext = false;
+            }
+
+            logger.info("Progress treated - {} / {} / {} role(s)", treated, orgBundle.getTotal(), nbRoles);
+        } while (hasNext);
+
+        logger.info("Total organization - {}", totalElements);
+        logger.info("Total radiology  - {}", goodElements.size());
+    }
+
+    public void pharmacy() {
+        var client = createClient();
+        var hasNext = true;
+        Bundle orgBundle = null;
+        var totalElements = 0;
+        var treated = 0;
+        var goodElements = new ArrayList<>();
+
+        // construct radiology facility request
+        try {
+            var pharmacyCodesList = Arrays.asList("SA33", "SA38", "SA39");
+            orgBundle = client.search().forResource(Organization.class)
+                    .where(Organization.TYPE.exactly().systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite", pharmacyCodesList))
+                    .returnBundle(Bundle.class).execute();
+
+            totalElements = orgBundle.getTotal();
+        } catch (Exception e) {
+            e.printStackTrace();
+            hasNext = false;
+        }
+
+        logger.info("Total results - {}", totalElements);
+
+        do {
+            var bundleContent = orgBundle.getEntry();
+
+            for (var e : bundleContent) {
+                // store the organization inside a map
+                if(e.getResource() instanceof Organization) {
+                    var org = (Organization) e.getResource();
+                    goodElements.add(org);
+                    treated++;
+                }
+            }
+
+            // check if result has a next page
+            if (orgBundle.getLink("next")!=null) {
+                try {
+                    orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+                } catch (Exception e) {
+                    logger.error("Error getting next page");
+                    e.printStackTrace();
+                    hasNext = false;
+                }
+            } else {
+                hasNext = false;
+            }
+
+            logger.info("Progress treated - {} / {}", treated, totalElements);
+        } while (hasNext);
+
+        logger.info("Total organization - {}", goodElements.size());
     }
 }

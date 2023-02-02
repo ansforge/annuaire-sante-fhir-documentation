@@ -13,7 +13,10 @@ public class SampleFull {
 
         //requestService.getMedicoSociauxFiness();
         //requestService.getHospitals();
-        requestService.getBiologyOrganization();
+        //requestService.getBiologyOrganization();
+        //requestService.radiologyWithMedic();
+        //requestService.cityMedicWithoutRadiology();
+        requestService.pharmacy();
     }
 
 }

@@ -307,10 +307,410 @@ Total filtered - 523
 ```
 <br/>
 
-## Le couloir Radiologie (A venir)
+
+## Obtenir les établissements de radiologie
+
+Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur les types d'établissements : SA07, SA08, SA09
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
+</div>
+
 <br/>
- 
-## Le couloir Médecine de ville (A venir)
+La liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+
+Une fois l'ensemble des données récupérées, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
+Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10), disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante).
+
+Puis les Roles souhaités doivent correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
+
+Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+
+
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %}
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA0 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
+3) Pour chacun des PractitionerRole filtrés, vérifier qu'il y a au moins 1 Spécialité (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
+4) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=SA07%2CSA08%2CSA09&_revinclude=PractitionerRole%3Aorganization"
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="java">
+{% highlight java %}
+var client = createClient();
+var hasNext = true;
+Bundle orgBundle = null;
+var totalElements = 0;
+var goodElements = new ArrayList<>();
+var treated = 0;
+var nbRoles = 0;
+
+// construct radiology facility request
+try {
+orgBundle = client.search().forResource(Organization.class)
+.where(Organization.TYPE.exactly().codes("SA07", "SA08", "SA09"))
+.revInclude(PractitionerRole.INCLUDE_ORGANIZATION)
+.returnBundle(Bundle.class).execute();
+
+    totalElements = orgBundle.getTotal();
+} catch (Exception e) {
+e.printStackTrace();
+hasNext = false;
+}
+
+logger.info("Total results - {}", orgBundle.getTotal());
+
+do {
+var bundleContent = orgBundle.getEntry();
+var organizationMap = new LinkedHashMap<String, Organization>();
+
+    for (var e : bundleContent) {
+        // store the organization inside a map
+        if(e.getResource() instanceof Organization) {
+            var org = (Organization) e.getResource();
+            organizationMap.put(org.getId(), org);
+            treated++;
+        }
+
+        if(e.getResource() instanceof PractitionerRole) {
+            var role = (PractitionerRole) e.getResource();
+            var medic = false;
+            var radiologist = false;
+
+            nbRoles++;
+
+            // check if the Role contains a medic
+            for(var code : role.getCode()) {
+                for(var coding : code.getCoding()) {
+                    if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante") &&
+                            coding.getCode().equals("10")) {
+                        medic = true;
+                        break;
+                    }
+                }
+            }
+
+            if(medic) {
+                var specialtyStringList = Arrays.asList("SM28", "SM44", "SM45", "SM55");
+
+                // if a medic was found, check its specialties to filter only radiologist
+                for (var code : role.getSpecialty()) {
+                    for (var coding : code.getCoding()) {
+                        logger.info("Specialty Coding {} - {}", coding.getSystem(), coding.getCode());
+                        if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale") &&
+                                specialtyStringList.contains(coding.getCode())) {
+                            radiologist = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // if the Role is right and still practicing, link it to the right Organization
+            if(radiologist && !role.getPeriod().hasEnd() && role.getOrganization() != null) {
+                var org = (Organization) role.getOrganization().getResource();
+
+                if(organizationMap.containsKey(org.getId())) {
+                    organizationMap.get(org.getId()).addContained(role);
+                }
+            }
+        }
+    }
+
+    // loop over Organization and keep only those with roles
+    for(var org : organizationMap.values()) {
+        if(!org.getContained().isEmpty()) {
+            goodElements.add(org);
+        }
+    }
+
+    // check if result has a next page
+    if (orgBundle.getLink("next")!=null) {
+        try {
+            orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+        } catch (Exception e) {
+            logger.error("Error getting next page");
+            e.printStackTrace();
+            hasNext = false;
+        }
+    } else {
+        hasNext = false;
+    }
+
+    logger.info("Progress treated - {} / {} / {} role(s)", treated, orgBundle.getTotal(), nbRoles);
+} while (hasNext);
+
+logger.info("Total organization - {}", totalElements);
+logger.info("Total radiology  - {}", goodElements.size());
+{% endhighlight %}
+</div>
+
+</div>
+
+L'exécution de l'exemple de code peut donner un résultat équivalent :
+
+```bash
+Progress treated 466000  / 466040 / 445524 role(s)
+Progress treated 466040  / 466040 / 445562 role(s)
+Total global - 466040
+Total filtered - 0
+```
+
 <br/>
- 
-## Le couloir Pharmacie (A venir)
+
+
+## Obtenir les établissements de médecine de ville
+
+Afin de récupérer les établissements de médecine de ville qui ne sont pas des officines de radiologie, nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur les types d'établissements : SA05, SA07, SA08, SA09, SA52
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
+</div>
+
+<br/>
+La liste des codes des établissements sanitaires (ex: SA05, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+
+Une fois l'ensemble des données récupérées, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
+Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10), disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante).
+
+Puis les Roles souhaités ne doivent pas correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
+
+Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+
+
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %}
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA0 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
+3) Pour chacun des PractitionerRole filtrés, vérifier qu'il ne dispose pas des spécialités de radiologie (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
+4) Pour chacun des PractitionerRole filtrés, vérifier qu'il est toujours en activité
+5) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=SA05%2CSA07%2CSA08%2CSA09%2CSA52&_revinclude=PractitionerRole%3Aorganization"
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="java">
+{% highlight java %}
+var client = createClient();
+var hasNext = true;
+Bundle orgBundle = null;
+var totalElements = 0;
+var goodElements = new ArrayList<>();
+var treated = 0;
+var nbRoles = 0;
+
+// construct radiology facility request
+try {
+orgBundle = client.search().forResource(Organization.class)
+.where(Organization.TYPE.exactly().codes("SA05", "SA07", "SA08", "SA09", "SA52"))
+.revInclude(PractitionerRole.INCLUDE_ORGANIZATION)
+.returnBundle(Bundle.class).execute();
+
+    totalElements = orgBundle.getTotal();
+} catch (Exception e) {
+e.printStackTrace();
+hasNext = false;
+}
+
+logger.info("Total results - {}", orgBundle.getTotal());
+
+do {
+var bundleContent = orgBundle.getEntry();
+var organizationMap = new LinkedHashMap<String, Organization>();
+
+    for (var e : bundleContent) {
+        // store the organization inside a map
+        if(e.getResource() instanceof Organization) {
+            var org = (Organization) e.getResource();
+            organizationMap.put(org.getId(), org);
+            treated++;
+        }
+
+        if(e.getResource() instanceof PractitionerRole) {
+            var role = (PractitionerRole) e.getResource();
+            var medic = false;
+            var radiologist = false;
+
+            nbRoles++;
+
+            // check if the Role contains a medic
+            for(var code : role.getCode()) {
+                for(var coding : code.getCoding()) {
+                    if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante") &&
+                            coding.getCode().equals("10")) {
+                        medic = true;
+                        break;
+                    }
+                }
+            }
+
+            if(medic) {
+                var specialtyStringList = Arrays.asList("SM28", "SM44", "SM45", "SM55");
+
+                // if a medic was found, check its specialties to filter only radiologist
+                for (var code : role.getSpecialty()) {
+                    for (var coding : code.getCoding()) {
+                        logger.info("Specialty Coding {} - {}", coding.getSystem(), coding.getCode());
+                        if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale") &&
+                                specialtyStringList.contains(coding.getCode())) {
+                            radiologist = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // if the Role is right and still practicing, link it to the right Organization
+            if(medic && !radiologist && !role.getPeriod().hasEnd() && role.getOrganization() != null) {
+                var org = (Organization) role.getOrganization().getResource();
+
+                if(organizationMap.containsKey(org.getId())) {
+                    organizationMap.get(org.getId()).addContained(role);
+                }
+            }
+        }
+    }
+
+    // loop over Organization and keep only those with roles
+    for(var org : organizationMap.values()) {
+        if(!org.getContained().isEmpty()) {
+            goodElements.add(org);
+        }
+    }
+
+    // check if result has a next page
+    if (orgBundle.getLink("next")!=null) {
+        try {
+            orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+        } catch (Exception e) {
+            logger.error("Error getting next page");
+            e.printStackTrace();
+            hasNext = false;
+        }
+    } else {
+        hasNext = false;
+    }
+
+    logger.info("Progress treated - {} / {} / {} role(s)", treated, orgBundle.getTotal(), nbRoles);
+} while (hasNext);
+
+logger.info("Total organization - {}", totalElements);
+logger.info("Total radiology  - {}", goodElements.size());
+{% endhighlight %}
+</div>
+
+</div>
+
+L'exécution de l'exemple de code peut donner un résultat équivalent :
+
+```bash
+Progress treated 472050  / 472077 / 454524 role(s)
+Progress treated 472077  / 472077 / 454561 role(s)
+Total global - 466040
+Total filtered - 0
+```
+
+<br/>
+
+
+## Obtenir les officines de pharmacie
+
+Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur le système et les types d'établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39
+</div>
+
+<br/>
+La liste des codes des pharmacies (ex: SA33, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+
+Les données récupérées sont déjà pré-filtrées selon notre besoin et ne sont que des pharmacies.
+
+
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %}
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA33, SA38 ou SA39. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
+2) L'ensembles des Organization récupérées sont des pharmacies
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39"
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="java">
+{% highlight java %}
+var client = createClient();
+var hasNext = true;
+Bundle orgBundle = null;
+var totalElements = 0;
+var treated = 0;
+var goodElements = new ArrayList<>();
+
+// construct radiology facility request
+try {
+    var pharmacyCodesList = Arrays.asList("SA33", "SA38", "SA39");
+    orgBundle = client.search().forResource(Organization.class)
+            .where(Organization.TYPE.exactly().systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite", pharmacyCodesList))
+            .returnBundle(Bundle.class).execute();
+
+    totalElements = orgBundle.getTotal();
+} catch (Exception e) {
+    e.printStackTrace();
+    hasNext = false;
+}
+
+logger.info("Total results - {}", totalElements);
+
+do {
+    var bundleContent = orgBundle.getEntry();
+
+    for (var e : bundleContent) {
+        // store the organization inside a map
+        if(e.getResource() instanceof Organization) {
+            var org = (Organization) e.getResource();
+            goodElements.add(org);
+            treated++;
+        }
+    }
+
+    // check if result has a next page
+    if (orgBundle.getLink("next")!=null) {
+        try {
+            orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+        } catch (Exception e) {
+            logger.error("Error getting next page");
+            e.printStackTrace();
+            hasNext = false;
+        }
+    } else {
+        hasNext = false;
+    }
+
+    logger.info("Progress treated - {} / {}", treated, totalElements);
+} while (hasNext);
+
+logger.info("Total organization - {}", goodElements.size());
+{% endhighlight %}
+</div>
+
+</div>
+
+L'exécution de l'exemple de code peut donner un résultat équivalent :
+
+```bash
+Progress treated 472050  / 472077 / 454524 role(s)
+Progress treated 472077  / 472077 / 454561 role(s)
+Total global - 466040
+Total filtered - 0
+```
