@@ -7,9 +7,9 @@ subTitle: Cas d'utilisation
 Le Ségur du numérique vise à développer le partage des données de santé entre les différents acteurs de la prise en charge et les patients, par le financement d’une mise à jour logicielle prise en charge par l’Etat pour favoriser l’augmentation des usages numériques dans les établissements. 
 
 Les établissements de santé peuvent être accompagnés par les acteurs régionaux (ARS, GRADeS) dans leur déploiement, le pilotage de services socles nationaux et leur mise en conformité réglementaire.
-Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir (https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
+Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr] (https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-## Obtenir les établissements médico-sociaux
+## Le couloir Médico-Social
 
 Afin de récupérer les établissements médico-sociaux ayant un numéro finess, il faut interroger l'endpoint Organization.
 
@@ -18,9 +18,10 @@ Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attend
 
 <div class="wysiwyg" markdown="1">
  * la catégorie d'Organization parmi la liste ci-dessous
- * l'Identifier : http://finess.sante.gouv.fr
+ * l'Identifier : [finess.sante.gouv.fr](http://finess.sante.gouv.fr)
 </div>
-<br/>
+<br/>[
+](https://segurnumerique.sante-idf.fr/)]
 
 Liste des codes catégorie: 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462
 
@@ -89,7 +90,7 @@ do {
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
-## Obtenir les établissements sanitaires (hôpitaux), hors établissements médico-sociaux
+## Le couloir Hôpital
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
@@ -187,7 +188,7 @@ Total Hospital - 11722
 ```
 <br/>
 
-## Obtenir les établissements de biologie, ayant des médecins ou pharmaciens exerçants
+## Le couloir Biologie Médicale
 
 Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
