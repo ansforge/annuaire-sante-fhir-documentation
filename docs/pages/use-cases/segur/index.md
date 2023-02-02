@@ -20,8 +20,7 @@ Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attend
  * la catégorie d'Organization parmi la liste ci-dessous
  * l'Identifier : [finess.sante.gouv.fr](http://finess.sante.gouv.fr)
 </div>
-<br/>[
-](https://segurnumerique.sante-idf.fr/)]
+<br/>
 
 Liste des codes catégorie: 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462
 
@@ -304,8 +303,15 @@ Organization has 0 roles
 Total global - 4312
 Total filtered - 523
 ```
+<br/>
 
+## Le couloir Radiologie (A venir)
+<br/>
 
+## Le couloir Médecine de ville (A venir)
+<br/>
+
+## Le couloir Pharmacie (A venir)
 
 
 
