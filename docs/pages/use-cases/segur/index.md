@@ -307,11 +307,6 @@ Total filtered - 523
 
 ## Le couloir Radiologie (A venir)
 <br/>
-
 ## Le couloir Médecine de ville (A venir)
 <br/>
-
 ## Le couloir Pharmacie (A venir)
-
-
-
