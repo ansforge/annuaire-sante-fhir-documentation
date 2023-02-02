@@ -80,7 +80,7 @@ header:
       - page: Appels unitaires
         url: /pages/use-cases/practitioner-detail/index
         title: Fiche du professionnel de santé
-      - page: Acteurs des couloirs du Ségur
+      - page: Couloirs du Ségur du Numérique en Santé
         url: /pages/use-cases/segur/index
         title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
   - title: Démonstrateur FHIR
