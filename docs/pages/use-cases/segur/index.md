@@ -308,7 +308,7 @@ Total filtered - 523
 <br/>
 
 
-## Obtenir les établissements de radiologie
+## Le couloir Radiologie
 
 Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -465,7 +465,7 @@ Total filtered - 0
 <br/>
 
 
-## Obtenir les établissements de médecine de ville
+## Le couloir Médecine de ville
 
 Afin de récupérer les établissements de médecine de ville qui ne sont pas des officines de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -623,7 +623,7 @@ Total filtered - 0
 <br/>
 
 
-## Obtenir les officines de pharmacie
+## Le couloir Pharmacie
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
