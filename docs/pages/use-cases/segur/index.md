@@ -503,14 +503,25 @@ Afin de récupérer les établissements de médecine de ville qui ne sont pas de
 </div>
 
 <br/>
-La liste des codes des établissements sanitaires (ex: SA05, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
-Une fois l'ensemble des données récupérées, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
-Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10), disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante).
+Une fois l’ensemble des données récupéré, procédez aux filtres suivant : 
+
+Les PractitionerRoles doivent correspondre à la profession de santé "Médecin" (10) (champs code du PractitionerRole comme le montre le point 3 sur l'image ci-dessous).
+
+Ensuite les PractitionerRoles souhaités ***NE DOIVENT PAS correspondre*** à certaines spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous)
+
+Enfin, faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l’image ci-dessous)
+
+
 
 Puis les Roles souhaités ne doivent pas correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
 
-Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+
+Nous pouvons finalement ne récupérer que les Organizations contenant des PractitionerRoleRoles selon les filtres que nous avons appliqués.
+
+
+![Schéma montrant comment relier et filter les Organization et les PractitionerRole](focus-json-couloir-med-ville.png){:style="max-width:670px"}
+
 
 
 <div class="code-sample">
