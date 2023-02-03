@@ -206,7 +206,7 @@ Une fois l'ensemble des données récupéré, il faut regrouper les Practitioner
 Nous pouvons finalement ne récupérer que les Organizations contenant des PractitionerRoles qui correspondent aux filtres Secteur d'activité et Profession santé (champs montré sur le point 2 de l'image ci-dessous).
 
 
-![](focus-json-couloir-bio-med.png)
+![Schéma montrant comment relier les Organization et les PractitionerRole](focus-json-couloir-bio-med.png){:style="max-width:670px"}
 
 
 Note : La liste des codes des établissements sanitaires (ex: SA25, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). Les Roles souhaités (10 et 21) sont disponibles dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante)
