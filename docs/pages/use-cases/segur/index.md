@@ -100,9 +100,11 @@ Afin de récupérer les établissements sanitaires, nous devons interroger l'end
 </div>
 
 <br/>
-La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+
 
 Liste des secteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
+
+Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 <div class="code-sample">
@@ -194,22 +196,28 @@ Total Hospital - 11722
 Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
  * En filtrant sur les types d'établissements : SA25, SA29
- * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer
+ * En incluant les PractitionerRoles liés aux Organizations afin de pouvoir filtrer sur le code profession de l'activité du professionel (PractitionerRole)
 </div>
 
 <br/>
-La liste des codes des établissements sanitaires (ex: SA25, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
-Une fois l'ensemble des données récupéré, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
-Les Roles souhaités (10 et 21) sont disponibles dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante)
+Une fois l'ensemble des données récupéré, il faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l'image ci-dessous)
 
-Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+Nous pouvons finalement ne récupérer que les Organizations contenant des PractitionerRoles qui correspondent aux filtres Secteur d'activité et Profession santé (champs montré sur le point 2 de l'image ci-dessous).
+
+
+![](focus-json-couloir-bio-med.png)
+
+
+Note : La liste des codes des établissements sanitaires (ex: SA25, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). Les Roles souhaités (10 et 21) sont disponibles dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante)
+
+
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un type SA25 ou SA29 (&type=SA25,SA29). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
-2) Pour chacun des PractitionerRole retourné, vérifier il y a au moins 1 role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin) ou 21 (pharmacien)
+2) Pour chacun des PractitionerRole retourné, vérifier il y a au moins 1 role (champs code) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin) ou 21 (pharmacien)
 3) Pour chacun des PractitionerRole trouvé, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
 {% endhighlight %}
 </div>
@@ -313,11 +321,10 @@ Total filtered - 523
 Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
  * En filtrant sur les types d'établissements : SA07, SA08, SA09
- * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des PractitionerRole
 </div>
 
 <br/>
-La liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 Une fois l'ensemble des données récupérées, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
 Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10), disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante).
@@ -325,6 +332,9 @@ Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10
 Puis les Roles souhaités doivent correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
 
 Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+
+
+Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 <div class="code-sample">
