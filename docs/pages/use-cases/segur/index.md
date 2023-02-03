@@ -335,15 +335,25 @@ Afin de récupérer les établissements de radiologie, nous devons interroger l'
 
 <br/>
 
-Une fois l'ensemble des données récupérées, il faut effectuer un différentiel, afin de lier les PractitionerRole aux bonnes Organizations.
-Les Roles doivent correspondre d'abord à la profession de santé "Médecin" (10), disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante).
 
-Puis les Roles souhaités doivent correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
+Une fois l’ensemble des données récupéré, procédez aux filtres suivant : 
 
-Nous pouvons finalement ne récupérer que les Organizations contenant des Roles selon les filtres que nous avons appliqués.
+Les PractitionerRoles doivent correspondre à la profession de santé "Médecin" (10) (champs code du PractitionerRole comme le montre le point 3 sur l'image ci-dessous).
+
+Ensuite les PractitionerRoles souhaités doivent correspondre à certaines spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous).
+
+Enfin, faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l’image ci-dessous)
 
 
-Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+Nous pouvons finalement ne récupérer que les Organizations contenant des PractitionerRoleRoles selon les filtres que nous avons appliqués.
+
+
+
+![Schéma montrant comment relier et filter les Organization et les PractitionerRole](focus-json-couloir-radio.png){:style="max-width:670px"}
+
+
+
+Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). La liste des profession est disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante). La liste des code spécialités est disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
 
 
 <div class="code-sample">
