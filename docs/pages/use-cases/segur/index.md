@@ -100,14 +100,18 @@ Le résultat retourné est un Bundle contenant la première page de résultat. I
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
- * Récupérer les établissements sanitaires
- * Vérifier que le type de l'établissement ne correspond pas à un établissement médico-social
+ * Récupérer les établissements sanitaires (champs 1 dans l'image ci-dessous)
+ * Vérifier que le type de l'établissement ne correspond pas à un établissement médico-social (champs 2 dans l'image ci-dessous)
 </div>
 
 <br/>
 
 
 Liste des secteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
+
+
+![Schéma montrant les champs de filtre](focus-json-couloir-hopitaux.png){:style="max-width:670px"}
+
 
 Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
