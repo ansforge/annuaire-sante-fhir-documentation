@@ -19,14 +19,19 @@ Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attend
 
 
 <div class="wysiwyg" markdown="1">
- * la catégorie d'Organization parmi la liste ci-dessous
- * l'Identifier : [finess.sante.gouv.fr](http://finess.sante.gouv.fr)
+ * la catégorie d'Organization parmi la liste ci-dessous (point 2 sur l'image ci-dessous)
+ * l'Identifier : [finess.sante.gouv.fr](http://finess.sante.gouv.fr) (point 1 sur l'image ci-dessous)
 </div>
 <br/>
 
 Liste des codes catégorie: 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462
 
+
+![Schéma montrant les champs de filtre](focus-json-couloir-medi-soc.png){:style="max-width:670px"}
+
 Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
+
+
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
