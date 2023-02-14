@@ -11,15 +11,7 @@ Les établissements de santé peuvent être accompagnés par les acteurs région
 Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. 
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-## Les couloirs :
-* [Médico-Social](#1.médico-social)
-* [Hôpital](#hôpital)
-* Biologie Médicale
-* Radiologie
-* Médecine de ville
-* Pharmacie
-
-## 1.Médico-Social
+## 1. Le couloir Médico-Social
 
 Afin de récupérer les établissements médico-sociaux ayant un numéro finess, il faut interroger l'endpoint Organization.
 
@@ -105,7 +97,7 @@ do {
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
-## Hôpital
+## 2. Le couloir Hôpital
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
@@ -210,7 +202,7 @@ Total Hospital - 11722
 ```
 <br/>
 
-## 3) Le couloir Biologie Médicale
+## 3. Le couloir Biologie Médicale
 
 Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -336,7 +328,7 @@ Total filtered - 523
 <br/>
 
 
-## 4) Le couloir Radiologie
+## 4. Le couloir Radiologie
 
 Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -506,7 +498,7 @@ Total filtered - 0
 <br/>
 
 
-## 5) Le couloir Médecine de ville
+## 5. Le couloir Médecine de ville
 
 Afin de récupérer les établissements de médecine de ville qui ne sont pas des officines de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -676,7 +668,7 @@ Total filtered - 0
 <br/>
 
 
-## 6) Le couloir Pharmacie
+## 6. Le couloir Pharmacie
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
