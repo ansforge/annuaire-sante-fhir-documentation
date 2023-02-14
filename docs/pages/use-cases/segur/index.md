@@ -13,7 +13,7 @@ Nous allons vous détailler ci-dessous comment interroger l'API pour identifier 
 
 ## Les couloirs :
 - [Médico-Social](#1.-Le-couloir-Médico-Social)
-- Hôpital
+- [Hôpital](#2.-Le-couloir-Hôpital)
 - Biologie Médicale
 - Radiologie
 - Médecine de ville
@@ -105,7 +105,7 @@ do {
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
-## 2) Le couloir Hôpital
+## 2. Le couloir Hôpital
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
