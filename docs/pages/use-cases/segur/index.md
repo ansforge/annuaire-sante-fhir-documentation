@@ -12,7 +12,7 @@ Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs ap
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
 ## Les couloirs :
-- [Médico-Social](#1. Le couloir Médico-Social)
+- [Médico-Social](#1.-Le-couloir-Médico-Social)
 - Hôpital
 - Biologie Médicale
 - Radiologie
