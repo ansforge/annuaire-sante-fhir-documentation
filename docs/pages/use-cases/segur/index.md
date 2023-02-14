@@ -11,11 +11,20 @@ Les établissements de santé peuvent être accompagnés par les acteurs région
 Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. 
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-## 1) Le couloir Médico-Social
+## Les couloirs :
+- [Médico-Social](# 1. Le couloir Médico-Social)
+- Hôpital
+- Biologie Médicale
+- Radiologie
+- Médecine de ville
+- Pharmacie
+
+## 1. Le couloir Médico-Social
 
 Afin de récupérer les établissements médico-sociaux ayant un numéro finess, il faut interroger l'endpoint Organization.
 
 Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attendu :
+
 
 
 <div class="wysiwyg" markdown="1">
