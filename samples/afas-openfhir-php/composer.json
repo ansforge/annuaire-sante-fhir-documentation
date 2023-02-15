@@ -1,0 +1,6 @@
+{
+  "require": {
+    "dcarbone/php-fhir-generated": "v2.0.*",
+    "guzzlehttp/guzzle": "^7.0"
+  }
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "afas-openfhir-dotnet", "afas-openfhir-dotnet.csproj", "{2F92B8BF-94CE-42C1-94D5-BFC2BA9D693D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "afas-sample-usecases", "afas-sample-usecases\afas-sample-usecases.csproj", "{7D5B6761-8E0B-47B1-BDAC-FD5EEDF5C401}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F92B8BF-94CE-42C1-94D5-BFC2BA9D693D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F92B8BF-94CE-42C1-94D5-BFC2BA9D693D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F92B8BF-94CE-42C1-94D5-BFC2BA9D693D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F92B8BF-94CE-42C1-94D5-BFC2BA9D693D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5B6761-8E0B-47B1-BDAC-FD5EEDF5C401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5B6761-8E0B-47B1-BDAC-FD5EEDF5C401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5B6761-8E0B-47B1-BDAC-FD5EEDF5C401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5B6761-8E0B-47B1-BDAC-FD5EEDF5C401}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0E143C5-449D-4A88-8F1A-F04B294DE6D1}
+	EndGlobalSection
+EndGlobal

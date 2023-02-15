@@ -1,0 +1,43 @@
+---
+layout: base
+---
+<div class="row no-gutters">
+    <div id="sidebar-container" class="sidebar-expanded col-3 d-none d-md-block left-menu">
+        <ul class="navbar-nav nav-lvl-1">
+            {% for item in site.data.menu.header[2].subfolderitems %}
+                {% if item.subfolderitems[0] %}
+                    {% assign counter = counter | plus: 1 %}
+                    <li class="nav-item common-nav-item">
+                        <a>{{ item.page }}</a>
+                        <ul class="navbar-nav nav-lvl-1">
+                            {% for item in item.subfolderitems %}
+                                <li class="nav-item common-nav-item {% if item.url == page.url %}active{% endif %}">
+                                    <a href="{{ item.url | relative_url }}">{{ item.page }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>                    
+                    </li>
+                {% else %}
+                    <li class="nav-item common-nav-item"><a  href="{{ item.url | relative_url }}">{{ item.page }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col">
+        <main>
+            <div class="container container-content">
+                {%- if page.title -%}
+                    {%- if page.subTitle -%}
+                        <p class="sub-title">{{ page.subTitle }}</p>
+                    {%- endif -%}
+                    <h1 class="page-heading">{{ page.title }}</h1>
+                {%- endif -%}
+
+                {{ content }}
+
+                {% include next-resource.html %}
+            </div>
+        </main>
+    </div>
+</div>
+

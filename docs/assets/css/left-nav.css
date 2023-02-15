@@ -1,0 +1,74 @@
+
+.left-menu {background: white;}
+.left-menu a{text-decoration: none;}
+.left-menu > ul {padding: 3rem 1.8rem;}
+.left-menu > ul > .nav-item > a{
+                color: #343852;
+                font-size: 2rem;
+                font-weight: 600;
+                border-radius: 0.9rem;
+                padding: 0.5rem 1.9rem;
+                text-align: left;
+                text-decoration: none;
+                transition: color .25s ease,background-color .25s ease,border-color .25s ease;
+                width: 100%;
+            }
+.left-menu > ul > .nav-item > a.active{background-color: #f2f3f7;
+            color: var(--primary);
+            font-weight: 600;}
+
+.left-menu > ul > .nav-item ul .nav-item{
+                    border-radius: 0.9rem;
+                    color: #697097;
+                    padding: 0.5rem 1.9rem;
+                    text-align: left;
+                    text-decoration: none;
+                    transition: color .25s ease,background-color .25s ease,border-color .25s ease;
+                    width: 100%;
+            }
+.left-menu > ul > .nav-item ul .nav-item.a{       
+                background-color: #f2f3f7;
+                color: var(--primary);
+                font-weight: 600;
+            }
+
+.left-menu > ul > .nav-item ul .nav-item.active{
+    background-color: var(--gray-300);
+}
+/*
+
+
+.left-menu { 
+    background: white;
+    a{text-decoration: none;}
+    > ul {
+        padding: 3rem 1.8rem;
+        > .nav-item {
+            > a{
+                color: #343852;
+                font-size: 2rem;
+                font-weight: 600;
+                border-radius: 0.9rem;
+                padding: 0.5rem 1.9rem;
+                text-align: left;
+                text-decoration: none;
+                transition: color .25s ease,background-color .25s ease,border-color .25s ease;
+                width: 100%;
+            }
+            ul .nav-item{
+                    border-radius: 0.9rem;
+                    color: #697097;
+                    padding: 0.5rem 1.9rem;
+                    text-align: left;
+                    text-decoration: none;
+                    transition: color .25s ease,background-color .25s ease,border-color .25s ease;
+                    width: 100%;
+              
+            }
+        }
+    }
+}
+
+
+
+*/

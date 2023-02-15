@@ -1,0 +1,57 @@
+---
+---
+
+@import url("{{ '/assets/css/left-nav.css' | relative_url }}");
+@import url("{{ '/assets/css/layout.css' | relative_url }}");
+@import url("{{ '/assets/css/pygments-css/friendly.css' | relative_url }}");
+@import url("{{ '/assets/css/tabs.css' | relative_url }}");
+
+.doc-section-title{
+    display: block;
+    font-size: 21px;
+
+}
+
+main{
+    background: white;
+}
+
+#sidebar-container{
+    border-right: 1px solid #e3e3e3;
+}
+.footer-principal{
+    border-top: 1px solid #e3e3e3;
+}
+
+.sub-title{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.code-sample{
+    margin-bottom: 16px;
+}
+
+div.highlight, figure.highlight{
+    padding: 12px 12px 6px;
+    border-radius: 6px;
+}
+
+[data-contrast=high-c] .highlight .nv {
+    color: #6c006c;
+}
+
+
+[data-contrast=high-c] .highlight .nc {
+    color: #094862;
+}
+
+[data-contrast=high-c] .highlight .mi {
+    color: #245b41;
+}
+
+[data-contrast=high-c] .highlight .c1 {
+    color: #3e6772;
+}

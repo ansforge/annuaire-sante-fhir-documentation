@@ -1,0 +1,13 @@
+{% for item in site.data.menu.header[2].subfolderitems %}
+    {% if item.subfolderitems[0] %}
+        {% for item in item.subfolderitems %}
+            {% if item.url == page.url and item.next-url %}
+                <hr class="mt-5">
+
+                <p class="text-right mt-5">
+                    <a href="{{item.next-url | relative_url }}" class=" btn btn--style1 btn--white">{{item.next-title}}</a>
+                </p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
