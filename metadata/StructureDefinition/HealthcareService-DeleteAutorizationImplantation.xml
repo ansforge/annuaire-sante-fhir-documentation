@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="HealthcareService-DeleteAutorisationImplantation" />
+  <id value="HealthcareService-DeleteAutorizationImplantation" />
   <meta>
     <lastUpdated value="2022-07-25T17:32:36.909984+00:00" />
   </meta>
-  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DeleteAutorisationImplantation" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DeleteAutorizationImplantation" />
   <version value="0.2" />
-  <name value="HealthcareServiceDeleteAutorisationImplantation" />
+  <name value="HealthcareServiceDeleteAutorizationImplantation" />
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <fhirVersion value="4.0.1" />
   <mapping>
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DeleteAutorisationImplantation" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-DeleteAutorizationImplantation" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
