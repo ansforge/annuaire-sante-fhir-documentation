@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Ce profil decrit les organismes du domaine sanitaire, médico-social et social dans l'Annuaire Santé" />
   <fhirVersion value="4.0.1" />
