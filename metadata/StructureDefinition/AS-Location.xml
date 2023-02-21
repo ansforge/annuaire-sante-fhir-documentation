@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Profil de la ressource Location contained dans le profil Situation d'exercice de PractitionerRole. Elle contient l'adresse d'activité du professionnel." />
   <fhirVersion value="4.0.1" />
