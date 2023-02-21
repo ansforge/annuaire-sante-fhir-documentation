@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Ce profil décrit les equipements matériels lourds ('EML') dans l'Annauire Santé et qui sont miss en oeuvre au sein d'établissement." />
   <fhirVersion value="4.0.1" />
