@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Device-PeriodImplentation" />
+  <id value="Device-PeriodImplantation" />
   <meta>
     <lastUpdated value="2022-07-25T17:42:01.4253448+00:00" />
   </meta>
-  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-PeriodImplentation" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-PeriodImplantation" />
   <version value="0.2" />
-  <name value="DevicePeriodImplentation" />
+  <name value="DevicePeriodImplantation" />
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <fhirVersion value="4.0.1" />
   <mapping>
@@ -34,7 +34,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-PeriodImplentation" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-PeriodImplantation" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
