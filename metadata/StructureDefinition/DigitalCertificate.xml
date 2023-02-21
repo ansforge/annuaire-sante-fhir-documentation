@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Informations descriptives du moyen d’identification par certificat. Il s'agit des certificats utilisés par les professionnels et les structures" />
   <fhirVersion value="4.0.1" />
