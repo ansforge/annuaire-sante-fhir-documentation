@@ -11,7 +11,7 @@
   <experimental value="false" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Profil de l'Annuaire santé  de la ressource Practitioner. Ce profil décrit les données d'identification pérennes d’une personne physique, qui travaille en tant que professionnel (professionnel enregistré dans RPPS ou ADELI), personnel autorisé ou personnel d’établissement, dans les domaines sanitaire, médico-social et social." />
   <fhirVersion value="4.0.1" />
