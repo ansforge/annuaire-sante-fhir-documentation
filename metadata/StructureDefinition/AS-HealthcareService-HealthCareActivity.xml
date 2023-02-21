@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Ce profil décrit les Activité sanitaires dans l' Annuaire Santé  qui sont rattachées aux etablisemments FINESS." />
   <fhirVersion value="4.0.1" />
