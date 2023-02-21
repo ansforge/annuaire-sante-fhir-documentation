@@ -10,7 +10,7 @@
   <status value="draft" />
   <publisher value="ANS" />
   <contact>
-    <name value="monserviceclient.annuaire@asipsante.fr" />
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
   </contact>
   <description value="Informations descriptives du moyen d’identification des personnes physiques via une carte de professionnel." />
   <fhirVersion value="4.0.1" />
