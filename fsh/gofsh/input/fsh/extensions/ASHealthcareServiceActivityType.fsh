@@ -1,14 +1,14 @@
-Extension: HealthcareServiceActivityType
-Id: HealthcareService-ActivityType
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-ActivityType"
+Extension: ASHealthcareServiceActivityType
+Id: as-healthcareservice-activitytype
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-healthcareservice-activitytype"
 * ^meta.lastUpdated = "2022-07-25T17:35:25.9463394+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * ^context.type = #element
 * ^context.expression = "HealthcareService"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-ActivityType" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-healthcareservice-activitytype" (exactly)
 * value[x] only CodeableConcept
 * value[x] from $JDV-J131-CategorieActiviteSanitaireRegulee-RASS (required)
 * value[x] ^binding.description = "Types d'activités autorisées"

@@ -4,7 +4,7 @@ Id: as-healthcareservice-socialequipment
 Description: "Profil créé à partir de la ressource HealthcareService dans le cadre de l'annuaire santé - décrit les équipements sociaux représentant les activités des établissements du domaine social et médico-social enregistrés dans FINESS."
 
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-healthcareservice-socialequipment"
-* ^version = "0.1"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

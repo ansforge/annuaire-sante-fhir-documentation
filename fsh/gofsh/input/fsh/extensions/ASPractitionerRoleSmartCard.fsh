@@ -1,9 +1,9 @@
-Extension: PractitionerRoleSmartCard
-Id: PractitionerRole-SmartCard
+Extension: ASPractitionerRoleSmartCard
+Id: as-practitionerrole-smartcard
 Description: "Informations descriptives du moyen d’identification des personnes physiques via une carte de professionnel."
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-smartcard
 * ^meta.lastUpdated = "2022-07-25T17:18:48.1178465+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -34,5 +34,5 @@ Description: "Informations descriptives du moyen d’identification des personne
 * extension[date] ^min = 0
 * extension[date].value[x] only Meta
 * extension[date].value[x].source = "https://annuaire.sante.fr" (exactly)
-* extension[date].value[x].profile = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" (exactly)
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" (exactly)
+* extension[date].value[x].profile = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-smartcard" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-smartcard" (exactly)

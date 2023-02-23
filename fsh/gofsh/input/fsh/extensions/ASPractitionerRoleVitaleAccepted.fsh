@@ -1,14 +1,14 @@
 Extension: PractitionerRoleVitaleAccepted
-Id: PractitionerRole-VitaleAccepted
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-VitaleAccepted"
+Id: as-practitionerrole-vitaleaccepted
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-vitaleaccepted"
 * ^meta.lastUpdated = "2022-07-08T13:28:56.3272356+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * ^context.type = #element
 * ^context.expression = "PractitionerRole"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-VitaleAccepted" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-vitaleaccepted" (exactly)
 * . ^short = "l’indicateur Carte Vitale acceptée précise si le professionnel, dans le cadre de cette situation opérationnelle, dispose des moyens techniques pour prendre en charge la carte vitale ou pas."
 * value[x] only boolean
 * value[x] ^comment = "0 : pas de prise en charge de la carte vitale.\r\n1 : prise en charge de la carte vitale."

@@ -1,8 +1,8 @@
-Extension: PractitionerNationality
-Id: Practitioner-Nationality
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Nationality"
+Extension: ASPractitionerNationality
+Id: as-practitioner-nationality
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitioner-nationality"
 * ^meta.lastUpdated = "2022-07-25T17:25:24.6900037+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -36,4 +36,4 @@ Id: Practitioner-Nationality
 * value[x] N
 * value[x] ^extension[1].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version"
 * value[x] ^extension[=].valueCode = #4.0.0
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Nationality" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitioner-nationality" (exactly)

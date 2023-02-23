@@ -1,9 +1,9 @@
-Extension: DigitalCertificate
-Id: DigitalCertificate
+Extension: ASDigitalCertificate
+Id: as-digital-certificate
 Description: "Informations descriptives du moyen d’identification par certificat. Il s'agit des certificats utilisés par les professionnels et les structures"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate"
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-digital-certificate"
 * ^meta.lastUpdated = "2022-07-25T17:41:29.7781308+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -41,4 +41,4 @@ Description: "Informations descriptives du moyen d’identification par certific
 * extension[value].value[x] only Attachment
 * value[x] only base64Binary or boolean or canonical or code or date or dateTime or decimal or id or instant or integer or markdown or oid or positiveInt or string or time or unsignedInt or uri or url or uuid or Address or Age or Annotation or Attachment or CodeableConcept or Coding or ContactPoint or Count or Distance or Duration or HumanName or Identifier or Money or Period or Quantity or Range or Ratio or Reference or SampledData or Signature or Timing or ContactDetail or Contributor or DataRequirement or Expression or ParameterDefinition or RelatedArtifact or TriggerDefinition or UsageContext or Dosage
 
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-digital-certificate" (exactly)

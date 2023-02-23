@@ -1,9 +1,9 @@
-Extension: PractitionerAuthorization
-Id: Practitioner-Authorization
+Extension: ASPractitionerAuthorization
+Id: as-practitioner-authorization
 Description: "Autorisation d'exercice"
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitioner-authorization"
 * ^meta.lastUpdated = "2022-07-25T17:28:43.7645544+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -33,4 +33,4 @@ Description: "Autorisation d'exercice"
 * extension[profession].value[x] from $JDV-J106-EnsembleProfession-RASS (required)
 * extension[profession].value[x] ^binding.description = "Profession pour laquelle l'autorisation est délivrée"
 * extension[profession].value[x].coding.system = "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante/" (exactly)
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitioner-authorization" (exactly)

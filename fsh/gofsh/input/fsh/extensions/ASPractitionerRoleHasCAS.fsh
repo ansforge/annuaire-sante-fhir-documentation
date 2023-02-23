@@ -1,13 +1,13 @@
-Extension: PractitionerRoleHasCAS
-Id: PractitionerRole-HasCAS
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS"
+Extension: ASPractitionerRoleHasCAS
+Id: as-practitionerrole-hascas
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-hascas"
 * ^meta.lastUpdated = "2022-07-08T13:19:10.1242412+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * ^context.type = #element
 * ^context.expression = "PractitionerRole"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-hascas" (exactly)
 * . ^short = "Option pratique tarifaire maîtrisée"
 * value[x] only boolean

@@ -4,7 +4,7 @@ Id: as-practitioner
 Description: "Profil de l'Annuaire santé  de la ressource Practitioner. Ce profil décrit les données d'identification pérennes d’une personne physique, qui travaille en tant que professionnel (professionnel enregistré dans RPPS ou ADELI), personnel autorisé ou personnel d’établissement, dans les domaines sanitaire, médico-social et social."
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitioner"
 * ^meta.lastUpdated = "2022-10-28T09:46:26.2219259+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^experimental = false
 * ^publisher = "ANS"

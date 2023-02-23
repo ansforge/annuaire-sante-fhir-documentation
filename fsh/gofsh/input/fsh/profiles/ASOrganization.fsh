@@ -4,7 +4,7 @@ Id: as-organization
 Description: "Profil créé à partir de la ressource FrOrganization dans le cadre de l'annuaire santé - décrit les organismes du domaine sanitaire, médico-social et social."
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-organization"
 * ^meta.lastUpdated = "2022-10-28T09:41:33.609065+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

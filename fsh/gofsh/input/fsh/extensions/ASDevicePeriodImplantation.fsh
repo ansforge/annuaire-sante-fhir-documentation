@@ -2,7 +2,7 @@ Extension: ASDevicePeriodImplantation
 Id: as-device-periodimplantation
 * url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-device-periodimplantation"
 * ^meta.lastUpdated = "2022-07-25T17:42:01.4253448+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

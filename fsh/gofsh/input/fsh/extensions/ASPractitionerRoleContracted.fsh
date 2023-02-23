@@ -1,14 +1,14 @@
-Extension: PractitionerRoleContracted
-Id: PractitionerRole-Contracted
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Contracted"
+Extension: ASPractitionerRoleContracted
+Id: as-practitionerrole-contracted
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-contracted"
 * ^meta.lastUpdated = "2022-07-25T17:23:18.1587036+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * ^context.type = #element
 * ^context.expression = "PractitionerRole"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Contracted" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-contracted" (exactly)
 * value[x] only CodeableConcept
 * value[x] from $JDV-J130-CNAMAmeliSecteurConventionnement-RASS (required)
 * value[x] ^binding.description = "Secteur de conventionnement du professionnel libéral par la CNAM (extracts AMELI)"

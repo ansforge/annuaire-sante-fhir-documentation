@@ -3,7 +3,7 @@ Id: as-address-Country-Code
 Description: "Code pays"
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-address-country-code"
 * ^meta.lastUpdated = "2022-07-29T12:24:59.0761976+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

@@ -1,15 +1,15 @@
-Extension: PractitionerRolePracticeRegion
-Id: practitionerRole-PracticeRegion
+Extension: ASPractitionerRolePracticeRegion
+Id: as-practitionerrole-practiceregion
 Description: "Région d'exercice du professionnel"
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/practitionerRole-PracticeRegion"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-practiceregion"
 * ^meta.lastUpdated = "2022-07-25T17:20:08.6607218+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * ^context.type = #element
 * ^context.expression = "PractitionerRole"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/practitionerRole-PracticeRegion" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-practiceregion" (exactly)
 * . ^short = "Code région de l'exercice du professionnel de santé"
 * value[x] only CodeableConcept
 * value[x] from $JDV-J93-RegionOM-RASS (required)

@@ -1,9 +1,9 @@
-Extension: OrganizationPharmacyLicence
-Id: Organization-PharmacyLicence
+Extension: ASOrganizationPharmacyLicence
+Id: as-organization-pharmacylicence
 Description: "Numéro de licence officine"
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Organization-PharmacyLicence"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-organization-pharmacylicence"
 * ^meta.lastUpdated = "2022-07-25T17:28:38.8305088+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -11,5 +11,5 @@ Description: "Numéro de licence officine"
 * ^context.type = #element
 * ^context.expression = "Organization"
 * . ^short = "Numéro licence officine"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Organization-PharmacyLicence" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-organization-pharmacylicence" (exactly)
 * value[x] only string

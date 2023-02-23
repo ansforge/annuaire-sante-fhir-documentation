@@ -1,9 +1,9 @@
-Extension: PractitionerRoleRegistration
-Id: PractitionerRole-Registration
+Extension: ASPractitionerRoleRegistration
+Id: as-practitionerrole-registration
 Description: "Inscription/référencement du professionnel. Première inscription si \"isFirst = true\"."
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Registration"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-registration"
 * ^meta.lastUpdated = "2022-07-25T17:19:33.8929367+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -39,4 +39,4 @@ Description: "Inscription/référencement du professionnel. Première inscriptio
 * extension[hostingDepartment].value[x].coding.system = "https://mos.esante.gouv.fr/NOS/TRE_G09-DepartementOM/FHIR/TRE-G09-DepartementOM" (exactly)
 * extension[isFirst].value[x] only boolean
 * extension[isFirst].value[x] ^comment = "Si 1re insctription => practitionerRole-registration.isFirst= « true »\r\nSinon, practitionerRole-registration.isFirst= « false »"
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Registration" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-registration" (exactly)

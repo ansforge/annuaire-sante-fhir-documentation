@@ -1,9 +1,9 @@
-Extension: MailboxMSS
-Id: MailboxMSS
+Extension: ASMailboxMSS
+Id: as-mailboxmss
 Description: "Informations descriptives des boîtes aux lettres du service de messagerie sécurisée de santé (MSSanté) rattachées aux professionnels et aux structures."
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-mailboxmss"
 * ^meta.lastUpdated = "2022-07-25T17:30:22.3422387+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -51,5 +51,5 @@ Description: "Informations descriptives des boîtes aux lettres du service de me
 * extension[date] ^min = 0
 * extension[date].value[x] only Meta
 * extension[date].value[x].source = "https://annuaire.sante.fr" (exactly)
-* extension[date].value[x].profile = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" (exactly)
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" (exactly)
+* extension[date].value[x].profile = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-mailboxmss" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-mailboxmss" (exactly)

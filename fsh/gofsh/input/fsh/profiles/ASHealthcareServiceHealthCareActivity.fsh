@@ -5,7 +5,7 @@ Description: "Profil créé à partir de la ressource HealthcareService dans le 
 
 
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-healthcareservice-healthcareactivity"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

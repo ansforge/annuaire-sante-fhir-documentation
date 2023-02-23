@@ -1,9 +1,9 @@
-Extension: PractitionerRoleEducationLevel
-Id: PractitionerRole-EducationLevel
+Extension: ASPractitionerRoleEducationLevel
+Id: as-practitionerrole-educationlevel
 Description: "Niveau de formation acquis de l'étudiant."
-* ^url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel"
+* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-educationlevel"
 * ^meta.lastUpdated = "2022-07-25T17:22:37.3111839+00:00"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
@@ -44,4 +44,4 @@ Description: "Niveau de formation acquis de l'étudiant."
 * extension[issuer].value[x] only Reference(Organization)
 * extension[issuer].value[x].identifier ^short = "Lieu de formation"
 * extension[issuer].value[x].identifier.system = "urn:oid:1.2.250.1.213.1.6.4.1" (exactly)
-* url = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" (exactly)
+* url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-practitionerrole-educationlevel" (exactly)

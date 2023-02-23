@@ -5,7 +5,7 @@ Description: "Profil créé à partir de la ressource Device dans le cadre de l'
 
 * ^meta.lastUpdated = "2022-07-29T12:25:46.72588+00:00"
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-device"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"

@@ -3,7 +3,7 @@ Parent: FrAddress
 Id: as-address-extended
 * ^meta.lastUpdated = "2022-07-25T17:40:40.0522362+00:00"
 * ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-address-extended"
-* ^version = "0.2"
+* ^version = "1.0"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
