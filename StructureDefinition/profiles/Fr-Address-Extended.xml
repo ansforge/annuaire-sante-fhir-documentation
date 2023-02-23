@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Fr-Address-Extended" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:40:40.0522362+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
+  <version value="0.3" />
+  <name value="FrAddressExtended" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Address" />
+  <baseDefinition value="http://interopsante.org/fhir/StructureDefinition/FrAddress" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Address.extension">
+      <path value="Address.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Address.extension:frenchDepartment">
+      <path value="Address.extension" />
+      <sliceName value="frenchDepartment" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/French-Department" />
+      </type>
+    </element>
+    <element id="Address.extension:countryCode">
+      <path value="Address.extension" />
+      <sliceName value="countryCode" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Address-Country-Code" />
+      </type>
+    </element>
+    <element id="Address.line.extension">
+      <path value="Address.line.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Address.line.extension:careOf">
+      <path value="Address.line.extension" />
+      <sliceName value="careOf" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf" />
+      </type>
+    </element>
+    <element id="Address.line.extension:additionalLocator">
+      <path value="Address.line.extension" />
+      <sliceName value="additionalLocator" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator" />
+      </type>
+    </element>
+    <element id="Address.line.extension:houseNumber">
+      <path value="Address.line.extension" />
+      <sliceName value="houseNumber" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber" />
+      </type>
+    </element>
+    <element id="Address.line.extension:buildingNumberSuffix">
+      <path value="Address.line.extension" />
+      <sliceName value="buildingNumberSuffix" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix" />
+      </type>
+    </element>
+    <element id="Address.line.extension:streetNameType">
+      <path value="Address.line.extension" />
+      <sliceName value="streetNameType" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameType" />
+      </type>
+    </element>
+    <element id="Address.line.extension:streetNamebase">
+      <path value="Address.line.extension" />
+      <sliceName value="streetNamebase" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase" />
+      </type>
+    </element>
+    <element id="Address.line.extension:postBox">
+      <path value="Address.line.extension" />
+      <sliceName value="postBox" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

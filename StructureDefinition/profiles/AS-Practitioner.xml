@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-Practitioner" />
+  <meta>
+    <lastUpdated value="2022-10-28T09:46:26.2219259+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner" />
+  <version value="0.3" />
+  <name value="ASPractitioner" />
+  <status value="draft" />
+  <experimental value="false" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Profil créé à partir de la ressource Practitioner dans le cadre de l'annuaire santé - décrit les données d'identification pérennes d’une personne physique, qui travaille en tant que professionnel (professionnel enregistré dans RPPS ou ADELI), personnel autorisé ou personnel d’établissement, dans les domaines sanitaire, médico-social et social." />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Practitioner" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Practitioner.meta">
+      <path value="Practitioner.meta" />
+    </element>
+    <element id="Practitioner.meta.source">
+      <path value="Practitioner.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="Practitioner.meta.profile">
+      <path value="Practitioner.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner" />
+    </element>
+    <element id="Practitioner.meta.security">
+      <path value="Practitioner.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.meta.tag">
+      <path value="Practitioner.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.implicitRules">
+      <path value="Practitioner.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.text">
+      <path value="Practitioner.text" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.contained">
+      <path value="Practitioner.contained" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.extension">
+      <path value="Practitioner.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Practitioner.extension:nationality">
+      <path value="Practitioner.extension" />
+      <sliceName value="nationality" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Nationality" />
+      </type>
+    </element>
+    <element id="Practitioner.extension:authorization">
+      <path value="Practitioner.extension" />
+      <sliceName value="authorization" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Practitioner.extension:authorization.extension">
+      <path value="Practitioner.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Practitioner.extension:authorization.extension:period">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.extension:birthPlace">
+      <path value="Practitioner.extension" />
+      <sliceName value="birthPlace" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-BirthPlace" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Practitioner.extension:deceasedDateTime">
+      <path value="Practitioner.extension" />
+      <sliceName value="deceasedDateTime" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-DeceasedDateTime" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS">
+      <path value="Practitioner.extension" />
+      <sliceName value="mailboxMSS" />
+      <definition value="Les BALs MSS de type PER rattachées seulement à l'identifiant du professionnel de Santé" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension">
+      <path value="Practitioner.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:description">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="description" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:responsible">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="responsible" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:phone">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="phone" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:publication">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="publication" />
+      <min value="0" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:publication.value[x]">
+      <path value="Practitioner.extension.extension.value[x]" />
+      <short value="indicateur liste rouge" />
+    </element>
+    <element id="Practitioner.extension:mailboxMSS.extension:date">
+      <path value="Practitioner.extension.extension" />
+      <sliceName value="date" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.identifier">
+      <path value="Practitioner.identifier" />
+      <short value="Une instance par identifiant (RPPS, ADELI, idNat_PS…)" />
+    </element>
+    <element id="Practitioner.identifier.type">
+      <path value="Practitioner.identifier.type" />
+      <comment value="Les code ADELI, RPPS et IDNPS proviennent du system  http://interopsante.org/fhir/CodeSystem/fr-v2-0203 ; Les code 1, 3, 4, 5, 6 proviennent du system : https://mos.esante.gouv.fr/NOS/TRE_G08-TypeIdentifiantPersonne/FHIR/TRE-G08-TypeIdentifiantPersonne" />
+      <min value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IdentifierType" />
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true" />
+        </extension>
+        <strength value="extensible" />
+        <description value="ValueSet défini par Interop’Santé « fr-practioner-identifier-type" />
+        <valueSet value="http://interopsante.org/fhir/ValueSet/fr-practioner-identifier-type" />
+      </binding>
+    </element>
+    <element id="Practitioner.identifier.system">
+      <path value="Practitioner.identifier.system" />
+      <short value="le system de l'identifiant dépend de la source d'où provient l'identifiant" />
+      <comment value="« http://rpps.fr» si l’instance correspond à un identifiant RPPS ; « http://adeli.fr» si l’instance correspond à un identifiant ADELI ; « urn:oid:1.2.250.1.71.4.2.1 » si l’instance correspond à l’identification nationale PP (idNat_PS) ; « urn:oid:1.2.250.1.213.1.6.4.2 » si l’instance correspond à une identification locale : Id Cabinet ADELI/N° de registre, FINESS/N° de registre, SIREN/N° de registre, SIRET/N° de registre ou Id Cabinet RPPS/N° de registre" />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.identifier.value">
+      <path value="Practitioner.identifier.value" />
+      <short value="la valeur de l'identifiant du PS" />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.name">
+      <path value="Practitioner.name" />
+      <short value="Une instance pour le nom d’usage et une instance pour le nom issu de l’état-civil" />
+      <type>
+        <code value="HumanName" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrHumanName" />
+      </type>
+    </element>
+    <element id="Practitioner.name.id">
+      <path value="Practitioner.name.id" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.extension">
+      <path value="Practitioner.name.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Practitioner.name.extension:assemblyOrder">
+      <path value="Practitioner.name.extension" />
+      <sliceName value="assemblyOrder" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.extension:assemblyOrder.value[x]">
+      <path value="Practitioner.name.extension.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="Practitioner.name.use">
+      <path value="Practitioner.name.use" />
+      <comment value="« usual » pour nom et prénom d’usage (Personne) ; « official » pour nom de famille et prénoms (Etat-civil)" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.text">
+      <path value="Practitioner.name.text" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.family">
+      <path value="Practitioner.name.family" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.given">
+      <path value="Practitioner.name.given" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.prefix">
+      <path value="Practitioner.name.prefix" />
+      <binding>
+        <strength value="required" />
+      </binding>
+    </element>
+    <element id="Practitioner.name.suffix">
+      <path value="Practitioner.name.suffix" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.name.period">
+      <path value="Practitioner.name.period" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.telecom">
+      <path value="Practitioner.telecom" />
+      <comment value="Différentes instances pour les téléphones, la télécopie et l’adresse mail" />
+      <max value="0" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrContactPoint" />
+      </type>
+    </element>
+    <element id="Practitioner.telecom.system">
+      <path value="Practitioner.telecom.system" />
+      <comment value="« phone » pour Téléphone et Téléphone 2 ; « fax » pour Télécopie ; « email » pour adresse e-mail" />
+    </element>
+    <element id="Practitioner.telecom.use">
+      <path value="Practitioner.telecom.use" />
+      <comment value="« old » si les coordonnées de correspondance ont une date de fin" />
+    </element>
+    <element id="Practitioner.address">
+      <path value="Practitioner.address" />
+      <max value="0" />
+      <type>
+        <code value="Address" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
+      </type>
+    </element>
+    <element id="Practitioner.gender">
+      <path value="Practitioner.gender" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.birthDate">
+      <path value="Practitioner.birthDate" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.photo">
+      <path value="Practitioner.photo" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification">
+      <path value="Practitioner.qualification" />
+      <comment value="Une instance pour chaque diplôme ou autre diplôme obtenu" />
+    </element>
+    <element id="Practitioner.qualification.id">
+      <path value="Practitioner.qualification.id" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.identifier">
+      <path value="Practitioner.qualification.identifier" />
+      <short value="Numéro de diplôme" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.code.id">
+      <path value="Practitioner.qualification.code.id" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.code.coding">
+      <path value="Practitioner.qualification.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <description value="Two slices: one slice for the degree (diplôme obtenu) and one for its type (type diplôme obtenu)" />
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeType">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeType" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Types de diplôme du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J81-TypeDiplome-RASS/FHIR/JDV-J81-TypeDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeType.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R14-TypeDiplome/FHIR/TRE-R14-TypeDiplome" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR48">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR48" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR48.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme d'Etat français" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R48-DiplomeEtatFrancais/FHIR/TRE-R48-DiplomeEtatFrancais" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR49">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR49" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS;" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR49.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme d'études spécialisées (DES" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R49-DiplomeEtudeSpecialisee/FHIR/TRE-R49-DiplomeEtudeSpecialisee" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR50">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR50" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR50.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme d'études spécialisées complémentaires non qualifiants (DESC I)" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R50-DESCGroupe1Diplome/FHIR/TRE-R50-DESCGroupe1Diplome" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR51">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR51" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR51.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme d'études spécialisées complémentaires qualifiants (DESC II)" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R51-DESCGroupe2Diplome/FHIR/TRE-R51-DESCGroupe2Diplome" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR52">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR52" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR52.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme de capacité de médecine" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R52-CapaciteDiplome/FHIR/TRE-R52-CapaciteDiplome" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR53">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR53" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR53.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme d'un pays de l'espace économique européen." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R53-DiplomePaysEEE/FHIR/TRE-R53-DiplomePaysEEE" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR54">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR54" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR54.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme universitaire ou interuniversitaire" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R54-DiplomeUniversiteInterUniversitaire/FHIR/TRE-R54-DiplomeUniversiteInterUniversitaire" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR55">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR55" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR55.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Certificat d'études spéciales (CES)" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R55-CertificatEtudeSpeciale/FHIR/TRE-R55-CertificatEtudeSpeciale" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR56">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR56" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR56.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Attestation de formation." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R56-Attestation/FHIR/TRE-R56-Attestation" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR57">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR57" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR57.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme européen d'études spécialisées" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R57-DiplomeEuropeenEtudeSpecialisee/FHIR/TRE-R57-DiplomeEuropeenEtudeSpecialisee" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR58">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR58" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR58.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R58-AutreTypeDiplome/FHIR/TRE-R58-AutreTypeDiplome" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:deegreeR36">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="deegreeR36" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:deegreeR36.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R36-AutreDiplomeObtenu/FHIR/TRE-R36-AutreDiplomeObtenu" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR47">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR47" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR47.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Qualification attribuée par une commission" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R47-CommissionQualification/FHIR/TRE-R47-CommissionQualification" />
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR226">
+      <path value="Practitioner.qualification.code.coding" />
+      <sliceName value="degreeR226" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Practitioner.qualification.code.coding:degreeR226.system">
+      <path value="Practitioner.qualification.code.coding.system" />
+      <short value="Diplôme de deuxième cycle non qualifiant" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R226-Dip2iemeCycleNQ/FHIR/TRE-R226-Dip2iemeCycleNQ" />
+    </element>
+    <element id="Practitioner.qualification.code.text">
+      <path value="Practitioner.qualification.code.text" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.period">
+      <path value="Practitioner.qualification.period" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer">
+      <path value="Practitioner.qualification.issuer" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.reference">
+      <path value="Practitioner.qualification.issuer.reference" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.type">
+      <path value="Practitioner.qualification.issuer.type" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier">
+      <path value="Practitioner.qualification.issuer.identifier" />
+      <short value="Code du lieu d'obtention du diplôme" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier.use">
+      <path value="Practitioner.qualification.issuer.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier.type">
+      <path value="Practitioner.qualification.issuer.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier.system">
+      <path value="Practitioner.qualification.issuer.identifier.system" />
+      <fixedUri value="urn:oid:1.2.250.1.213.1.6.4.1" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier.period">
+      <path value="Practitioner.qualification.issuer.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.identifier.assigner">
+      <path value="Practitioner.qualification.issuer.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.qualification.issuer.display">
+      <path value="Practitioner.qualification.issuer.display" />
+      <max value="0" />
+    </element>
+    <element id="Practitioner.communication">
+      <path value="Practitioner.communication" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/CodeableConcept-Timed" />
+      </type>
+    </element>
+    <element id="Practitioner.communication.coding.system">
+      <path value="Practitioner.communication.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G00-Langue/FHIR/TRE-G00-Langue" />
+    </element>
+  </differential>
+</StructureDefinition>

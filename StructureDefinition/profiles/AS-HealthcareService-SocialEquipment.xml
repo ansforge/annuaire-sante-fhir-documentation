@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-HealthcareService-SocialEquipment" />
+  <meta>
+    <lastUpdated value="2022-07-26T16:54:05.82027+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-SocialEquipment" />
+  <version value="0.3" />
+  <name value="ASHealthcareServiceSocialEquipment" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Profil créé à partir de la ressource HealthcareService dans le cadre de l'annuaire santé - décrit les équipements sociaux représentant les activités des établissements du domaine social et médico-social enregistrés dans FINESS." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="HealthcareService" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HealthcareService" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="HealthcareService.meta">
+      <path value="HealthcareService.meta" />
+    </element>
+    <element id="HealthcareService.meta.source">
+      <path value="HealthcareService.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="HealthcareService.meta.profile">
+      <path value="HealthcareService.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-SocialEquipment" />
+    </element>
+    <element id="HealthcareService.meta.security">
+      <path value="HealthcareService.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.meta.tag">
+      <path value="HealthcareService.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.implicitRules">
+      <path value="HealthcareService.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.text">
+      <path value="HealthcareService.text" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.contained">
+      <path value="HealthcareService.contained" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.extension">
+      <path value="HealthcareService.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="HealthcareService.extension:authorizationDate">
+      <path value="HealthcareService.extension" />
+      <sliceName value="authorizationDate" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-AuthorizationDate" />
+      </type>
+    </element>
+    <element id="HealthcareService.extension:installationDate">
+      <path value="HealthcareService.extension" />
+      <sliceName value="installationDate" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/HealthcareService-ImplementationPeriod" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="HealthcareService.identifier">
+      <path value="HealthcareService.identifier" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.providedBy">
+      <path value="HealthcareService.providedBy" />
+      <short value="Référence vers la structure FINESS ET" />
+      <definition value="Reference vers l'id de la ressource de la structure FINESS ET à laquelle est rattaché cet equipement social" />
+    </element>
+    <element id="HealthcareService.category">
+      <path value="HealthcareService.category" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.type">
+      <path value="HealthcareService.type" />
+      <binding>
+        <strength value="required" />
+        <description value="La discipline détermine la nature de l’activité" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J136-DisciplineEquipementSocial-RASS/FHIR/JDV-J136-DisciplineEquipementSocial-RASS" />
+      </binding>
+    </element>
+    <element id="HealthcareService.type.coding.system">
+      <path value="HealthcareService.type.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R280-DisciplineEquipementSocial/FHIR/TRE-R280-DisciplineEquipementSocial" />
+    </element>
+    <element id="HealthcareService.specialty">
+      <path value="HealthcareService.specialty" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.location">
+      <path value="HealthcareService.location" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.name">
+      <path value="HealthcareService.name" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.comment">
+      <path value="HealthcareService.comment" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.extraDetails">
+      <path value="HealthcareService.extraDetails" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.photo">
+      <path value="HealthcareService.photo" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.telecom">
+      <path value="HealthcareService.telecom" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.coverageArea">
+      <path value="HealthcareService.coverageArea" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.serviceProvisionCode">
+      <path value="HealthcareService.serviceProvisionCode" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.eligibility.code">
+      <path value="HealthcareService.eligibility.code" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Population prise en charge par l’établissement dans le cadre de l’activité associée à la discipline" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J137-Clientele-RASS/FHIR/JDV-J137-Clientele-RASS" />
+      </binding>
+    </element>
+    <element id="HealthcareService.eligibility.code.coding.system">
+      <path value="HealthcareService.eligibility.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R279-Clientele/FHIR/TRE-R279-Clientele" />
+    </element>
+    <element id="HealthcareService.eligibility.comment">
+      <path value="HealthcareService.eligibility.comment" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.program">
+      <path value="HealthcareService.program" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.characteristic">
+      <path value="HealthcareService.characteristic" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Le mode de fonctionnement précise la modalité d’accueil, d’hébergement et/ou d’ouverture de l’activité associée à la discipline" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J138-TypeActivite-RASS/FHIR/JDV-J138-TypeActivite-RASS" />
+      </binding>
+    </element>
+    <element id="HealthcareService.characteristic.coding.system">
+      <path value="HealthcareService.characteristic.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite" />
+    </element>
+    <element id="HealthcareService.communication">
+      <path value="HealthcareService.communication" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.referralMethod">
+      <path value="HealthcareService.referralMethod" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.appointmentRequired">
+      <path value="HealthcareService.appointmentRequired" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.availableTime">
+      <path value="HealthcareService.availableTime" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.notAvailable">
+      <path value="HealthcareService.notAvailable" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.availabilityExceptions">
+      <path value="HealthcareService.availabilityExceptions" />
+      <max value="0" />
+    </element>
+    <element id="HealthcareService.endpoint">
+      <path value="HealthcareService.endpoint" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

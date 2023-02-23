@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-Organization" />
+  <meta>
+    <lastUpdated value="2022-10-28T09:41:33.609065+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization" />
+  <version value="0.3" />
+  <name value="ASOrganization" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Profil créé à partir de la ressource FrOrganization dans le cadre de l'annuaire santé - décrit les organismes du domaine sanitaire, médico-social et social." />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Organization" />
+  <baseDefinition value="http://interopsante.org/fhir/StructureDefinition/FrOrganization" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Organization.meta">
+      <path value="Organization.meta" />
+    </element>
+    <element id="Organization.meta.source">
+      <path value="Organization.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="Organization.meta.profile">
+      <path value="Organization.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization" />
+    </element>
+    <element id="Organization.meta.security">
+      <path value="Organization.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="Organization.meta.tag">
+      <path value="Organization.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension">
+      <path value="Organization.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Organization.extension:shortName">
+      <path value="Organization.extension" />
+      <sliceName value="shortName" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension:description">
+      <path value="Organization.extension" />
+      <sliceName value="description" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension:usePeriod">
+      <path value="Organization.extension" />
+      <sliceName value="usePeriod" />
+      <min value="0" />
+    </element>
+    <element id="Organization.extension:usePeriod.value[x]:valuePeriod">
+      <path value="Organization.extension.value[x]" />
+      <sliceName value="valuePeriod" />
+    </element>
+    <element id="Organization.extension:usePeriod.value[x]:valuePeriod.start">
+      <path value="Organization.extension.value[x].start" />
+      <short value="Date d'ouverture de la structure" />
+    </element>
+    <element id="Organization.extension:usePeriod.value[x]:valuePeriod.end">
+      <path value="Organization.extension.value[x].end" />
+      <short value="Date de fermeture de la structure" />
+    </element>
+    <element id="Organization.extension:digitalCertificate">
+      <path value="Organization.extension" />
+      <sliceName value="digitalCertificate" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Organization.extension:mailboxMSS">
+      <path value="Organization.extension" />
+      <sliceName value="mailboxMSS" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Organization.extension:mailboxMSS.extension">
+      <path value="Organization.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Organization.extension:mailboxMSS.extension:responsible">
+      <path value="Organization.extension.extension" />
+      <sliceName value="responsible" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension:mailboxMSS.extension:phone">
+      <path value="Organization.extension.extension" />
+      <sliceName value="phone" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension:mailboxMSS.extension:date">
+      <path value="Organization.extension.extension" />
+      <sliceName value="date" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Organization.extension:pharmacyLicence">
+      <path value="Organization.extension" />
+      <sliceName value="pharmacyLicence" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Organization-PharmacyLicence" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Organization.identifier">
+      <path value="Organization.identifier" />
+      <comment value="Une instance par identifiant (FINESS, SIREN, SIRET, idNat_Struct…)" />
+    </element>
+    <element id="Organization.identifier.use">
+      <path value="Organization.identifier.use" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Organization.identifier.type">
+      <path value="Organization.identifier.type" />
+      <comment value="Les codes FINEJ, FINEG, SIREN, SIRET, IDNST, INTRN proviennent du system  http://interopsante.org/CodeSystem/fr-v2-0203 ; Les codes 0,4 proviennent du system https://mos.esante.gouv.fr/NOS/TRE_G07-TypeIdentifiantStructure/FHIR/TRE-G07-TypeIdentifiantStructure" />
+    </element>
+    <element id="Organization.identifier.system">
+      <path value="Organization.identifier.system" />
+      <comment value="« urn:oid:1.2.250.1.71.4.2.2 » si l’instance correspond à l’identification nationale des structures (idNat_Struct) ; « http://sirene.fr» si l’instance correspond à un identifiant SIREN ou SIRET ; « http://finess.sante.gouv.fr» si l’instance correspond à un identifiant FINESS EG ou EJ ; « urn:oid:1.2.250.1.213.1.6.4.3 » si l’instance correspond à un identifiant ADELI rang ou RPPS rang; « https://annuaire.sante.fr » si l’instance correspond à l’identifiant technique de la structure;" />
+    </element>
+    <element id="Organization.identifier.period">
+      <path value="Organization.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Organization.identifier.assigner">
+      <path value="Organization.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Organization.type:organizationType">
+      <path value="Organization.type" />
+      <sliceName value="organizationType" />
+      <short value="Type de strcuture" />
+      <comment value="Entitité Juridique : LEGAL-ENTITY; &#xD;&#xA;Entité Géographique : GEOGRAPHICAL-ENTITY" />
+    </element>
+    <element id="Organization.type:secteurActiviteRASS">
+      <path value="Organization.type" />
+      <sliceName value="secteurActiviteRASS" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType" />
+        </extension>
+        <strength value="required" />
+        <description value="Un secteur d'activité regroupe les établissements partageant la même activité de santé." />
+      </binding>
+    </element>
+    <element id="Organization.type:categorieEtablissementRASS">
+      <path value="Organization.type" />
+      <sliceName value="categorieEtablissementRASS" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType" />
+        </extension>
+        <strength value="required" />
+        <description value="La catégorie d'établissement est le cadre réglementaire dans lequel s'exerce l'activité de l'entité géographique" />
+      </binding>
+    </element>
+    <element id="Organization.type:activiteINSEE">
+      <path value="Organization.type" />
+      <sliceName value="activiteINSEE" />
+      <comment value="Toute entité juridique et chacun de ses établissements (EG) se voit attribuer par l'Insee, lors de son inscription au répertoire SIRENE, un code caractérisant son activité principale par référence à la nomenclature d'activités française (NAF rév. 2).&#xD;&#xA;Plus précisément, on distingue le code APET pour les EG." />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType" />
+        </extension>
+        <strength value="required" />
+        <description value="Sous-classes de la Nomenclature d'Activités Française - INSEE" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J99-InseeNAFrav2Niveau5-RASS/FHIR/JDV-J99-InseeNAFrav2Niveau5-RASS" />
+      </binding>
+    </element>
+    <element id="Organization.type:activiteINSEE.coding.system">
+      <path value="Organization.type.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5" />
+    </element>
+    <element id="Organization.type:statutJuridiqueINSEE">
+      <path value="Organization.type" />
+      <sliceName value="statutJuridiqueINSEE" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType" />
+        </extension>
+        <strength value="required" />
+        <description value="Statut juridique FINESS qui caracterise la situation juridique de la personne morale" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J100-FinessStatutJuridique-RASS/FHIR/JDV-J100-FinessStatutJuridique-RASS" />
+      </binding>
+    </element>
+    <element id="Organization.type:statutJuridiqueINSEE.coding.system">
+      <path value="Organization.type.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R72-FinessStatutJuridique/FHIR/TRE-R72-FinessStatutJuridique" />
+    </element>
+    <element id="Organization.type:SPH">
+      <path value="Organization.type" />
+      <sliceName value="SPH" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType" />
+        </extension>
+        <strength value="required" />
+        <description value="Modalités de participation au service public hospitalier" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J162-ESPIC-RASS/FHIR/JDV-J162-ESPIC-RASS" />
+      </binding>
+    </element>
+    <element id="Organization.type:SPH.coding.system">
+      <path value="Organization.type.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R73-ESPIC/FHIR/TRE-R73-ESPIC" />
+    </element>
+    <element id="Organization.name">
+      <path value="Organization.name" />
+      <short value="Raison Sociale de la strcuture" />
+    </element>
+    <element id="Organization.alias">
+      <path value="Organization.alias" />
+      <short value="Enseigne commerciale de la structure" />
+    </element>
+    <element id="Organization.telecom">
+      <path value="Organization.telecom" />
+      <comment value="Différentes instances pour les téléphones, la télécopie et l’adresse mail." />
+    </element>
+    <element id="Organization.telecom.system">
+      <path value="Organization.telecom.system" />
+      <comment value="https://www.hl7.org/fhir/valueset-contact-point-system.html" />
+    </element>
+    <element id="Organization.telecom.use">
+      <path value="Organization.telecom.use" />
+      <comment value="« old » si les coordonnées de structure ont une date de fin" />
+    </element>
+    <element id="Organization.telecom.period.id">
+      <path value="Organization.telecom.period.id" />
+      <max value="0" />
+    </element>
+    <element id="Organization.telecom.period.start">
+      <path value="Organization.telecom.period.start" />
+      <max value="0" />
+    </element>
+    <element id="Organization.address">
+      <path value="Organization.address" />
+      <type>
+        <code value="Address" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
+      </type>
+    </element>
+    <element id="Organization.partOf">
+      <path value="Organization.partOf" />
+      <short value="Référence vers la structure de rattachement (lien EG/ EJ)" />
+      <comment value="Chaque entité geographique et ratachée à une entité juridique. C'est l'id de la ressource de l'entité juridique à laquelle est ratachée la structure qui est remontée dans l'element de référence partOf de l'entité géographique." />
+    </element>
+    <element id="Organization.contact">
+      <path value="Organization.contact" />
+      <max value="0" />
+    </element>
+    <element id="Organization.endpoint">
+      <path value="Organization.endpoint" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

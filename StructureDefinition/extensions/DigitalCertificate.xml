@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="DigitalCertificate" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:41:29.7781308+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
+  <version value="0.3" />
+  <name value="DigitalCertificate" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Informations descriptives du moyen d’identification par certificat. Il s'agit des certificats utilisés par les professionnels et les structures" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole" />
+  </context>
+  <context>
+    <type value="element" />
+    <expression value="Organization" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:serialNumber">
+      <path value="Extension.extension" />
+      <sliceName value="serialNumber" />
+      <short value="Numéor de Série du Certificat" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:serialNumber.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="serialNumber" />
+    </element>
+    <element id="Extension.extension:serialNumber.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:issuer">
+      <path value="Extension.extension" />
+      <sliceName value="issuer" />
+      <short value="DN (Distinguished Name - Nom distinctif) de l’autorité de certification émettrice du certificat" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:issuer.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="issuer" />
+    </element>
+    <element id="Extension.extension:issuer.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:subject">
+      <path value="Extension.extension" />
+      <sliceName value="subject" />
+      <short value="DN (Distinguished Name - Nom distinctif) du porteur du certificat" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:subject.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="subject" />
+    </element>
+    <element id="Extension.extension:subject.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:validity">
+      <path value="Extension.extension" />
+      <sliceName value="validity" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:validity.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="validity" />
+    </element>
+    <element id="Extension.extension:validity.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Extension.extension:validity.value[x].start">
+      <path value="Extension.extension.value[x].start" />
+      <short value="Date de début de validité du certificat" />
+    </element>
+    <element id="Extension.extension:validity.value[x].end">
+      <path value="Extension.extension.value[x].end" />
+      <short value="Date de fin de validité du certificat" />
+    </element>
+    <element id="Extension.extension:domain">
+      <path value="Extension.extension" />
+      <sliceName value="domain" />
+      <short value="CN du DNSujet" />
+      <comment value="Renseigné uniquement pour les certificats logiciels de portée Structure&lt;;" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:domain.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="domain" />
+    </element>
+    <element id="Extension.extension:domain.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:keyUsage">
+      <path value="Extension.extension" />
+      <sliceName value="keyUsage" />
+      <short value="La clé d’usage (Keyusage) qui détermine l’usage autorisé du certificat" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:keyUsage.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="keyUsage" />
+    </element>
+    <element id="Extension.extension:keyUsage.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:value">
+      <path value="Extension.extension" />
+      <sliceName value="value" />
+      <short value="Adresse mail du professionnel ou de la structure, si présente dans le certificat" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:value.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="value" />
+    </element>
+    <element id="Extension.extension:value.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Attachment" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/DigitalCertificate" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+      <type>
+        <code value="base64Binary" />
+      </type>
+      <type>
+        <code value="boolean" />
+      </type>
+      <type>
+        <code value="canonical" />
+      </type>
+      <type>
+        <code value="code" />
+      </type>
+      <type>
+        <code value="date" />
+      </type>
+      <type>
+        <code value="dateTime" />
+      </type>
+      <type>
+        <code value="decimal" />
+      </type>
+      <type>
+        <code value="id" />
+      </type>
+      <type>
+        <code value="instant" />
+      </type>
+      <type>
+        <code value="integer" />
+      </type>
+      <type>
+        <code value="markdown" />
+      </type>
+      <type>
+        <code value="oid" />
+      </type>
+      <type>
+        <code value="positiveInt" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+      <type>
+        <code value="time" />
+      </type>
+      <type>
+        <code value="unsignedInt" />
+      </type>
+      <type>
+        <code value="uri" />
+      </type>
+      <type>
+        <code value="url" />
+      </type>
+      <type>
+        <code value="uuid" />
+      </type>
+      <type>
+        <code value="Address" />
+      </type>
+      <type>
+        <code value="Age" />
+      </type>
+      <type>
+        <code value="Annotation" />
+      </type>
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Coding" />
+      </type>
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <type>
+        <code value="Count" />
+      </type>
+      <type>
+        <code value="Distance" />
+      </type>
+      <type>
+        <code value="Duration" />
+      </type>
+      <type>
+        <code value="HumanName" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="Money" />
+      </type>
+      <type>
+        <code value="Period" />
+      </type>
+      <type>
+        <code value="Quantity" />
+      </type>
+      <type>
+        <code value="Range" />
+      </type>
+      <type>
+        <code value="Ratio" />
+      </type>
+      <type>
+        <code value="Reference" />
+      </type>
+      <type>
+        <code value="SampledData" />
+      </type>
+      <type>
+        <code value="Signature" />
+      </type>
+      <type>
+        <code value="Timing" />
+      </type>
+      <type>
+        <code value="ContactDetail" />
+      </type>
+      <type>
+        <code value="Contributor" />
+      </type>
+      <type>
+        <code value="DataRequirement" />
+      </type>
+      <type>
+        <code value="Expression" />
+      </type>
+      <type>
+        <code value="ParameterDefinition" />
+      </type>
+      <type>
+        <code value="RelatedArtifact" />
+      </type>
+      <type>
+        <code value="TriggerDefinition" />
+      </type>
+      <type>
+        <code value="UsageContext" />
+      </type>
+      <type>
+        <code value="Dosage" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

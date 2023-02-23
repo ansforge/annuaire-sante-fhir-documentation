@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-Device" />
+  <meta>
+    <lastUpdated value="2022-07-29T12:25:46.72588+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device" />
+  <version value="0.3" />
+  <name value="ASDevice" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Profil créé à partir de la ressource Device dans le cadre de l'annuaire santé - décrit les équipements matériels lourds ('EML') mis en oeuvre au sein d'établissements." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="udi" />
+    <uri value="http://fda.gov/UDI" />
+    <name value="UDI Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Device" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Device" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Device.meta">
+      <path value="Device.meta" />
+    </element>
+    <element id="Device.meta.source">
+      <path value="Device.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="Device.meta.profile">
+      <path value="Device.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device" />
+    </element>
+    <element id="Device.meta.security">
+      <path value="Device.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="Device.meta.tag">
+      <path value="Device.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="Device.implicitRules">
+      <path value="Device.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Device.text">
+      <path value="Device.text" />
+      <max value="0" />
+    </element>
+    <element id="Device.contained">
+      <path value="Device.contained" />
+      <max value="0" />
+    </element>
+    <element id="Device.extension">
+      <path value="Device.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Device.extension:numberAuthorizationARHGOS">
+      <path value="Device.extension" />
+      <sliceName value="numberAuthorizationARHGOS" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-NumberAuthorizationARHGOS" />
+      </type>
+    </element>
+    <element id="Device.extension:authorizationDateDevice">
+      <path value="Device.extension" />
+      <sliceName value="authorizationDateDevice" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-AuthorizationDateDevice" />
+      </type>
+    </element>
+    <element id="Device.extension:periodImplentation">
+      <path value="Device.extension" />
+      <sliceName value="periodImplentation" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Device-PeriodImplentation" />
+      </type>
+    </element>
+    <element id="Device.identifier">
+      <path value="Device.identifier" />
+      <short value="Numéro autorisation ARGHOS" />
+    </element>
+    <element id="Device.definition">
+      <path value="Device.definition" />
+      <max value="0" />
+    </element>
+    <element id="Device.udiCarrier">
+      <path value="Device.udiCarrier" />
+      <max value="0" />
+    </element>
+    <element id="Device.status">
+      <path value="Device.status" />
+      <comment value="= “active” par défaut; &#xD;&#xA;Sinon, si le matériel est inactif =” inactive”" />
+    </element>
+    <element id="Device.statusReason">
+      <path value="Device.statusReason" />
+      <max value="0" />
+    </element>
+    <element id="Device.distinctIdentifier">
+      <path value="Device.distinctIdentifier" />
+      <max value="0" />
+    </element>
+    <element id="Device.manufacturer">
+      <path value="Device.manufacturer" />
+      <short value="Marque de l'équipement matériel lourd" />
+    </element>
+    <element id="Device.manufactureDate">
+      <path value="Device.manufactureDate" />
+      <max value="0" />
+    </element>
+    <element id="Device.expirationDate">
+      <path value="Device.expirationDate" />
+      <max value="0" />
+    </element>
+    <element id="Device.lotNumber">
+      <path value="Device.lotNumber" />
+      <max value="0" />
+    </element>
+    <element id="Device.serialNumber">
+      <path value="Device.serialNumber" />
+      <short value="Numéro de série de l'équipement matériel lourd" />
+    </element>
+    <element id="Device.deviceName">
+      <path value="Device.deviceName" />
+      <max value="0" />
+    </element>
+    <element id="Device.modelNumber">
+      <path value="Device.modelNumber" />
+      <max value="0" />
+    </element>
+    <element id="Device.partNumber">
+      <path value="Device.partNumber" />
+      <max value="0" />
+    </element>
+    <element id="Device.type">
+      <path value="Device.type" />
+      <binding>
+        <strength value="required" />
+        <description value="Code définissant l'équipement matériel lourd (EML) soumis à autorisation" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J135-EquipementMaterielLourd-RASS/FHIR/JDV-J135-EquipementMaterielLourd-RASS" />
+      </binding>
+    </element>
+    <element id="Device.type.coding.system">
+      <path value="Device.type.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd" />
+    </element>
+    <element id="Device.specialization">
+      <path value="Device.specialization" />
+      <max value="0" />
+    </element>
+    <element id="Device.version">
+      <path value="Device.version" />
+      <max value="0" />
+    </element>
+    <element id="Device.property">
+      <path value="Device.property" />
+      <max value="0" />
+    </element>
+    <element id="Device.patient">
+      <path value="Device.patient" />
+      <max value="0" />
+    </element>
+    <element id="Device.owner">
+      <path value="Device.owner" />
+      <short value="Référence vers la structure FINESS ET" />
+      <comment value="Reference vers l'id de la ressource de la structure FINESS ET à laquelle est rattaché cet équipement matériel lourd" />
+    </element>
+    <element id="Device.contact">
+      <path value="Device.contact" />
+      <max value="0" />
+    </element>
+    <element id="Device.location">
+      <path value="Device.location" />
+      <max value="0" />
+    </element>
+    <element id="Device.url">
+      <path value="Device.url" />
+      <max value="0" />
+    </element>
+    <element id="Device.note">
+      <path value="Device.note" />
+      <max value="0" />
+    </element>
+    <element id="Device.safety">
+      <path value="Device.safety" />
+      <max value="0" />
+    </element>
+    <element id="Device.parent">
+      <path value="Device.parent" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MailboxMSS" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:30:22.3422387+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+  <version value="0.3" />
+  <name value="MailboxMSS" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Informations descriptives des boîtes aux lettres du service de messagerie sécurisée de santé (MSSanté) rattachées aux professionnels et aux structures." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Practitioner" />
+  </context>
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole" />
+  </context>
+  <context>
+    <type value="element" />
+    <expression value="Organization" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:value">
+      <path value="Extension.extension" />
+      <sliceName value="value" />
+      <short value="BAL MSS" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:value.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="value" />
+    </element>
+    <element id="Extension.extension:value.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:type">
+      <path value="Extension.extension" />
+      <sliceName value="type" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="type" />
+    </element>
+    <element id="Extension.extension:type.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <definition value="Valeurs possibles :&#xD;&#xA;ORG pour une BAL organisationnelle;&#xD;&#xA;APP pour une BAL applicative;&#xD;&#xA;PER pour une BAL personnelle, rattachée à une personne physique" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Type de  boîte aux lettre MSS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J139-TypeBAL-RASS/FHIR/JDV-J139-TypeBAL-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:type.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R257-TypeBAL/FHIR/TRE-R257-TypeBAL" />
+    </element>
+    <element id="Extension.extension:description">
+      <path value="Extension.extension" />
+      <sliceName value="description" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:description.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="description" />
+    </element>
+    <element id="Extension.extension:description.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="Description fonctionnelle de la boîte aux lettres" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:responsible">
+      <path value="Extension.extension" />
+      <sliceName value="responsible" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:responsible.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="responsible" />
+    </element>
+    <element id="Extension.extension:responsible.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="Texte libre donnant les coordonnées de la (ou des) personne(s) responsable(s) au niveau opérationnel de la boîte aux lettres. Non renseigné pour les types de boîte aux lettres &quot;PER&quot;." />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:service">
+      <path value="Extension.extension" />
+      <sliceName value="service" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:service.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="service" />
+    </element>
+    <element id="Extension.extension:service.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="Nom et description du service de rattachement de l’utilisateur de la boîte aux lettres dans l’organisation." />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:phone">
+      <path value="Extension.extension" />
+      <sliceName value="phone" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:phone.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="phone" />
+    </element>
+    <element id="Extension.extension:phone.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="Coordonnées téléphoniques spécifiques à l’usage de la boîte aux lettres MSSanté" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:digitization">
+      <path value="Extension.extension" />
+      <sliceName value="digitization" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:digitization.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="digitization" />
+    </element>
+    <element id="Extension.extension:digitization.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="Indicateur d’acceptation de la dématérialisation (ou « Zéro papier »" />
+      <comment value="- O : Dématérialisation acceptée &#xD;&#xA;- N : Dématérialisation refusée" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+    <element id="Extension.extension:publication">
+      <path value="Extension.extension" />
+      <sliceName value="publication" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:publication.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="publication" />
+    </element>
+    <element id="Extension.extension:publication.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <short value="ndicateur liste rouge" />
+      <comment value="O: Boîte aux lettres en liste rouge;&#xD;&#xA;N: La boîte aux lettres peut être publiée" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+    <element id="Extension.extension:date">
+      <path value="Extension.extension" />
+      <sliceName value="date" />
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:date.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="date" />
+    </element>
+    <element id="Extension.extension:date.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Meta" />
+      </type>
+    </element>
+    <element id="Extension.extension:date.value[x].source">
+      <path value="Extension.extension.value[x].source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="Extension.extension:date.value[x].profile">
+      <path value="Extension.extension.value[x].profile" />
+      <fixedCanonical value="https://apifhir.annuaire.sante.fr/exposed/structuredefinition/mailboxMSS" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
