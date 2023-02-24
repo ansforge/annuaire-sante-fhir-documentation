@@ -1,8 +1,0 @@
-canonical: https://annuaire.sante.gouv.fr/fhir
-fhirVersion: 4.0.1
-FSHOnly: true
-applyExtensionMetadataToRoot: false
-id: annuaire.sante.gouv.fhir
-name: AnnuaireSanteGouvFhir
-status: draft
-version: "0.2"
