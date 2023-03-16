@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-AppointmentRequired" />
+  <meta>
+    <lastUpdated value="2022-07-08T13:17:18.9970158+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
+  <version value="0.3" />
+  <name value="PractitionerRoleAppointmentRequired" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole.availableTime" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Type de consultation proposé par le professionnel de santé" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <comment value="avc_rdv = avec rendez-vous; ss-rdv = sans rendez-vous, non_r = non renseigné" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

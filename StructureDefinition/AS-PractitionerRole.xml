@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-PractitionerRole" />
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole" />
+  <version value="0.3" />
+  <name value="ASPractitionerRole" />
+  <status value="draft" />
+  <description value="Profil créé à partir de la ressource PractitionerRole dans le cadre de l'annuaire santé - décrit l'exercice professionel et la situation d'exercice - contient les informations décrivant notamment la profession exercée, l'identité d'exercice d'un professionnel, le cadre de son exercice (civil, militaire, etc.) ainsi que les aractéristiques de l'exercice d’un professionnel pendant une période déterminée et dans une structure déterminée" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="PractitionerRole" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="PractitionerRole.meta">
+      <path value="PractitionerRole.meta" />
+    </element>
+    <element id="PractitionerRole.meta.source">
+      <path value="PractitionerRole.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="PractitionerRole.meta.profile">
+      <path value="PractitionerRole.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole" />
+    </element>
+    <element id="PractitionerRole.meta.security">
+      <path value="PractitionerRole.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.meta.tag">
+      <path value="PractitionerRole.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.implicitRules">
+      <path value="PractitionerRole.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.text">
+      <path value="PractitionerRole.text" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.contained">
+      <path value="PractitionerRole.contained" />
+      <max value="0" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Location" />
+      </type>
+    </element>
+    <element id="PractitionerRole.extension">
+      <path value="PractitionerRole.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.extension:name">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="name" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Name" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:name.value[x].id">
+      <path value="PractitionerRole.extension.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:name.value[x].use">
+      <path value="PractitionerRole.extension.value[x].use" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:name.value[x].text">
+      <path value="PractitionerRole.extension.value[x].text" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:name.value[x].prefix">
+      <path value="PractitionerRole.extension.value[x].prefix" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:name.value[x].period">
+      <path value="PractitionerRole.extension.value[x].period" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="registration" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Registration" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension">
+      <path value="PractitionerRole.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension:registeringOrganizationDetail">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="registeringOrganizationDetail" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension:period">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension:status">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="status" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension:hostingDepartment">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="hostingDepartment" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:registration.extension:isFirst">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="isFirst" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="educationLevel" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.id">
+      <path value="PractitionerRole.extension.id" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension">
+      <path value="PractitionerRole.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension:academicDegree">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="academicDegree" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension:achievedLevel">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="achievedLevel" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension:academicYear">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="academicYear" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension:period">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:educationLevel.extension:issuer">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="issuer" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:smartCard">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="smartCard" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-SmartCard" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:partOf">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="partOf" />
+      <short value="Référence vers l'id de l'exercice pro de ratachement" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-PartOf" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="mailboxMSS" />
+      <definition value="BALs MSS de type PER rattaché à l'identifiant du professionnel de santé  ainsi qu'au lieu de sa situation d'exercice" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/MailboxMSS" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.id">
+      <path value="PractitionerRole.extension.id" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.extension">
+      <path value="PractitionerRole.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.extension:description">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="description" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.extension:responsible">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="responsible" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.extension:phone">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="phone" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension:mailboxMSS.extension:date">
+      <path value="PractitionerRole.extension.extension" />
+      <sliceName value="date" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.identifier">
+      <path value="PractitionerRole.identifier" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.period">
+      <path value="PractitionerRole.period" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.practitioner">
+      <path value="PractitionerRole.practitioner" />
+      <min value="1" />
+    </element>
+    <element id="PractitionerRole.code.coding">
+      <path value="PractitionerRole.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="PractitionerRole.code.coding:CategorieProfession">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="CategorieProfession" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Catégories professionnelles dans le RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J89-CategorieProfessionnelle-RASS/FHIR/JDV-J89-CategorieProfessionnelle-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:CategorieProfession.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle/" />
+    </element>
+    <element id="PractitionerRole.code.coding:professionG15">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="professionG15" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des professions du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS/FHIR/JDV-J106-EnsembleProfession-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:professionG15.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Professions de santé définies par le code de la santé publique" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante/TRE_G15-ProfessionSante-FHIR.json" />
+    </element>
+    <element id="PractitionerRole.code.coding:professionR94">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="professionR94" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des professions du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS/FHIR/JDV-J106-EnsembleProfession-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:professionR94.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Profession du social" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial/" />
+    </element>
+    <element id="PractitionerRole.code.coding:professionR95">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="professionR95" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des professions du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS/FHIR/JDV-J106-EnsembleProfession-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:professionR95.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Usager de titre professionnel" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre/FHIR/TRE-R95-UsagerTitre/" />
+    </element>
+    <element id="PractitionerRole.code.coding:professionR291">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="professionR291" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des professions du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS/FHIR/JDV-J106-EnsembleProfession-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:professionR291.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Liste de professionnels non membres d'une profession réglementée" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R291-AutreProfession/FHIR/TRE-R291-AutreProfession/" />
+    </element>
+    <element id="PractitionerRole.code.coding:genreActivite">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="genreActivite" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Le genre d'activité identifie les activités qui nécessitent l’application de règles de gestion spécifiques" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J94-GenreActivite-RASS/FHIR/JDV-J94-GenreActivite-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:genreActivite.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite/" />
+    </element>
+    <element id="PractitionerRole.code.coding:modeExercice">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="modeExercice" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Le mode d'exercice décrit selon quelle modalité une activité est exercée au regard de l'organisation de la rétribution du professionnel" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J95-ModeExercice-RASS/FHIR/JDV-J95-ModeExercice-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:modeExercice.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice/" />
+    </element>
+    <element id="PractitionerRole.code.coding:typeActiviteLiberale">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="typeActiviteLiberale" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.code.coding:typeActiviteLiberale.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R24-TypeActiviteLiberale/FHIR/TRE-R24-TypeActiviteLiberale/" />
+    </element>
+    <element id="PractitionerRole.code.coding:statutProfessionnelSSA">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="statutProfessionnelSSA" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.code.coding:statutProfessionnelSSA.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https:mos//.esante.gouv.fr/NOS/TRE_R34-StatutProfessionnelSSA/FHIR/TRE-R34-StatutProfessionnelSSA" />
+    </element>
+    <element id="PractitionerRole.code.coding:statutHospitalier">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="statutHospitalier" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.code.coding:statutHospitalier.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R32-StatutHospitalier/FHIR/TRE-R32-StatutHospitalier" />
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR21">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="fonctionR21" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des fonctions et rôles du professionel au sein de la stucture d'exercice" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J108-EnsembleFonction-RASS/FHIR/JDV-J108-EnsembleFonction-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR21.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Fonction" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction/" />
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR96">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="fonctionR96" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des fonctions et rôles du professionel au sein de la stucture d'exercice" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J108-EnsembleFonction-RASS/FHIR/JDV-J108-EnsembleFonction-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR96.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Autres fonctions du domaine sanitaire" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R96-AutreFonctionSanitaire/FHIR/TRE-R96-AutreFonctionSanitaire/" />
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR85">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="fonctionR85" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des fonctions et rôles du RASS, https://mos.esante.gouv.fr/NOS/JDV_J108-EnsembleFonction-RASS/FHIR/JDV-J108-EnsembleFonction-RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J108-EnsembleFonction-RASS/FHIR/JDV-J108-EnsembleFonction-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:fonctionR85.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Rôle dans la prise en charge des patients ou des usagers" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge/" />
+    </element>
+    <element id="PractitionerRole.code.coding:metierPharmacienR06">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="metierPharmacienR06" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des sections et sous-sections du tableau du CNOP dans le RASS, https://mos.esante.gouv.fr/NOS/JDV_J73-MetierPharmacien-RASS/FHIR/JDV-J73-MetierPharmacien-RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J73-MetierPharmacien-RASS/FHIR/JDV-J73-MetierPharmacien-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:metierPharmacienR06.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP/" />
+    </element>
+    <element id="PractitionerRole.code.coding:metierPharmacienG05">
+      <path value="PractitionerRole.code.coding" />
+      <sliceName value="metierPharmacienG05" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des sections et sous-sections du tableau du CNOP dans le RASS, https://mos.esante.gouv.fr/NOS/JDV_J73-MetierPharmacien-RASS/FHIR/JDV-J73-MetierPharmacien-RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J73-MetierPharmacien-RASS/FHIR/JDV-J73-MetierPharmacien-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.code.coding:metierPharmacienG05.system">
+      <path value="PractitionerRole.code.coding.system" />
+      <short value="Sous-section ou à défaut section du tableau de l’Ordre des pharmaciens." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP/" />
+    </element>
+    <element id="PractitionerRole.specialty">
+      <path value="PractitionerRole.specialty" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="coding.system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="PractitionerRole.specialty.coding">
+      <path value="PractitionerRole.specialty.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR38">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR38" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR38.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Spécialité ordinale." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR39">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR39" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR39.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Compétence acquise par le professionnel" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R39-Competence/FHIR/TRE-R39-Competence/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR40">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR40" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR40.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Compétence exclusive." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R40-CompetenceExclusive/FHIR/TRE-R40-CompetenceExclusive/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR42">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR42" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR42.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Diplôme d'études spécialisées complémentaires (DESC)" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R42-DESCnonQualifiant/FHIR/TRE-R42-DESCnonQualifiant/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR43">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR43" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR43.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Capacité (savoir-faire)" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R43-CapaciteSavoirFaire/FHIR/TRE-R43-CapaciteSavoirFaire/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR44">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR44" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR44.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Qualification de praticien adjoint contractuel" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R44-QualificationPAC/FHIR/TRE-R44-QualificationPAC/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR45">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR45" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR45.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Fonction qualifiée." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R45-FonctionQualifiee/FHIR/TRE-R45-FonctionQualifiee/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR97">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireR97" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireR97.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Droit d'exercice complémentaire." />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R97-DroitExerciceCompl/FHIR/TRE-R97-DroitExerciceCompl/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireG13">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="savoirFaireG13" />
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des savoir-faire et compétences du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS/FHIR/JDV-J107-EnsembleSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:savoirFaireG13.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <short value="Orientation particulière" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G13-OrientationParticuliere/FHIR/TRE-G13-OrientationParticuliere/" />
+    </element>
+    <element id="PractitionerRole.specialty.coding:typeSavoirFaire">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="typeSavoirFaire" />
+      <binding>
+        <strength value="required" />
+        <description value="Le type de savoir-faire (qualifications/autres attributions)" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J91-TypeSavoirFaire-RASS/FHIR/JDV-J91-TypeSavoirFaire-RASS" />
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:typeSavoirFaire.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R04-TypeSavoirFaire/FHIR/TRE-R04-TypeSavoirFaire/" />
+    </element>
+    <element id="PractitionerRole.specialty:attributionParticuliere">
+      <path value="PractitionerRole.specialty" />
+      <sliceName value="attributionParticuliere" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.specialty:attributionParticuliere.coding.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R03-AttributionParticuliere/FHIR/TRE-R03-AttributionParticuliere/" />
+    </element>
+    <element id="PractitionerRole.location">
+      <path value="PractitionerRole.location" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Location-AS" />
+        <aggregation value="contained" />
+      </type>
+    </element>
+    <element id="PractitionerRole.healthcareService">
+      <path value="PractitionerRole.healthcareService" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom">
+      <path value="PractitionerRole.telecom" />
+      <max value="0" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrContactPoint" />
+      </type>
+    </element>
+    <element id="PractitionerRole.availableTime">
+      <path value="PractitionerRole.availableTime" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.notAvailable">
+      <path value="PractitionerRole.notAvailable" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.availabilityExceptions">
+      <path value="PractitionerRole.availabilityExceptions" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.endpoint">
+      <path value="PractitionerRole.endpoint" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

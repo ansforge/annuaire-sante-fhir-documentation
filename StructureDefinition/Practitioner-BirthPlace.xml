@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Practitioner-BirthPlace" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:26:30.8116702+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-BirthPlace" />
+  <version value="0.3" />
+  <name value="PractitionerBirthPlace" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Practitioner" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-BirthPlace" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="Extension.value[x]:valueAddress">
+      <path value="Extension.value[x]" />
+      <sliceName value="valueAddress" />
+      <type>
+        <code value="Address" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Fr-Address-Extended" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

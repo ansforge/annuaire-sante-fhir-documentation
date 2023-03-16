@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Practitioner-Authorization" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:28:43.7645544+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" />
+  <version value="0.3" />
+  <name value="PractitionerAuthorization" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Autorisation d'exercice" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Practitioner" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:type">
+      <path value="Extension.extension" />
+      <sliceName value="type" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="type" />
+    </element>
+    <element id="Extension.extension:type.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Type d'autorisation d'exercice pour accès à l'exercice de la profession du RASS;https://mos.esante.gouv.fr/NOS/JDV_J75-TypeAutorisation-RASS/FHIR/JDV-J75-TypeAutorisation-RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J75-TypeAutorisation-RASS/FHIR/JDV-J75-TypeAutorisation-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:type.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R17-TypeAutorisation/FHIR/TRE-R17-TypeAutorisation" />
+    </element>
+    <element id="Extension.extension:period">
+      <path value="Extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:period.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="period" />
+    </element>
+    <element id="Extension.extension:period.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Extension.extension:period.value[x].start">
+      <path value="Extension.extension.value[x].start" />
+      <short value="Date effet autorisation" />
+    </element>
+    <element id="Extension.extension:period.value[x].end">
+      <path value="Extension.extension.value[x].end" />
+      <short value="Date fin autorisation" />
+    </element>
+    <element id="Extension.extension:field">
+      <path value="Extension.extension" />
+      <sliceName value="field" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:field.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="field" />
+    </element>
+    <element id="Extension.extension:field.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Discipline à laquelle l'autorisation d'exercice est restreinte dans le RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J76-DisciplineAutorisation-RASS/FHIR/JDV-J76-DisciplineAutorisation-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:field.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R18-DisciplineAutorisation/FHIR/TRE-R18-DisciplineAutorisation" />
+    </element>
+    <element id="Extension.extension:profession">
+      <path value="Extension.extension" />
+      <sliceName value="profession" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:profession.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="profession" />
+    </element>
+    <element id="Extension.extension:profession.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Profession pour laquelle l'autorisation est délivrée" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS/FHIR/JDV-J106-EnsembleProfession-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:profession.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante/" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/Practitioner-Authorization" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

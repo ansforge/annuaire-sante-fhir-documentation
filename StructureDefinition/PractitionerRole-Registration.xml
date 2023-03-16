@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-Registration" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:19:33.8929367+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Registration" />
+  <version value="0.3" />
+  <name value="PractitionerRoleRegistration" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Inscription/référencement du professionnel. Première inscription si &quot;isFirst = true&quot;." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:registeringOrganization">
+      <path value="Extension.extension" />
+      <sliceName value="registeringOrganization" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:registeringOrganization.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="registeringOrganization" />
+    </element>
+    <element id="Extension.extension:registeringOrganization.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Autorités d'enregistrement des acteurs de santé du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J83-AutoriteEnregistrement-RASS/FHIR/JDV-J83-AutoriteEnregistrement-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:registeringOrganization.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R60-AutoriteEnregistrement/FHIR/TRE-R60-AutoriteEnregistrement" />
+    </element>
+    <element id="Extension.extension:registeringOrganizationDetail">
+      <path value="Extension.extension" />
+      <sliceName value="registeringOrganizationDetail" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:registeringOrganizationDetail.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="registeringOrganizationDetail" />
+    </element>
+    <element id="Extension.extension:registeringOrganizationDetail.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Départements (outre-mer et Monaco inclus) pour le RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J84-DepartementOM-RASS/FHIR/JDV-J84-DepartementOM-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:registeringOrganizationDetail.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G09-DepartementOM/FHIR/TRE-G09-DepartementOM" />
+    </element>
+    <element id="Extension.extension:period">
+      <path value="Extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:period.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="period" />
+    </element>
+    <element id="Extension.extension:period.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Extension.extension:status">
+      <path value="Extension.extension" />
+      <sliceName value="status" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:status.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="status" />
+    </element>
+    <element id="Extension.extension:status.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Statut avancement dossier de référencement personne du RASS auprès d'un ordre" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J85-StatutInscription-RASS/FHIR/JDV-J85-StatutInscription-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:status.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R33-StatutInscription/FHIR/TRE-R33-StatutInscription" />
+    </element>
+    <element id="Extension.extension:hostingDepartment">
+      <path value="Extension.extension" />
+      <sliceName value="hostingDepartment" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:hostingDepartment.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="hostingDepartment" />
+    </element>
+    <element id="Extension.extension:hostingDepartment.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Départements (outre-mer et Monaco inclus) pour le RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J84-DepartementOM-RASS/FHIR/JDV-J84-DepartementOM-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:hostingDepartment.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_G09-DepartementOM/FHIR/TRE-G09-DepartementOM" />
+    </element>
+    <element id="Extension.extension:isFirst">
+      <path value="Extension.extension" />
+      <sliceName value="isFirst" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:isFirst.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="isFirst" />
+    </element>
+    <element id="Extension.extension:isFirst.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <comment value="Si 1re insctription =&gt; practitionerRole-registration.isFirst= « true »&#xD;&#xA;Sinon, practitionerRole-registration.isFirst= « false »" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Registration" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

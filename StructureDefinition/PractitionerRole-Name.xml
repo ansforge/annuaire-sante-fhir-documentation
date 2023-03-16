@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-Name" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:21:39.6157647+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Name" />
+  <version value="0.3" />
+  <name value="PractitionerRoleName" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Nom d'exercice" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Name" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <type>
+        <code value="HumanName" />
+        <profile value="http://interopsante.org/fhir/StructureDefinition/FrHumanName" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

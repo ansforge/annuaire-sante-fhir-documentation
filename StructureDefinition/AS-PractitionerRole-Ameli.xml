@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AS-PractitionerRole-Ameli" />
+  <meta>
+    <lastUpdated value="2022-07-26T16:47:14.6392724+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole-Ameli" />
+  <version value="0.3" />
+  <name value="ASPractitionerRoleAmeli" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Profil créé à partir de la ressource PractitionerRole dans le cadre de l'annuaire santé - décrit les caractéristiques opérationnelles de l’exercice d’un professionnel au sein d’une organisation interne." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="servd" />
+    <uri value="http://www.omg.org/spec/ServD/1.0/" />
+    <name value="ServD" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="PractitionerRole" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="PractitionerRole.meta">
+      <path value="PractitionerRole.meta" />
+    </element>
+    <element id="PractitionerRole.meta.source">
+      <path value="PractitionerRole.meta.source" />
+      <fixedUri value="https://annuaire.sante.fr" />
+    </element>
+    <element id="PractitionerRole.meta.profile">
+      <path value="PractitionerRole.meta.profile" />
+      <fixedCanonical value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole-Ameli" />
+    </element>
+    <element id="PractitionerRole.meta.security">
+      <path value="PractitionerRole.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.meta.tag">
+      <path value="PractitionerRole.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.implicitRules">
+      <path value="PractitionerRole.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.text">
+      <path value="PractitionerRole.text" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.contained">
+      <path value="PractitionerRole.contained" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.extension">
+      <path value="PractitionerRole.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.extension:partOf">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="partOf" />
+      <short value="Référence vers la situation d’exercice de rattachement (PractitionerRole)" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-PartOf" />
+      </type>
+    </element>
+    <element id="PractitionerRole.extension:hasCAS">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="hasCAS" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS" />
+      </type>
+    </element>
+    <element id="PractitionerRole.extension:Contracted">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="Contracted" />
+      <short value="Secteur de conventionnement du professionnel libéral auquel il a adhéré auprès de l'Assurance Maladie." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-Contracted" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.extension:vitalAccepted">
+      <path value="PractitionerRole.extension" />
+      <sliceName value="vitalAccepted" />
+      <short value="L’indicateur Carte Vitale acceptée précise si le professionnel, dans le cadre de cette situation opérationnelle, dispose des moyens techniques pour prendre en charge la carte vitale ou pas." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-VitaleAccepted" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.identifier">
+      <path value="PractitionerRole.identifier" />
+      <short value="Numéro AM" />
+      <max value="1" />
+    </element>
+    <element id="PractitionerRole.period">
+      <path value="PractitionerRole.period" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.organization">
+      <path value="PractitionerRole.organization" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.code">
+      <path value="PractitionerRole.code" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.specialty">
+      <path value="PractitionerRole.specialty" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.location">
+      <path value="PractitionerRole.location" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.healthcareService">
+      <path value="PractitionerRole.healthcareService" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom">
+      <path value="PractitionerRole.telecom" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom.id">
+      <path value="PractitionerRole.telecom.id" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom.use">
+      <path value="PractitionerRole.telecom.use" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom.rank">
+      <path value="PractitionerRole.telecom.rank" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.telecom.period">
+      <path value="PractitionerRole.telecom.period" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.availableTime">
+      <path value="PractitionerRole.availableTime" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.availableTime.extension">
+      <path value="PractitionerRole.availableTime.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="PractitionerRole.availableTime.extension:appointmentRequired">
+      <path value="PractitionerRole.availableTime.extension" />
+      <sliceName value="appointmentRequired" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.availableTime.extension:homeCare">
+      <path value="PractitionerRole.availableTime.extension" />
+      <sliceName value="homeCare" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HomeCare" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.availableTime.extension:activityType">
+      <path value="PractitionerRole.availableTime.extension" />
+      <sliceName value="activityType" />
+      <min value="0" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-ActivityType" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="PractitionerRole.availableTime.daysOfWeek">
+      <path value="PractitionerRole.availableTime.daysOfWeek" />
+      <comment value="se referer à https://build.fhir.org/valueset-days-of-week.html" />
+    </element>
+    <element id="PractitionerRole.availableTime.allDay">
+      <path value="PractitionerRole.availableTime.allDay" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.availableTime.availableStartTime">
+      <path value="PractitionerRole.availableTime.availableStartTime" />
+      <short value="Heure de début de la plage horaire" />
+    </element>
+    <element id="PractitionerRole.availableTime.availableEndTime">
+      <path value="PractitionerRole.availableTime.availableEndTime" />
+      <short value="Heure de fin de la plage horaire." />
+    </element>
+    <element id="PractitionerRole.notAvailable">
+      <path value="PractitionerRole.notAvailable" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.availabilityExceptions">
+      <path value="PractitionerRole.availabilityExceptions" />
+      <max value="0" />
+    </element>
+    <element id="PractitionerRole.endpoint">
+      <path value="PractitionerRole.endpoint" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

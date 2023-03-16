@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-EducationLevel" />
+  <meta>
+    <lastUpdated value="2022-07-25T17:22:37.3111839+00:00" />
+  </meta>
+  <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" />
+  <version value="0.3" />
+  <name value="PractitionerRoleEducationLevel" />
+  <status value="draft" />
+  <publisher value="ANS" />
+  <contact>
+    <name value="monserviceclient.annuaire@esante.gouv.fr" />
+  </contact>
+  <description value="Niveau de formation acquis de l'étudiant." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="PractitionerRole" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:qualification">
+      <path value="Extension.extension" />
+      <sliceName value="qualification" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:qualification.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="qualification" />
+    </element>
+    <element id="Extension.extension:qualification.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Ensemble des diplômes et qualifications du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J105-EnsembleDiplome-RASS/FHIR/JDV-J105-EnsembleDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:qualificationType">
+      <path value="Extension.extension" />
+      <sliceName value="qualificationType" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:qualificationType.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="qualificationType" />
+    </element>
+    <element id="Extension.extension:qualificationType.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Types de diplôme du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J81-TypeDiplome-RASS/FHIR/JDV-J81-TypeDiplome-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:qualificationType.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R14-TypeDiplome/FHIR/TRE-R14-TypeDiplome" />
+    </element>
+    <element id="Extension.extension:academicDegree">
+      <path value="Extension.extension" />
+      <sliceName value="academicDegree" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:academicDegree.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="academicDegree" />
+    </element>
+    <element id="Extension.extension:academicDegree.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Natures du cycle de formation des professionnels du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J86-NatCycleForm-RASS/FHIR/JDV-J86-NatCycleForm-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:academicDegree.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R223-NatCycleForm/FHIR/TRE-R223-NatCycleForm" />
+    </element>
+    <element id="Extension.extension:achievedLevel">
+      <path value="Extension.extension" />
+      <sliceName value="achievedLevel" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:achievedLevel.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="achievedLevel" />
+    </element>
+    <element id="Extension.extension:achievedLevel.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Niveau de formation acquis dans le cycle de formation des professionnels du RASS" />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J87-NiveauFormAcquis-RASS/FHIR/JDV-J87-NiveauFormAcquis-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:achievedLevel.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R224-NiveauFormAcquis/FHIR/TRE-R224-NiveauFormAcquis" />
+    </element>
+    <element id="Extension.extension:academicYear">
+      <path value="Extension.extension" />
+      <sliceName value="academicYear" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:academicYear.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="academicYear" />
+    </element>
+    <element id="Extension.extension:academicYear.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Années universitaires des professionnels du RASS," />
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J88-AnneeUniversitaire-RASS/FHIR/JDV-J88-AnneeUniversitaire-RASS" />
+      </binding>
+    </element>
+    <element id="Extension.extension:academicYear.value[x].coding.system">
+      <path value="Extension.extension.value[x].coding.system" />
+      <fixedUri value="https://mos.esante.gouv.fr/NOS/TRE_R225-AnneeUniversitaire/FHIR/TRE-R225-AnneeUniversitaire" />
+    </element>
+    <element id="Extension.extension:period">
+      <path value="Extension.extension" />
+      <sliceName value="period" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:period.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="period" />
+    </element>
+    <element id="Extension.extension:period.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Extension.extension:issuer">
+      <path value="Extension.extension" />
+      <sliceName value="issuer" />
+      <min value="0" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:issuer.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="issuer" />
+    </element>
+    <element id="Extension.extension:issuer.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+    </element>
+    <element id="Extension.extension:issuer.value[x].identifier">
+      <path value="Extension.extension.value[x].identifier" />
+      <short value="Lieu de formation" />
+    </element>
+    <element id="Extension.extension:issuer.value[x].identifier.system">
+      <path value="Extension.extension.value[x].identifier.system" />
+      <fixedUri value="urn:oid:1.2.250.1.213.1.6.4.1" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-EducationLevel" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
