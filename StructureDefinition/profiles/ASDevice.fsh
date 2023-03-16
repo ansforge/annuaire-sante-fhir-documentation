@@ -1,32 +1,27 @@
 Profile: ASDevice
 Parent: Device
-Id: as-device
+Id: AS-Device
 Description: "Profil créé à partir de la ressource Device dans le cadre de l'annuaire santé - décrit les équipements matériels lourds ('EML') mis en oeuvre au sein d'établissements."
-
 * ^meta.lastUpdated = "2022-07-29T12:25:46.72588+00:00"
-* ^url = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-device"
-* ^version = "1.0"
+* ^version = "0.3"
 * ^status = #draft
 * ^publisher = "ANS"
 * ^contact.name = "monserviceclient.annuaire@esante.gouv.fr"
 * meta.source = "https://annuaire.sante.fr" (exactly)
-* meta.profile = "http://interop.esante.gouv.fr/fhir/ig/as10/StructureDefinition/as-device" (exactly)
+* meta.profile = "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device" (exactly)
 * meta.security ..0
 * meta.tag ..0
 * implicitRules ..0
 * text ..0
 * contained ..0
-
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"
 * extension ^slicing.rules = #open
 * extension ^min = 0
-
 * extension contains
-    ASDeviceNumberaAuthorizationARHGOS named as-device-number-authorization-arhgos 0..1 and
-    ASDeviceAuthorizationDateDevice named as-device-authorization-date-device 0..1 and
+    DeviceNumberaAuthorizationARHGOS named numberAuthorizationARHGOS 0..1 and
+    DeviceAuthorizationDateDevice named authorizationDateDevice 0..1 and
     $Device-PeriodImplentation named periodImplentation 0..1
-
 * identifier ^short = "Numéro autorisation ARGHOS"
 * definition ..0
 * udiCarrier ..0
