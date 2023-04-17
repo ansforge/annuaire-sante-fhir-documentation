@@ -16,10 +16,11 @@ Il existe plusieurs types de BAL :
 ### 1.1 Les BAL organisationnelles
 Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
-
-le type d'organization : SA5 (le type correspond ici au secteur d'activité SA05 => centre de santé) 
-En incluant que les organizations ayant au moins d'une BAL MSS
-
+<div class="wysiwyg" markdown="1">
+ * le type d'organization : SA5 (le type correspond ici au secteur d'activité SA05 => centre de santé) 
+ * En incluant que les organizations ayant au moins d'une BAL MSS
+</div>
+<br/>
 
 ## 2. Laboratoires
 TODO
