@@ -14,10 +14,12 @@ Il existe plusieurs types de BAL :
 * les BAL « organisationnelles » associées à un service ou à une équipe, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL ;
 * les BAL « applicatives » associées à un logiciel métier ou à une machine et utilisées à des fins d’envois ou de réception automatisés, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL.
 </div>
+<br/>
 
 ## 1. Centres de santé
 ### 1.1 Les BAL organisationnelles
 Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
+
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
 <div class="wysiwyg" markdown="1">
  * le type d'organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => centre de santé) 
@@ -31,7 +33,8 @@ Nous appliquerons deux filtres à la requête afin d’obtenir le résultat atte
 Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
   * de type SA05 
   * et ayant au moins un mailbox 
- type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA05 et mailbox-mss:contains=%40) 
+ 
+ type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA05 et mailbox-mss:contains=%40 
  {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -40,9 +43,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  {% endhighlight %}
  </div>
  <div class="tab-content" data-name="postman">
- {% highlight bash %} 
   ![requête postman](postman_irisdp_bal_mss_org_centre_de_sante.png){:style="max-width:670px"}
- {% endhighlight %}
  </div>
  <br/>
 
