@@ -52,7 +52,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  
  ![Schéma montrant les champs BAL MSS et Type de BAL](focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png){:style="max-width: 670px"}
  
- ![Schéma montrant les champs N° FINESS, Raison sociale et N° département](focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png){:style="max-width:670px"}
+ ![Schéma montrant les champs N° FINESS, Raison sociale et N° département](focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png){:style="max-width: 670px"}
  
 ## 2. Laboratoires
 TODO
