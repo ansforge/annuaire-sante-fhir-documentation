@@ -42,9 +42,9 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40" 
  {% endhighlight %}
  </div>
- <div class="tab-content" data-name="postman">
-  ![requête postman](postman_irisdp_bal_mss_org_centre_de_sante.png){:style="max-width:670px"}
- </div>
+ <div class="image" data-name="postman">
+  <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt=''>
+  </div>
  <br/>
 
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
