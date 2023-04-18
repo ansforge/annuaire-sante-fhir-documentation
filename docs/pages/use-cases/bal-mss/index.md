@@ -22,8 +22,8 @@ Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’end
 
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
 <div class="wysiwyg" markdown="1">
- * le type d'organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => centre de santé) 
- * En incluant que les organizations ayant au moins d'une BAL MSS
+ * le type d'organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => Centre de santé) 
+ * En n'incluant que les organizations ayant au moins d'une BAL MSS
 </div>
 <br/>
 
@@ -48,6 +48,9 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  <br/>
 
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
+ ![Schéma montrant les champs BAL MSS et Type de BAL](focus_postman_irisdp_bal_mss_org_centre_de_sante_2.pnj){:style="max-width:670px"}
+ ![Schéma montrant les champs N° FINESS, Raison sociale et N° département](focus_postman_irisdp_bal_mss_org_centre_de_sante_3.pnj){:style="max-width:670px"}
+ 
 ## 2. Laboratoires
 TODO
  <br/>
