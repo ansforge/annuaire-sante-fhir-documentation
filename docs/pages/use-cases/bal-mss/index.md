@@ -44,3 +44,8 @@ TODO
 TODO
 ## 4. EPHAD
 TODO
+## Focus sur le mapping des données Extraction fichier vs API
+ Pour les utilisateurs des extractions fichiers existantes, ce tableau met en correspondance les champs de ces dernières et les champs de l'API.
+ TODO
+ 
+TODO
