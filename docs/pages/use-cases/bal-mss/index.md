@@ -48,7 +48,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  <br/>
 
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
- ![Schéma montrant les champs TOTAL et Page suivante](focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png){:style="max-width: 670px"}
+ ![Schéma montrant les champs TOTAL et Page suivante](focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png){style="max-width: 670px"}
  
  ![Schéma montrant les champs BAL MSS et Type de BAL](focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png){:style="max-width: 670px"}
  
