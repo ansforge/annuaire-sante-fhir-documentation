@@ -43,7 +43,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  {% endhighlight %}
  </div>
 <div class="tab-content" data-name="postman">
-  <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width=670px>
+  <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width:670px>
   </div>
  <br/>
 
