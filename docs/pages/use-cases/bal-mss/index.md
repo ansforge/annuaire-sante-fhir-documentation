@@ -9,10 +9,10 @@ L’opérateur transmet, pour chaque BAL du périmètre cité, un identifiant na
 
 Il existe plusieurs types de BAL :
 
- - les BAL (boîtes aux lettres) « personnelles » des personnes physiques disposant d’un identifiant RPPS ou d’un identifiant ADELI, dont l’usage est sous la responsabilité exclusive du porteur de l’adresse ;
- - les BAL « personnelles » non rattachées à un identifiant national ; ces BAL sont attribuées à des personnes dont l’identité est enregistrée par une personne morale (établissement de santé…) responsable de l’accès et de l’usage de la BAL ;
- - les BAL « organisationnelles » associées à un service ou à une équipe, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL ;
- - les BAL « applicatives » associées à un logiciel métier ou à une machine et utilisées à des fins d’envois ou de réception automatisés, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL.
+  - les BAL (boîtes aux lettres) « personnelles » des personnes physiques disposant d’un identifiant RPPS ou d’un identifiant ADELI, dont l’usage est sous la responsabilité exclusive du porteur de l’adresse ;
+  - les BAL « personnelles » non rattachées à un identifiant national ; ces BAL sont attribuées à des personnes dont l’identité est enregistrée par une personne morale (établissement de santé…) responsable de l’accès et de l’usage de la BAL ;
+  - les BAL « organisationnelles » associées à un service ou à une équipe, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL ;
+  - les BAL « applicatives » associées à un logiciel métier ou à une machine et utilisées à des fins d’envois ou de réception automatisés, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL.
 
 
 ## 1. Centres de santé
@@ -29,7 +29,10 @@ Nous appliquerons deux filtres à la requête afin d’obtenir le résultat atte
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 et ayant au moins un mailbox comme suit : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA05 et mailbox-mss:contains=%40) 
+Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
+  * de type SA05 
+  * et ayant au moins un mailbox 
+ type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA05 et mailbox-mss:contains=%40) 
  {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -37,13 +40,16 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization de t
  curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40" 
  {% endhighlight %}
  </div>
- 
+ <br/>
 ## 2. Laboratoires
 TODO
+ <br/>
 ## 3. Officines
 TODO
+ <br/>
 ## 4. EPHAD
 TODO
+ <br/>
 ## Focus sur le mapping des données Extraction fichier vs API
  Pour les utilisateurs des extractions fichiers existantes, ce tableau met en correspondance les champs de ces dernières et les champs de l'API.
  TODO
