@@ -66,7 +66,37 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 </div>
 
 <br/>
- 
+ ### 1.2 Les BAL personnelles
+Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activité dans une de ces structures , il faut interroger l’endpoint Organization.
+
+En filtrant sur les types d’établissements : SA05, SA07, SA08, SA09, SA52
+En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur les types d’établissements : SA05
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir interroger ensuite l'endpoint Practitioner pour récupérer les BAL MSS
+</div>
+<br/>
+
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %} 
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
+ 2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
+ 3) Pour chacun des Practitioner récupéré, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
+ 3) Répeter l'opération sur toutes les pages (1)
+ {% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+ {% highlight bash %} 
+ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&_revinclude=PractitionerRole:organization" 
+ {% endhighlight %}
+ </div>
+<div class="tab-content" data-name="postman">
+  <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_1.png' alt='' max-width=670px>
+  <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_2.png' alt='' max-width=670px>
+  </div>
+ <br/>
+
  
 ## 2. Laboratoires
 TODO
