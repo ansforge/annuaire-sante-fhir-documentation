@@ -22,15 +22,15 @@ Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’end
 
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
 <div class="wysiwyg" markdown="1">
- * le type d'organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => Centre de santé) 
- * Et en n'incluant que les organizations ayant au moins d'une BAL MSS
+ * le type d'Organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => Centre de santé) 
+ * Et en n'incluant que les Organizations ayant au moins d'une BAL MSS
 </div>
 <br/>
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
+Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
   * de type SA05 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
   * et ayant au moins un mailbox (mailbox-mss:contains=%40 )
  {% endhighlight %}
@@ -73,7 +73,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activité dans une de ces structures , il faut interroger l’endpoint Organization.
 
 <div class="wysiwyg" markdown="1">
- * En filtrant sur les types d’établissements : SA05
+ * En filtrant sur le type d’établissement : SA05
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir interroger ensuite l'endpoint Practitioner pour récupérer les BAL MSS
 </div>
 <br/>
