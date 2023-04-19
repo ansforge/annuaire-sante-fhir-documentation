@@ -36,20 +36,21 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
- {% highlight bash %} 
- curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40" 
- {% endhighlight %}
- </div>
+{% highlight bash %} 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40" 
+{% endhighlight %}
+</div>
 <div class="tab-content" data-name="postman">
   <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width=670px>
   </div>
- </div>
- <br/>
-
- Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
+</div>
  
- L’exécution de l’exemple de code peut donner un résultat équivalent :
-  <br/>
+<br/>
+
+Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
+ 
+L’exécution de l’exemple de code peut donner un résultat équivalent :
+<br/>
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs TOTAL et Page suivante : 
@@ -65,10 +66,10 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  * Schéma montrant les champs N° FINESS, Raison sociale et N° département : 
 <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="Schéma montrant les champs N° FINESS, Raison sociale et N° département" style="max-width: 670px;"/>
 </div>
-</div>
+
 <br/>
  
- ### 1.2 Les BAL personnelles
+### 1.2 Les BAL personnelles
 Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activité dans une de ces structures , il faut interroger l’endpoint Organization.
 
 <div class="wysiwyg" markdown="1">
@@ -76,29 +77,41 @@ Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activ
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir interroger ensuite l'endpoint Practitioner pour récupérer les BAL MSS
 </div>
 <br/>
-
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
 1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
- 2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
- 3) Pour chacun des Practitioner récupéré, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
- 4) Répeter l'opération sur toutes les pages (1)
- {% endhighlight %}
+2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
+3) Pour chacun des Practitioner récupéré, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
+4) Répeter l'opération sur toutes les pages (1)
+{% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
- {% highlight bash %} 
- curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&_revinclude=PractitionerRole:organization" 
- {% endhighlight %}
+{% highlight bash %} 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&_revinclude=PractitionerRole:organization" 
+{% endhighlight %}
  </div>
 <div class="tab-content" data-name="postman">
   <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_1.png' alt='' max-width=670px>
   <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_2.png' alt='' max-width=670px>
-  </div>
- </div>
- <br/>
+</div>
+</div>
+<br/>
+L’exécution de l’exemple de code peut donner un résultat équivalent :
+<br/>
 
- 
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant le champs practitioner du PractitionerRole : 
+<img src="focus_postman_irisdp_bal_mss_per_centre_de_sante_1.png" alt="Schéma montrant le champs practitioner du PractitionerRole">
+</div>
+
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant les champs BAL MSS, Type de BAL et Identifiant personne : 
+<img src="focus_postman_irisdp_bal_mss_per_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS, Type de BAL et Identifiant personne">
+</div>
+
+
+<br/> 
 ## 2. Laboratoires
 TODO
  <br/>
