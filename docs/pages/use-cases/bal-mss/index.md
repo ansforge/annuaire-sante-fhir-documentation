@@ -43,6 +43,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 <div class="tab-content" data-name="postman">
   <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width=670px>
   </div>
+ </div>
  <br/>
 
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
@@ -82,7 +83,7 @@ Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activ
 1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
  2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
  3) Pour chacun des Practitioner récupéré, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
- 3) Répeter l'opération sur toutes les pages (1)
+ 4) Répeter l'opération sur toutes les pages (1)
  {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -94,6 +95,7 @@ Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activ
   <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_1.png' alt='' max-width=670px>
   <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_2.png' alt='' max-width=670px>
   </div>
+ </div>
  <br/>
 
  
