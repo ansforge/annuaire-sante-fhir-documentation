@@ -82,7 +82,7 @@ Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activ
 {% highlight bash %} 
 1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
-3) Pour chacun des Practitioner récupéré, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
+3) Pour chacun des Practitioner récupérés, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
 4) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
