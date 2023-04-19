@@ -66,11 +66,10 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 </div>
 
 <br/>
+ 
  ### 1.2 Les BAL personnelles
 Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activité dans une de ces structures , il faut interroger l’endpoint Organization.
 
-En filtrant sur les types d’établissements : SA05, SA07, SA08, SA09, SA52
-En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
 <div class="wysiwyg" markdown="1">
  * En filtrant sur les types d’établissements : SA05
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir interroger ensuite l'endpoint Practitioner pour récupérer les BAL MSS
