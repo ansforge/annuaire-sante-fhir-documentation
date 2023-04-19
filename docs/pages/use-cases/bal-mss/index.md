@@ -52,12 +52,12 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs TOTAL et Page suivante : 
-<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="Schéma montrant les champs TOTAL et Page suivante" style="max-width: 670px;"/>
+<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="Schéma montrant les champs TOTAL et Page suivante">
 </div>
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs BAL MSS et Type de BAL : 
-<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL" style="max-width: 670px;"/>
+<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL">
 </div>
 
 <div class="wysiwyg" markdown="1">
