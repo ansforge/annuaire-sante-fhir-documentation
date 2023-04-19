@@ -23,7 +23,7 @@ Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’end
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
 <div class="wysiwyg" markdown="1">
  * le type d'organization : SA5 (ici, le type correspond  au secteur d'activité SA05 => Centre de santé) 
- * En n'incluant que les organizations ayant au moins d'une BAL MSS
+ * Et en n'incluant que les organizations ayant au moins d'une BAL MSS
 </div>
 <br/>
 
@@ -31,10 +31,8 @@ Nous appliquerons deux filtres à la requête afin d’obtenir le résultat atte
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
 Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
-  * de type SA05 
-  * et ayant au moins un mailbox 
- 
- type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA05 et mailbox-mss:contains=%40 
+  * de type SA05 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
+  * et ayant au moins un mailbox (mailbox-mss:contains=%40 )
  {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -49,10 +47,14 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
  
+ L’exécution de l’exemple de code peut donner un résultat équivalent :
+ * Schéma montrant les champs TOTAL et Page suivante 
  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="Schéma montrant les champs TOTAL et Page suivante" style="max-width: 670px;"/>
-  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL" style="max-width: 670px;"/>
-  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="Schéma montrant les champs N° FINESS, Raison sociale et N° département" style="max-width: 670px;"/>
- 
+ * Schéma montrant les champs BAL MSS et Type de BAL
+ <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL" style="max-width: 670px;"/>
+ * Schéma montrant les champs N° FINESS, Raison sociale et N° département
+ <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="Schéma montrant les champs N° FINESS, Raison sociale et N° département" style="max-width: 670px;"/>
+  <br/>
  
 ## 2. Laboratoires
 TODO
