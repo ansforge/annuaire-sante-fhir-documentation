@@ -57,7 +57,6 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs BAL MSS et Type de BAL : 
- <br/>
 <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL" style="max-width: 670px;"/>
 </div>
 
