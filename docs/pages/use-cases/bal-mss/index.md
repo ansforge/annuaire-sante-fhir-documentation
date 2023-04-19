@@ -65,7 +65,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  * Schéma montrant les champs N° FINESS, Raison sociale et N° département : 
 <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="Schéma montrant les champs N° FINESS, Raison sociale et N° département" style="max-width: 670px;"/>
 </div>
-
+</div>
 <br/>
  
  ### 1.2 Les BAL personnelles
