@@ -48,11 +48,14 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organization :
  Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête pouvant être récupérés sur les pages suivantes.
  
  L’exécution de l’exemple de code peut donner un résultat équivalent :
- * Schéma montrant les champs TOTAL et Page suivante 
+  <br/>
+ * Schéma montrant les champs TOTAL et Page suivante : 
  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="Schéma montrant les champs TOTAL et Page suivante" style="max-width: 670px;"/>
- * Schéma montrant les champs BAL MSS et Type de BAL
+  <br/>
+ * Schéma montrant les champs BAL MSS et Type de BAL :
  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="Schéma montrant les champs BAL MSS et Type de BAL" style="max-width: 670px;"/>
- * Schéma montrant les champs N° FINESS, Raison sociale et N° département
+  <br/>
+ * Schéma montrant les champs N° FINESS, Raison sociale et N° département :
  <img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="Schéma montrant les champs N° FINESS, Raison sociale et N° département" style="max-width: 670px;"/>
   <br/>
  
