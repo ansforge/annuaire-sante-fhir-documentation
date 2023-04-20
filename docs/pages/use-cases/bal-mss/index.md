@@ -195,9 +195,41 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 <img src="focus_postman_irisdp_liste_ephad_3.png" alt="Schéma montrant Organization.partof + FINESS EJ">
 </div>
  <br/>
+ ### 4.2 Liste des BAL rattachées
+ #### 4.2.1 BAL ORG
+ Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
+
+Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
+<div class="wysiwyg" markdown="1">
+ * le type d'Organization : SA17 (secteur d'activité) 
+ * Et en n'incluant que les Organizations ayant au moins d'une BAL MSS
+</div>
+<br/>
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %} 
+Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
+  * de type SA05 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
+  * et ayant au moins un mailbox (mailbox-mss:contains=%40 )
+ {% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+{% highlight bash %} 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA17&mailbox-mss:contains=%40" 
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="postman">
+  <img src='postman_irisdp_bal_mss_org_ephad.png' alt='' max-width=670px>
+  </div>
+</div>
+ #### 4.2.2 BAL PER
+ TODO
+ ### 4.3 Liste des EPHAD
+ 
  <br/>
 ## Focus sur le mapping des données Extraction fichier vs API
  Pour les utilisateurs des extractions fichiers existantes, ce tableau met en correspondance les champs de ces dernières et les champs de l'API.
+ </br>
  TODO
  
 TODO
