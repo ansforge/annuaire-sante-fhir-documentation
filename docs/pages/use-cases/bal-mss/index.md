@@ -121,8 +121,8 @@ Le process d'extraction des BAL est similaire à celui appliqué précédemment 
 Afin de récupérer les officines de pharmacie, nous devons interroger l’endpoint Organization :
 <div class="wysiwyg" markdown="1">
 * En filtrant sur le système et les types d’établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39
-<div class="code-sample">
 </div>
+<div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
 Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
