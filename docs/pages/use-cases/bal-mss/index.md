@@ -222,9 +222,9 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
   <img src='postman_irisdp_bal_mss_org_ephad.png' alt='' max-width=670px>
   </div>
 </div>
- #### 4.2.2 BAL PER
+#### 4.2.2 BAL PER
  TODO
- ### 4.3 Liste des EPHAD
+### 4.3 Liste des EPHAD
  
  <br/>
 ## Focus sur le mapping des données Extraction fichier vs API
