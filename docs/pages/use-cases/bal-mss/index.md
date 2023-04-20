@@ -194,9 +194,9 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
  * Schéma montrant les champs Organization.partof (lien vers l'entité juridique) et FINESS EJ : 
 <img src="focus_postman_irisdp_liste_ephad_3.png" alt="Schéma montrant Organization.partof + FINESS EJ">
 </div>
- <br/>
- ### 4.2 Liste des BAL rattachées
- #### 4.2.1 BAL ORG
+<br/>
+### 4.2 Liste des BAL rattachées
+#### 4.2.1 BAL ORG
  Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
 
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
