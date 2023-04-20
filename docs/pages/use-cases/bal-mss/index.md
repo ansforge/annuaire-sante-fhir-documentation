@@ -162,13 +162,13 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 ### 4.1 Liste des EPHAD
 Afin de récupérer la liste des EPHAD, nous devons interroger l’endpoint Organization :
 <div class="wysiwyg" markdown="1">
-* En filtrant sur le système et le types d’établissement : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA17
+* En filtrant sur le système et le type d’établissement : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA17
 * En incluant les entités juridiques de rattachement : Organization.partof
 </div>
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organizations dont le secteur d'activité est SA17.  Cet appel devra inclure les établissements pères dits juridiques auxquels sont rattachés les établissements geographiques (&_include=Organization:partof):
+Faire un appel sur l'endpoint Organization en filtrant sur les Organizations dont le secteur d'activité est SA17.  Cet appel devra inclure les établissements pères dits juridiques auxquels sont rattachés les établissements géographiques (&_include=Organization:partof):
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -184,12 +184,14 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
  * Schéma montrant les champs FINESS EG et Type d'établissement (géographique ou juridique) : 
 <img src="focus_postman_irisdp_liste_ephad_1.png" alt="Schéma montrant les champs FINESS EG et Type d'établissement (géographique ou juridique)">
 </div>
+<br/>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs Raison sociale, Code postal (département/région) et Id technique de l'entité juridique de rattachement : 
 <img src="focus_postman_irisdp_liste_ephad_2.png" alt="Schéma montrant Raison sociale + Code postal (département/région) + Id technique de l'entité juridique de rattachement">
 </div>
+<br/>
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les champs Organization.partof (lien vers l'entité juridque) et FINESS EJ : 
+ * Schéma montrant les champs Organization.partof (lien vers l'entité juridique) et FINESS EJ : 
 <img src="focus_postman_irisdp_liste_ephad_3.png" alt="Schéma montrant Organization.partof + FINESS EJ">
 </div>
  <br/>
