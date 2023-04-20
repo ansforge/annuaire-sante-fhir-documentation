@@ -113,7 +113,27 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <br/> 
 ## 2. Laboratoires
-TODO
+Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
+
+Afin de récupérer les établissements de biologie , nous devons interroger l’endpoint Organization :
+<div class="wysiwyg" markdown="1">
+* En filtrant sur le système et les types d’établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA25, SA29
+</div>
+<div class="code-sample">
+<div class="tab-content" data-name="Algorithmie">
+{% highlight bash %} 
+Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
+  * de type SA25, SA29
+  * et ayant au moins un mailbox 
+ {% endhighlight %}
+</div>
+<div class="tab-content" data-name="curl">
+{% highlight bash %} 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA25%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29&mailbox-mss:contains=%40" 
+{% endhighlight %}
+</div>
+</div>
+
  <br/>
 ## 3. Officines
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
@@ -132,7 +152,7 @@ Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %} 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organizationtype=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39&mailbox-mss:contains=%40" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organizationt?ype=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39&mailbox-mss:contains=%40" 
 {% endhighlight %}
 </div>
 </div>
