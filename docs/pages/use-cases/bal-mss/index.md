@@ -209,7 +209,7 @@ Nous appliquerons deux filtres à la requête afin d’obtenir le résultat atte
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %} 
 Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
-  * de type SA05 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
+  * de type SA17 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
   * et ayant au moins un mailbox (mailbox-mss:contains=%40 )
  {% endhighlight %}
 </div>
