@@ -107,19 +107,4 @@ foreach($practitionerRoles->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
-</br>
-## Trouver l'ensemble des EG d'un EJ
 
-Le but ici étant de récupérer tous les établissements géographiques (EG) rattachés à une même entité juridique (EJ)
-![image](https://user-images.githubusercontent.com/70761903/234018188-76006340-5235-44ae-8040-1d7d521117d2.png)
-
-
-Pour cela, nous devons utiliser l'inclusion ("revinclude").
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir//Organization?identifier=010000339&_revinclude=Organization%3Apartof
-{% endhighlight %}
-</div>
-</div>
