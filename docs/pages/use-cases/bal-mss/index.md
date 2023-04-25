@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Extraction des BAL MSSanté d'un type de structure particulier"
+title: "Extraction des BAL MSSanté par type de structure"
 subTitle: Cas d'utilisation
 ---
  
