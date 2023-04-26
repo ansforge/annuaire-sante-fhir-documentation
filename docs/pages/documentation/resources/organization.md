@@ -7,7 +7,7 @@ subTitle: Ressources
 Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource ["Organization".](https://hl7.org/FHIR/organization.html)
 
 ## Description métier de la ressource
-Il s'agit d'une ressource qui regroupe  les données décrivant les [« structures »] (https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
+Il s'agit d'une ressource qui regroupe  les données décrivant les [« structures »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 - numéros SIREN/ SIRET ou FINESS, type de structure (géographique ou juridique), activité , secteur d'activité santé, catégorie juridique, modalités de participation au service public hospitalier (SPH), 
 - raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
 - pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
