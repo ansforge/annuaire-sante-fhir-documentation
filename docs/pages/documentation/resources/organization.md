@@ -513,12 +513,9 @@ Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 <br>
 
 ### Rechercher par secteur d'activité
-
-
 Pour rechercher une strucutre avec son secteur d'activité, il faut interroger l'endpoint FHIR Organization.
 
 La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
-
 
 Voici un exemple avec SA29 qui correspond aux "Laboratoire d'analyses et de biologie médicale" :
 
@@ -601,7 +598,6 @@ Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et 
 <br>
 
 ### Rechercher par nom contenat deux termes
-
 Pour rechercher une strcture avec son nom, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -672,12 +668,9 @@ Organization found: name=Centre d'imagerie médicale - Selimed 63
 Organization found: name=Imagerie médicale République
 ```
 
-
-
 <br>
 
 ### Rechercher par code postal
-
 Pour rechercher une structure avec son adresse, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -747,7 +740,4 @@ Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 <br>
-
 {% include_relative _source-ref.md %}
-
-
