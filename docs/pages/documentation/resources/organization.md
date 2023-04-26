@@ -6,9 +6,23 @@ subTitle: Ressources
 
 Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource ["Organization".](https://hl7.org/FHIR/organization.html)
 
-## Rechercher tout
+## Description métier de la ressource
+Il s'agit d'une ressource qui regroupe  les données décrivant les [« structures »] (https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
+- numéros SIREN/ SIRET ou FINESS, type de structure (géographique ou juridique), activité , secteur d'activité santé, catégorie juridique, modalités de participation au service public hospitalier (SPH), 
+- raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
+- pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
 
-Pour rechercher des structures, il faut faire une recherche sur le endpoint FHIR Organization.
+## Recherche de structure sur critères
+
+Un client cherche des structures à partir de critère(s) de recherche.
+
+Le client renseigne son (ses) critère(s) de recherche parmi les critères disponibles.
+
+L'API retourne au client les structures correspondant aux critères de recherche.
+
+### Rechercher tout
+
+Pour rechercher des structures, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -71,9 +85,9 @@ Organization found: id=org-153 name=Wilkinson Group
   
 <br>
 
-## Rechercher selon une date de modification
+### Rechercher par date de modification
 
-Pour rechercher des structures selon la date de modification, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher des structures par date de modification, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -146,10 +160,9 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 
 <br>
 
-## Rechercher selon un ou plusieurs identifiants
+### Rechercher par un ou plusieurs identifiants
 
-Pour rechercher des structures selon un identifiant, il faut faire une recherche sur le endpoint FHIR Organization.
-
+Pour rechercher une strcuture avec son identifiant, il faut interroger l'endpoint FHIR Organization.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -220,9 +233,9 @@ Organization found: id=001604252500
 
 <br>
 
-## Rechercher selon un ou plusieurs numéro finess
+### Rechercher par un ou plusieurs numéro finess
 
-Pour rechercher des structures selon un numéro finess, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher une sructure avec son numéro finess, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -295,7 +308,7 @@ Organization found: id=1010000735
 
 <br>
 
-## Recherches par types 
+### Recherches par types 
 
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
@@ -322,11 +335,11 @@ Quelques exemples :
 
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
-## Rechercher selon le type "GEOGRAPHICAL"/"LEGAL"
+### Rechercher par type "GEOGRAPHICAL"/"LEGAL"
 
 Vous pouvez chercher les structures par type grâce au paramètre type.
 
-Les deux types possible sont : 
+Les deux types possibles sont : 
 
 * GEOGRAPHICAL-ENTITY
 * LEGAL-ENTITY
@@ -413,9 +426,9 @@ Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - 
 
 <br>
 
-## Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
+### Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
 
-Pour rechercher des structures selon la sous-classe de la Nomenclature d'Activités Française, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher une structure avec la sous-classe de la Nomenclature d'Activités Française, il faut interroger l'endpoint FHIR Organization.
 
 Cela utilise le référenciel NOS TRE-R75-InseeNAFrev2Niveau5 que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
 
@@ -498,10 +511,10 @@ Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 
 <br>
 
-## Rechercher par secteur d'activité
+### Rechercher par secteur d'activité
 
 
-Pour rechercher des structures selon leur secteur d'activité, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher une strucutre avec son secteur d'activité, il faut interroger l'endpoint FHIR Organization.
 
 La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
 
@@ -586,9 +599,9 @@ Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et 
 
 <br>
 
-## Rechercher par nom qui contient deux termes
+### Rechercher par nom contenat deux termes
 
-Pour rechercher des structures par nom, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher une strcture avec son nom, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -662,9 +675,9 @@ Organization found: name=Imagerie médicale République
 
 <br>
 
-## Rechercher par code postal
+### Rechercher par code postal
 
-Pour rechercher des structures par adresse, il faut faire une recherche sur le endpoint FHIR Organization.
+Pour rechercher une structure avec son adresse, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
