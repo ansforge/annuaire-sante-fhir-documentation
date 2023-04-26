@@ -4,6 +4,7 @@ title: Organization
 subTitle: Ressources
 ---
 
+
 ## Description métier de la ressource
 Il s'agit d'une ressource qui regroupe  les données décrivant les [« structures »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
@@ -501,7 +502,7 @@ Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 
 <br>
 
-### Rechercher par secteur d'activité
+### - Rechercher par secteur d'activité
 Pour rechercher une strucutre avec son secteur d'activité, il faut interroger l'endpoint FHIR Organization.
 
 La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
