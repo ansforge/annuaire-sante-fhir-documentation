@@ -12,8 +12,8 @@ Il s'agit d'une ressource qui regroupe  les données décrivant les [« structur
 * raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
 * pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
 
-## Recherche de structure sur critères
 
+## Recherche de structure sur critères
 Un client cherche des structures à partir de critère(s) de recherche.
 
 Le client renseigne son (ses) critère(s) de recherche parmi les critères disponibles.
@@ -21,7 +21,6 @@ Le client renseigne son (ses) critère(s) de recherche parmi les critères dispo
 L'API retourne au client les structures correspondant aux critères de recherche.
 
 ### Rechercher tout
-
 Pour rechercher des structures, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -86,7 +85,6 @@ Organization found: id=org-153 name=Wilkinson Group
 <br>
 
 ### Rechercher par date de modification
-
 Pour rechercher des structures par date de modification, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -746,7 +744,7 @@ Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 
-
+</br>
 {% include_relative _source-ref.md %}
 
 
