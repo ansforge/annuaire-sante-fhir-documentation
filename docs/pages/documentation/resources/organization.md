@@ -4,8 +4,6 @@ title: Organization
 subTitle: Ressources
 ---
 
-Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource ["Organization".](https://hl7.org/FHIR/organization.html)
-
 ## Description métier de la ressource
 Il s'agit d'une ressource qui regroupe  les données décrivant les [« structures »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
@@ -16,13 +14,9 @@ Il s'agit d'une ressource qui regroupe  les données décrivant les [« structur
 <br>
 
 ## Recherche de structure sur critères
-Un client cherche des structures à partir de critère(s) de recherche.
+Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource ["Organization".](https://hl7.org/FHIR/organization.html)
 
-Le client renseigne son (ses) critère(s) de recherche parmi les critères disponibles.
-
-L'API retourne au client les structures correspondant aux critères de recherche.
-
-### Rechercher tout
+### - Rechercher tout
 Pour rechercher des structures, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -86,7 +80,7 @@ Organization found: id=org-153 name=Wilkinson Group
   
 <br>
 
-### Rechercher par date de modification
+### - Rechercher par date de modification
 Pour rechercher des structures par date de modification, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -160,8 +154,7 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 
 <br>
 
-### Rechercher par un ou plusieurs identifiants
-
+### - Rechercher par un ou plusieurs identifiants
 Pour rechercher une strcuture avec son identifiant, il faut interroger l'endpoint FHIR Organization.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -233,8 +226,7 @@ Organization found: id=001604252500
 
 <br>
 
-### Rechercher par un ou plusieurs numéro finess
-
+### - Rechercher par un ou plusieurs numéro finess
 Pour rechercher une sructure avec son numéro finess, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -308,8 +300,7 @@ Organization found: id=1010000735
 
 <br>
 
-### Recherches par types 
-
+### - Recherches par types 
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
 | Type                    | Description                          | Système                                                                                           | Lien / Options                                                                                    |
@@ -336,7 +327,6 @@ Quelques exemples :
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
 ### Rechercher par type "GEOGRAPHICAL"/"LEGAL"
-
 Vous pouvez chercher les structures par type grâce au paramètre type.
 
 Les deux types possibles sont : 
@@ -427,8 +417,7 @@ Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - 
 
 <br>
 
-### Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
-
+### - Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
 Pour rechercher une structure avec la sous-classe de la Nomenclature d'Activités Française, il faut interroger l'endpoint FHIR Organization.
 
 Cela utilise le référenciel NOS TRE-R75-InseeNAFrev2Niveau5 que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
@@ -597,7 +586,7 @@ Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et 
 
 <br>
 
-### Rechercher par nom contenat deux termes
+### - Rechercher par nom contenat deux termes
 Pour rechercher une strcture avec son nom, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
@@ -670,7 +659,7 @@ Organization found: name=Imagerie médicale République
 
 <br>
 
-### Rechercher par code postal
+### - Rechercher par code postal
 Pour rechercher une structure avec son adresse, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
