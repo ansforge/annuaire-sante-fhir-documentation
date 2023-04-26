@@ -746,7 +746,7 @@ L'API devrait vous retourner une réponse de ce genre :
 Organization found: name=Renard et Renard | zipCode=91794
 Organization found: name=Maillard et Maillard | zipCode=10228
 ```
-
+<br>
 
 {% include_relative _source-ref.md %}
 
