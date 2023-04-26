@@ -13,7 +13,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant les [« structur
 * raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
 * pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
 </div>
-
+<br>
 
 ## Recherche de structure sur critères
 Un client cherche des structures à partir de critère(s) de recherche.
