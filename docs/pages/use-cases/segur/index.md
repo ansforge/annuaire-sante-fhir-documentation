@@ -500,7 +500,7 @@ Total filtered - 0
 
 ## 5. Le couloir Médecine de ville
 
-Afin de récupérer les établissements de médecine de ville qui ne sont pas des officines de radiologie, nous devons interroger l'endpoint Organization :
+Afin de récupérer les établissements de médecine de ville qui ne sont pas des cabinets de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
  * En filtrant sur les types d'établissements : SA05, SA07, SA08, SA09, SA52
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
