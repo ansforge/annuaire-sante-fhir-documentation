@@ -4,12 +4,18 @@ title: Device
 subTitle: Ressources
 ---
 
+## Description métier de la ressource
+Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS portant sur les « [équipements matériels lourds](https://mos.esante.gouv.fr/5.html#_1a21e9b8-d686-41ff-806d-38572f961ec6) :
+<div class="wysiwyg" markdown="1">
+* numéro d'autorisation ARGHOS, période de validité, marque, numéro de série, code EML 
+</div>
+<br>
+
+## Recherche de structure sur critères
 Voici des exemples de requêtes sur les matériels qui sont représentés dans le serveur FHIR par la ressource ["Device".](https://hl7.org/FHIR/device.html)
 
-
-## Rechercher tout
-
-Pour rechercher du matériel, il faut faire une recherche sur le endpoint FHIR Device.
+### - Rechercher tout
+Pour ce faire, il faut interroger l'endpoint FHIR Device.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -73,9 +79,8 @@ Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
 
 
 
-## Rechercher le matériel modifié depuis une date donnée
-
-Pour rechercher du matériel, il faut faire une recherche sur le endpoint FHIR Device.
+### - Rechercher par date de mise à jour
+Pour rechercher les matériels ayant été mis à jour depuis une date donnée.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -150,9 +155,8 @@ Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
 <br>
 
 
-## Rechercher le matériel par son numéro ARHGOS
-
-Pour rechercher du matériel selon son numéro ARHGOS, nous pouvons utiliser le paramètre spécifique à cette api : "number-authorization-arhgos". Il s'agit d'un paramètre de type "string".
+### - Rechercher un matériel par son numéro ARHGOS
+Pour ce faire, il faut interroger l'endpoint Device avec le paramètre  "number-authorization-arhgos".
 
 
 <div class="code-sample">
@@ -228,11 +232,10 @@ Device found: id=002-3122046 type=05602
 
 
 
-## Rechercher le matériel de type "Scanographe à utilisation médicale"
+### - Rechercher les matériels de type "Scanographe à utilisation médicale"
+Il est possible de rechercher un équipement lourd avec son type en utilisant le paramètre fhir "type". Voici un exemple avec un "Scanographe à utilisation médicale". 
 
-Il est possible de rechercher un équipement lourd selon son type en utilisant le paramètr fhir "type". Voici un exemple avec un "Scanographe à utilisation médicale". 
-
-Vous pouvez trouver l'enssemble des valeurs possible dans le [référenciel du MOS](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd)
+Vous pouvez trouver l'enssemble des valeurs possibles dans le [référenciel du MOS](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd)
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -306,9 +309,8 @@ Device found: id=002-3405562 | type=05602
 <br>
 
 
-## Rechercher le matériel par identifiant
-
-Pour rechercher du matériel par identifiant, il faut faire une recherche sur le endpoint FHIR Device
+### - Rechercher un matériel par son identifiant
+Pour ce faire, il faut interroger l'endpoint FHIR Device.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -379,9 +381,8 @@ Device found: id=93-93-4364
 <br>
 
 
-## Rechercher le matériel qui dispose d'un statut "actif"
-
-Pour rechercher du matériel par statut, il faut faire une recherche sur le endpoint FHIR Device
+### - Rechercher les matériels actifs
+Pour ce faire, il faut faire interroger l'endpoint FHIR Device avec le paramètre "status".
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
