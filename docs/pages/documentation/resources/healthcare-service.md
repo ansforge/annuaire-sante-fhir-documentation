@@ -235,7 +235,9 @@ Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gou
 
 <br>
 
-Voici un second exemple sur le référenciel TRE-R209-TypeActivite. A noter que l'on spécifie le système pour chercher dans le bon référentiel: 
+Voici un second exemple sur le référenciel TRE-R209-TypeActivite. 
+
+    A noter que l'on spécifie le système pour chercher dans le bon référentiel: 
 
 Pour rechercher tous les équipements sociaux ayant comme type d’activité « Hébergement complet internat» (code 11).
 
@@ -391,7 +393,7 @@ Healthcare Service found: id=hcs-hcs-412 | status=true
 
 
 ### - Rechercher par date de mise à jour
-Pour rechercher toutes les données complémentaires FINESS ayant été mises à jour à partir du 18/08/2022.
+Pour rechercher toutes les données complémentaires FINESS ayant été mises à jour depuis le 18/08/2022.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
