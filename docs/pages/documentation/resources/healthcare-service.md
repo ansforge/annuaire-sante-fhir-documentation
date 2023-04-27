@@ -235,9 +235,7 @@ Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gou
 
 <br>
 
-Voici un second exemple sur le référenciel TRE-R209-TypeActivite. 
-
-    A noter que l'on spécifie le système pour chercher dans le bon référentiel: 
+Voici un second exemple sur le référenciel TRE-R209-TypeActivite, à noter que l'on spécifie le système pour chercher dans le bon référentiel : 
 
 Pour rechercher tous les équipements sociaux ayant comme type d’activité « Hébergement complet internat» (code 11).
 
