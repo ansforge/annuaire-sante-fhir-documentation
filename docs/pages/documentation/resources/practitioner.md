@@ -4,13 +4,20 @@ title: Practitioner
 subTitle: Ressources
 ---
 
+## Description métier de la ressource
+Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
+<div class="wysiwyg" markdown="1">
+* les données d'identification et d'identité de la personne (le numéro RPPS, la civilité);
+* les diplômes, qualifications et titres professionnels correspondant à l'activité exercée.
+* <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
+</div>
+<br>
 
+## Recherche de structure sur critères
 Voici des exemples de requêtes sur les praticiens qui sont représentés dans le serveur FHIR par la ressource ["Practitioner".](https://hl7.org/FHIR/practitioner.html)
 
-
-## Rechercher tout
-
-Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR Practitioner.
+### - Rechercher tout
+Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -78,9 +85,8 @@ Practitioner found: id=003-138612 name=M
 <br>
 
 
-## Rechercher selon un ou plusieurs identifiants
-
-Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR Practitioner.
+### - Rechercher par un ou plusieurs identifiants
+Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -156,9 +162,8 @@ Practitioner found: id=810000005479 name=MME
 
 <br>
 
-## Rechercher selon le préfixe du nom
-
-Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR Practitioner.
+### - Rechercher par civilité
+Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -235,9 +240,8 @@ Practitioner found: id=0102800273 name=MME
 
 <br>
 
-## Rechercher les praticiens actifs
-
-Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR Practitioner.
+### - Rechercher les professionnels actifs
+Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -309,9 +313,8 @@ Practitioner found: name=M | active=true
 
 <br>
 
-## Rechercher par date de modification
-
-Pour rechercher des praticiens, il faut faire une recherche sur le endpoint FHIR Practitioner.
+### - Rechercher par date de modification
+Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -384,6 +387,6 @@ Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```
 
-
+<br>
 {% include_relative _source-ref.md %}
 
