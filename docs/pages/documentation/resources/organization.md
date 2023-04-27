@@ -156,7 +156,7 @@ Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 <br>
 
 ### - Rechercher par un ou plusieurs identifiants
-Pour rechercher une strcuture avec son identifiant, il faut interroger l'endpoint FHIR Organization.
+Pour rechercher une structure avec son identifiant, il faut interroger l'endpoint FHIR Organization.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -228,7 +228,7 @@ Organization found: id=001604252500
 <br>
 
 ### - Rechercher par un ou plusieurs numéro finess
-Pour rechercher une sructure avec son numéro finess, il faut interroger l'endpoint FHIR Organization.
+Pour rechercher une structure avec son numéro finess, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -503,7 +503,7 @@ Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 <br>
 
 ### - Rechercher par secteur d'activité
-Pour rechercher une strucutre avec son secteur d'activité, il faut interroger l'endpoint FHIR Organization.
+Pour rechercher une structure avec son secteur d'activité, il faut interroger l'endpoint FHIR Organization.
 
 La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
 
@@ -588,7 +588,7 @@ Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et 
 <br>
 
 ### - Rechercher par nom contenat deux termes
-Pour rechercher une strcture avec son nom, il faut interroger l'endpoint FHIR Organization.
+Pour rechercher une structure avec son nom, il faut interroger l'endpoint FHIR Organization.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
