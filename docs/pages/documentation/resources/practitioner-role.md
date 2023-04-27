@@ -4,12 +4,25 @@ title: Practitioner Role
 subTitle: Ressources
 ---
 
+## Description métier de la ressource
+Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice »](https://mos.esante.gouv.fr/2.html#_5579aac4-b414-41f1-8569-2e99403e3af3) et la [« situation »](https://mos.esante.gouv.fr/2.html#_86e1685b-9e1d-47fb-bb66-d23ca0eb9679) d'exercice du professionnel :
+<div class="wysiwyg" markdown="1">
+* les noms et prénoms d'exercice, 
+* la catégorie de professionnel,
+* la profession exercée, 
+* le mode d'exercice, 
+* le genre d'activité,
+* les spécialités de concours et autres attributions,
+* les coordonnées professionnelles : adresse de messagerie électronique (y compris les BAL MSS),
+* la carte de professionnel de santé : type de carte, numéro, période de validité.
+</div>
+<br>
 
+## Recherche de structure sur critères
 Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
 
 
-## Rechercher tout
-
+### - Rechercher tout
 Appel de la ressource PractitionerRole pour restituer les données correspondant aux situations d'exercice et exercices professionnels des PS.
 
 <div class="code-sample">
@@ -72,8 +85,7 @@ Practitioner Role found: id=005-5080000-6920000 code=FON-AU
 
 <br>
 
-## Recherche unitaire
-
+### - Recherche unitaire
 La recherche unitaire permet de récupérer les données spécifiques d'une ressource à l'aide de son identifiant logique.
 
 <div class="code-sample">
@@ -123,8 +135,7 @@ Practitioner Role found: id=005-5087586-6923328
 
 <br>
 
-## Recherche par rôles
-
+### - Recherche par rôle
 La recherche par le paramètre role permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
 
 | Type                                        | Description                      | Système                                                                                               | Lien / Options                                                                                        |
@@ -156,7 +167,7 @@ Quelques exemples :
 * `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP%7CDA` Recherche par Sous-Section du tableau de l'Ordre des Pharmaciens TRE_G05-SousSectionTableauCNOP avec le code DA "Pharmacien adjoint"
 </div>
 
-Exemple de recherche pour le "chirurgien dentiste" (code 40) Etudiant (code E).
+Exemple de recherche sur les "chirurgiens-dentistes" (code 40) en formation (étudiant) (code E).
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -257,9 +268,8 @@ Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/
 
 <br>
 
-## Recherche par spécialité
-
-Exemple de recherche pour les "chirurgiens dentiste" (code 40) qui ont une spécialité ordinal "orthopédie dento-faciale" (code SCD01).
+### - Recherche par spécialité
+Exemple de recherche sur les "chirurgiens-dentistes" (code 40) ayant une spécialité ordinale "orthopédie dento-faciale" (code SCD01).
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -380,8 +390,7 @@ Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_
 
 <br>
 
-## Recherche par type de SmartCard
-
+### - Recherche par type de carte (SmartCard)
 Exemple de recherche de toutes les cartes de type CPS.
 
 <div class="code-sample">
@@ -454,9 +463,8 @@ Practitioner Role found: id=005-54000-100000
 
 <br>
 
-## Recherche par Practitioner
-
-Exemple de recherche de toutes les situations d'exercice et exercice professionnel rattachées au professionel de santé 003-138020.
+### - Recherche par Practitioner
+Exemple de recherche de toutes les situations d'exercice et exercices professionnels rattachés au professionel de santé dont l'identifiant technique est 003-138020.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -525,8 +533,7 @@ Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
 <br>
 
 
-## Recherche selon le statut
-
+### - Recherche par statut
 Exemple de recherche pour toutes les données au statut "actif".
 
 <div class="code-sample">
@@ -595,7 +602,7 @@ Practitioner Role found: id=prr-prarole-946 active=true
 Practitioner Role found: id=prr-prarole-256 active=true
 Practitioner Role found: id=prr-prarole-899 active=true
 ```
-
+<br>
 
 {% include_relative _source-ref.md %}
 
