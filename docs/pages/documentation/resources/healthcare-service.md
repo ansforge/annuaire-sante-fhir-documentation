@@ -4,13 +4,21 @@ title: Healthcare Service
 subTitle: Ressources
 ---
 
+## Description métier de la ressource
+Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soin](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
+<div class="wysiwyg" markdown="1">
+* HealthcareService-SocialEquipment pour les équipements sociaux : date d'autorisation, date de première installation, code de discipline d'équipement, clientèle prise en charge, type d'activité.
+* HealthcareService-HealthCareActivity pour les activités de soin : type et code d'activité de soin, numéro d'autorisation ARGHOS, prériode de validité d'autorisation, indicateur de suppression sur implantation, code de modalité, code de forme.
+</div>
+<br>
+
+## Recherche de structure sur critères
 Voici des exemples de requêtes sur les services de santé qui sont représentés dans le serveur FHIR par la ressource ["HealthCareService".](https://hl7.org/FHIR/healthcareservice.html)
 
 
-## Rechercher tout
-
-Pour rechercher des services de santé, il faut faire une recherche sur le endpoint FHIR HealthcareService
+### - Rechercher tout
+Pour ce faire, il faut interroger l'endpoint FHIR HealthcareService.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -72,9 +80,8 @@ Healthcare Service found: id=76-91-59118
 
 <br>
 
-## Rechercher par identifiant
-
-Pour rechercher un service de santé par son identifiant logique.
+### - Rechercher par identifiant 
+Pour ce faire, il faut interroger l'endpoint FHIR HealthcareService.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -142,9 +149,8 @@ Healthcare Service found: id=52-52-49883
 
 <br>
 
-## Rechercher par activité de soins
-
-Pour rechercher toutes les activités de soins qui ont comme forme d’activité la Chirurgie ambulatoire (code 07).
+### Rechercher par activité de soin
+Pour rechercher toutes les activités de soins ayant comme forme d’activité la Chirurgie ambulatoire (code 07).
 
 Vous pouvez trouvez les codes d'activité dans les référenciels MOS :
 * [TRE-R276-FormeActivite](https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite)
@@ -227,9 +233,9 @@ Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gou
 
 <br>
 
-Voici un second exemple sur le référenciel TRE-R209-TypeActivite. A noter que l'on spécifie le système pour chercher dans le bon référenciel: 
+Voici un second exemple sur le référenciel TRE-R209-TypeActivite. A noter que l'on spécifie le système pour chercher dans le bon référentiel: 
 
-Pour rechercher tous les équipements Sociaux qui ont comme type d’activité « Hébergement complet internat» (code 11).
+Pour rechercher tous les équipements sociaux ayant comme type d’activité « Hébergement complet internat» (code 11).
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -308,9 +314,8 @@ Healthcare Service found: id=004-103009 | characteristic=https://mos.esante.gouv
 <br>
 
 
-## Rechercher par status
-
-Pour rechercher tous les services de santé qui sont actifs
+### - Rechercher par status
+Pour rechercher tous les services de santé actifs
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -383,9 +388,8 @@ Healthcare Service found: id=hcs-hcs-412 | status=true
 <br>
 
 
-## Rechercher par date de mise à jour
-
-Pour rechercher toutes les données complémentaires FINESS dont leurs données ont été mises à jour à partir du 18/08/2022
+### - Rechercher par date de mise à jour
+Pour rechercher toutes les données complémentaires FINESS ayant été mises à jour à partir du 18/08/2022.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -455,6 +459,6 @@ HealthcarService found: id=004-1014044 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
 HealthcarService found: id=004-1014050 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
 ```
 
-
+<br>
 {% include_relative _source-ref.md %}
 
