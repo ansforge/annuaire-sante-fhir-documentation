@@ -157,7 +157,7 @@ Vous pouvez trouvez les codes d'activité dans les référenciels MOS :
 - [TRE-R276-FormeActivite](https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite)
 - [TRE-R209-TypeActivite](https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite)
 </div>
-
+<br>
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
