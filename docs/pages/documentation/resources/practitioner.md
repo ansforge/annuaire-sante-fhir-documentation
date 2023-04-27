@@ -9,6 +9,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 <div class="wysiwyg" markdown="1">
 * les données d'identification et d'identité de la personne (le numéro RPPS, la civilité);
 * les diplômes, qualifications et titres professionnels correspondant à l'activité exercée.
+* les BAL personnelles MSS.
 * <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
 <br>
