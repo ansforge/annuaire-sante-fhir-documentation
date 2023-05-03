@@ -107,9 +107,10 @@ foreach($practitionerRoles->getEntry() as $entry){
 {% endhighlight %}
 </div>
 </div>
-
+<br>
 ## Trouver le nom, le prénom, la civilité, l'adresse postale, l'adresse MSS, et le téléphone d'un Practitioner en partant de son identifiant ADELI/RPPS
-    TO DO
+TODO
+<br>
 ## Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
