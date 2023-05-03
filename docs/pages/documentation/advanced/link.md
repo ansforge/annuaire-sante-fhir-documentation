@@ -128,4 +128,14 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Orga
 </div>
 </div>
 <br/>
+Le résultat retourné est un Bundle contenant l'EJ et les EG rattachées.
+<br/>
 
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant l'EJ (identifier:010000347) : 
+<img src="focus_postman_irisdp_EJ_EJ_2.png" alt="Schéma montrant l'EJ">
+</div>
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant l'EG (identifier:010780914) rattaché à l'EJ (identifier:010000347): 
+<img src="focus_postman_irisdp_EJ_EJ_3.png" alt="Schéma montrant l'EG">
+</div>
