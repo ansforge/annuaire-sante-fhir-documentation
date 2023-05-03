@@ -113,6 +113,7 @@ foreach($practitionerRoles->getEntry() as $entry){
 ## Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
+
 Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [_revinclude](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
 
 <div class="code-sample">
