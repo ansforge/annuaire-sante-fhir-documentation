@@ -122,4 +122,10 @@ Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [_r
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=010000347&_revinclude=Organization%3Apartof"
 {% endhighlight %}
 </div>
+<div class="tab-content" data-name="postman">
+  <img src='postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
+  </div>
+</div>
+ 
+<br/>
 
