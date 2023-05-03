@@ -115,7 +115,7 @@ TODO
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
 
-Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [_revinclude](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
+Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre ["_revinclude"](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -124,9 +124,8 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Orga
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
 </div>
 </div>
- 
 <br/>
 
