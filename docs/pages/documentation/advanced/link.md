@@ -9,7 +9,6 @@ Il est par exemple possible de récupérer les ressources "HealthcareServices" l
 
 
 ## Trouver l'Organization et le Practitioner d'un PractitionerRole
-
 Le but ici étant de récupérer les ressources "Organization" et "Practitioner" liées à un PractitionerRole.
 
 Pour cela, nous devons utiliser l'inclusion ("include").
@@ -105,6 +104,19 @@ foreach($practitionerRoles->getEntry() as $entry){
             break;
     endswitch;
 }
+{% endhighlight %}
+</div>
+## Trouver le nom, le prénom, la civilité, l'adresse postale, l'adresse MSS, et le téléphone d'un Practitioner en partant de son identifiant ADELI/RPPS
+    TO DO
+## Trouver l'ensemble des EG d'un EJ
+Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
+en partant de l'identifiant EJ.
+Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [_revinclude](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
+
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=010000347&_revinclude=Organization%3Apartof"
 {% endhighlight %}
 </div>
 
