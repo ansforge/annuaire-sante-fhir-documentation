@@ -106,6 +106,8 @@ foreach($practitionerRoles->getEntry() as $entry){
 }
 {% endhighlight %}
 </div>
+</div>
+
 ## Trouver le nom, le prénom, la civilité, l'adresse postale, l'adresse MSS, et le téléphone d'un Practitioner en partant de son identifiant ADELI/RPPS
     TO DO
 ## Trouver l'ensemble des EG d'un EJ
