@@ -112,9 +112,9 @@ foreach($practitionerRoles->getEntry() as $entry){
 ## Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
 1) Le nom, le prénom, la civilité et les adresses MSS sont récupérables en une seule requête qui retournera plusieurs objets. 
 
-D'une part le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
+D'une part, le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
 
-D'autre part, la liste des PractitionerRole (activités) qui contiendront elles : les noms, les prénoms d'exercice du professionel de santé pour l'activité.
+D'autre part, la liste des PractitionerRole (activités) qui contiendront les noms, les prénoms d'exercice du professionel de santé pour l'activité.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -133,7 +133,7 @@ Le résultat retourné est un Bundle contenant le Practitioner et le Practitione
   <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_2.png' alt='' max-width=670px>
 </div>
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les données : family name, given name et reference:Oganization 
+ * Schéma montrant les données : family , given name et reference:Oganization 
   <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_3.png' alt='' max-width=670px>
 </div>
 <br>
