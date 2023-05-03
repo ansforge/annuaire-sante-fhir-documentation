@@ -133,9 +133,9 @@ Le résultat retourné est un Bundle contenant l'EJ et les EG rattachées.
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant l'EJ (identifier:010000347) : 
-<img src="focus_postman_irisdp_EG_EJ_2.png" alt="Schéma montrant l'EJ">
+  <img src='focus_postman_irisdp_trouver_EG_EJ_2.png' alt='' max-width=670px>
 </div>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant l'EG (identifier:010780914) rattaché à l'EJ (identifier:010000347): 
-<img src="focus_postman_irisdp_EG_EJ_3.png" alt="Schéma montrant l'EG">
+  <img src='focus_postman_irisdp_trouver_EG_EJ_3.png' alt='' max-width=670px>
 </div>
