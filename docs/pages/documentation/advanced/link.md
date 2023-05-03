@@ -108,9 +108,56 @@ foreach($practitionerRoles->getEntry() as $entry){
 </div>
 </div>
 <br>
-## Trouver le nom, le prénom, la civilité, l'adresse postale, l'adresse MSS, et le téléphone d'un Practitioner en partant de son identifiant ADELI/RPPS
-TODO
+## Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+1) Le nom, le prénom, la civilité et les adresses MSS sont récupérables en une seule requête qui retournera plusieurs objets. 
+D'une part le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
+D'autre part, la liste des PractitionerRole (activités) qui contiendront elles : les noms, les prénoms d'exercice du professionel de santé pour l'activité.
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?identifier=349101808&_revinclude=PractitionerRole%3Apractitioner"
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="postman">
+  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_1.png' alt='' max-width=670px>
+</div>
+</div>
+<br/>
+Le résultat retourné est un Bundle contenant le Practitioner et le PractitionerRole.
+<br/>
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant les données identifier, prefix et mailbox: 
+  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_2.png' alt='' max-width=670px>
+</div>
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant les données family name, given name et reference:Oganization 
+  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_3.png' alt='' max-width=670px>
+</div>
 <br>
+
+2) Pour récupérer l'adresse postale, il faut faire une requête complémentaire sur Organization (les adresses étant celles des structures dans lesquelles le professionnel exerce ses activtés). 
+
+Dans la réponse de la première requête 1), on retrouve le lien vers la structure d'exercice  :  <"reference": "Organization/001-01-519022">. Cela permet de faire une requête vers l'endpoint Organization afin de récupérer la structure liée à cette activité. 
+
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?_id=001-01-519022"
+{% endhighlight %}
+</div>
+<div class="tab-content" data-name="postman">
+  <img src='focus_postman_irisdp_trouver_organization_pr_1.png' alt='' max-width=670px>
+</div>
+</div>
+<br/>
+Le résultat retourné est un Bundle contenant l'Organization.
+<br/>
+<div class="wysiwyg" markdown="1">
+ * Schéma montrant l'adresse postale: 
+  <img src='focus_postman_irisdp_trouver_organization_pr_2.png' alt='' max-width=670px>
+</div>
+<br>
+
 ## Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
