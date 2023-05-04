@@ -86,6 +86,6 @@ header:
       - page: Couloirs du Ségur du Numérique en Santé
         url: /pages/use-cases/segur/index
         title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
-      - title: Démonstrateur FHIR
-        url: https://portail.openfhir.annuaire.sante.fr
-        external: true
+  - title: Démonstrateur FHIR
+    url: https://portail.openfhir.annuaire.sante.fr
+    external: true
