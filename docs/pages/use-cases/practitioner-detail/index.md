@@ -191,7 +191,7 @@ qui a pour champs 'id' org-6922.
 ## Aller plus loin
 
 #### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
-Cliquez [ici](../pages/documentation/advanced/link.html) pour accéder à l'exemple.
+Cliquez [ici](../../pages/documentation/advanced/link.html) pour accéder à l'exemple.
 <br>
 
 #### Récupération par lots
