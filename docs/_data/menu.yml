@@ -77,12 +77,15 @@ header:
       - page: Synchronisation de l'annuaire
         url: /pages/use-cases/full/index
         title: Synchronisation complète des ressources
-      - page: Appels unitaires
+      - page: Appels unitaires autour du professionnel (PP)
         url: /pages/use-cases/practitioner-detail/index
+        title: Fiche du professionnel de santé
+      - page: Appels unitaires autour de la structure (PM)
+        url: /pages/use-cases/organization-detail/index
         title: Fiche du professionnel de santé
       - page: Couloirs du Ségur du Numérique en Santé
         url: /pages/use-cases/segur/index
         title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
-  - title: Démonstrateur FHIR
-    url: https://portail.openfhir.annuaire.sante.fr/
-    external: true
+      - title: Démonstrateur FHIR
+        url: https://portail.openfhir.annuaire.sante.fr
+        external: true
