@@ -161,7 +161,7 @@ Le résultat retourné est un Bundle contenant l'Organization.
 </div>
 <br>
 
-## Trouver l'ensemble des EG d'un EJ
+##  <a id="link-head-4"></a> Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
 
