@@ -188,9 +188,11 @@ qui a pour champs 'id' org-6922.
 ```
 &nbsp;
 
-### Aller plus loin
-
-#### Récupération par lots
+## Aller plus loin
+### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+TODO
+<br>
+### Récupération par lots
 
 Vous pouvez tout à fait imaginer récupérer des Practitioner complets par lot. Cela nécessitera cependant à minima 2 requêtes.
 
