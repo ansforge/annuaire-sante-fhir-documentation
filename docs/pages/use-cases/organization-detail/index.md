@@ -58,14 +58,14 @@ var ctx = FhirContext.forR4();
 var client = ctx.newRestfulGenericClient("https://{{site.ans.api_url}}/fhir/v1/");
 // ajoutez ensuite la clé de sécurité comme dans le starter java
 
-var organizationrBundle = (Bundle) client.search().forResource(Organization.class).where(Organization.IDENTIFIER.exactly().codes("010780914")).execute();
-if(!organizationrBundle.hasEntry()){
+var organizationBundle = (Bundle) client.search().forResource(Organization.class).where(Organization.IDENTIFIER.exactly().codes("010780914")).execute();
+if(!organizationBundle.hasEntry()){
 logger.info("No results found with this finess number");
 return;
 }
 
 // get the organization:
-var organization = (Organization) organizationrBundle.getEntry().get(0).getResource();
+var organization = (Organization) organizationBundle.getEntry().get(0).getResource();
 
 {% endhighlight %}
 </div>
@@ -89,14 +89,14 @@ organization 010780914:
 	Raison sociale:
 	name : "EHPAD RESIDENCE D'URFE BAGE LE CHATEL"
   
-  Secteur d'activité:
-  https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite : SA17
+	Secteur d'activité:
+	https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite : SA17
 	...
 ```
 
 &nbsp;
 
-### Récupérer les PractitionerRole rattachés l'Organization précédemment trouvée
+### Récupérer les PractitionerRole rattachés à l'Organization précédemment trouvée
 
 Pour aller plus loin, nous allons chercher les situations d'exercice rattachées à cette organization pour obtenir plus d'informations. 
 
@@ -158,11 +158,10 @@ var practitioners = practitionerRolesAndPractitioners.stream().filter(pre -> pre
 </div>
 
 Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Practitioner. Votre programme devra lui-même lier les PractitionerRole aux Practitioner grâce aux champs "PractitionerRole.practitioner" et "Practitioner.id".
-Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est lié à la ressource Practitioner qui à l'id  `"practitioner": {"reference": "Organization/org-6922"}` et cette Organization est une autre entrée dans le Bundle 
-qui a pour champs 'id' org-6922.
+Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est lié à la ressource Practitioner ayant l'id  `"practitioner": {"reference": "Practitioner/003-4745453"}` et ce practitioner est une autre entrée dans le Bundle  ayant pour champs 'id' 003-4745453.
 
 ```json
-{
+{003-4745453
   "resourceType": "Bundle",
   "total": 11,
   "entry": [
@@ -204,7 +203,7 @@ Vous pouvez tout à fait imaginer récupérer des Organization par lot. Cela né
 
 La première requête va vous premettre de trouver les Organization, la seconde vous permettra de chercher des informations complémentaires dans des PractitionerRole ou Practitioner. 
 
-Imaginons que vous cherchiez les fiches de 2 strcutures avec pour leurs identifiants FINESS : 060016219 et 030782866
+Imaginons que vous cherchiez les fiches de 2 structures avec pour leurs identifiants FINESS : 060016219 et 030782866
 
 Dans ce cas la première requête sera : 
 
@@ -212,7 +211,8 @@ Dans ce cas la première requête sera :
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=060016219,030782866&_pretty=true&_format=json"
 ```
 
-Cette requête permet de demander toutes les Organizations ayant un identifier à : 060016219 OU 030782866.
+
+Cette requête permet de récupérer toutes les Organizations ayant un identifier à : 060016219 OU 030782866.
 
 La liste retournée contiendra plusieurs Organization si les identifiants FINESS existent. 
 
