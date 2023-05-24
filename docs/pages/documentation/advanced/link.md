@@ -177,7 +177,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 </div>
 </div>
 <br/>
-Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole (PR) remplissant les conditions à savoir : nom = "ROBERT" et prénom = "CHRISTIAN".
+Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole (activités) remplissant les conditions à savoir : nom = "ROBERT" et prénom = "CHRISTIAN".
 
 Les PR retournés contiendront différentes informations comme le nom, le prénom, la civilité d'exerce, la profession, la catégorie professionnelle, le mode d'exercice, la fonction, la carte CPX, le lien vers le professionnel (Practitioner) et le lien vers la structure d'exercice (Organization).
 
@@ -211,6 +211,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 </div>
 <br/>
 Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole et des Practitioner associés.
+
 Les Practitioner retournés contienderont les données relatives au professionel à savoir : le numéro RPPS ou ADELI, la civilité, les diplômes et les BAL MSS. 
 
 ```bash
