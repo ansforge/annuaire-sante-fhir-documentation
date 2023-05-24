@@ -165,7 +165,7 @@ Le résultat retourné est un Bundle contenant l'Organization.
 
 L'ensemble des informations sont récupérables en une seule requête qui retournera plusieurs objets. 
 
-1) D'une part, pour récupérer les activités, il faut interroger l'endpoint PractitionerRole en filtrant sur son nom d'exercice et son prénom. 
+1) D'une part, pour récupérer les activités, il faut interroger l'endpoint PractitionerRole en filtrant sur le nom d'exercice et le prénom d'exercice du Practitioner. 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -178,6 +178,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 </div>
 <br/>
 Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole (PR) remplissant les conditions à savoir : nom = "ROBERT" et prénom = "CHRISTIAN".
+
 Les PR retournés contiendront différentes informations comme le nom, le prénom, la civilité d'exerce, la profession, la catégorie professionnelle, le mode d'exercice, la fonction, la carte CPX, le lien vers le professionnel (Practitioner) et le lien vers la structure d'exercice (Organization).
 
 ```bash
@@ -187,23 +188,25 @@ PractitionerRole/005-231819
 PractitionerRole/005-296896
 ```
 <br/>
+
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données : total, nom et prénom du premier PR du bundle
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_2.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
 </div>
 <br>
 
 2) D'autre part, il est possible de récupéer les Practitioner (professionnels) au même temps que les PractitionerRole (activités) précédemment récupérés 1).
+
 Pour ce faire, il faut utiliser le paramètre '_include' comme suit :
 
-div class="code-sample">
+<div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_1.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_4.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -212,44 +215,49 @@ Les Practitioner retournés contienderont les données relatives au professionel
 
 ```bash
 Les PractitionerRole :
+
 PractitionerRole/005-324864	
 PractitionerRole/005-200354-226359	
 PractitionerRole/005-231819	
 PractitionerRole/005-296896
-<b>
+
 Les Practitioner :
+
 Practitioner/003-227332	
 Practitioner/003-266011	
 Practitioner/003-329381	
 Practitioner/003-351933
-</b>
+
 ```
 <br/>
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les données : le numéro RPPS, la civilité du premier Pracitioner du bundle
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_2.png' alt='' max-width=670px>
+ * Schéma montrant les données : le numéro RPPS, la BAL MSS du premier Practitioner du bundle
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_5.png' alt='' max-width=670px>
 </div>
 <br>
 
 3) Par ailleurs, il est également possible de récupéer les Organization (structures d'exercice) au même temps que les PractitionerRole (activités) et les Practitioner (professionnels) précédemment récupérés 2).
+
 Pour ce faire, il faut réutiliser le paramètre '_include' comme suit :
 
-div class="code-sample">
+<div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_3.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_6.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
 Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole , des Practitioner et des Organization associés.
+
 Les Organization retournées contienderont les données relatives à la structure comme : le numéro FINESS/SIRET/SIREN, la raison sociale, l'adresse de coresspondance, les adresses mails, le secteur d'activité, la catégorie juridque, ...
 
 ```bash
 Les PractitionerRole :
+
 PractitionerRole/005-324864	
 PractitionerRole/005-200354-226359	
 PractitionerRole/005-231819	
@@ -257,20 +265,20 @@ PractitionerRole/005-296896
 
 
 Les Practitioner :
+
 Practitioner/003-227332	
 Practitioner/003-266011	
 Practitioner/003-329381	
 Practitioner/003-351933
 
 Les Organization :
-<b>
+
 Organization/001-01-237805
-</b>
 ```
 <br/>
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les données : le numéro RPPS, la civilité du premier Pracitioner du bundle
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_4.png' alt='' max-width=670px>
+ * Schéma montrant les données relatives à la première Organization du bundle
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_7.png' alt='' max-width=670px>
 </div>
 <br>
 
