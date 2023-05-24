@@ -173,7 +173,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_practitionerrole_nom_prenom_1.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -191,7 +191,7 @@ PractitionerRole/005-296896
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données : total, nom et prénom du premier PR du bundle
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
+  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_3.png' alt='' max-width=670px>
 </div>
 <br>
 
