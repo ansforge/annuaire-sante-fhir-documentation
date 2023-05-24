@@ -7,8 +7,9 @@ subTitle: Ressources
 ## Description métier de la ressource
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
 <div class="wysiwyg" markdown="1">
-* les données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  * les données de contact : adresse de messagerie électronique (MSS)
-* les données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
+* Données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
+* Données de contact : adresse de messagerie électronique (MSS).
+* Données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
 * <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
 <br>
