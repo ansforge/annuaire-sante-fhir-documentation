@@ -7,16 +7,10 @@ subTitle: Ressources
 ## Description métier de la ressource
 Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice »](https://mos.esante.gouv.fr/2.html#_5579aac4-b414-41f1-8569-2e99403e3af3) et la [« situation »](https://mos.esante.gouv.fr/2.html#_86e1685b-9e1d-47fb-bb66-d23ca0eb9679) d'exercice du professionnel :
 <div class="wysiwyg" markdown="1">
-* les noms et prénoms d'exercice, 
-* la catégorie de professionnel,
-* la profession exercée, 
-* le mode d'exercice, 
-* le genre d'activité,
-* les spécialités de concours et autres attributions,
-* les coordonnées professionnelles : adresse de messagerie électronique (y compris les BAL MSS),
-* la carte de professionnel de santé : type de carte, numéro, période de validité.
+* Données relatives à l'exercice professionnel : nom et prénom d'exercice, profession, civilité d'exercice, catégorie d'exercice, qualifications de spécialiste et disciplines et attributions particulières.
+* Données sur l'activité professionnelle : fonction ou rôle du professionnel dans la structure d'activité, genre d'activité, mode d'exercice, type d'activité libérale pour les activités concernées, statut hospitalier pour les activités concernées, données de contact du professionnel pour l'activité concernée, données relatives à la structure d'activité.
+* Données relatives à la carte de professionnel de santé : type de carte, numéro, période de validité.
 </div>
-<br>
 
 ## Recherche de structure sur critères
 Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
