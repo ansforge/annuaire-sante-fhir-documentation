@@ -195,7 +195,7 @@ Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-3) pour 
 <br>
 
 #### Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitien en partant de son nom et son prénom d'exercice
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-4) pour accéder à l'exemple.
+Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-5) pour accéder à l'exemple.
 <br>
 
 #### Récupération par lots
