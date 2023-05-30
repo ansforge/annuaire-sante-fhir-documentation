@@ -10,9 +10,9 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 
 <div class="highlight">
   <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/metadata" </code>
-    <button>Copy</button>
+  <button>Copy</button>
 </div>
-
+<br>
 
 ## Paramètres de type texte
 
@@ -547,6 +547,46 @@ Organization found: id=org-148 | name=Renard et Renard
 Organization found: id=org-386 | name=Lopez et Lopez
 Organization found: id=org-145 | name=Maillard et Maillard
 ```
+### Paramètres des résultats de la recherche
+
+Il s'agit d'un ensemble de paramètres permetant de gérer les résultats retournés par une recherche. 
+
+Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge.
+
+#### - Paramètre [_count](https://www.hl7.org/fhir/search.html#count) 
+
+Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50 et la valeur maximale autorisée (ou recommandée) est de ?.
+
+<div class="highlight">
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/Device?_count=200" </code>
+  <button>Copy</button>
+</div>
+<br>
+
+#### - Paramètre [_total](https://www.hl7.org/fhir/search.html#total)
+
+Comme son nom l'indique, ce paramètre indique le nombre total d'élémnts (ressources) qui correspondent aux critères de recherche.
+
+Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
+
+- none : le total n'est pas affiché
+- estimate : le total affiché est une estimation
+- accurate : le total affiché est précis
+
+Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas afficher le total :
+
+<div class="highlight">
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/Device?_total=none" </code>
+  <button>Copy</button>
+</div>
+<br>
+
+Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si son temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
+
+Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom contenant « Martin ».   
+
+
+
 
 &nbsp;
 
