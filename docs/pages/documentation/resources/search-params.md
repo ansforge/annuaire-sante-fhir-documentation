@@ -4,6 +4,15 @@ title: Paramètres de recherche
 subTitle: Ressources
 ---
 
+## Paramètres de recherche
+
+Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET {{FHIR_URL}}/metadata
+
+<div class="highlight">
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/metadata" </code>
+    <button>Copy</button>
+</div>
+
 
 ## Paramètres de type texte
 
