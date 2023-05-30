@@ -583,7 +583,7 @@ Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas affic
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si son temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 
-Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom contenant « Martin ».   
+Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
 
 
 
