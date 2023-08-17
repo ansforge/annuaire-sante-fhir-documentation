@@ -569,10 +569,6 @@ Il permet de contrôler le nombre maximal de ressources retournées sur une page
 Comme son nom l'indique, ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche.
 Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
 
-- none : le total n'est pas affiché
-- estimate : le total affiché est une estimation
-- accurate : le total affiché est précis
-
 <div class="wysiwyg" markdown="1">
 * none : le total n'est pas affiché
 * estimate : le total affiché est une estimation
@@ -590,8 +586,6 @@ Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas affic
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
-
-
 
 &nbsp;
 
