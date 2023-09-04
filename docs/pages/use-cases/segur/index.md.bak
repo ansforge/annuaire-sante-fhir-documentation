@@ -672,11 +672,11 @@ Total filtered - 0
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
- * En filtrant sur le système et les types d'établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39
+ * En filtrant sur le système et les types d'établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39, SA56
 </div>
 
 <br/>
-La liste des codes des pharmacies (ex: SA33, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+La liste des codes des pharmacies (ex: SA33, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 Les données récupérées sont déjà pré-filtrées selon notre besoin et ne sont que des pharmacies.
 
@@ -684,13 +684,13 @@ Les données récupérées sont déjà pré-filtrées selon notre besoin et ne s
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA33, SA38 ou SA39. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA33, SA38, SA39 ou SA56. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
 2) L'ensembles des Organization récupérées sont des pharmacies
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA56"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -704,7 +704,7 @@ var goodElements = new ArrayList<>();
 
 // construct radiology facility request
 try {
-    var pharmacyCodesList = Arrays.asList("SA33", "SA38", "SA39");
+    var pharmacyCodesList = Arrays.asList("SA33", "SA38", "SA39", "SA56");
     orgBundle = client.search().forResource(Organization.class)
             .where(Organization.TYPE.exactly().systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite", pharmacyCodesList))
             .returnBundle(Bundle.class).execute();
