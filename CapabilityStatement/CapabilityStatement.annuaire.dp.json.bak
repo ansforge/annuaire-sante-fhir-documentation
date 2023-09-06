@@ -1,9 +1,9 @@
 {
     "resourceType": "CapabilityStatement",
-    "id": "4b164368-479d-4318-903c-9de293aeaa54",
+    "id": "18f2ef15-9a5f-40a5-9baa-6aec7cadef3c",
     "name": "RestServer",
     "status": "active",
-    "date": "2023-09-06T12:33:59.570+00:00",
+    "date": "2023-02-22T09:51:29.856+00:00",
     "publisher": "Not provided",
     "kind": "instance",
     "software": {
@@ -69,10 +69,6 @@
                         {
                             "name": "_since",
                             "type": "date"
-                        },
-                        {
-                            "name": "_total",
-                            "type": "string"
                         },
                         {
                             "name": "device-name",
@@ -172,10 +168,6 @@
                             "type": "date"
                         },
                         {
-                            "name": "_total",
-                            "type": "string"
-                        },
-                        {
                             "name": "active",
                             "type": "token",
                             "documentation": "Recherche que les ressources Healthcare Service actives"
@@ -272,10 +264,6 @@
                         {
                             "name": "_since",
                             "type": "date"
-                        },
-                        {
-                            "name": "_total",
-                            "type": "string"
                         },
                         {
                             "name": "active",
@@ -394,10 +382,6 @@
                             "type": "date"
                         },
                         {
-                            "name": "_total",
-                            "type": "string"
-                        },
-                        {
                             "name": "active",
                             "type": "token",
                             "documentation": "Recherche les ressources Practitioner actives"
@@ -464,10 +448,6 @@
                         {
                             "name": "_since",
                             "type": "date"
-                        },
-                        {
-                            "name": "_total",
-                            "type": "string"
                         },
                         {
                             "name": "active",
