@@ -227,13 +227,4 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
   </div>
 </div>
 
-#### 4.2.2 BAL PER
- TODO
- 
- <br/>
-## Focus sur le mapping des données Extraction fichier vs API
- Pour les utilisateurs des extractions fichiers existantes, ce tableau met en correspondance les champs de ces dernières et les champs de l'API.
- </br>
- TODO
- 
-TODO
+
