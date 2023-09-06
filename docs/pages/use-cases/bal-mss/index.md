@@ -111,7 +111,8 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 </div>
 
 
-<br/> 
+<br/>
+
 ## 2. Laboratoires
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
@@ -135,6 +136,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 </div>
 
  <br/>
+
 ## 3. Officines
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
@@ -158,6 +160,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 </div>
 
  <br/>
+
 ## 4. EPHAD
 ### 4.1 Liste des EPHAD
 Afin de récupérer la liste des EPHAD, nous devons interroger l’endpoint Organization :
@@ -195,6 +198,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 <img src="focus_postman_irisdp_liste_ephad_3.png" alt="Schéma montrant Organization.partof + FINESS EJ">
 </div>
 <br/>
+
 ### 4.2 Liste des BAL rattachées
 #### 4.2.1 BAL ORG
  Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
@@ -222,9 +226,9 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
   <img src='postman_irisdp_bal_mss_org_ephad.png' alt='' max-width=670px>
   </div>
 </div>
+
 #### 4.2.2 BAL PER
  TODO
-### 4.3 Liste des EPHAD
  
  <br/>
 ## Focus sur le mapping des données Extraction fichier vs API
