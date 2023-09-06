@@ -4,6 +4,8 @@ title: "Extraction des BAL MSSanté par type de structure"
 subTitle: Cas d'utilisation
 ---
  
+ !!! Attention : Cette page est en cours de construction !!!
+ 
 L’ANS, en tant que régulateur de l’espace national de confiance MSSanté, tient à jour l’annuaire national MSSanté, qui rassemble toutes les BAL (boîtes aux lettres) transmises par les opérateurs de l’espace de confiance.
 L’opérateur transmet, pour chaque BAL du périmètre cité, un identifiant national de personne (RPPS ou ADELI) et/ou un identifiant de structure (FINESS pour les BAL rattachées à un établissement de santé).
 
@@ -14,6 +16,10 @@ Il existe plusieurs types de BAL :
 * les BAL « organisationnelles » associées à un service ou à une équipe, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL ;
 * les BAL « applicatives » associées à un logiciel métier ou à une machine et utilisées à des fins d’envois ou de réception automatisés, rattachées à une personne morale responsable de l’accès et de l’usage de la BAL.
 </div>
+&nbsp;
+
+NOTE | Pour plus d'informations sur la MSSanté, [cliquez ici](https://mailiz.mssante.fr/home). 
+
 <br/>
 
 ## 1. Centres de santé
@@ -83,7 +89,7 @@ Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activ
 1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
 3) Pour chacun des Practitioner récupérés, vérifier qu'il dispose bien de BAL MSS (mailbox-mss:contains=%40)
-4) Répeter l'opération sur toutes les pages (1)
+4) Répéter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">

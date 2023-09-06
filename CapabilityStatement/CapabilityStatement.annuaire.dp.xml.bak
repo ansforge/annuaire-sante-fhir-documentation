@@ -1,8 +1,8 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-    <id value="fb68e9d2-7c7e-4fac-847c-f4ea06445d57"></id>
+    <id value="ea7ef257-186d-45d4-8785-43ca032fde35"></id>
     <name value="RestServer"></name>
     <status value="active"></status>
-    <date value="2023-09-06T12:37:50.756+00:00"></date>
+    <date value="2023-02-22T09:54:12.037+00:00"></date>
     <publisher value="Not provided"></publisher>
     <kind value="instance"></kind>
     <software>
@@ -57,10 +57,6 @@
             <searchParam>
                 <name value="_since"></name>
                 <type value="date"></type>
-            </searchParam>
-            <searchParam>
-                <name value="_total"></name>
-                <type value="string"></type>
             </searchParam>
             <searchParam>
                 <name value="device-name"></name>
@@ -152,10 +148,6 @@
                 <type value="date"></type>
             </searchParam>
             <searchParam>
-                <name value="_total"></name>
-                <type value="string"></type>
-            </searchParam>
-            <searchParam>
                 <name value="active"></name>
                 <type value="token"></type>
                 <documentation value="Recherche que les ressources Healthcare Service actives"></documentation>
@@ -238,10 +230,6 @@
             <searchParam>
                 <name value="_since"></name>
                 <type value="date"></type>
-            </searchParam>
-            <searchParam>
-                <name value="_total"></name>
-                <type value="string"></type>
             </searchParam>
             <searchParam>
                 <name value="active"></name>
@@ -352,10 +340,6 @@
                 <type value="date"></type>
             </searchParam>
             <searchParam>
-                <name value="_total"></name>
-                <type value="string"></type>
-            </searchParam>
-            <searchParam>
                 <name value="active"></name>
                 <type value="token"></type>
                 <documentation value="Recherche les ressources Practitioner actives"></documentation>
@@ -414,10 +398,6 @@
             <searchParam>
                 <name value="_since"></name>
                 <type value="date"></type>
-            </searchParam>
-            <searchParam>
-                <name value="_total"></name>
-                <type value="string"></type>
             </searchParam>
             <searchParam>
                 <name value="active"></name>
