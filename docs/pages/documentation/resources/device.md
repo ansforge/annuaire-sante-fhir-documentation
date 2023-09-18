@@ -11,8 +11,8 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </div>
 <br>
 
-## Recherche de structure sur critères
-Voici des exemples de requêtes sur les matériels qui sont représentés dans le serveur FHIR par la ressource ["Device".](https://hl7.org/FHIR/device.html)
+## Recherche d'équipement matériel lourd (EML) sur critères
+Voici des exemples de requêtes sur les équipements matériels lourds qui sont représentés dans le serveur FHIR par la ressource ["Device".](https://hl7.org/FHIR/device.html)
 
 ### - Rechercher tout
 Pour ce faire, il faut interroger l'endpoint FHIR Device.
