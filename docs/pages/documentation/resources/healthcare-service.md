@@ -13,8 +13,8 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </div>
 <br>
 
-## Recherche de service de santé sur critères
-Voici des exemples de requêtes sur les services de santé qui sont représentés dans le serveur FHIR par la ressource ["HealthCareService".](https://hl7.org/FHIR/healthcareservice.html)
+## Recherche d'activité de soin et d'équipement social sur critères
+Voici des exemples de requêtes sur les activités de soin et les équipements sociaux qui sont représentés dans le serveur FHIR par la ressource ["HealthCareService".](https://hl7.org/FHIR/healthcareservice.html)
 
 
 ### - Rechercher tout
