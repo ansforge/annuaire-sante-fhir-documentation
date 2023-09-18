@@ -15,8 +15,8 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </div>
 <br>
 
-## Recherche de structure sur critères
-Voici des exemples de requêtes sur les praticiens qui sont représentés dans le serveur FHIR par la ressource ["Practitioner".](https://hl7.org/FHIR/practitioner.html)
+## Recherche de professionnel de santé sur critères
+Voici des exemples de requêtes sur les professionnels de santé (PS) qui sont représentés dans le serveur FHIR par la ressource ["Practitioner".](https://hl7.org/FHIR/practitioner.html)
 
 ### - Rechercher tout
 Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
