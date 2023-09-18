@@ -12,8 +12,8 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 * Données relatives à la carte de professionnel de santé : type de carte, numéro, période de validité.
 </div>
 
-## Recherche de structure sur critères
-Voici des exemples de requêtes sur les rôles des praticiens qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
+## Recherche d'exercice et d'activité du professionnel de santé sur critères
+Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
 
 
 ### - Rechercher tout
