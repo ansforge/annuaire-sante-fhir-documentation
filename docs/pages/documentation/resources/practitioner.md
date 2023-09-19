@@ -73,9 +73,9 @@ Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 ### 1) Rechercher tout
 
--   Récit utilisateur : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
--   Exemples de requêtes :
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -130,7 +130,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br>
 
--   Exemple de réponse (simplifiée) :
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
 HTTP 200 OK
@@ -146,9 +146,9 @@ HTTP 200 OK
 
 ### 2) Rechercher par un ou plusieurs identifiants
 
--   Récit utilisateur : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
 
--   Exemples de requêtes :
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -212,7 +212,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br>
 
--   Exemple de réponse (simplifiée) :
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
 HTTP 200 OK
@@ -227,9 +227,9 @@ HTTP 200 OK
 
 ### 3) Rechercher par civilité
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
--   Exemples de requêtes :
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -294,7 +294,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br>
 
--   Exemple de réponse (simplifiée) :
+-   **Exemple de réponse (simplifiée)** :
   
 ```bash
 HTTP 200 OK
@@ -308,9 +308,9 @@ HTTP 200 OK
 
 ### 4) Rechercher les professionnels actifs
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
--   Exemple de requêtes :
+-   **Exemple de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -369,7 +369,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br>
 
--   Exemple de réponse (simplifiée) :
+-   **Exemple de réponse (simplifiée)** :
   
 ```bash
 HTTP 200 OK
@@ -384,9 +384,9 @@ HTTP 200 OK
 
 ### 5) Rechercher par date de modification
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
 
--   Exemples de requêtes :
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -447,7 +447,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br>
 
--   Exemple de réponse (simplifiée) :
+-   **Exemple de réponse (simplifiée)** :
   
 ```bash
 HTTP 200 OK
