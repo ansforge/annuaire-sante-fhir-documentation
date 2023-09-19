@@ -13,7 +13,6 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 
 > <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
-</br>
 
 ## Caractéristiques techniques de la ressource
 <table width="25%">
@@ -37,6 +36,15 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </tr>
 <tr>
 <td width="45%">
+<p><strong>Méthodes HTTP associées</strong></p>
+</td>
+
+<td width="54%">
+<p>GET, POST</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
 <p><strong>Paramètres de recherche</strong></p>
 </td>
 <td width="54%">
@@ -48,21 +56,20 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
-<p>_count, _include, _revinclude</p></p>
+<p>_count, _include, _revinclude</p>
 </td>
 </tr>
 </tbody>
 </table>
-</br>
+<br>
 
 ## Recherche de professionnel de santé sur critères
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 ### Rechercher tout
-- **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
-- **Exemples de requêtes** :
-  
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -115,8 +122,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
-- **Exemple de réponse (simplifiée)** :
+<br>
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
 HTTP 200 OK
@@ -131,10 +138,9 @@ HTTP 200 OK
 
 
 ### Rechercher par un ou plusieurs identifiants
-- **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
 
-- **Exemples de requêtes** :
-
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -196,9 +202,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
-- **Exemple de réponse (simplifiée)** :
-
+<br>
+-   **Exemple de réponse (simplifiée)** :
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -211,10 +216,9 @@ HTTP 200 OK
 <br>
 
 ### Rechercher par civilité
-- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
-- **Exemples de requêtes** :
-  
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -277,9 +281,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
-- **Exemple de réponse (simplifiée)** :
-
+<br>
+-   **Exemple de réponse (simplifiée)** :
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -291,9 +294,9 @@ HTTP 200 OK
 <br>
 
 ### Rechercher les professionnels actifs
-- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
-- **Exemple de requêtes** :
+-   **Exemple de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -350,9 +353,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
-- **Exemple de réponse (simplifiée)** : 
-
+<br>
+-   **Exemple de réponse (simplifiée)** : 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -365,9 +367,9 @@ HTTP 200 OK
 <br>
 
 ### Rechercher par date de modification
-- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
 
-- **Exemples de requêtes** :
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -426,9 +428,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
-- **Exemple de réponse (simplifiée)** : 
-
+<br>
+-   **Exemple de réponse (simplifiée)** : 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
