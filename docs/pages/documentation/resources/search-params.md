@@ -3,24 +3,21 @@ layout: documentation
 title: Paramètres de recherche
 subTitle: Ressources
 ---
-*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm](https://hl7.org/FHIR/search.html>*
+*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm>*
 ## Paramètres de recherche disponibles
-
 Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET [base]/metadata.
 
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="highlight">
   <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "{{site.ans.api_url}}/fhir/v1/metadata" </code>
 </div>
 <br>
 
 ## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
-
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
 ### Recherche sans "modifier"
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -79,20 +76,21 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br/>
 
-- Exemple de réponse (simplifiée) :
+- **Exemple de réponse (simplifiée)** :
   
 ```bash
-Organization found: name=Renard et Renard
-Organization found: name=Renard SCOP
-Organization found: name=Renard EURL
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Renard et Renard
+  Organization found: name=Renard SCOP
+  Organization found: name=Renard EURL
 ```
 <br/>
 
 ### Recherche avec le "modifier" "contains"
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -151,19 +149,20 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br/>
 
-- Quelques exemples:
+- **Exemple de réponse (simplifiée)** :
   
 ```bash
-Organization found: name=Perez EURL
-Organization found: name=Gautier EURL
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Perez EURL
+  Organization found: name=Gautier EURL
 ```
 <br/>
 
 ### Recherche avec le "modifier" "exact"
-
-- Quelques exemples :
+- **Quelques exemples** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -222,24 +221,24 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-</br>
 
-- Quelques exemples:
+- **Exemple de réponse (simplifiée)** :
   
 ```bash
-Organization found: id=org-183 name=Gautier EURL
-Organization found: id=org-358 name=Gautier EURL
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-183 name=Gautier EURL
+  Organization found: id=org-358 name=Gautier EURL
 ```
 
 <br/>
 
 ## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
-
-Le serveur supporte la recherche par code, par système ou par système+code.
+Le serveur supporte la recherche par code, par système ou par les deux.
 
 ### Recherche par code
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -297,23 +296,24 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-</br>
 
-- Exemple de réponse (simplifiée) :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Organization found: id=org-148 name=Renard et Renard
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 name=Renard et Renard
 ```
 
 <br/>
 
 ## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
+La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
+Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
-La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 
 <div class="wysiwyg" markdown="1">
 * _lastUpdated=gt2020 : après 2020
@@ -326,8 +326,7 @@ La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "pr
 &nbsp;
 
 ### Recherche par date
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -385,30 +384,29 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-</br>
 
-- Exemple de réponse (simplifiée) :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 ```
 
 <br/>
 
 ## Paramètres combinés
-
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
 
 ### Paramètres ET (AND)
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -468,23 +466,23 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-</br>
 
-- Exemple de réponse (simplifiée) :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Organization found: id=org-148 | name=Renard et Renard
-Organization found: id=org-176 | name=Renard et Renard
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 | name=Renard et Renard
+  Organization found: id=org-176 | name=Renard et Renard
 Organization found: id=org-128 | name=Renard et Renard
 ```
 
 <br/>
 
 ### Paramètres OU (OR)
-
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -542,37 +540,35 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-</br>
 
-- Exemple de réponse (simplifiée) :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Organization found: id=org-148 | name=Renard et Renard
-Organization found: id=org-386 | name=Lopez et Lopez
-Organization found: id=org-145 | name=Maillard et Maillard
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 | name=Renard et Renard
+  Organization found: id=org-386 | name=Lopez et Lopez
+  Organization found: id=org-145 | name=Maillard et Maillard
 ```
 
 <br/>
 
 ### Paramètres des résultats de la recherche
-
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
 
-#### - Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count)  :
-
+#### Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) :
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
-- Quelques exemples: 
+- **Quelques exemples** : 
 <div class="highlight">
   <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_count=200" </code>
 </div>
 <br>
 
-#### - Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) :
-
+#### Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) :
 Comme son nom l'indique, ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche.
 Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
 
