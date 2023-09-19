@@ -13,6 +13,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 
 > <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
+<br>
 
 ## Caractéristiques techniques de la ressource
 <table width="25%">
@@ -67,7 +68,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 ### Rechercher tout
--   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
+-   Récit utilisateur : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
 -   **Exemples de requêtes** :
 <div class="code-sample">
