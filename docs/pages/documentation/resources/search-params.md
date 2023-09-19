@@ -4,27 +4,28 @@ title: Paramètres de recherche
 subTitle: Ressources
 ---
 
-## Paramètres de recherche
+## Paramètres de recherche ([Search Parameters](https://www.hl7.org/fhir/search.html#ptypes))
 
-Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET {{FHIR_URL}}/metadata
+Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET [base]/metadata.
 
+- Quelques exemples: 
 <div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/metadata" </code>
-  <button>Copy</button>
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "{{site.ans.api_url}}/fhir/v1/metadata" </code>
 </div>
 <br>
 
-## Paramètres de type texte
+## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
 
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
 
 ### Recherche sans "modifier"
 
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name=Renard"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name=Renard"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -81,8 +82,9 @@ foreach (var be in bundle.Entry)
 
 
 </div>
+<br/>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Exemple de réponse (simplifiée) :
 
 ```bash
 Organization found: name=Renard et Renard
@@ -94,10 +96,11 @@ Organization found: name=Renard EURL
 
 ### Recherche avec le "modifier" "contains"
 
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=EURL"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=EURL"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -153,8 +156,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+<br/>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Quelques exemples: 
 
 ```bash
 Organization found: name=Perez EURL
@@ -165,10 +169,11 @@ Organization found: name=Gautier EURL
 
 ### Recherche avec le "modifier" "exact"
 
+- Quelques exemples :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Aexact=Gautier%20EURL"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Aexact=Gautier%20EURL"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -224,8 +229,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+</br>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Quelques exemples: 
 
 ```bash
 Organization found: id=org-183 name=Gautier EURL
@@ -234,16 +240,17 @@ Organization found: id=org-358 name=Gautier EURL
 
 <br/>
 
-## Paramètres de type token
+## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 
 Le serveur supporte la recherche par code, par système ou par système+code.
 
 ### Recherche par code
 
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=org-org-148"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=org-org-148"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -299,8 +306,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+</br>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Exemple de réponse (simplifiée) :
 
 ```bash
 Organization found: id=org-148 name=Renard et Renard
@@ -308,11 +316,11 @@ Organization found: id=org-148 name=Renard et Renard
 
 <br/>
 
-## Paramètres de type date
+## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
-Quelques exemples: 
+- Quelques exemples: 
 
 <div class="wysiwyg" markdown="1">
 * _lastUpdated=gt2020 : après 2020
@@ -326,10 +334,11 @@ Quelques exemples:
 
 ### Recherche par date
 
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -385,8 +394,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+</br>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Exemple de réponse (simplifiée) :
 
 ```bash
 Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
@@ -405,10 +415,11 @@ Ce cumul se fait de manière inclusive ou alternative.
 
 ### Paramètres ET (AND)
 
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H# "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=Renard&name%3Acontains=et"
+curl -H# "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=Renard&name%3Acontains=et"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -466,8 +477,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+</br>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Exemple de réponse (simplifiée) :
 
 ```bash
 Organization found: id=org-148 | name=Renard et Renard
@@ -479,11 +491,11 @@ Organization found: id=org-128 | name=Renard et Renard
 
 ### Paramètres OU (OR)
 
-
+- Quelques exemples: 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=Renard%2Cet"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=Renard%2Cet"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -539,8 +551,9 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+</br>
 
-L'API devrait vous retourner une réponse de ce genre :
+- Exemple de réponse (simplifiée) :
 
 ```bash
 Organization found: id=org-148 | name=Renard et Renard
@@ -559,8 +572,9 @@ Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pr
 
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
+- Quelques exemples: 
 <div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/Device?_count=200" </code>
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_count=200" </code>
 </div>
 <br>
 
@@ -580,7 +594,7 @@ Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
 Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas afficher le total :
 
 <div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/Device?_total=none" </code>
+  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_total=none" </code>
 </div>
 <br>
 
