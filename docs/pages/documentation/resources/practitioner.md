@@ -13,18 +13,60 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 
 > <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
-<br>
+</br>
+
+## Caractéristiques techniques de la ressource
+<table width="25%">
+<tbody>
+<tr>
+<td width="45%">
+<p><strong>Endpoint</strong></p>
+</td>
+
+<td width="54%">
+<p>{{site.ans.api_url}}/fhir/v1/Practitioner</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Header</strong></p>
+</td>
+<td width="54%">
+<p>ESANTE-API-KEY</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de recherche</strong></p>
+</td>
+<td width="54%">
+<p>_id, identifier, name, mailbox-mss, _lastUpdated, active, _total</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de requête</strong></p>
+</td>
+<td width="54%">
+<p>_count, _include, _revinclude</p></p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
 
 ## Recherche de professionnel de santé sur critères
-Voici des exemples de requêtes sur les professionnels de santé (PS) qui sont représentés dans le serveur FHIR par la ressource ["Practitioner".](https://hl7.org/FHIR/practitioner.html)
+Voici des exemples de requêtes sur les professionnels de santé (PS).
 
-### - Rechercher tout
-Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
+### Rechercher tout
+- **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
+- **Exemples de requêtes** :
+  
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -72,28 +114,31 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner found: id=003-137722 name=M
-Practitioner found: id=003-138668 name=M
-Practitioner found: id=003-138612 name=M
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner found: id=003-137722 name=M
+  Practitioner found: id=003-138668 name=M
+  Practitioner found: id=003-138612 name=M
 ```
 
 <br>
 
 
-### - Rechercher par un ou plusieurs identifiants
-Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
+### Rechercher par un ou plusieurs identifiants
+- **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+
+- **Exemples de requêtes** :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?identifier=0012807590%2C810000005479"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=0012807590%2C810000005479"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -150,27 +195,30 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner found: id=0012807590 name=MME
-Practitioner found: id=810000005479 name=MME
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 2
+  Practitioner found: id=0012807590 name=MME
+  Practitioner found: id=810000005479 name=MME
 ```
 
 <br>
 
-### - Rechercher par civilité
-Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
+### Rechercher par civilité
+- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
+- **Exemples de requêtes** :
+  
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?name=MME"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?name=MME"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -228,27 +276,28 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+- **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner found: id=0102800000 name=MME
-Practitioner found: id=0102800273 name=MME
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner found: id=0102800000 name=MME
+  Practitioner found: id=0102800273 name=MME
 ```
 
 <br>
 
-### - Rechercher les professionnels actifs
-Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
+### Rechercher les professionnels actifs
+- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
+- **Exemple de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -300,28 +349,29 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+- **Exemple de réponse (simplifiée)** : 
 
 ```bash
-Practitioner found: name=M | active=true
-Practitioner found: name=MME | active=true
-Practitioner found: name=M | active=true
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner found: name=M | active=true
+  Practitioner found: name=MME | active=true
+  Practitioner found: name=M | active=true
 ```
 
 <br>
 
-### - Rechercher par date de modification
-Pour ce faire, il faut interroger l'endpoint FHIR Practitioner.
+### Rechercher par date de modification
+- **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
 
+- **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -375,18 +425,18 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+- **Exemple de réponse (simplifiée)** : 
 
 ```bash
-Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```
 
 <br>
