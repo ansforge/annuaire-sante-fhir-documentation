@@ -5,6 +5,7 @@ subTitle: Ressources
 ---
 
 ## Description métier de la ressource
+
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
 <div class="wysiwyg" markdown="1">
 * Données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
@@ -16,6 +17,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 <br>
 
 ## Caractéristiques techniques de la ressource
+
 <table width="25%">
 <tbody>
 <tr>
@@ -65,12 +67,14 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 <br>
 
 ## Recherche de professionnel de santé sur critères
+
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 ### Rechercher tout
+
 -   Récit utilisateur : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
--   **Exemples de requêtes** :
+-   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -124,7 +128,8 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br>
--   **Exemple de réponse (simplifiée)** :
+
+-   Exemple de réponse (simplifiée) :
 
 ```bash
 HTTP 200 OK
@@ -139,9 +144,10 @@ HTTP 200 OK
 
 
 ### Rechercher par un ou plusieurs identifiants
--   **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
 
--   **Exemples de requêtes** :
+-   Récit utilisateur : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+
+-   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -204,7 +210,9 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br>
--   **Exemple de réponse (simplifiée)** :
+
+-   Exemple de réponse (simplifiée) :
+
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -217,9 +225,10 @@ HTTP 200 OK
 <br>
 
 ### Rechercher par civilité
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
--   **Exemples de requêtes** :
+-   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
+
+-   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -283,7 +292,9 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br>
--   **Exemple de réponse (simplifiée)** :
+
+-   Exemple de réponse (simplifiée) :
+  
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -295,9 +306,10 @@ HTTP 200 OK
 <br>
 
 ### Rechercher les professionnels actifs
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
--   **Exemple de requêtes** :
+-   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
+
+-   Exemple de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -355,7 +367,9 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br>
--   **Exemple de réponse (simplifiée)** : 
+
+-   Exemple de réponse (simplifiée) :
+  
 ```bash
 HTTP 200 OK
   resourceType: Bundle
@@ -368,9 +382,10 @@ HTTP 200 OK
 <br>
 
 ### Rechercher par date de modification
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
 
--   **Exemples de requêtes** :
+-   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
+
+-   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -430,7 +445,9 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br>
--   **Exemple de réponse (simplifiée)** : 
+
+-   Exemple de réponse (simplifiée) :
+  
 ```bash
 HTTP 200 OK
   resourceType: Bundle
