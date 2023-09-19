@@ -3,8 +3,8 @@ layout: documentation
 title: Paramètres de recherche
 subTitle: Ressources
 ---
-
-## Paramètres de recherche ([Search Parameters](https://www.hl7.org/fhir/search.html#ptypes))
+*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm](https://hl7.org/FHIR/search.html>*
+## Paramètres de recherche disponibles
 
 Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET [base]/metadata.
 
@@ -17,7 +17,6 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 ## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
 
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
-
 
 ### Recherche sans "modifier"
 
@@ -79,20 +78,17 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
-
 </div>
 <br/>
 
 - Exemple de réponse (simplifiée) :
-
+  
 ```bash
 Organization found: name=Renard et Renard
 Organization found: name=Renard SCOP
 Organization found: name=Renard EURL
 ```
 <br/>
-
 
 ### Recherche avec le "modifier" "contains"
 
@@ -154,18 +150,16 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
 <br/>
 
-- Quelques exemples: 
-
+- Quelques exemples:
+  
 ```bash
 Organization found: name=Perez EURL
 Organization found: name=Gautier EURL
 ```
 <br/>
-
 
 ### Recherche avec le "modifier" "exact"
 
@@ -227,12 +221,11 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
 </br>
 
-- Quelques exemples: 
-
+- Quelques exemples:
+  
 ```bash
 Organization found: id=org-183 name=Gautier EURL
 Organization found: id=org-358 name=Gautier EURL
@@ -602,9 +595,6 @@ Par défaut, l'affichage (ou pas) du total dépend principalement du temps néce
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
 
 &nbsp;
-
-NOTE | Pour aller plus loin, vous pouvez vous référer à la documentation de référence HL7 : [https://hl7.org/FHIR/search.htm](https://hl7.org/FHIR/search.html)
-
 
 {% include_relative _source-ref.md %}
 
