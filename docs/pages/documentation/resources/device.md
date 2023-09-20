@@ -11,16 +11,69 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </div>
 <br>
 
-## Recherche d'équipement matériel lourd (EML) sur critères
-Voici des exemples de requêtes sur les équipements matériels lourds qui sont représentés dans le serveur FHIR par la ressource ["Device".](https://hl7.org/FHIR/device.html)
+## Caractéristiques techniques de la ressource
 
-### - Rechercher tout
-Pour ce faire, il faut interroger l'endpoint FHIR Device.
+<table width="25%">
+<tbody>
+<tr>
+<td width="30%">
+<p><strong>Endpoint</strong></p>
+</td>
+
+<td width="54%">
+<p>{{site.ans.api_url}}/fhir/v1/Device</p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><strong>Header</strong></p>
+</td>
+<td width="54%">
+<p>ESANTE-API-KEY</p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><strong>Méthodes HTTP associées</strong></p>
+</td>
+
+<td width="54%">
+<p>GET, POST</p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><strong>Paramètres de recherche</strong></p>
+</td>
+<td width="54%">
+<p>_id, identifier, device-name, manufacturer, number-authorization-arhgos, status, type, _lastUpdated, organization, _total</p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><strong>Paramètres de requête</strong></p>
+</td>
+<td width="54%">
+<p>_count, _include</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+
+## Recherche d'équipement matériel lourd (EML) sur critères
+Voici des exemples de requêtes sur les équipements matériels lourds.
+
+### 1) Rechercher tout (sans critère)
+
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
+
+-   **Exemples de requêtes** :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -67,25 +120,33 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br>
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
-Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
-Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
+  Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
+  Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
 ```
 
 <br>
 
 
 
-### - Rechercher par date de mise à jour
-Pour rechercher les matériels ayant été mis à jour depuis une date donnée.
+### 2) Rechercher par date de mise à jour (_lastUpdated)
+
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
+
+-   **Exemples de requêtes** :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -144,25 +205,31 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br>
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
-Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
-Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
+  Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
+  Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
 ```
 
 <br>
 
 
-### - Rechercher un matériel par son numéro ARHGOS
-Pour ce faire, il faut interroger l'endpoint Device avec le paramètre  "number-authorization-arhgos".
+### 3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
 
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device?number-authorization-arhgos=93-93-67204"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device?number-authorization-arhgos=93-93-67204"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -220,27 +287,34 @@ foreach (var be in bundle.Entry)
 
 </div>
 
+<br>
 
-
-L'API devrait vous retourner une réponse de ce genre :
-
+-   **Exemple de réponse (simplifiée)** :
+  
 ```bash
-Device found: id=002-3122046 type=05602
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+  Device found: id=002-3122046 type=05602
 ```
 
 <br>
 
 
 
-### - Rechercher les matériels de type "Scanographe à utilisation médicale"
-Il est possible de rechercher un équipement lourd avec son type en utilisant le paramètre fhir "type". Voici un exemple avec un "Scanographe à utilisation médicale". 
+### 4) Rechercher par type EML (type)
 
-Vous pouvez trouver l'enssemble des valeurs possibles dans le [référenciel du MOS](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
 
+**Remarque** :
+Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R272-EquipementMaterielLourd](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd) des NOS.
+
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -298,24 +372,29 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Device found: id=002-3405555 | type=05602
-Device found: id=002-3405559 | type=05602
-Device found: id=002-3405562 | type=05602
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3405555 | type=05602
+  Device found: id=002-3405559 | type=05602
+  Device found: id=002-3405562 | type=05602
 ```
 
 <br>
 
 
-### - Rechercher un matériel par son identifiant
-Pour ce faire, il faut interroger l'endpoint FHIR Device.
+### 5) Rechercher par son identifiant (identifier)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
+
+-   **Exemples de requêtes** :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device?identifier=32-31-1156%2C93-93-4364"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device?v1/identifier=32-31-1156%2C93-93-4364"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -371,23 +450,30 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br>
 
+-   **Exemple de réponse (simplifiée)** :
+  
 ```bash
-Device found: id=32-31-1156
-Device found: id=93-93-4364
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+  Device found: id=32-31-1156
 ```
 
 <br>
 
 
-### - Rechercher les matériels actifs
-Pour ce faire, il faut faire interroger l'endpoint FHIR Device avec le paramètre "status".
+### 6) Rechercher par status (status)
 
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les EML actifs.
+
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Device?status=active"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Device?status=active"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -443,12 +529,15 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Device found: id=device-147 | status=Active
-Device found: id=device-389 | status=Active
-Device found: id=device-146 | status=Active
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=device-147 | status=Active
+  Device found: id=device-389 | status=Active
+  Device found: id=device-146 | status=Active
 ```
 
 &nbsp;
