@@ -408,7 +408,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
-#### Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
+#### 5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures de type géographique.
 
@@ -505,7 +505,7 @@ HTTP 200 OK
 
 <br />
 
-#### Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
+#### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
 
@@ -594,7 +594,7 @@ HTTP 200 OK
 
 <br />
 
-#### Rechercher par secteur d'activité
+#### 5.3) Rechercher par secteur d'activité
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
 
