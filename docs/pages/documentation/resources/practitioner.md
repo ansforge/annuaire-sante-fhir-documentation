@@ -14,7 +14,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 
 > <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
-<br>
+<br />
 
 ## Caractéristiques techniques de la ressource
 
@@ -64,7 +64,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </tr>
 </tbody>
 </table>
-<br>
+<br />
 
 ## Recherche de professionnel de santé sur critères
 
@@ -128,7 +128,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -141,7 +141,7 @@ HTTP 200 OK
   Practitioner found: id=003-138612 name=M
 ```
 
-<br>
+<br />
 
 
 ### 2) Rechercher par identifiant (identifier)
@@ -210,7 +210,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -223,7 +223,7 @@ HTTP 200 OK
   Practitioner found: id=810000005479 name=MME
 ```
 
-<br>
+<br />
 
 ### 3) Rechercher par civilité (name)
 
@@ -292,7 +292,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -304,7 +304,7 @@ HTTP 200 OK
   Practitioner found: id=0102800273 name=MME
 ```
 
-<br>
+<br />
 
 ### 4) Rechercher par status (active)
 
@@ -367,7 +367,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -380,7 +380,7 @@ HTTP 200 OK
   Practitioner found: name=M | active=true
 ```
 
-<br>
+<br />
 
 ### 5) Rechercher par date de mise à jour (_lastUpdated)
 
@@ -445,7 +445,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -459,6 +459,6 @@ HTTP 200 OK
   Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```
 
-<br>
+<br />
 {% include_relative _source-ref.md %}
 
