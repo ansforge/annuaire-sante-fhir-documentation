@@ -9,7 +9,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 <div class="wysiwyg" markdown="1">
 * numéro d'autorisation ARGHOS, période de validité, marque, numéro de série, code EML 
 </div>
-<br>
+<br />
 
 ## Caractéristiques techniques de la ressource
 
@@ -59,7 +59,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </tr>
 </tbody>
 </table>
-<br>
+<br />
 
 ## Recherche d'équipement matériel lourd (EML) sur critères
 Voici des exemples de requêtes sur les équipements matériels lourds.
@@ -120,7 +120,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -133,7 +133,7 @@ HTTP 200 OK
   Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
 ```
 
-<br>
+<br />
 
 
 
@@ -205,7 +205,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -218,7 +218,7 @@ HTTP 200 OK
   Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
 ```
 
-<br>
+<br />
 
 
 ### 3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
@@ -287,7 +287,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -299,7 +299,7 @@ HTTP 200 OK
   Device found: id=002-3122046 type=05602
 ```
 
-<br>
+<br />
 
 
 
@@ -371,6 +371,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -383,7 +384,7 @@ HTTP 200 OK
   Device found: id=002-3405562 | type=05602
 ```
 
-<br>
+<br />
 
 
 ### 5) Rechercher par son identifiant (identifier)
@@ -449,8 +450,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -462,7 +462,7 @@ HTTP 200 OK
   Device found: id=32-31-1156
 ```
 
-<br>
+<br />
 
 
 ### 6) Rechercher par status (status)
@@ -528,6 +528,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
