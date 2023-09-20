@@ -11,18 +11,69 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 * Données sur l'activité professionnelle : fonction ou rôle du professionnel dans la structure d'activité, genre d'activité, mode d'exercice, type d'activité libérale pour les activités concernées, statut hospitalier pour les activités concernées, données de contact du professionnel pour l'activité concernée, données relatives à la structure d'activité.
 * Données relatives à la carte de professionnel de santé : type de carte, numéro, période de validité.
 </div>
+<br />
+
+## Caractéristiques techniques de la ressource
+<table width="25%">
+<tbody>
+<tr>
+<td width="45%">
+<p><strong>Endpoint</strong></p>
+</td>
+
+<td width="54%">
+<p>{{site.ans.api_url}}/fhir/v1/PractitionerRole</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Header</strong></p>
+</td>
+<td width="54%">
+<p>ESANTE-API-KEY</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Méthodes HTTP associées</strong></p>
+</td>
+
+<td width="54%">
+<p>GET, POST</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de recherche</strong></p>
+</td>
+<td width="54%">
+<p>_id, name, given, family, mailbox-mss, number-smartcard, type-smartcard, active, role, speciality, _lastUpdated, _total, organization, practitioner</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de requête</strong></p>
+</td>
+<td width="54%">
+<p>_count, _include</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br />
 
 ## Recherche d'exercice et d'activité du professionnel de santé sur critères
-Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante qui sont représentés dans le serveur FHIR par la ressource ["PractitionerRole".](https://hl7.org/FHIR/practitionerrole.html)
+Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
+### 1) Rechercher tout (sans critère)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
 
-### - Rechercher tout
-Appel de la ressource PractitionerRole pour restituer les données correspondant aux situations d'exercice et exercices professionnels des PS.
+-   **Exemples de requêtes** :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -69,23 +120,30 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-5090000-6920000 code=FON-09
-Practitioner Role found: id=005-5070000-6900000 code=FON-09
-Practitioner Role found: id=005-5080000-6920000 code=FON-AU
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-5090000-6920000 code=FON-09
+  Practitioner Role found: id=005-5070000-6900000 code=FON-09
+  Practitioner Role found: id=005-5080000-6920000 code=FON-AU
 ```
 
-<br>
+<br />
 
-### - Recherche unitaire
-La recherche unitaire permet de récupérer les données spécifiques d'une ressource à l'aide de son identifiant logique.
+### 2) Recherche par identifiant (_id)
 
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une ressource par son identifiant logique 
+
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole/005-5087586-6923328"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole/005-5087586-6923328"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -121,16 +179,22 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-5087586-6923328
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+  Practitioner Role found: id=005-5087586-6923328
 ```
 
-<br>
+<br />
 
-### - Recherche par rôle
-La recherche par le paramètre role permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
+### 3) Recherche par rôle (role)
+La recherche par le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
 
 | Type                                        | Description                      | Système                                                                                               | Lien / Options                                                                                        |
 |---------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -148,7 +212,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 `PractitionerRole?role=<system>%7C<code>`
 
-Quelques exemples :
+**Quelques exemples** :
 
 <div class="wysiwyg" markdown="1">
 * `PractitionerRole?role=http://interopsante.org/fhir/CodeSystem/fr-v2-3307%7CLEGAL-ENTITY` Recherche par type d'organization LEGAL-ENTITY
@@ -161,12 +225,14 @@ Quelques exemples :
 * `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP%7CDA` Recherche par Sous-Section du tableau de l'Ordre des Pharmaciens TRE_G05-SousSectionTableauCNOP avec le code DA "Pharmacien adjoint"
 </div>
 
-Exemple de recherche sur les "chirurgiens-dentistes" (code 40) en formation (étudiant) (code E).
+#### 3.1) Recherche par profession et par catégorie professionnelle
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?role=40&role=E"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&role=E"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -253,22 +319,30 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-480000-6510001 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
-Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-480000-6510001 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
+ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
+  Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
+ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
 ```
 
-<br>
+<br />
 
-### - Recherche par spécialité
-Exemple de recherche sur les "chirurgiens-dentistes" (code 40) ayant une spécialité ordinale "orthopédie dento-faciale" (code SCD01).
+### 4) Recherche par spécialité (specialty)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") ayant une spécialité ordinale "orthopédie dento-faciale" (code spécialité = "SCD01").
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?role=40&specialty=SCD01"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&specialty=SCD01"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -374,23 +448,29 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-400000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
-Practitioner Role found: id=005-390000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
-Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-400000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+  Practitioner Role found: id=005-390000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+  Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
 ```
 
-<br>
+<br />
 
-### - Recherche par type de carte (SmartCard)
-Exemple de recherche de toutes les cartes de type CPS.
+### 5) Recherche par type de carte (type-smartcard)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les cartes de type CPS.
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?type-smartcard=CPS"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?type-smartcard=CPS"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -447,23 +527,29 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-54002-100000
-Practitioner Role found: id=005-54001
-Practitioner Role found: id=005-54000-100000
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-54002-100000
+  Practitioner Role found: id=005-54001
+  Practitioner Role found: id=005-54000-100000
 ```
 
-<br>
+<br />
 
-### - Recherche par Practitioner
-Exemple de recherche de toutes les situations d'exercice et exercices professionnels rattachés au professionel de santé dont l'identifiant technique est 003-138020.
+### 6) Recherche par professionnel (practitioner)
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?practitioner=003-138020"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-138020"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -518,22 +604,28 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
 ```
 
-<br>
+<br />
 
 
-### - Recherche par statut
-Exemple de recherche pour toutes les données au statut "actif".
+### 7) Recherche par statut
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
 
+-   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -589,14 +681,19 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+<br />
+
+-   **Exemple de réponse (simplifiée)** :
 
 ```bash
-Practitioner Role found: id=prr-prarole-946 active=true
-Practitioner Role found: id=prr-prarole-256 active=true
-Practitioner Role found: id=prr-prarole-899 active=true
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=prr-prarole-946 active=true
+  Practitioner Role found: id=prr-prarole-256 active=true
+  Practitioner Role found: id=prr-prarole-899 active=true
 ```
-<br>
+<br />
 
 {% include_relative _source-ref.md %}
 
