@@ -50,7 +50,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 <p><strong>Paramètres de recherche</strong></p>
 </td>
 <td width="54%">
-<p>_id, identifier, name, mailbox-mss, type, pharmacy-licence, partof, address, address-city, address-country, address-postalcode, address-state, address-use, _lastUpdated, active, _total</p>
+<p>_id, identifier, name, mailbox-mss, type, pharmacy-licence, partof, address, address-city, address-country, address-postalcode, _lastUpdated, active, _total</p>
 </td>
 </tr>
 <tr>
