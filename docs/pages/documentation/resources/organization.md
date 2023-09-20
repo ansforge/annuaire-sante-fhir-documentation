@@ -419,7 +419,7 @@ Les deux types possibles sont :
 * GEOGRAPHICAL-ENTITY
 * LEGAL-ENTITY
 </div>
-
+<br>
 
 -   **Exemples de requêtes** :
 
