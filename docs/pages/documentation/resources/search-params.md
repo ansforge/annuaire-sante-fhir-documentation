@@ -4,20 +4,37 @@ title: Paramètres de recherche
 subTitle: Ressources
 ---
 *Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm>*
+
 ## Paramètres de recherche disponibles
-Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement avec la requête suivante: GET [base]/metadata.
+Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement.
+avec la requête suivante: GET [base]/metadata.
 
-- **Quelques exemples** : 
-<div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "{{site.ans.api_url}}/fhir/v1/metadata" </code>
-</div>
+**Requête :**
 
+`GET [BASE]/metadata`
 
 ## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
+
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
 ### Recherche sans "modifier"
-- **Quelques exemples** : 
+
+**Requête :**
+
+`GET [BASE]/Organization?name=Renard`
+
+**Réponse (simplifiée) :** 
+  
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Renard et Renard
+  Organization found: name=Renard SCOP
+  Organization found: name=Renard EURL
+```
+
+**Exemples de code :**  
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -78,20 +95,24 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-- **Exemple de réponse (simplifiée)** :
-  
+### Recherche avec le "modifier" "contains"
+
+**Requête :**
+
+`GET [BASE]/Organization?name%3Acontains=EURL`
+
+**Réponse (simplifiée) :** 
+
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=Renard et Renard
-  Organization found: name=Renard SCOP
-  Organization found: name=Renard EURL
+  Organization found: name=Perez EURL
+  Organization found: name=Gautier EURL
 ```
 
+**Exemples de code :** 
 
-### Recherche avec le "modifier" "contains"
-- **Quelques exemples** : 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -151,19 +172,25 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br />
-- **Exemple de réponse (simplifiée)** :
-  
+
+### Recherche avec le "modifier" "exact"
+
+**Requête :**
+
+`GET [BASE]/Organization?name%3Aexact=Gautier%20EURL`
+
+**Réponse (simplifiée) :** 
+
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=Perez EURL
-  Organization found: name=Gautier EURL
+  Organization found: id=org-183 name=Gautier EURL
+  Organization found: id=org-358 name=Gautier EURL
 ```
 
+**Exemples de code :**
 
-### Recherche avec le "modifier" "exact"
-- **Quelques exemples** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -224,23 +251,26 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-- **Exemple de réponse (simplifiée)** :
-  
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=org-183 name=Gautier EURL
-  Organization found: id=org-358 name=Gautier EURL
-```
-
-
-
 ## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 Le serveur supporte la recherche par code, par système ou par les deux.
 
 ### Recherche par code
-- **Quelques exemples** : 
+
+**Requête :**
+
+`GET [BASE]/Organization?identifier=org-org-148`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 name=Renard et Renard
+```
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -300,21 +330,12 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br />
-  
-- **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=org-148 name=Renard et Renard
-```
 
 ## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
 Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
-- **Quelques exemples** : 
+**Quelques exemples :** 
 
 <div class="wysiwyg" markdown="1">
 * _lastUpdated=gt2020 : après 2020
@@ -326,8 +347,26 @@ Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour
 
 &nbsp;
 
-### Recherche par date
-- **Quelques exemples** : 
+
+**Requête :**
+
+`GET [BASE]/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+```
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -388,19 +427,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-- **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-```
-
 ## Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Cette partie de la spécification est en cours de construction.
@@ -416,7 +442,24 @@ Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
 
 ### Paramètres ET (AND)
-- **Quelques exemples** : 
+
+**Requête :**
+
+`GET [BASE]/Organization?name%3Acontains=Renard&name%3Acontains=et`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 | name=Renard et Renard
+  Organization found: id=org-176 | name=Renard et Renard
+Organization found: id=org-128 | name=Renard et Renard
+```
+
+**Exemples de code:**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -479,19 +522,25 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-- **Exemple de réponse (simplifiée)** :
+### Paramètres OU (OR)
+
+**Requête :**
+
+`GET [BASE]/Organization?name%3Acontains=Renard%2Cet`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: id=org-148 | name=Renard et Renard
-  Organization found: id=org-176 | name=Renard et Renard
-Organization found: id=org-128 | name=Renard et Renard
+  Organization found: id=org-386 | name=Lopez et Lopez
+  Organization found: id=org-145 | name=Maillard et Maillard
 ```
 
-### Paramètres OU (OR)
-- **Quelques exemples** : 
+**Exemples de code:**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -552,17 +601,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-- **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=org-148 | name=Renard et Renard
-  Organization found: id=org-386 | name=Lopez et Lopez
-  Organization found: id=org-145 | name=Maillard et Maillard
-```
-
 ### Paramètres des résultats de la recherche
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
@@ -570,11 +608,9 @@ Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pr
 #### Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) :
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
-- **Quelques exemples** : 
-<div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_count=200" </code>
-</div>
-<br>
+**Requête:**
+
+`GET [BASE]/Device?_count=200`
 
 #### Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) :
 Comme son nom l'indique, ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche.
@@ -590,10 +626,9 @@ Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
 
 Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas afficher le total :
 
-<div class="highlight">
-  <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_total=none" </code>
-</div>
+**Requête:**
 
+`GET [BASE]/Device?_total=none`
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
