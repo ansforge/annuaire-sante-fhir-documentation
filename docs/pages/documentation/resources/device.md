@@ -65,11 +65,9 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 Voici des exemples de requêtes sur les équipements matériels lourds.
 
 ### 1) Rechercher tout (sans critère)
-
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
 
 -   **Exemples de requêtes** :
-
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -222,7 +220,6 @@ HTTP 200 OK
 
 
 ### 3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
-
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
 -   **Exemples de requêtes** :
