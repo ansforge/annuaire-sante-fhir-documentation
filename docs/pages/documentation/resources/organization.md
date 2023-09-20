@@ -69,7 +69,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 
 Voici quelques exemples de requêtes sur les structures.
 
-### 1) Rechercher tout
+### 1) Rechercher tout (sans critère)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
 
@@ -139,9 +139,9 @@ HTTP 200 OK
   
 <br>
 
-### 2) Rechercher par date de modification
+### 2) Rechercher par date de mise à jour (_lastUpdated)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les structures modifiées depuis une certaine date.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
 
 -   **Exemples de requêtes** :
 
@@ -221,8 +221,7 @@ HTTP 200 OK
 
 <br>
 
-### 3) Rechercher par identifiant
-
+### 3) Rechercher par identifiant (identifier)
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
 
 -   **Exemples de requêtes** :
@@ -301,7 +300,7 @@ HTTP 200 OK
 
 <br>
 
-### 4) Rechercher par numéro FINESS
+### 4) Rechercher par numéro FINESS (identifier)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
 
@@ -383,7 +382,7 @@ HTTP 200 OK
 
 <br>
 
-### 5) Recherches par types 
+### 5) Recherches par types (type)
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
 | Type                    | Description                          | Système                                                                                           | Lien / Options                                                                                    |
@@ -409,7 +408,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
-#### Rechercher par type "GEOGRAPHICAL"/"LEGAL"
+#### Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures de type géographique.
 
@@ -686,7 +685,7 @@ HTTP 200 OK
 
 <br>
 
-### 6) Rechercher par nom 
+### 6) Rechercher par nom (name)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
 
@@ -765,7 +764,7 @@ HTTP 200 OK
 
 <br>
 
-### 7) Rechercher par code postal
+### 7) Rechercher par code postal (address-postalcode)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
 
