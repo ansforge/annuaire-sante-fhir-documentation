@@ -406,6 +406,11 @@ HTTP 200 OK
 Cette partie de la spécification est en cours de construction.
 </p>
 
+## Paramètres de type [uri](https://www.hl7.org/fhir/search.html#uri)
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette partie de la spécification est en cours de construction.
+</p>
+
 ## Paramètres combinés
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
