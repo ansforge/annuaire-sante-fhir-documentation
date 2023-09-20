@@ -11,7 +11,7 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 <div class="highlight">
   <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "{{site.ans.api_url}}/fhir/v1/metadata" </code>
 </div>
-<br>
+
 
 ## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
@@ -76,6 +76,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+<br />
 
 - **Exemple de réponse (simplifiée)** :
   
@@ -87,7 +88,7 @@ HTTP 200 OK
   Organization found: name=Renard SCOP
   Organization found: name=Renard EURL
 ```
-<br/>
+
 
 ### Recherche avec le "modifier" "contains"
 - **Quelques exemples** : 
@@ -149,7 +150,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
+<br />
 - **Exemple de réponse (simplifiée)** :
   
 ```bash
@@ -159,7 +160,7 @@ HTTP 200 OK
   Organization found: name=Perez EURL
   Organization found: name=Gautier EURL
 ```
-<br/>
+
 
 ### Recherche avec le "modifier" "exact"
 - **Quelques exemples** :
@@ -221,6 +222,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+<br />
 
 - **Exemple de réponse (simplifiée)** :
   
@@ -232,7 +234,7 @@ HTTP 200 OK
   Organization found: id=org-358 name=Gautier EURL
 ```
 
-<br/>
+
 
 ## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 Le serveur supporte la recherche par code, par système ou par les deux.
@@ -297,7 +299,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
+<br />
+  
 - **Exemple de réponse (simplifiée)** :
 
 ```bash
@@ -306,8 +309,6 @@ HTTP 200 OK
   type: searchset
   Organization found: id=org-148 name=Renard et Renard
 ```
-
-<br/>
 
 ## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
@@ -385,7 +386,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
+<br />
+  
 - **Exemple de réponse (simplifiée)** :
 
 ```bash
@@ -399,7 +401,10 @@ HTTP 200 OK
   Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 ```
 
-<br/>
+## Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette partie de la spécification est en cours de construction.
+</p>
 
 ## Paramètres combinés
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
@@ -467,7 +472,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
+<br />
+  
 - **Exemple de réponse (simplifiée)** :
 
 ```bash
@@ -478,8 +484,6 @@ HTTP 200 OK
   Organization found: id=org-176 | name=Renard et Renard
 Organization found: id=org-128 | name=Renard et Renard
 ```
-
-<br/>
 
 ### Paramètres OU (OR)
 - **Quelques exemples** : 
@@ -541,7 +545,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-
+<br />
+  
 - **Exemple de réponse (simplifiée)** :
 
 ```bash
@@ -552,8 +557,6 @@ HTTP 200 OK
   Organization found: id=org-386 | name=Lopez et Lopez
   Organization found: id=org-145 | name=Maillard et Maillard
 ```
-
-<br/>
 
 ### Paramètres des résultats de la recherche
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
@@ -585,7 +588,7 @@ Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas affic
 <div class="highlight">
   <code> curl -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX" "https://gateway.api.esante.gouv.fr/fhir/v1/Device?_total=none" </code>
 </div>
-<br>
+
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
