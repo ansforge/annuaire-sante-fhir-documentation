@@ -63,7 +63,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tr>
 </tbody>
 </table>
-<br>
+<br />
 
 ## Recherche de structure sur critères
 
@@ -120,7 +120,7 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -137,7 +137,7 @@ HTTP 200 OK
   Organization found: id=org-153 name=Wilkinson Group
 ```
   
-<br>
+<br />
 
 ### 2) Rechercher par date de mise à jour (_lastUpdated)
 
@@ -203,7 +203,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -219,7 +219,7 @@ HTTP 200 OK
 ```
 
 
-<br>
+<br />
 
 ### 3) Rechercher par identifiant (identifier)
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
@@ -284,7 +284,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -298,7 +298,7 @@ HTTP 200 OK
 ```
 
 
-<br>
+<br />
 
 ### 4) Rechercher par numéro FINESS (identifier)
 
@@ -366,7 +366,7 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
   
@@ -380,7 +380,7 @@ HTTP 200 OK
 ```
 
 
-<br>
+<br />
 
 ### 5) Recherches par types (type)
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
@@ -418,7 +418,7 @@ Les deux types possibles sont :
 * GEOGRAPHICAL-ENTITY
 * LEGAL-ENTITY
 </div>
-<br>
+<br />
 
 -   **Exemples de requêtes** :
 
@@ -488,7 +488,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -503,7 +503,7 @@ HTTP 200 OK
 ```
 
 
-<br>
+<br />
 
 #### Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
@@ -578,7 +578,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -592,7 +592,7 @@ HTTP 200 OK
 ```
 
 
-<br>
+<br />
 
 #### Rechercher par secteur d'activité
 
@@ -668,7 +668,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -683,7 +683,7 @@ HTTP 200 OK
 
 
 
-<br>
+<br />
 
 ### 6) Rechercher par nom (name)
 
@@ -749,7 +749,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br>
+<br />
 
 -   **Exemple de réponse (simplifiée)** :
 
@@ -762,7 +762,7 @@ HTTP 200 OK
   Organization found: name=Imagerie médicale République
 ```
 
-<br>
+<br />
 
 ### 7) Rechercher par code postal (address-postalcode)
 
@@ -830,6 +830,8 @@ foreach (var be in bundle.Entry)
 
 </div>
 
+<br />
+
 -   **Exemple de réponse (simplifiée)** :
 
 ```bash
@@ -839,5 +841,5 @@ HTTP 200 OK
   Organization found: name=Renard et Renard | zipCode=91794
   Organization found: name=Maillard et Maillard | zipCode=10228
 ```
-<br>
+<br />
 {% include_relative _source-ref.md %}
