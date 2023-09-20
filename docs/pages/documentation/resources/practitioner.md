@@ -71,7 +71,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 
-### 1) Rechercher tout
+### 1) Rechercher tout (sans critère)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
@@ -144,7 +144,7 @@ HTTP 200 OK
 <br>
 
 
-### 2) Rechercher par un ou plusieurs identifiants
+### 2) Rechercher par identifiant (identifier)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
 
@@ -225,7 +225,7 @@ HTTP 200 OK
 
 <br>
 
-### 3) Rechercher par civilité
+### 3) Rechercher par civilité (name)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
@@ -306,7 +306,7 @@ HTTP 200 OK
 
 <br>
 
-### 4) Rechercher les professionnels actifs
+### 4) Rechercher par status (active)
 
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
@@ -382,9 +382,9 @@ HTTP 200 OK
 
 <br>
 
-### 5) Rechercher par date de modification
+### 5) Rechercher par date de mise à jour (_lastUpdated)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
+-   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
 
 -   **Exemples de requêtes** :
 <div class="code-sample">
