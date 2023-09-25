@@ -80,6 +80,7 @@ GET [base]/HealthcareService?_include=* #inclure toutes les ressources qui sont 
 
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
@@ -254,6 +255,7 @@ GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FN
 
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
@@ -353,6 +355,7 @@ GET [base]/HealthcareService?active=false #inactif
 
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
@@ -442,6 +445,7 @@ GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 #Les HealthcareService ay
 
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
