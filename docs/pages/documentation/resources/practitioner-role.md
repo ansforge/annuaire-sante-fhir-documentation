@@ -5,6 +5,7 @@ subTitle: Ressources
 ---
 
 ## Description métier de la ressource
+
 Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice »](https://mos.esante.gouv.fr/2.html#_5579aac4-b414-41f1-8569-2e99403e3af3) et la [« situation »](https://mos.esante.gouv.fr/2.html#_86e1685b-9e1d-47fb-bb66-d23ca0eb9679) d'exercice du professionnel :
 <div class="wysiwyg" markdown="1">
 * Données relatives à l'exercice professionnel : nom et prénom d'exercice, profession, civilité d'exercice, catégorie d'exercice, qualifications de spécialiste et disciplines et attributions particulières.
@@ -14,6 +15,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <br />
 
 ## Caractéristiques techniques de la ressource
+
 <table width="25%">
 <tbody>
 <tr>
@@ -62,10 +64,13 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 </table>
 <br />
 
+
 ## Recherche d'exercice et d'activité du professionnel de santé sur critères
+
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
 ### 1) Rechercher tout (sans critère)
+
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
 
 **Requêtes :**
@@ -77,18 +82,21 @@ GET [base]/Organization&?_include=PractitionerRole:practitioner #inclure les Pra
 GET [base]/Organization&?_include=PractitionerRole:* #inclure toutes les ressources qui sont réféencées les PractitionerRole (PractitionerRole + Practitioner + Oraganization)
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner Role found: id=005-5090000-6920000 code=FON-09
   Practitioner Role found: id=005-5070000-6900000 code=FON-09
   Practitioner Role found: id=005-5080000-6920000 code=FON-AU
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -141,6 +149,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
+<br />
 
 
 ### 2) Recherche par identifiant (_id)
@@ -153,14 +162,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Practitioner Role found: id=005-5087586-6923328
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -202,9 +213,11 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 </div>
 
 </div>
+<br />
 
 
 ### 3) Recherche par rôle (role)
+
 La recherche par le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
 
 | Type                                        | Description                      | Système                                                                                               | Lien / Options                                                                                        |
@@ -235,6 +248,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 * `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP%7CS` Recherche par Section du tableau de l'Ordre des Pharmaciens TRE_R06-SectionTableauCNOP avec le code A "Pharmacien titulaire officine"
 * `PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_G05-SousSectionTableauCNOP/FHIR/TRE-G05-SousSectionTableauCNOP%7CDA` Recherche par Sous-Section du tableau de l'Ordre des Pharmaciens TRE_G05-SousSectionTableauCNOP avec le code DA "Pharmacien adjoint"
 </div>
+<br />
 
 #### 3.1) Recherche par profession et par catégorie professionnelle
 
@@ -246,7 +260,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -255,8 +269,10 @@ ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnel
   Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
 ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:
 
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -347,8 +363,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
+<br />
 
 
 ### 4) Recherche par spécialité (specialty)
@@ -361,7 +377,7 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -369,8 +385,10 @@ HTTP 200 OK
   Practitioner Role found: id=005-390000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
   Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
 
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -480,8 +498,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
+<br />
 
 
 ### 5) Recherche par type de carte (type-smartcard)
@@ -494,15 +512,17 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner Role found: id=005-54002-100000
   Practitioner Role found: id=005-54001
   Practitioner Role found: id=005-54000-100000
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -563,8 +583,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
+<br />
 
 
 ### 6) Recherche par professionnel (practitioner)
@@ -577,12 +597,15 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
+
+
 ```
+<br />
 
 **Exemples de code :**
 
@@ -641,8 +664,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
+<br />
 
 
 ### 7) Recherche par statut
@@ -655,15 +678,17 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner Role found: id=prr-prarole-946 active=true
   Practitioner Role found: id=prr-prarole-256 active=true
   Practitioner Role found: id=prr-prarole-899 active=true
-```
 
+
+```
+<br />
 
 **Exemples de code :**
 
@@ -725,7 +750,7 @@ foreach (var be in bundle.Entry)
 
 
 </div>
-
+<br />
 
 {% include_relative _source-ref.md %}
 
