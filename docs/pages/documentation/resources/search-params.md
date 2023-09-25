@@ -35,6 +35,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code :**  
 
@@ -115,6 +116,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code :** 
 
@@ -195,6 +197,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code :**
 
@@ -258,7 +261,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-
 ## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 
 Le serveur supporte la recherche par code, par système ou par les deux.
@@ -279,6 +281,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code :**
 
@@ -342,7 +345,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-
 ## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
@@ -380,6 +382,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code :**
 
@@ -443,7 +446,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-
 ## Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
@@ -481,6 +483,7 @@ Organization found: id=org-128 | name=Renard et Renard
 
 
 ```
+<br />
 
 **Exemples de code:**
 
@@ -546,7 +549,6 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-
 ### Paramètres OU (OR)
 
 **Requête :**
@@ -565,6 +567,7 @@ HTTP 200 OK
 
 
 ```
+<br />
 
 **Exemples de code:**
 
@@ -627,7 +630,6 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br />
-
   
 ### Paramètres des résultats de la recherche
 
