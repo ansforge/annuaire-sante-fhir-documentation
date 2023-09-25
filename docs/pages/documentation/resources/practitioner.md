@@ -80,21 +80,24 @@ Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 ```sh
 GET [base]/Practitioner 
-GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner #inclure les practitionerRole qui référencent les practitioner
+GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner #inclure les practitionerRole qui référencent les practitioner (Practitioner + PractitionerRole)
 
 
 ```
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner found: id=003-137722 name=M
   Practitioner found: id=003-138668 name=M
   Practitioner found: id=003-138612 name=M
+
+
 ```
+<br />
 
 **Exemples de code :**
 
@@ -163,14 +166,15 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Practitioner found: id=0012807590 name=MME
-```
 
+
+```
 <br />
 
 **Exemples de code :**
@@ -249,16 +253,17 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner found: id=0102800000 name=MME
   Practitioner found: id=0102800273 name=MME
+
+
 ```
 
 <br />
-
 
 **Exemples de code :**
 
@@ -327,7 +332,6 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-
 ### 4) Rechercher par status (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
@@ -338,15 +342,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Practitioner found: name=M | active=true
   Practitioner found: name=MME | active=true
   Practitioner found: name=M | active=true
-```
 
+
+```
 <br />
 
 **Exemples de code :**
@@ -410,7 +415,6 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-
 ### 5) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
@@ -421,7 +425,7 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -429,8 +433,9 @@ HTTP 200 OK
   Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
   Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
   Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-```
 
+
+```
 <br />
 
 **Exemples de code :**
