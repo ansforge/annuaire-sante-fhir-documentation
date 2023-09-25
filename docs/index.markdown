@@ -3,8 +3,9 @@ layout: home
 title: Bienvenue sur la documentation technique de l'API FHIR Annuaire Santé en libre accès
 ---
 
-
-!!! ATTENTION !!! Cette documentation est en cours de rédaction. 
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette documentation est en cours de construction.
+</p>
 
 Ici, vous allez trouver toute la documentation technique permettant de faciliter l'utilisation de l'API : des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, des exemples de code,...
 
