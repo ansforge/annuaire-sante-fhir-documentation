@@ -77,11 +77,11 @@ Voici quelques exemples de requêtes sur les structures.
 
 ```sh
 GET [base]/Organization
-GET [base]/Organization&?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
-GET [base]/Organization&?_revinclude=Device:organization #inclure les Device qui référencent les Organization (Organization + Device)
-GET [base]/Organization&?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)
-GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure les PractitionerRole qui référencent les Organization (Organization + PractitionerRole)
-GET [base]/Organization&?_include=Organization:* #inclure toutes les ressources qui sont référencées par les Organization
+GET [base]/Organization?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
+GET [base]/Organization?_revinclude=Device:organization #inclure les Device qui référencent les Organization (Organization + Device)
+GET [base]/Organization?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)
+GET [base]/Organization?_revinclude=PractitionerRole:organization #inclure les PractitionerRole qui référencent les Organization (Organization + PractitionerRole)
+GET [base]/Organization?_include=* #inclure toutes les ressources qui sont référencées par les Organization
 
 ```
 <br />
