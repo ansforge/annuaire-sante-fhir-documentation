@@ -7,6 +7,7 @@ subTitle: Ressources
 ## Description métier de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
+
 <div class="wysiwyg" markdown="1">
 * Données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
 * Données de contact : adresse de messagerie électronique (MSS).
@@ -14,7 +15,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 
 > <b>A noter que le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».</b>
 </div>
-<br>
+<br />
 
 ## Caractéristiques techniques de la ressource
 
@@ -64,18 +65,39 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </tr>
 </tbody>
 </table>
-<br>
+<br />
 
 ## Recherche de professionnel de santé sur critères
 
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 
-### 1) Rechercher tout
+### 1) Rechercher tout (sans critère)
 
--   Récit utilisateur : En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
--   Exemples de requêtes :
+**Exemples de requêtes :**
+
+```sh
+GET [base]/Practitioner 
+GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner #inclure les practitionerRole qui référencent les practitioner
+
+
+```
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner found: id=003-137722 name=M
+  Practitioner found: id=003-138668 name=M
+  Practitioner found: id=003-138612 name=M
+```
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -128,27 +150,31 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
--   Exemple de réponse (simplifiée) :
+
+### 2) Rechercher par identifiant (identifier)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+
+**Requête :**
+
+`GET [base]/Practitioner?identifier=0012807590`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner found: id=003-137722 name=M
-  Practitioner found: id=003-138668 name=M
-  Practitioner found: id=003-138612 name=M
+  total: 1
+  Practitioner found: id=0012807590 name=MME
 ```
 
-<br>
+<br />
 
+**Exemples de code :**
 
-### 2) Rechercher par un ou plusieurs identifiants
-
--   Récit utilisateur : En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
-
--   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -210,26 +236,32 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
--   Exemple de réponse (simplifiée) :
+
+### 3) Rechercher par civilité (name)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
+
+**Requête :**
+
+`GET [base]/Practitioner?name=MME`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  total: 2
-  Practitioner found: id=0012807590 name=MME
-  Practitioner found: id=810000005479 name=MME
+  Practitioner found: id=0102800000 name=MME
+  Practitioner found: id=0102800273 name=MME
 ```
 
-<br>
+<br />
 
-### 3) Rechercher par civilité
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
+**Exemples de code :**
 
--   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -292,25 +324,33 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
--   Exemple de réponse (simplifiée) :
+
+
+### 4) Rechercher par status (active)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
+
+**Requête :**
+
+`GET [base]/Practitioner?active=true`
+
+**Réponse (simplifiée) :** 
   
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner found: id=0102800000 name=MME
-  Practitioner found: id=0102800273 name=MME
+  Practitioner found: name=M | active=true
+  Practitioner found: name=MME | active=true
+  Practitioner found: name=M | active=true
 ```
 
-<br>
+<br />
 
-### 4) Rechercher les professionnels actifs
+**Exemples de code :**
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
-
--   Exemple de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -367,26 +407,34 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
--   Exemple de réponse (simplifiée) :
+
+
+### 5) Rechercher par date de mise à jour (_lastUpdated)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
+
+**Requête :**
+
+`GET [base]/Practitioner?_lastUpdated=ge2022-08-08`
+
+**Réponse (simplifiée) :** 
   
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner found: name=M | active=true
-  Practitioner found: name=MME | active=true
-  Practitioner found: name=M | active=true
+  Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
+  Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
 ```
 
-<br>
+<br />
 
-### 5) Rechercher par date de modification
+**Exemples de code :**
 
--   Récit utilisateur : En tant que client de l'API, je souhaite rechercher tous les professionnels de santé modifiés depuis une certaine date.
-
--   Exemples de requêtes :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -445,20 +493,8 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
--   Exemple de réponse (simplifiée) :
-  
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-```
 
-<br>
 {% include_relative _source-ref.md %}
 

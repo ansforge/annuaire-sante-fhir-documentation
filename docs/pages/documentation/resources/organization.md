@@ -6,24 +6,105 @@ subTitle: Ressources
 
 
 ## Description métier de la ressource
+
 Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
 * numéros SIREN/ SIRET ou FINESS, type de structure (géographique ou juridique), activité , secteur d'activité santé, catégorie juridique, modalités de participation au service public hospitalier (SPH), 
 * raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
 * pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
 </div>
-<br>
+<br />
+
+## Caractéristiques techniques de la ressource
+
+<table width="25%">
+<tbody>
+<tr>
+<td width="45%">
+<p><strong>Endpoint</strong></p>
+</td>
+
+<td width="54%">
+<p>{{site.ans.api_url}}/fhir/v1/Organization</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Header</strong></p>
+</td>
+<td width="54%">
+<p>ESANTE-API-KEY</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Méthodes HTTP associées</strong></p>
+</td>
+
+<td width="54%">
+<p>GET, POST</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de recherche</strong></p>
+</td>
+<td width="54%">
+<p>_id, identifier, name, mailbox-mss, type, pharmacy-licence, partof, address, address-city, address-country, address-postalcode, _lastUpdated, active, _total</p>
+</td>
+</tr>
+<tr>
+<td width="45%">
+<p><strong>Paramètres de requête</strong></p>
+</td>
+<td width="54%">
+<p>_count, _include, _revinclude</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br />
 
 ## Recherche de structure sur critères
-Voici des exemples de requêtes sur les structures qui sont représentées dans le serveur FHIR par la ressource ["Organization".](https://hl7.org/FHIR/organization.html)
 
-### - Rechercher tout
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
+Voici quelques exemples de requêtes sur les structures.
+
+### 1) Rechercher tout (sans critère)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
+
+**Requêtes :**
+
+```sh
+GET [base]/Organization
+GET [base]/Organization&?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
+GET [base]/Organization&?_revinclude=Device:organization #inclure les Device qui référencent les Organizations (Organization + Device)
+GET [base]/Organization&?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organizations (Organization + HealthcareService)
+GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure les PractitionerRole qui référencent les Organizations (Organization + PractitionerRole)
+GET [base]/Organization&?_include=Organization:* #inclure toutes les ressources qui sont référencées par les Organization
+
+```
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-399 name=Weber, Weber and Weber
+  Organization found: id=org-158 name=Schaefer-Schaefer
+  Organization found: id=org-151 name=OReilly, OReilly and OReilly
+  Organization found: id=org-393 name=Volkman-Volkman
+  Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
+  Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
+  Organization found: id=org-153 name=Wilkinson Group
+```
+  
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" {{site.ans.api_url}}/fhir/Organization
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" {{site.ans.api_url}}/fhir/v1/Organization
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -64,30 +145,37 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+### 2) Rechercher par date de mise à jour (_lastUpdated)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
+
+**Requête :**
+
+`GET [base]/Organization?_lastUpdated=ge2022-08-05`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: id=org-399 name=Weber, Weber and Weber
-Organization found: id=org-158 name=Schaefer-Schaefer
-Organization found: id=org-151 name=OReilly, OReilly and OReilly
-Organization found: id=org-393 name=Volkman-Volkman
-Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
-Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
-Organization found: id=org-153 name=Wilkinson Group
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 ```
-  
-<br>
 
-### - Rechercher par date de modification
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
+
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -142,25 +230,30 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+### 3) Rechercher par identifiant (identifier)
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
+
+**Requête :**
+
+`GET [base]/Organization?identifier=001604103000`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+  Organization found: id=001604103000
 ```
 
+**Exemples de code:**
 
-<br>
-
-### - Rechercher par un ou plusieurs identifiants
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=001604103000%2C01603998400%2C001604252500"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=001604103000%2C01603998400%2C001604252500"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -216,24 +309,32 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
 
+### 4) Rechercher par numéro FINESS (identifier)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
+
+**Requête :**
+
+`GET [base]/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C060016219`
+
+**Réponse (simplifiée) :** 
+  
 ```bash
-Organization found: id=001604103000
-Organization found: id=001603998400
-Organization found: id=001604252500
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+  Organization found: id=060016219
 ```
 
 
-<br>
-
-### - Rechercher par un ou plusieurs numéro finess
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -290,18 +391,8 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
 
-```bash
-Organization found: id=1010000602
-Organization found: id=1010000628
-Organization found: id=1010000735
-```
-
-
-<br>
-
-### - Recherches par types 
+### 5) Recherches par types (type)
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
 | Type                    | Description                          | Système                                                                                           | Lien / Options                                                                                    |
@@ -317,7 +408,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 `Organization?type=<system>%7C<code>`
 
-Quelques exemples : 
+**Quelques exemples :** 
 
 <div class="wysiwyg" markdown="1">
 * `Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C01.11Z` Recherche par code APE 01.11Z : "Culture de céréales (sf riz) légumineuses, graines oléagineuses" 
@@ -327,22 +418,41 @@ Quelques exemples :
 
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
-### Rechercher par type "GEOGRAPHICAL"/"LEGAL"
-Vous pouvez chercher les structures par type grâce au paramètre type.
+#### 5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures de type géographique.
+
+**Remarque :**
 
 Les deux types possibles sont : 
 <div class="wysiwyg" markdown="1">
 * GEOGRAPHICAL-ENTITY
 * LEGAL-ENTITY
 </div>
+<br />
 
+**Requête :**
 
-Voici un exemple pour obtenir les structures de type géographique :
+`GET [base]/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A
+  Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
+  Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
+  Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
+```
+
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY" 
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=GEOGRAPHICAL-ENTITY" 
 {% endhighlight %}
 </div>
@@ -406,29 +516,36 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+#### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
+
+**Remarque :** 
+
+Les codes APE sont disponibles dans le référenciel TRE-R75-InseeNAFrev2Niveau5 des NOS que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
+
+**Requête :**
+
+`GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A
-Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
-Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
-Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+  Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+  Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 ```
 
-
-<br>
-
-### - Rechercher par sous-classes de la Nomenclature d'Activités Française - INSEE
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
-
-Cela utilise le référenciel NOS TRE-R75-InseeNAFrev2Niveau5 que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
-
-Voici un exemple avec 82.19Z qui correspond aux "Photocopie prépa. documents & aut. activ. spéc. soutien de bureau" :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -491,28 +608,37 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+#### 5.3) Rechercher par secteur d'activité
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
+
+**Remarque :**
+
+La liste des secteurs d'activités se trouve dans le référenciel TRE_R02-SecteurActivite des NOS que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
+
+**Requête :**
+
+`GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
+  Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
+  Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
 ```
 
 
-<br>
-
-### - Rechercher par secteur d'activité
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
-
-La liste des secteurs d'activités se trouve dans le référenciel NOS TRE_R02-SecteurActivite que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
-
-Voici un exemple avec SA29 qui correspond aux "Laboratoire d'analyses et de biologie médicale" :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -575,25 +701,33 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+### 6) Rechercher par nom (name)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
+
+**Requête :**
+
+`GET [base]/Organization?name%3Acontains=imagerie%2Ccentre`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
-Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
-Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Mills Inc centre
+  Organization found: name=Centre d'imagerie médicale - Selimed 63
+  Organization found: name=Imagerie médicale République
 ```
 
 
-
-<br>
-
-### - Rechercher par nom contenat deux termes
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?name%3Acontains=imagerie%2Ccentre"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=imagerie%2Ccentre"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -650,23 +784,32 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
+
+### 7) Rechercher par code postal (address-postalcode)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
+
+**Requête :**
+
+`GET [base]/Organization?address-postalcode%3Aexact=13290%2C13321`
+
+**Réponse (simplifiée) :** 
 
 ```bash
-Organization found: name=Mills Inc centre
-Organization found: name=Centre d'imagerie médicale - Selimed 63
-Organization found: name=Imagerie médicale République
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=Renard et Renard | zipCode=91794
+  Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 
-<br>
 
-### - Rechercher par code postal
-Pour ce faire, il faut interroger l'endpoint FHIR Organization.
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?address-postalcode%3Aexact=13290%2C13321"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?address-postalcode%3Aexact=13290%2C13321"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -723,11 +866,5 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-L'API devrait vous retourner une réponse de ce genre :
 
-```bash
-Organization found: name=Renard et Renard | zipCode=91794
-Organization found: name=Maillard et Maillard | zipCode=10228
-```
-<br>
 {% include_relative _source-ref.md %}
