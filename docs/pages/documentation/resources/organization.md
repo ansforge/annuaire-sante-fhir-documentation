@@ -152,7 +152,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 2) Rechercher par date de mise à jour (_lastUpdated)
 
@@ -237,7 +237,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 3) Rechercher par identifiant (identifier)
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
@@ -319,7 +319,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 4) Rechercher par numéro FINESS (identifier)
 
@@ -403,7 +403,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 5) Recherches par types (type)
 
@@ -533,7 +533,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 #### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
@@ -628,7 +628,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 #### 5.3) Rechercher par secteur d'activité
 
@@ -723,7 +723,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 6) Rechercher par nom (name)
 
@@ -808,7 +808,7 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 ### 7) Rechercher par code postal (address-postalcode)
 
@@ -892,6 +892,6 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-
+<br />
 
 {% include_relative _source-ref.md %}
