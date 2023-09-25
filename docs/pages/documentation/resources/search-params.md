@@ -25,13 +25,15 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 
 **Réponse (simplifiée) :** 
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Renard et Renard
   Organization found: name=Renard SCOP
   Organization found: name=Renard EURL
+
+
 ```
 
 **Exemples de code :**  
@@ -104,12 +106,14 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Perez EURL
   Organization found: name=Gautier EURL
+
+
 ```
 
 **Exemples de code :** 
@@ -182,12 +186,14 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: id=org-183 name=Gautier EURL
   Organization found: id=org-358 name=Gautier EURL
+
+
 ```
 
 **Exemples de code :**
@@ -265,11 +271,13 @@ Le serveur supporte la recherche par code, par système ou par les deux.
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: id=org-148 name=Renard et Renard
+
+
 ```
 
 **Exemples de code :**
@@ -360,7 +368,7 @@ Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -369,9 +377,9 @@ HTTP 200 OK
   Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
   Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
   Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-```
 
-<br />
+
+```
 
 **Exemples de code :**
 
@@ -463,16 +471,16 @@ Ce cumul se fait de manière inclusive ou alternative.
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: id=org-148 | name=Renard et Renard
   Organization found: id=org-176 | name=Renard et Renard
 Organization found: id=org-128 | name=Renard et Renard
-```
 
-<br />
+
+```
 
 **Exemples de code:**
 
@@ -547,16 +555,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: id=org-148 | name=Renard et Renard
   Organization found: id=org-386 | name=Lopez et Lopez
   Organization found: id=org-145 | name=Maillard et Maillard
-```
 
-<br />
+
+```
 
 **Exemples de code:**
 
