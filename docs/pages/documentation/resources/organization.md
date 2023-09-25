@@ -63,7 +63,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tr>
 </tbody>
 </table>
-<br />
+
 
 ## Recherche de structure sur critères
 
@@ -78,15 +78,16 @@ Voici quelques exemples de requêtes sur les structures.
 ```sh
 GET [base]/Organization
 GET [base]/Organization&?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
-GET [base]/Organization&?_revinclude=Device:organization #inclure les Device qui référencent les Organizations (Organization + Device)
-GET [base]/Organization&?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organizations (Organization + HealthcareService)
-GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure les PractitionerRole qui référencent les Organizations (Organization + PractitionerRole)
+GET [base]/Organization&?_revinclude=Device:organization #inclure les Device qui référencent les Organization (Organization + Device)
+GET [base]/Organization&?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)
+GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure les PractitionerRole qui référencent les Organization (Organization + PractitionerRole)
 GET [base]/Organization&?_include=Organization:* #inclure toutes les ressources qui sont référencées par les Organization
 
 ```
+
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -97,8 +98,11 @@ HTTP 200 OK
   Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
   Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
   Organization found: id=org-153 name=Wilkinson Group
+
+
 ```
-  
+<br />
+
 **Exemples de code:**
 
 <div class="code-sample">
@@ -147,7 +151,6 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
-
 ### 2) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
@@ -158,7 +161,7 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -167,8 +170,10 @@ HTTP 200 OK
   Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
   Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
   Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-```
 
+
+```
+<br />
 
 **Exemples de code:**
 
@@ -227,9 +232,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 ### 3) Rechercher par identifiant (identifier)
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
@@ -240,13 +243,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Organization found: id=001604103000
+
+
 ```
+<br />
 
 **Exemples de code:**
 
@@ -306,9 +312,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 ### 4) Rechercher par numéro FINESS (identifier)
 
@@ -320,14 +324,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Organization found: id=060016219
-```
 
+
+```
+<br />
 
 **Exemples de code:**
 
@@ -388,11 +394,10 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
 
-
 ### 5) Recherches par types (type)
+
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
 | Type                    | Description                          | Système                                                                                           | Lien / Options                                                                                    |
@@ -437,7 +442,7 @@ Les deux types possibles sont :
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
@@ -445,7 +450,10 @@ HTTP 200 OK
   Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
   Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
   Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
+
+
 ```
+<br />
 
 **Exemples de code:**
 
@@ -513,9 +521,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 #### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
@@ -531,14 +537,17 @@ Les codes APE sont disponibles dans le référenciel TRE-R75-InseeNAFrev2Niveau5
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
   Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
   Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+
+
 ```
+<br />
 
 **Exemples de code:**
 
@@ -605,9 +614,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 #### 5.3) Rechercher par secteur d'activité
 
@@ -623,15 +630,17 @@ La liste des secteurs d'activités se trouve dans le référenciel TRE_R02-Secte
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
   Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
   Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
-```
 
+
+```
+<br />
 
 **Exemples de code:**
 
@@ -698,9 +707,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 ### 6) Rechercher par nom (name)
 
@@ -712,15 +719,17 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Mills Inc centre
   Organization found: name=Centre d'imagerie médicale - Selimed 63
   Organization found: name=Imagerie médicale République
-```
 
+
+```
+<br />
 
 **Exemples de code:**
 
@@ -781,9 +790,7 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
-
 
 ### 7) Rechercher par code postal (address-postalcode)
 
@@ -795,14 +802,16 @@ foreach (var be in bundle.Entry)
 
 **Réponse (simplifiée) :** 
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Organization found: name=Renard et Renard | zipCode=91794
   Organization found: name=Maillard et Maillard | zipCode=10228
-```
 
+
+```
+<br />
 
 **Exemples de code:**
 
@@ -863,7 +872,6 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
-
 </div>
 
 
