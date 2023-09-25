@@ -338,6 +338,7 @@ foreach (var be in bundle.Entry)
 ## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
+
 Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
 **Quelques exemples :** 
@@ -369,6 +370,8 @@ HTTP 200 OK
   Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
   Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 ```
+
+<br />
 
 **Exemples de code :**
 
@@ -469,6 +472,8 @@ HTTP 200 OK
 Organization found: id=org-128 | name=Renard et Renard
 ```
 
+<br />
+
 **Exemples de code:**
 
 <div class="code-sample">
@@ -550,6 +555,8 @@ HTTP 200 OK
   Organization found: id=org-386 | name=Lopez et Lopez
   Organization found: id=org-145 | name=Maillard et Maillard
 ```
+
+<br />
 
 **Exemples de code:**
 
