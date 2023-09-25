@@ -84,6 +84,7 @@ GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure le
 GET [base]/Organization&?_include=Organization:* #inclure toutes les ressources qui sont référencées par les Organization
 
 ```
+<br />
 
 **Réponse (simplifiée) :** 
 
@@ -150,6 +151,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+
 
 ### 2) Rechercher par date de mise à jour (_lastUpdated)
 
@@ -234,6 +236,7 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
+
 ### 3) Rechercher par identifiant (identifier)
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
 
@@ -313,6 +316,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+
 
 ### 4) Rechercher par numéro FINESS (identifier)
 
@@ -396,6 +400,7 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
+
 ### 5) Recherches par types (type)
 
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
@@ -422,6 +427,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 </div>
 
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
+
 
 #### 5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
@@ -523,6 +529,7 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
+
 #### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
@@ -615,6 +622,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+
 
 #### 5.3) Rechercher par secteur d'activité
 
@@ -709,6 +717,7 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
+
 ### 6) Rechercher par nom (name)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
@@ -791,6 +800,7 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 </div>
+
 
 ### 7) Rechercher par code postal (address-postalcode)
 
