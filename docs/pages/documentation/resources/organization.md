@@ -71,9 +71,36 @@ Voici quelques exemples de requêtes sur les structures.
 
 ### 1) Rechercher tout (sans critère)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
 
--   **Exemples de requêtes** :
+**Requêtes :**
+
+```sh
+GET [base]/Organization
+GET [base]/Organization&?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
+GET [base]/Organization&?_revinclude=Device:organization #inclure les Device qui référencent les Organizations (Organization + Device)
+GET [base]/Organization&?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organizations (Organization + HealthcareService)
+GET [base]/Organization&?_revinclude=PractitionerRole%3Aorganization #inclure les PractitionerRole qui référencent les Organizations (Organization + PractitionerRole)
+GET [base]/Organization&?_include=Organization:* #inclure toutes les ressources qui sont référencées par les Organization
+
+```
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: id=org-399 name=Weber, Weber and Weber
+  Organization found: id=org-158 name=Schaefer-Schaefer
+  Organization found: id=org-151 name=OReilly, OReilly and OReilly
+  Organization found: id=org-393 name=Volkman-Volkman
+  Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
+  Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
+  Organization found: id=org-153 name=Wilkinson Group
+```
+  
+**Exemples de code:**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -120,30 +147,30 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 2) Rechercher par date de mise à jour (_lastUpdated)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
+
+**Requête :**
+
+`GET [base]/Organization?_lastUpdated=ge2022-08-05`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: id=org-399 name=Weber, Weber and Weber
-  Organization found: id=org-158 name=Schaefer-Schaefer
-  Organization found: id=org-151 name=OReilly, OReilly and OReilly
-  Organization found: id=org-393 name=Volkman-Volkman
-  Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
-  Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
-  Organization found: id=org-153 name=Wilkinson Group
+  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
 ```
-  
-<br />
 
-### 2) Rechercher par date de mise à jour (_lastUpdated)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
-
--   **Exemples de requêtes** :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -203,28 +230,26 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 3) Rechercher par identifiant (identifier)
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
+
+**Requête :**
+
+`GET [base]/Organization?identifier=001604103000`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: id=org-148 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-149 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-144 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-386 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
-  Organization found: id=org-145 lastUpdate=Fri Aug 05 14:51:03 CEST 2022
+  total: 1
+  Organization found: id=001604103000
 ```
 
+**Exemples de code:**
 
-<br />
-
-### 3) Rechercher par identifiant (identifier)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -284,27 +309,27 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 4) Rechercher par numéro FINESS (identifier)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
+
+**Requête :**
+
+`GET [base]/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C060016219`
+
+**Réponse (simplifiée) :** 
   
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: id=001604103000
-  Organization found: id=001603998400
-  Organization found: id=001604252500
+  total: 1
+  Organization found: id=060016219
 ```
 
 
-<br />
-
-### 4) Rechercher par numéro FINESS (identifier)
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
-
--   **Exemples de requêtes** :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -366,21 +391,6 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
-
--   **Exemple de réponse (simplifiée)** :
-  
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=1010000602
-  Organization found: id=1010000628
-  Organization found: id=1010000735
-```
-
-
-<br />
 
 ### 5) Recherches par types (type)
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
@@ -398,7 +408,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 `Organization?type=<system>%7C<code>`
 
--   **Quelques exemples** : 
+**Quelques exemples :** 
 
 <div class="wysiwyg" markdown="1">
 * `Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C01.11Z` Recherche par code APE 01.11Z : "Culture de céréales (sf riz) légumineuses, graines oléagineuses" 
@@ -410,9 +420,10 @@ Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité 
 
 #### 5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures de type géographique.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures de type géographique.
 
-**Remarque** :
+**Remarque :**
+
 Les deux types possibles sont : 
 <div class="wysiwyg" markdown="1">
 * GEOGRAPHICAL-ENTITY
@@ -420,7 +431,23 @@ Les deux types possibles sont :
 </div>
 <br />
 
--   **Exemples de requêtes** :
+**Requête :**
+
+`GET [base]/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A
+  Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
+  Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
+  Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
+```
+
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -488,30 +515,32 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+
+#### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
+
+**Remarque :** 
+
+Les codes APE sont disponibles dans le référenciel TRE-R75-InseeNAFrev2Niveau5 des NOS que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
+
+**Requête :**
+
+`GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=VILLAGE D'ENFANTS . ACTION ENFANCE type=GEOGRAPHICAL-ENTITY - 87.90A
-  Organization found: name=LVA LABONDE LA FORESTIERE type=GEOGRAPHICAL-ENTITY - SA41 - 462
-  Organization found: name=SERVICE D'ACTION EDUC EN MILIEU OUVERT type=GEOGRAPHICAL-ENTITY - SA20 
-  Organization found: name=ESPACE ARTOIS SANTE - ARRAS type=GEOGRAPHICAL-ENTITY - SA04 - 698 - 9
+  Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+  Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+  Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
 ```
 
-
-<br />
-
-#### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
-
-**Remarque** : les codes APE sont disponibles dans le référenciel TRE-R75-InseeNAFrev2Niveau5 des NOS que vous trouverez ici : [TRE-R75-InseeNAFrev2Niveau5](https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5/)
-
--   **Exemples de requêtes** :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -578,30 +607,33 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+
+#### 5.3) Rechercher par secteur d'activité
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
+
+**Remarque :**
+
+La liste des secteurs d'activités se trouve dans le référenciel TRE_R02-SecteurActivite des NOS que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
+
+**Requête :**
+
+`GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=Skiles, Skiles and Skiles type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-  Organization found: name=Terry, Terry and Terry type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
-  Organization found: name=Mills Inc type=SA29 - 82.19Z - LEGAL-ENTITY - someorg
+  Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
+  Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
+  Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
 ```
 
 
-<br />
-
-#### 5.3) Rechercher par secteur d'activité
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
-
-**Remarque** :
-La liste des secteurs d'activités se trouve dans le référenciel TRE_R02-SecteurActivite des NOS que vous trouverez ici : [TRE_R02-SecteurActivite](https://mos.esante.gouv.fr/NOS//FHIR/TRE-R02-SecteurActivite)
-
--   **Exemples de requêtes** :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -668,28 +700,30 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+
+### 6) Rechercher par nom (name)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
+
+**Requête :**
+
+`GET [base]/Organization?name%3Acontains=imagerie%2Ccentre`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=Auer, Auer and Auer activity=Laboratoire d'analyses et de biologie médicale
-  Organization found: name=Erdman, Erdman and Erdman activity=Laboratoire d'analyses et de biologie médicale
-  Organization found: name=Stiedemann and Sons activity=Laboratoire d'analyses et de biologie médicale
+  Organization found: name=Mills Inc centre
+  Organization found: name=Centre d'imagerie médicale - Selimed 63
+  Organization found: name=Imagerie médicale République
 ```
 
 
+**Exemples de code:**
 
-<br />
-
-### 6) Rechercher par nom (name)
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -749,26 +783,28 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+
+### 7) Rechercher par code postal (address-postalcode)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
+
+**Requête :**
+
+`GET [base]/Organization?address-postalcode%3Aexact=13290%2C13321`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Organization found: name=Mills Inc centre
-  Organization found: name=Centre d'imagerie médicale - Selimed 63
-  Organization found: name=Imagerie médicale République
+  Organization found: name=Renard et Renard | zipCode=91794
+  Organization found: name=Maillard et Maillard | zipCode=10228
 ```
 
-<br />
 
-### 7) Rechercher par code postal (address-postalcode)
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
-
--   **Exemples de requêtes** :
+**Exemples de code:**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -830,16 +866,5 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: name=Renard et Renard | zipCode=91794
-  Organization found: name=Maillard et Maillard | zipCode=10228
-```
-<br />
 {% include_relative _source-ref.md %}

@@ -66,9 +66,31 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
 ### 1) Rechercher tout (sans critère)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
 
--   **Exemples de requêtes** :
+**Requêtes :**
+
+```sh
+GET [base]/PractitionerRole
+GET [base]/Organization&?_include=PractitionerRole:organization #inclure les Organization qui sont référencées par les PractitionerRole (PractitionerRole + Organization)
+GET [base]/Organization&?_include=PractitionerRole:practitioner #inclure les Practitioner qui sont référencés par les PractitionerRole (PractitionerRole + Practitioner)
+GET [base]/Organization&?_include=PractitionerRole:* #inclure toutes les ressources qui sont réféencées les PractitionerRole (PractitionerRole + Practitioner + Oraganization)
+
+```
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-5090000-6920000 code=FON-09
+  Practitioner Role found: id=005-5070000-6900000 code=FON-09
+  Practitioner Role found: id=005-5080000-6920000 code=FON-AU
+```
+
+
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -120,26 +142,28 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 2) Recherche par identifiant (_id)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource par son identifiant technique. 
+
+**Requête :**
+
+`GET [base]/PractitionerRole/005-5087586-6923328`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner Role found: id=005-5090000-6920000 code=FON-09
-  Practitioner Role found: id=005-5070000-6900000 code=FON-09
-  Practitioner Role found: id=005-5080000-6920000 code=FON-AU
+  total: 1
+  Practitioner Role found: id=005-5087586-6923328
 ```
 
-<br />
 
-### 2) Recherche par identifiant (_id)
+**Exemples de code :**
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher une ressource par son identifiant logique 
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -179,19 +203,6 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 
 </div>
 
-<br />
-
--   **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Practitioner Role found: id=005-5087586-6923328
-```
-
-<br />
 
 ### 3) Recherche par rôle (role)
 La recherche par le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
@@ -212,7 +223,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 
 `PractitionerRole?role=<system>%7C<code>`
 
-**Quelques exemples** :
+**Quelques exemples :**
 
 <div class="wysiwyg" markdown="1">
 * `PractitionerRole?role=http://interopsante.org/fhir/CodeSystem/fr-v2-3307%7CLEGAL-ENTITY` Recherche par type d'organization LEGAL-ENTITY
@@ -226,9 +237,29 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 </div>
 
 #### 3.1) Recherche par profession et par catégorie professionnelle
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
 
--   **Exemples de requêtes** :
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
+
+**Requête :**
+
+`GET [base]/PractitionerRole?role=40&role=E`
+
+**Réponse (simplifiée) :** 
+
+```bash
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Practitioner Role found: id=005-480000-6510001 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
+ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
+  Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
+ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:
+
+```
+
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -319,26 +350,30 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 4) Recherche par spécialité (specialty)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") ayant une spécialité ordinale "orthopédie dento-faciale" (code spécialité = "SCD01").
+
+**Requête :**
+
+`GET [base]/PractitionerRole?role=40&specialty=SCD01`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner Role found: id=005-480000-6510001 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
-  Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
+  Practitioner Role found: id=005-400000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+  Practitioner Role found: id=005-390000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+  Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+
 ```
 
-<br />
 
-### 4) Recherche par spécialité (specialty)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") ayant une spécialité ordinale "orthopédie dento-faciale" (code spécialité = "SCD01").
+**Exemples de code :**
 
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -448,25 +483,29 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 5) Recherche par type de carte (type-smartcard)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les cartes de type CPS.
+
+**Requête :**
+
+`GET [base]/PractitionerRole?type-smartcard=CPS`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner Role found: id=005-400000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
-  Practitioner Role found: id=005-390000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
-  Practitioner Role found: id=005-380000 codes=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:C|urn:oid:1.2.250.1.213.2.28:SCD01
+  Practitioner Role found: id=005-54002-100000
+  Practitioner Role found: id=005-54001
+  Practitioner Role found: id=005-54000-100000
 ```
 
-<br />
 
-### 5) Recherche par type de carte (type-smartcard)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les cartes de type CPS.
+**Exemples de code :**
 
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -527,25 +566,26 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 6) Recherche par professionnel (practitioner)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
+
+**Requête :**
+
+`GET [base]/PractitionerRole?practitioner=003-138020`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner Role found: id=005-54002-100000
-  Practitioner Role found: id=005-54001
-  Practitioner Role found: id=005-54000-100000
+  Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
 ```
 
-<br />
+**Exemples de code :**
 
-### 6) Recherche par professionnel (practitioner)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -604,24 +644,29 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
 
--   **Exemple de réponse (simplifiée)** :
+### 7) Recherche par statut
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
+
+**Requête :**
+
+`GET [base]/PractitionerRole??active=true`
+
+**Réponse (simplifiée) :** 
 
 ```bash
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
+  Practitioner Role found: id=prr-prarole-946 active=true
+  Practitioner Role found: id=prr-prarole-256 active=true
+  Practitioner Role found: id=prr-prarole-899 active=true
 ```
 
-<br />
 
+**Exemples de code :**
 
-### 7) Recherche par statut
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -681,19 +726,6 @@ foreach (var be in bundle.Entry)
 
 </div>
 
-<br />
-
--   **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=prr-prarole-946 active=true
-  Practitioner Role found: id=prr-prarole-256 active=true
-  Practitioner Role found: id=prr-prarole-899 active=true
-```
-<br />
 
 {% include_relative _source-ref.md %}
 
