@@ -17,6 +17,11 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </div>
 <br />
 
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Note : Le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».
+</p>
+<br />
+
 ## Caractéristiques techniques de la ressource
 
 <table width="25%">

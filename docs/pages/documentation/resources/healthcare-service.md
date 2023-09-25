@@ -68,9 +68,35 @@ Voici des exemples de requêtes sur les activités de soin et les équipements s
 
 
 ### 1) Rechercher tout (sans critère)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des services de soin.
 
--   **Exemples de requêtes** :
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des services de soin.
+
+**Exemples de requêtes :**
+
+```sh
+GET [base]/HealthcareService
+GET [base]/HealthcareService?_include=HealthcareService:organization #inclure les Organization qui sont référencées par les HealthcareService (HealthcareService + Organization)
+GET [base]/HealthcareService?_include=* #inclure toutes les ressources qui sont référencées par les HealthcareService 
+
+
+```
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Healthcare Service found: id=52-52-49883
+  Healthcare Service found: id=53-53-64147
+  Healthcare Service found: id=76-91-59118
+
+
+```
+<br />
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -123,23 +149,30 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
 
-```bash
+### 2) Rechercher par identifiant (identifier)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
+
+**Requête :**
+
+`GET [base]/HealthcareService?identifier=52-52-49883`
+
+**Réponse (simplifiée) :** 
+
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
+  total: 1
   Healthcare Service found: id=52-52-49883
-  Healthcare Service found: id=53-53-64147
-  Healthcare Service found: id=76-91-59118
+
+
 ```
 
 <br />
 
-### 2) Rechercher par identifiant (identifier)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
-
--   **Exemples de requêtes** :
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -201,20 +234,10 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
-  
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Healthcare Service found: id=52-52-49883
-```
-
-<br />
 
 ### 3) Rechercher par type/forme d'activité (characteristic)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
 **Remarque** : Les codes d'activité sont disponibles dans les référenciels suivants des NOS :
 <div class="wysiwyg" markdown="1">
@@ -223,12 +246,35 @@ HTTP 200 OK
 </div>
 <br />
 
--   **Exemples de requêtes** :
-  
+**Exemples de requêtes :**
+
+```sh
+GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07 #TRE-R276-FormeActivite
+GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11 #TRE-R209-TypeActivite
+
+
+```
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Healthcare Service found: id=04-04-62678 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
+  Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
+
+
+```
+<br />
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -290,114 +336,41 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
-
-<br />
-
--   **Exemple de réponse (simplifiée)** :
-  
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=04-04-62678 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
-  Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
-```
-
-<br />
-
-Voici un second exemple sur le référenciel TRE-R209-TypeActivite, à noter que l'on spécifie le système pour chercher dans le bon référentiel : 
-
-Pour rechercher tous les équipements sociaux ayant comme type d’activité «Hébergement complet internat» (code 11).
-
-**Requête** :
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var characteristicSearchClause = HealthcareService.CHARACTERISTIC.exactly().systemAndValues(
-        "https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/HealthcareService-SocialEquipment-rass",
-        "11"
-);
-
-var bundle = client.search()
-        .forResource(HealthcareService.class)
-        .where(characteristicSearchClause)
-        .returnBundle(Bundle.class).execute();
-
-for (var healthcareServiceEntry : bundle.getEntry()) {
-    // print HealthcareService data:
-    var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
-    var healthcareServiceCoding = healthcareService.getCharacteristicFirstRep().getCodingFirstRep();
-    String characteristicData = healthcareServiceCoding.getCode().concat("|").concat(healthcareServiceCoding.getSystem()).concat("|").concat(healthcareServiceCoding.getDisplay());
-    logger.info("Healthcare Service found: id={} | characteristic={}", healthcareService.getIdElement().getIdPart(), characteristicData);
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
-
-    $characteristic = $healthcareService->getCharacteristic()[0]->getCoding()[0]->getSystem() . '|' . $healthcareService->getCharacteristic()[0]->getCoding()[0]->getCode();
-    echo("Healthcare Service found: id=".$healthcareService->getId()." | characteristic=". $characteristic ."\n");
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
-
-var q = new SearchParams()
-   .Where("characteristic=https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite|11")
-  .LimitTo(50);
-var bundle = client.Search<HealthcareService>(q);
-foreach (var be in bundle.Entry)
-{
-    // print HealthcareService data:
-    var healthcareService = be.Resource as HealthcareService;
-    var healthcareServiceCoding = healthcareService.Characteristic[0].Coding[0];
-
-    Console.WriteLine($"Healthcare Service found: id={healthcareService.IdElement.Value} | characteristic={healthcareServiceCoding.System}|{healthcareServiceCoding.Code}");
-}
-{% endhighlight %}
-</div>
-
-
-</div>
-<br />
-
-**Réponse simplifiée** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=004-102455 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite|11
-  Healthcare Service found: id=004-103009 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite|11
-```
 
 <br />
 
 
 ### 4) Rechercher par status (active)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services de santé actifs.
 
--   **Exemples de requêtes** :
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les services de santé actifs.
+
+**Exemples de requêtes :**
+
+```sh
+GET [base]/HealthcareService?active=true #actif
+GET [base]/HealthcareService?active=false #inactif
+
+
+```
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Healthcare Service found: id=hcs-hcs-413 | status=true
+  Healthcare Service found: id=hcs-hcs-655 | status=true
+  Healthcare Service found: id=hcs-hcs-897 | status=true
+  Healthcare Service found: id=hcs-hcs-412 | status=true
+
+
+```
+<br />
+
+**Exemples de code :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -454,30 +427,37 @@ foreach (var be in bundle.Entry)
 {% endhighlight %}
 </div>
 
-
 </div>
-<br />
-
--   **Exemple de réponse (simplifiée)** :
-
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=hcs-hcs-413 | status=true
-  Healthcare Service found: id=hcs-hcs-655 | status=true
-  Healthcare Service found: id=hcs-hcs-897 | status=true
-Healthcare Service found: id=hcs-hcs-412 | status=true
-```
-
 <br />
 
 
 ### 5) Rechercher par date de mise à jour (_lastUpdated)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
+**Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
 
--   **Exemples de requêtes** :
+**Exemples de requêtes :**
+
+```sh
+GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 #Les HealthcareService ayant été mis à jour depuis le 18/08/2022 inclus
+
+
+```
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  HealthcarService found: id=004-1014038 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
+  HealthcarService found: id=004-1014044 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
+  HealthcarService found: id=004-1014050 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
+
+
+```
+<br />
+
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -541,17 +521,6 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
 
-```bash
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  HealthcarService found: id=004-1014038 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-  HealthcarService found: id=004-1014044 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-  HealthcarService found: id=004-1014050 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-```
-
-<br />
 {% include_relative _source-ref.md %}
 
