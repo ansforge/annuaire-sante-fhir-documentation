@@ -14,6 +14,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 * Données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
 
 </div>
+<br />
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Note : Le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».
