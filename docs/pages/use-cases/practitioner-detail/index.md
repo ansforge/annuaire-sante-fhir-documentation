@@ -4,15 +4,14 @@ title: "Fiche du professionel de santé"
 subTitle: Cas d'utilisation
 ---
 
-Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à la demande. Nous allons faire une application annuaire qui permet de
-trouver des professionnels de santé. 
+Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à la demande. Nous allons faire une application annuaire qui permet de trouver des professionnels de santé. 
 
 
 
 ## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
-* Vous avez une application existante et vous souhaitez sur certains composants ajouter de la données provenant de notre api
+* Vous avez une application existante et vous souhaitez sur certains composants ajouter des données provenant de notre API
 * Vous avez un système d'information et vous souhaitez enrichir certaines données bien précises
 * Vous souhaitez construire une application sans stocker la donnée dans votre système
 </div>
@@ -38,12 +37,11 @@ trouver des professionnels de santé.
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 
-### Trouver un Practitioner avec son numéro RPPS
+### Trouver un professionnel de santé avec son numéro RPPS
 
-Pour l'exemple, nous allons rechercher un practitioner role qui a un numéro RPPS : 10000001111
+Pour l'exemple, nous allons rechercher le PS ayant le numéro RPPS : 10000001111
 
-Effectuer une recherche FHIR par identifier. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous 
-cherchons par RPPS, s'il y a un résultat, il sera unique. 
+Effectuer une recherche FHIR sur la ressource Practitioner avec le paramètre identifier. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous cherchons par numéro RPPS, s'il y a un résultat, il sera unique. 
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -77,9 +75,9 @@ var practitioner = (Practitioner) practitionerBundle.getEntry().get(0).getResour
 
 &nbsp;
 
-Le practitioner retourné contiendra différentes informations comme la civilité, d'autres identifiants...
+Le Practitioner retourné contiendra différentes informations comme la civilité, d'autres identifiants...
 
-```
+```xml
 Professionnel 10000001111:
     Id technique (champs id): 003-131111
 	Identifiants:
@@ -89,6 +87,8 @@ Professionnel 10000001111:
 	Démographie:
 	Civilité : [M]
 	...
+
+
 ```
 
 &nbsp;
@@ -119,22 +119,24 @@ Le point important ici est de mettre la clause where sur le paramètre practitio
 
 Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à ce Practitioner : 
 
-```
+```xml
 Exercices:
     Exercice 005-71111:
     Noms :[JEAN] MARTIN
     Spécialités : SM26 S 
     ...
+
+
 ```
 
 &nbsp;
 
 
-### Lier les exercices avec une Organization
+### Lier les situations d'exercice avec une Organization
 
-Dans cette étape, nous allons récupérer les Organization rattachées aux Exercices professionels. 
+Dans cette étape, nous allons récupérer les Organization rattachées aux PractitionerRole. 
 
-Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Organization attachées dans une même requête. 
+Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Organization rattachées dans une même requête. 
 Cela se fait par le biais du paramètre _include :
 
 
@@ -185,6 +187,8 @@ qui a pour champs 'id' org-6922.
     ...
   
 }
+
+
 ```
 &nbsp;
 
@@ -212,7 +216,7 @@ Dans ce cas la première requête sera :
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=10000001111,10000001112&_pretty=true&_format=json"
 ```
 
-Cette requête permet de demander tous les Practitioner qui ont un identifier à 10000001111 OU 10000001112.
+Cette requête permet de demander tous les Practitioner ayant un identifier à 10000001111 ou 10000001112.
 
 La liste retournée contiendra plusieurs Practitioner si les identifiants RPPS existent. 
 
