@@ -13,6 +13,11 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </div>
 <br />
 
+<!--
+[Profile FHIR Activités sanitaires](https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition-as-healthcareservice-healthcare-activity.html){:class="btn  btn--style1  btn--white" target="_blank"}
+[Profile FHIR Equipements sociaux](https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition-as-healthcareservice-social-equipment.html){:class="btn  btn--style1  btn--white" target="_blank"}
+-->
+
 ## Caractéristiques techniques de la ressource
 
 <table width="25%">

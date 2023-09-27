@@ -21,6 +21,10 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </p>
 <br />
 
+<!--
+[Profile FHIR](https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition-as-practitioner.html){:class="btn  btn--style1  btn--white" target="_blank"}
+-->
+
 ## Caractéristiques techniques de la ressource
 
 <table width="25%">

@@ -14,6 +14,10 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 </div>
 <br />
 
+<!--
+[Profile FHIR](https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition-as-practitionerrole.html){:class="btn  btn--style1  btn--white" target="_blank"}
+-->
+
 ## Caractéristiques techniques de la ressource
 
 <table width="25%">
