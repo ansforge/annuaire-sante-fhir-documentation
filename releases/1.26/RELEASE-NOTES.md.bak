@@ -8,7 +8,7 @@ Nous vous remercions de votre utilisation de notre API et de vos commentaires pr
 Restez à l'écoute pour de nouvelles mises à jour passionnantes !
  
 
-### Breaking Changes (Evolutions majeures)
+### Breaking Changes (Evolutions Majeures)
 
 - Refonte totale du moteur d'intégration des données dans le serveur FHIR pour gagner en qualité et en fraîcheur.
 
@@ -17,7 +17,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Ajout de nouveaux paramètres de recherche : 
 
-  - "identifier-type" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
+  - "identifier-type" : Les ressources practitioner et organization évoluent pour proposer la recherche par type d'identifiant. Par exemple : vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, les Organization de type Finess ou Siret.
   - "_total" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
 
 - Implémentation d'un nouvel endpoint "Health check". Objectif : Vous permettre de surveiller l'état de santé de notre API en temps réel.
@@ -31,7 +31,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Optimisation des performances de la recherche en "contient texte" (contains).
 
-- Nettoyage des données non pertinentes : Désormais, les identifiants internes (de type INTRN) des Oganization ne sont plus publiés (https://simplifier.net/packages/hl7.fhir.fr.core/1.1.0/files/783566) 
+- Nettoyage des données non pertinentes : Désormais, les identifiants internes (de type INTRN) des oganizations ne sont plus publiés (https://simplifier.net/packages/hl7.fhir.fr.core/1.1.0/files/783566) 
 
 
 ### Bug Fixes (Bogues corrigés)
@@ -49,4 +49,4 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Next url non fontionel avec un filtre sur une organisation (https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/59)
 
-- Address.city [#26](https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/26)
+- Address.city [#26] (https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/26)
