@@ -260,10 +260,6 @@ do {
 Note| Avec cette technique, vous pouvez recevoir un élément Organization plusieurs fois au fil des pages. En effet, vous recevrez la liste  des Organization référéncés par les éléments de la page courante. 
 
 
-## Ressources 
-
-Lien du projet GitHub contenant le projet: [http://github.com](TODO)
-
 ## Complément
 
 #### L'exemple du filtre par département 

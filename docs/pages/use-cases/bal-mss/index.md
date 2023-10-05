@@ -7,7 +7,17 @@ subTitle: Cas d'utilisation
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Cette partie de la spécification est en cours de construction.
 </p>
- 
+
+### Dans cette page
+<div class="wysiwyg" markdown="1">
+[Rechercher les BAL des centres de santé](#cs-header)
+[Rechercher les BAL des laboratoires](#lab-header)
+[Rechercher les BAL des officines](#ph-header)
+[Rechercher les BAL des EPHAD](#ep-header)
+</div>
+<br />
+
+
 L’ANS, en tant que régulateur de l’espace national de confiance MSSanté, tient à jour l’annuaire national MSSanté, qui rassemble toutes les BAL (boîtes aux lettres) transmises par les opérateurs de l’espace de confiance.
 L’opérateur transmet, pour chaque BAL du périmètre cité, un identifiant national de personne (RPPS ou ADELI) et/ou un identifiant de structure (FINESS pour les BAL rattachées à un établissement de santé).
 
@@ -27,8 +37,9 @@ NOTE | Pour plus d'informations sur la MSSanté, [cliquez ici](https://mailiz.ms
 ### Cas d'utilisation 
 En tant que client de l'API, je souhaite rechercher l'ensemble des boîtes aux lettres de messagerie sécurisée d'un type de structure.
 
-### 1. Centres de santé (type=SA25)
-#### 1.1 Les BAL organisationnelles
+### <a id="cs-header"></a> Centres de santé (type=SA25)
+
+#### Les BAL organisationnelles
 Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
 
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
@@ -80,7 +91,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <br />
  
-#### 1.2 Les BAL personnelles
+#### Les BAL personnelles
 Afin d'extraire les BAL MSSanté personnelles des professionnels ayant une activité dans une de ces structures , il faut interroger l’endpoint Organization.
 
 <div class="wysiwyg" markdown="1">
@@ -126,7 +137,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <br />
 
-### 2. Laboratoires
+### <a id="lab-header"></a> Laboratoires
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
 Afin de récupérer les établissements de biologie , nous devons interroger l’endpoint Organization :
@@ -150,7 +161,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 
  <br />
 
-### 3. Officines
+### <a id="ph-header"></a> Officines
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l’endpoint Organization :
@@ -174,8 +185,9 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 
  <br />
 
-### 4. EPHAD
-#### 4.1 Liste des EPHAD
+### <a id="ep-header"></a> EPHAD
+
+#### Liste des EPHAD
 Afin de récupérer la liste des EPHAD, nous devons interroger l’endpoint Organization :
 <div class="wysiwyg" markdown="1">
 * En filtrant sur le système et le type d’établissement : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA17
@@ -213,8 +225,8 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 </div>
 <br />
 
-#### 4.2 Liste des BAL rattachées
-##### 4.2.1 BAL ORG
+#### Liste des BAL rattachées
+##### BAL ORG
  Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
 
 Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
