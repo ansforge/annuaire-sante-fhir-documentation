@@ -4,8 +4,25 @@ title: Organization
 subTitle: Ressources
 ---
 
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Description métier](#one-header)
+- [Caractéristiques techniques](#two-header)
+- [Recherche de structure sur critères](#three-header)
+  - [Rechercher tout](#31-header)
+  - [Rechercher par date de mise à jour](#32-header)
+  - [Rechercher par identifiant](#33-header)
+  - [Rechercher par numéro FINESS](#34-header)
+  - [Rechercher par type “GEOGRAPHICAL”/”LEGAL](#351-header)
+  - [Rechercher sur la nomenclature d’activités française de l’Insee](#352-header)
+  - [Rechercher par secteur d’activité](#353-header)
+  - [Rechercher par nom](#36-header)
+  - [Rechercher par code postal](#37-header)
+</div>
+<br />
 
-## Description métier de la ressource
+
+## <a id="one-header"></a>1) Description métier de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
@@ -15,7 +32,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </div>
 <br />
 
-## Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -65,11 +82,11 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </table>
 
 
-## Recherche de structure sur critères
+## <a id="three-header"></a>3) Recherche de structure sur critères
 
 Voici quelques exemples de requêtes sur les structures.
 
-### 1) Rechercher tout (sans critère)
+#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
 
@@ -154,7 +171,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 2) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="32-header"></a>3.2) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
 
@@ -239,7 +256,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 3) Rechercher par identifiant (identifier)
+#### <a id="33-header"></a>3.3) Rechercher par identifiant (identifier)
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
 
 **Requête :**
@@ -321,7 +338,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 4) Rechercher par numéro FINESS (identifier)
+#### <a id="34-header"></a>3.4) Rechercher par numéro FINESS (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
 
@@ -405,7 +422,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 5) Recherches par types (type)
+#### <a id="35-header"></a>3.5) Recherches par types (type)
 
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
@@ -433,7 +450,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
 
-#### 5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
+##### <a id="351-header"></a>3.5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures de type géographique.
 
@@ -535,7 +552,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### 5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
+##### <a id="352-header"></a>3.5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
 
@@ -630,7 +647,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### 5.3) Rechercher par secteur d'activité
+#### <a id="353-header"></a>3.5.3) Rechercher par secteur d'activité
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
 
@@ -725,7 +742,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 6) Rechercher par nom (name)
+#### <a id="36-header"></a>6) Rechercher par nom (name)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
 
@@ -810,7 +827,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### 7) Rechercher par code postal (address-postalcode)
+#### <a id="37-header"></a>7) Rechercher par code postal (address-postalcode)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
 
