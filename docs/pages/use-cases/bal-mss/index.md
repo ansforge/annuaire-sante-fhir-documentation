@@ -14,7 +14,7 @@ Cette partie de la spécification est en cours de construction.
 - [Rechercher les BAL des laboratoires](#lab-header)
 - [Rechercher les BAL des officines](#ph-header)
 - [Rechercher les BAL des EPHAD](#ep-header)
-<* /div>
+</div>
 <br />
 
 
