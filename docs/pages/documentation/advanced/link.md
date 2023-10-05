@@ -8,10 +8,10 @@ Voici des exemples de requêtes permettant de récupérer plusieurs ressources l
 Il est par exemple possible de récupérer les ressources "HealthcareServices" liées à une ressource "PractitionerRole".
 
 
-## Trouver l'Organization et le Practitioner d'un PractitionerRole
+### Trouver l'Organization et le Practitioner d'un PractitionerRole
 Le but ici étant de récupérer les ressources "Organization" et "Practitioner" liées à un PractitionerRole.
 
-Pour cela, nous devons utiliser l'inclusion ("include").
+Pour cela, nous devons utiliser l'inclusion **_include**.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -107,9 +107,9 @@ foreach($practitionerRoles->getEntry() as $entry){
 {% endhighlight %}
 </div>
 </div>
-<br>
+<br />
 
-##  <a id="link-head-3"></a> Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+###  <a id="link-head-3"></a> Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
 1) Le nom, le prénom, la civilité et les adresses MSS sont récupérables en une seule requête qui retournera plusieurs objets. 
 
 D'une part, le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
@@ -136,7 +136,7 @@ Le résultat retourné est un Bundle contenant le Practitioner et le Practitione
  * Schéma montrant les données : family , given name et reference:Oganization 
   <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_3.png' alt='' max-width=670px>
 </div>
-<br>
+<br />
 
 2) Pour récupérer l'adresse postale, il faut faire une requête complémentaire sur Organization (les adresses étant celles des structures dans lesquelles le professionnel exerce ses activtés). 
 
@@ -159,9 +159,9 @@ Le résultat retourné est un Bundle contenant l'Organization.
  * Schéma montrant : l'adresse postale 
   <img src='focus_postman_irisdp_trouver_organization_pr_2.png' alt='' max-width=670px>
 </div>
-<br>
+<br />
 
-##  <a id="link-head-5"></a> Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom et son prénom d'exercice
+###  <a id="link-head-5"></a> Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom et son prénom d'exercice
 
 L'ensemble des informations sont récupérables en une seule requête qui retournera plusieurs objets. 
 
@@ -176,7 +176,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
   <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
 </div>
 </div>
-<br/>
+<br />
 Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole (activités) remplissant les conditions à savoir : nom = "ROBERT" et prénom = "CHRISTIAN".
 
 Les PR retournés contiendront différentes informations comme le nom, le prénom, la civilité d'exerce, la profession, la catégorie professionnelle, le mode d'exercice, la fonction, la carte CPX, le lien vers le professionnel (Practitioner) et le lien vers la structure d'exercice (Organization).
@@ -186,14 +186,16 @@ PractitionerRole/005-324864
 PractitionerRole/005-200354-226359	
 PractitionerRole/005-231819	
 PractitionerRole/005-296896
+
+
 ```
-<br/>
+<br />
 
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les données : total, nom et prénom du premier PR du bundle
+ - Schéma montrant les données : total, nom et prénom du premier PR du bundle
   <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_3.png' alt='' max-width=670px>
 </div>
-<br>
+<br />
 
 2) D'autre part, il est possible de récupéer les Practitioner (professionnels) au même temps que les PractitionerRole (activités) précédemment récupérés 1).
 
@@ -229,17 +231,20 @@ Practitioner/003-266011
 Practitioner/003-329381	
 Practitioner/003-351933
 
+
+
 ```
-<br/>
+<br />
+
 <div class="wysiwyg" markdown="1">
- * Schéma montrant les données : le numéro RPPS, la BAL MSS du premier Practitioner du bundle
+ - Schéma montrant les données : le numéro RPPS, la BAL MSS du premier Practitioner du Bundle
   <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_5.png' alt='' max-width=670px>
 </div>
-<br>
+<br />
 
 3) Par ailleurs, il est également possible de récupéer les Organization (structures d'exercice) au même temps que les PractitionerRole (activités) et les Practitioner (professionnels) précédemment récupérés 2).
 
-Pour ce faire, il faut réutiliser le paramètre '_include' comme suit :
+Pour ce faire, il faut réutiliser le paramètre **_include** comme suit :
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -276,18 +281,18 @@ Les Organization :
 
 Organization/001-01-237805
 ```
-<br/>
+<br />
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données relatives à la première Organization du bundle
   <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_7.png' alt='' max-width=670px>
 </div>
-<br>
+<br />
 
-##  <a id="link-head-4"></a> Trouver l'ensemble des EG d'un EJ
+###  <a id="link-head-4"></a> Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
 
-Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre ["_revinclude"](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
+Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [**_revinclude**](https://build.fhir.org/search.html#_include) permettant d’inclure dans le résultat les ressources filles liées à la ressource mère.
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -299,7 +304,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Orga
   <img src='focus_postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
 </div>
 </div>
-<br/>
+<br />
 Le résultat retourné est un Bundle contenant l'EJ et les EG rattachées.
 <br/>
 <div class="wysiwyg" markdown="1">
