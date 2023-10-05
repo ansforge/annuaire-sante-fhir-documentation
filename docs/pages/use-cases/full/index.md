@@ -4,7 +4,7 @@ title: "Synchronisation complète des ressources"
 subTitle: Cas d'utilisation
 ---
 
-Au travers de ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'annuaire santé. 
+Au travers de ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'**Annuaire Santé**. 
 Les données que nous allons chercher à récupérer sont : 
 
 <div class="wysiwyg" markdown="1">
@@ -20,8 +20,8 @@ Les données que nous allons chercher à récupérer sont :
 ## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
-* Vous avez une base de données dans votre SI et vous souhaitez périodiquement compléter vos données avec celles de l'annuaire santé
-* Vous souhaitez avoir une image de l'annuaire santé dans votre SI
+* Vous avez un annuaire local que vous souhaitez actualiser périodiquement avec les données l'**Annuaire Santé**.
+* Vous souhaitez avoir une image complète de l'**Annuaire Santé** 
 </div>
 
 &nbsp;
@@ -41,7 +41,7 @@ Les données que nous allons chercher à récupérer sont :
 ## Etapes
 
 <div class="wysiwyg" markdown="1">
-* Nous allons récupérer toutes les ressources "PractitionerRole" de l'annuaire santé selon nos critères
+* Nous allons récupérer toutes les ressources "PractitionerRole" de l'**Annuaire Santé** selon nos critères
 * Nous allons transformer et stocker les éléments
 * Nous allons modifier notre requête pour aller chercher des ressources liées à la première requête
 * Enfin, nous verrons comment mettre à jour les données de notre annuaire
@@ -50,13 +50,13 @@ Les données que nous allons chercher à récupérer sont :
 &nbsp;
 
 
-### Initialisation du projet 
+#### Initialisation du projet 
 
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 &nbsp;
 
-### Récupération des ressources "PractitionerRole"
+#### Récupération des ressources "PractitionerRole"
 
 Pour l'exemple, nous allons chercher uniquement les ressources "PractitionerRole" ayant une spécialité à "SM02" (correspond à Anesthésie-réanimation)
 
@@ -65,7 +65,10 @@ Créer un client FHIR avec la librairie Hapi en utilisant l'api Hapi:
 ```java
 var ctx = FhirContext.forR4();
 var client = ctx.newRestfulGenericClient("https://{{site.ans.api_url}}/fhir/v1/");
+
+
 ```
+<br />
 
 La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server_url/fhir/v1/PractitionerRole?specialty=SM02.
 
@@ -81,7 +84,10 @@ var fhirBundle = (Bundle) client.search().forResource(PractitionerRole.class)
         .count(10)
         .execute();
 
+        
+
 ```
+<br />
 
 Si cette requête est exécutée, le code retourné sera: 
 
@@ -113,7 +119,10 @@ Si cette requête est exécutée, le code retourné sera:
   ]
 }
 
+
+
 ```
+<br />
 
 Les PractitionerRole que nous recherchons se trouvent dans le champs "entry" de la réponse. On notera également le champs "total" avec le compte du nombre de ressources FHIR.
 
@@ -127,6 +136,8 @@ do {
     // store the bundleContent here
     deviceBundle = client.loadPage().byUrl(fhirBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
 }while (fhirBundle.getLink("next") != null);
+
+
 ```
 
 Le code ci-dessus permet d'aller chercher la page suivante d'un bundle et de répéter l'opération jusqu'à la fin de la pagination. 
@@ -149,11 +160,13 @@ do {
     // load the next page:
     fhirBundle = client.loadPage().byUrl(fhirBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
 }while (fhirBundle.getLink("next") != null);
+
+
 ```
 
 &nbsp;
 
-### Récupération des éléments liés : "Organization" et "Practitioner"
+#### Récupération des éléments liés : "Organization" et "Practitioner"
 
 Désormais, nous allons modifier le code afin de récupérer également les Practitioner associés ainsi que les Organization. 
 
@@ -207,6 +220,8 @@ ainsi que les Practitioner et les Organization liés aux Practitioner de la pré
     ...
   ]
 }
+
+
 ```
 
 On remarquera que dans le champs entry, il y a désormais les PractitionerRole mais également les Organization et les Practitioner associés. 
@@ -251,7 +266,7 @@ Lien du projet GitHub contenant le projet: [http://github.com](TODO)
 
 ## Complément
 
-### L'exemple du filtre par département 
+#### L'exemple du filtre par département 
 
 Parfois, vous souhaiterez faire des filtres sur des données qui ne sont pas présentes dans la ressource PractitionerRole. 
 

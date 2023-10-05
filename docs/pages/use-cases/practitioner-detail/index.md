@@ -8,7 +8,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 
 
-### Qui est concerné ?
+## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
 * Vous avez une application existante et vous souhaitez sur certains composants ajouter des données provenant de notre API
@@ -20,7 +20,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 &nbsp;
 
-### Ce dont vous aurez besoin
+## Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
 * Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
@@ -192,7 +192,7 @@ qui a pour champs 'id' org-6922.
 ```
 &nbsp;
 
-### Aller plus loin
+## Aller plus loin
 
 #### Récupération par lots
 
@@ -217,14 +217,20 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 
 ```bash 
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111,003-131112&_pretty=true&_format=json"
+
+
 ```
+
+<br />
 
 #### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
 Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-3) pour accéder à l'exemple.
-<b />
+
+<br />
 
 #### Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitien en partant de son nom et son prénom d'exercice
 Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-5) pour accéder à l'exemple.
+
 <br />
 
 
