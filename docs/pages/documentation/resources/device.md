@@ -4,14 +4,31 @@ title: Device
 subTitle: Ressources
 ---
 
-## Description métier de la ressource
+
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Description métier](#one-header)
+- [Caractéristiques techniques](#two-header)
+- [Recherche sur critères](#three-header)
+  - [Rechercher tout](#31-header)
+  - [Rechercher par date de mise à jour](#32-header)
+  - [Rechercher par numéro ARHGOS](#33-header)
+  - [Recherche par type](#34-header)
+  - [Recherche par identifiant](#35-header)
+  - [Recherche par statut](#36-header)
+</div>
+<br />
+
+
+## <a id="one-header"></a>1) Description métier de la ressource
+
 Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS portant sur les « [équipements matériels lourds](https://mos.esante.gouv.fr/5.html#_1a21e9b8-d686-41ff-806d-38572f961ec6) :
 <div class="wysiwyg" markdown="1">
 * numéro d'autorisation ARGHOS, période de validité, marque, numéro de série, code EML 
 </div>
 <br />
 
-## Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -61,13 +78,16 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </table>
 <br />
 
-## Recherche d'équipement matériel lourd (EML) sur critères
+## <a id="three-header"></a>3) Recherche d'équipement matériel lourd (EML) sur critères
+
 Voici des exemples de requêtes sur les équipements matériels lourds.
 
-### 1) Rechercher tout (sans critère)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
+## <a id="31-header"></a>3.1) Rechercher tout (sans critère)
 
--   **Exemples de requêtes** :
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
+
+**Exemples de requêtes :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -120,26 +140,28 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
   Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
   Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
+
+
 ```
 
 <br />
 
 
 
-### 2) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="32-header"></a>3.2) Rechercher par date de mise à jour (_lastUpdated)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
 
--   **Exemples de requêtes** :
+**Exemples de requêtes :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -205,21 +227,24 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
   Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
   Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
+
+
 ```
 
 <br />
 
 
-### 3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
+#### <a id="33-header"></a>3.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
+
 -   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
 -   **Exemples de requêtes** :
@@ -286,28 +311,32 @@ foreach (var be in bundle.Entry)
 
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Device found: id=002-3122046 type=05602
+
+
 ```
 
 <br />
 
 
 
-### 4) Rechercher par type EML (type)
+#### <a id="34-header"></a>3.4) Rechercher par type EML (type)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
 
-**Remarque** :
+**Remarque :**
+
 Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R272-EquipementMaterielLourd](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd) des NOS.
 
--   **Exemples de requêtes** :
+**Exemples de requêtes :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -370,24 +399,27 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Device found: id=002-3405555 | type=05602
   Device found: id=002-3405559 | type=05602
   Device found: id=002-3405562 | type=05602
+
+  
 ```
 
 <br />
 
 
-### 5) Rechercher par son identifiant (identifier)
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
+#### <a id="35-header"></a>3.5) Rechercher par son identifiant (identifier)
 
--   **Exemples de requêtes** :
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
+
+**Exemples de requêtes :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -449,24 +481,27 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
   
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   total: 1
   Device found: id=32-31-1156
+
+  
 ```
 
 <br />
 
 
-### 6) Rechercher par status (status)
+#### <a id="36-header"></a>3.6) Rechercher par statut (status)
 
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher les EML actifs.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les EML actifs.
 
--   **Exemples de requêtes** :
+**Exemples de requêtes :**
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -527,15 +562,17 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
--   **Exemple de réponse (simplifiée)** :
+**Exemple de réponse (simplifiée) :**
 
-```bash
+```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
   Device found: id=device-147 | status=Active
   Device found: id=device-389 | status=Active
   Device found: id=device-146 | status=Active
+
+
 ```
 
 &nbsp;

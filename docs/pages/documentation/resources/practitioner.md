@@ -4,7 +4,21 @@ title: Practitioner
 subTitle: Ressources
 ---
 
-## Description métier de la ressource
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Description métier](#one-header)
+- [Caractéristiques techniques](#two-header)
+- [Recherche de structure sur critères](#three-header)
+  - [Rechercher tout](#31-header)
+  - [Rechercher par identifiant](#32-header)
+  - [Rechercher par civilité](#33-header)
+  - [Rechercher par statut](#34-header)
+  - [Rechercher par date de mise à jour](#35-header)
+</div>
+<br />
+
+
+## <a id="one-header"></a>1) Description métier de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
 
@@ -21,9 +35,7 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </p>
 <br />
 
-## Exemple de ressource Practitioner
-
-## Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -73,12 +85,13 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </table>
 <br />
 
-## Recherche de professionnel de santé sur critères
+
+## <a id="three-header"></a>3) Recherche de professionnel de santé sur critères
 
 Voici des exemples de requêtes sur les professionnels de santé (PS).
 
 
-### 1) Rechercher tout (sans critère)
+#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
@@ -163,7 +176,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 2) Rechercher par identifiant (identifier)
+#### <a id="32-header"></a>3.2) Rechercher par identifiant (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
 
@@ -250,7 +263,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 3) Rechercher par civilité (name)
+#### <a id="33-header"></a>3.3) Rechercher par civilité (name)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
 
@@ -339,7 +352,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 4) Rechercher par status (active)
+#### <a id="34-header"></a>3.4) Rechercher par statut (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
@@ -422,7 +435,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="35-header"></a>3.5) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
 

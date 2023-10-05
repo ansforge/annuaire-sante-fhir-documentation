@@ -4,7 +4,21 @@ title: Healthcare Service
 subTitle: Ressources
 ---
 
-## Description métier de la ressource
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Description métier](#one-header)
+- [Caractéristiques techniques](#two-header)
+- [Recherche sur critères](#three-header)
+  - [Rechercher tout](#31-header)
+  - [Rechercher par identifiant](#32-header)
+  - [Rechercher par type/forme d'activité](#33-header)
+  - [Recherche par statut](#34-header)
+  - [Recherche par date de mise à jour](#35-header)
+</div>
+<br />
+
+## <a id="one-header"></a>1) Description métier de la ressource
+
 Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soin](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
 <div class="wysiwyg" markdown="1">
@@ -13,7 +27,7 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </div>
 <br />
 
-## Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -63,11 +77,11 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </table>
 <br />
 
-## Recherche d'activité de soin et d'équipement social sur critères
+## <a id="three-header"></a>3) Recherche d'activité de soin et d'équipement social sur critères
 Voici des exemples de requêtes sur les activités de soin et les équipements sociaux.
 
 
-### 1) Rechercher tout (sans critère)
+## <a id="31-header"></a>3.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des services de soin.
 
@@ -151,7 +165,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 2) Rechercher par identifiant (identifier)
+#### <a id="32-header"></a>3.2) Rechercher par identifiant (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
 
@@ -236,7 +250,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 3) Rechercher par type/forme d'activité (characteristic)
+#### <a id="33-header"></a>3.3) Rechercher par type/forme d'activité (characteristic)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
@@ -343,7 +357,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 4) Rechercher par status (active)
+#### <a id="34-header"></a>3.4) Rechercher par statut (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les services de santé actifs.
 
@@ -434,7 +448,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="35-header"></a>3.5) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
 
