@@ -21,6 +21,8 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </p>
 <br />
 
+## Exemple de ressource Practitioner
+
 ## Caractéristiques techniques de la ressource
 
 <table width="25%">

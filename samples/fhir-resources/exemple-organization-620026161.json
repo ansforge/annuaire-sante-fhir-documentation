@@ -1,0 +1,160 @@
+{
+    "resourceType": "Bundle",
+    "id": "cb9a0056-f0d0-42eb-902a-e89159336fdf",
+    "meta": {
+        "lastUpdated": "2023-09-27T08:31:39.178+00:00"
+    },
+    "type": "searchset",
+    "total": 1,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://gateway.api.esante.gouv.fr/fhir/v1/Organization?identifier=620026161"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v1/Organization/001-01-795830",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "001-01-795830",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2023-03-05T11:23:20.180+00:00",
+                    "source": "https://annuaire.sante.fr",
+                    "profile": [
+                        "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization"
+                    ]
+                },
+                "language": "fr",
+                "identifier": [
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://interopsante.org/CodeSystem/fr-v2-0203",
+                                    "code": "IDNST"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.250.1.71.4.2.2",
+                        "value": "1620026161"
+                    },
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://interopsante.org/CodeSystem/fr-v2-0203",
+                                    "code": "FINEG"
+                                }
+                            ]
+                        },
+                        "system": "http://finess.sante.gouv.fr",
+                        "value": "620026161"
+                    },
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://interopsante.org/CodeSystem/fr-v2-0203",
+                                    "code": "INTRN"
+                                }
+                            ]
+                        },
+                        "system": "https://annuaire.sante.fr",
+                        "value": "F620026161"
+                    }
+                ],
+                "active": true,
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://interopsante.org/fhir/CodeSystem/fr-v2-3307",
+                                "code": "GEOGRAPHICAL-ENTITY"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5",
+                                "code": "88.10A"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+                                "code": "SA41"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement",
+                                "code": "460"
+                            }
+                        ]
+                    }
+                ],
+                "name": "SARL CHEMIN YVES (DOMIDOM SERVICES)",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "0321092962",
+                        "rank": 1
+                    },
+                    {
+                        "system": "email",
+                        "value": "domidomservices@orange.fr"
+                    }
+                ],
+                "address": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://interopsante.org/fhir/StructureDefinition/FrAddressInseeCode",
+                                "valueCoding": {
+                                    "system": "https://mos.esante.gouv.fr/NOS/TRE_R13-CommuneOM/FHIR/TRE_R13-CommuneOM",
+                                    "code": "62108"
+                                }
+                            }
+                        ],
+                        "line": [
+                            null
+                        ],
+                        "_line": [
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
+                                        "valueString": "272"
+                                    },
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameType",
+                                        "valueString": "R"
+                                    },
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+                                        "valueString": "DE L'IMPÉRATRICE"
+                                    }
+                                ]
+                            }
+                        ],
+                        "city": "62600 BERCK",
+                        "postalCode": "62600"
+                    }
+                ],
+                "partOf": {
+                    "reference": "Organization/001-02-84942"
+                }
+            }
+        }
+    ]
+}

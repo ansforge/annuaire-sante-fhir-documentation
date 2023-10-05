@@ -8,7 +8,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 
 
-## Qui est concerné ?
+### Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
 * Vous avez une application existante et vous souhaitez sur certains composants ajouter des données provenant de notre API
@@ -20,7 +20,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 &nbsp;
 
-## Ce dont vous aurez besoin
+### Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
 * Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
@@ -32,16 +32,16 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 &nbsp;
 
 
-### Initialisation du projet
+#### Initialisation du projet
 
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 
-### Trouver un professionnel de santé avec son numéro RPPS
+#### Trouver un professionnel de santé avec son numéro RPPS
 
 Pour l'exemple, nous allons rechercher le PS ayant le numéro RPPS : 10000001111
 
-Effectuer une recherche FHIR sur la ressource Practitioner avec le paramètre identifier. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous cherchons par numéro RPPS, s'il y a un résultat, il sera unique. 
+Effectuer une recherche FHIR sur la ressource Practitioner avec le paramètre **identifier**. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous cherchons par numéro RPPS, s'il y a un résultat, il sera unique. 
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -75,16 +75,16 @@ var practitioner = (Practitioner) practitionerBundle.getEntry().get(0).getResour
 
 &nbsp;
 
-Le Practitioner retourné contiendra différentes informations comme la civilité, d'autres identifiants...
+Le Practitioner retourné contiendra différentes informations comme la civilité, tout autres identifiant connu, les diplômes, ...
 
 ```xml
 Professionnel 10000001111:
     Id technique (champs id): 003-131111
-	Identifiants:
+	Identifier:
 	Numéro urn:oid:1.2.250.1.71.4.2.1 : 810000001111
 	Numéro http://rpps.fr : 10000001111
 
-	Démographie:
+	Name:
 	Civilité : [M]
 	...
 
@@ -93,7 +93,7 @@ Professionnel 10000001111:
 
 &nbsp;
 
-### Récupérer les PractitionerRole du Practitioner précédemment trouvé
+#### Récupérer les PractitionerRole du Practitioner précédemment trouvé
 
 Pour aller plus loin, nous allons chercher les exercices professionnels de ce practitioner pour obtenir plus d'informations. 
 
@@ -115,14 +115,14 @@ var practitionerRoles = practitionerRoleBundle.getEntry().stream().map(pre -> pr
 </div>
 
 
-Le point important ici est de mettre la clause where sur le paramètre practitioner en spécifiant l'id du Practitioner précédemment trouvé. 
+Le point important ici est de mettre la clause where sur le paramètre **practitioner** en spécifiant l'id du Practitioner précédemment trouvé. 
 
 Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à ce Practitioner : 
 
 ```xml
 Exercices:
     Exercice 005-71111:
-    Noms :[JEAN] MARTIN
+    Noms/Prénoms d'exercice :[JEAN] MARTIN
     Spécialités : SM26 S 
     ...
 
@@ -132,12 +132,12 @@ Exercices:
 &nbsp;
 
 
-### Lier les situations d'exercice avec une Organization
+#### Lier les practitionerRole avec Organization
 
 Dans cette étape, nous allons récupérer les Organization rattachées aux PractitionerRole. 
 
 Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Organization rattachées dans une même requête. 
-Cela se fait par le biais du paramètre _include :
+Cela se fait par le biais du paramètre **_include** :
 
 
 <div class="code-sample">
@@ -156,8 +156,8 @@ var organizations = practitionerRolesAndOrganizations.stream().filter(pre -> pre
 </div>
 </div>
 
-Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Organization. Votre programme devra lui-même lier les PractitionerRole aux Organization grâce aux champs "PractitionerRole.organization" et "Organization.id".
-Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est lié à la ressource Organization qui à l'id  `"organization": {"reference": "Organization/org-6922"}` et cette Organization est une autre entrée dans le Bundle 
+Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Organization. Votre programme devra lui-même lier les PractitionerRole aux Organization grâce aux champs **PractitionerRole.organization** et **Organization.id**.
+Dans l'exemple ci-dessous, nous voyons que le PractitionerRole est lié à la ressource Organization ayant l'id  `"organization": {"reference": "Organization/org-6922"}` et cette Organization est une autre entrée dans le Bundle 
 qui a pour champs 'id' org-6922.
 
 ```json
@@ -192,15 +192,7 @@ qui a pour champs 'id' org-6922.
 ```
 &nbsp;
 
-## Aller plus loin
-
-#### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-3) pour accéder à l'exemple.
-<br>
-
-#### Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitien en partant de son nom et son prénom d'exercice
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-5) pour accéder à l'exemple.
-<br>
+### Aller plus loin
 
 #### Récupération par lots
 
@@ -208,7 +200,7 @@ Vous pouvez tout à fait imaginer récupérer des Practitioner complets par lot.
 
 La première requête va vous premettre de trouver les Practitioner, la seconde vous permettra de chercher des informations complémentaires dans des PractitionerRole ou Organization. 
 
-Imaginons que vous cherchiez les fiches de 2 professionnels avec pour identifiants RPPS : 10000001111 et 10000001112
+Imaginons que vous cherchiez les fiches de 2 professionnels avec pour identifiants RPPS : 10000001111 et 10000001112.
 
 Dans ce cas la première requête sera : 
 
@@ -227,7 +219,13 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111,003-131112&_pretty=true&_format=json"
 ```
 
+#### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-3) pour accéder à l'exemple.
+<b />
 
+#### Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitien en partant de son nom et son prénom d'exercice
+Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-5) pour accéder à l'exemple.
+<br />
 
 
 

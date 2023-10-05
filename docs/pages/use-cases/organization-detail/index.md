@@ -3,14 +3,15 @@ layout: default
 title: "Fiche de la structure"
 subTitle: Cas d'utilisation
 ---
-[EN COURS DE CONSTRCUTION]
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette partie de la spécification est en cours de construction.
+</p>
 
-Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à la demande. Nous allons faire une application annuaire qui permet de
-trouver des structures (organization). 
+Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à la demande. Nous allons faire une application annuaire qui permet de trouver des structures (organization). 
 
 
 
-## Qui est concerné ?
+### Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
 * Vous avez une application existante et vous souhaitez sur certains composants ajouter de la données provenant de notre API,
@@ -22,7 +23,7 @@ trouver des structures (organization).
 
 &nbsp;
 
-## Ce dont vous aurez besoin
+##3 Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
 * Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
@@ -34,16 +35,16 @@ trouver des structures (organization).
 &nbsp;
 
 
-### Initialisation du projet
+#### Initialisation du projet
 
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 
-### Trouver une Oraganization avec son numéro FINESS
+#### Trouver une Oraganization avec son numéro FINESS
 
-Pour l'exemple, nous allons rechercher une organization qui a un numéro FINESS : 010780914
+Pour l'exemple, nous allons rechercher une organization ayant le numéro FINESS : 010780914
 
-Effectuer une recherche FHIR par identifier. Cela va retourner un Bundle qui contiendra le résultat de recherche. 
+Pour ce faire, nous allons effectuer une recherche sur la ressource Organization par **identifier**. Cela va retourner un Bundle qui contiendra le résultat de recherche. 
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -79,7 +80,7 @@ var organization = (Organization) organizationBundle.getEntry().get(0).getResour
 
 L'organization retournée contiendra différentes informations comme la raison sociale, l'adresse postale, le secteur d'activité, le type de la strcuture (juridique ou géographique), ...
 
-```
+```xml
 organization 010780914:
     Id technique (champs id): 001-01-147
 	Identifiants:
@@ -118,11 +119,11 @@ var practitionerRoles = practitionerRoleBundle.getEntry().stream().map(pre -> pr
 </div>
 
 
-Le point important ici est de mettre la clause where sur le paramètre organization en spécifiant l'id de l'Organization précédemment trouvée. 
+Le point important ici est de mettre la clause where sur le paramètre **organization** en spécifiant l'id de l'Organization précédemment trouvée. 
 
 Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à cette Organization : 
 
-```
+```xml
 Exercices/Situations d'exercice:
     PractitionerRole 005-4902894-6549113:
     Noms :[COLETTE] ROUSSEAU
@@ -133,12 +134,12 @@ Exercices/Situations d'exercice:
 &nbsp;
 
 
-### Lier les PractitionerRole avec les Practitioner
+#### Lier les PractitionerRole avec les Practitioner
 
 Dans cette étape, nous allons récupérer les Practitioner rattachés aux PractitionerRole. 
 
-Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Practitioner attachées dans une même requête. 
-Cela se fait par le biais du paramètre _include :
+Pour ce faire, nous modifions la requête de l'étape précédente pour demander de récupérer les PractitionerRole ainsi que leurs Practitioner attachés dans une même requête. 
+Cela se fait par le biais du paramètre **_include** :
 
 
 <div class="code-sample">
@@ -157,8 +158,8 @@ var practitioners = practitionerRolesAndPractitioners.stream().filter(pre -> pre
 </div>
 </div>
 
-Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Practitioner. Votre programme devra lui-même lier les PractitionerRole aux Practitioner grâce aux champs "PractitionerRole.practitioner" et "Practitioner.id".
-Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est lié à la ressource Practitioner ayant l'id  `"practitioner": {"reference": "Practitioner/003-4745453"}` et ce practitioner est une autre entrée dans le Bundle  ayant pour champs 'id' 003-4745453.
+Cette requête va vous retourner un Bundle contenant à la fois les PractitionerRole et les Practitioner. Votre programme devra lui-même lier les PractitionerRole aux Practitioner grâce aux champs **PractitionerRole.practitioner** et **Practitioner.id**.
+Dans l'exemple ci-dessous nous voyons que le PractitionerRole est lié à la ressource Practitioner ayant l'id  `"practitioner": {"reference": "Practitioner/003-4745453"}` et ce practitioner est une autre entrée dans le Bundle  ayant pour champs 'id' 003-4745453.
 
 ```json
 {003-4745453
@@ -191,11 +192,7 @@ Dans l'exemple ci-dessous nous voyons par exemple que le PractitionerRole est li
 &nbsp;
 
 
-## Aller plus loin
-
-#### Trouver l’ensemble des EG d’un EJ
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-4) pour accéder à l'exemple.
-<br>
+### Aller plus loin
 
 #### Récupération par lots
 
@@ -223,7 +220,9 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-1102727,001-01-1267408&_pretty=true&_format=json"
 ```
 
-
+#### Trouver l’ensemble des EG d’un EJ
+Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-4) pour accéder à l'exemple.
+<br />
 
 
 

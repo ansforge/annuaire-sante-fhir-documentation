@@ -11,7 +11,7 @@ Les établissements de santé peuvent être accompagnés par les acteurs région
 Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. 
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-## 1. Le couloir Médico-Social
+### 1. Le couloir Médico-Social
 
 Afin de récupérer les établissements médico-sociaux ayant un numéro finess, il faut interroger l'endpoint Organization.
 
@@ -97,7 +97,7 @@ do {
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
-## 2. Le couloir Hôpital
+### 2. Le couloir Hôpital
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
@@ -105,7 +105,7 @@ Afin de récupérer les établissements sanitaires, nous devons interroger l'end
  * Vérifier que le type de l'établissement ne correspond pas à un établissement médico-social (champs 2 dans l'image ci-dessous)
 </div>
 
-<br/>
+<br />
 
 
 Liste des secteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
@@ -200,9 +200,9 @@ Progress treated - 11722 / 11722
 Total global - 11722
 Total Hospital - 11722
 ```
-<br/>
+<br />
 
-## 3. Le couloir Biologie Médicale
+### 3. Le couloir Biologie Médicale
 
 Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -210,7 +210,7 @@ Afin de récupérer les établissements de biologie ayant des médecins ou pharm
  * En incluant les PractitionerRoles liés aux Organizations afin de pouvoir filtrer sur le code profession de l'activité du professionel (PractitionerRole)
 </div>
 
-<br/>
+<br />
 
 Une fois l'ensemble des données récupéré, il faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l'image ci-dessous)
 
@@ -325,10 +325,10 @@ Organization has 0 roles
 Total global - 4312
 Total filtered - 523
 ```
-<br/>
+<br />
 
 
-## 4. Le couloir Radiologie
+### 4. Le couloir Radiologie
 
 Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -336,7 +336,7 @@ Afin de récupérer les établissements de radiologie, nous devons interroger l'
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des PractitionerRole
 </div>
 
-<br/>
+<br />
 
 
 Une fois l’ensemble des données récupéré, procédez aux filtres suivant : 
@@ -495,10 +495,10 @@ Total global - 466040
 Total filtered - 0
 ```
 
-<br/>
+<br />
 
 
-## 5. Le couloir Médecine de ville
+### 5. Le couloir Médecine de ville
 
 Afin de récupérer les établissements de médecine de ville qui ne sont pas des cabinets de radiologie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -506,7 +506,7 @@ Afin de récupérer les établissements de médecine de ville qui ne sont pas de
  * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
 </div>
 
-<br/>
+<br />
 
 Une fois l’ensemble des données récupéré, procédez aux filtres suivant : 
 
@@ -665,17 +665,17 @@ Total global - 466040
 Total filtered - 0
 ```
 
-<br/>
+<br />
 
 
-## 6. Le couloir Pharmacie
+### 6. Le couloir Pharmacie
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
  * En filtrant sur le système et les types d'établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39, SA56
 </div>
 
-<br/>
+<br />
 La liste des codes des pharmacies (ex: SA33, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 Les données récupérées sont déjà pré-filtrées selon notre besoin et ne sont que des pharmacies.
