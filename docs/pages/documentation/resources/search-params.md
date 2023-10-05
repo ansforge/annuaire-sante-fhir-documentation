@@ -15,7 +15,11 @@ subTitle: Ressources
 - [Paramètres de type référence](#five-header)
 - [Paramètres de type uri](#six-header)
 - [Paramètres combinés](#seven-header)
+  - [Paramètre ET](#71-header)
+  - [Paramètre OU](#72-header)
 - [Paramètres des résultats](#eight-header)
+  - [Paramètre _count](#81-header)
+  - [Paramètre _total](#82-header)
 
 </div>
 <br />
@@ -481,7 +485,7 @@ Cette partie de la spécification est en cours de construction.
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
 
-#### 7.1) Paramètres ET (AND)
+#### <a id="71-header"></a>7.1) Paramètres ET (AND)
 
 **Requête :**
 
@@ -565,7 +569,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-#### 7.2) Paramètres OU (OR)
+#### <a id="72-header"></a>7.2) Paramètres OU (OR)
 
 **Requête :**
 
@@ -652,7 +656,7 @@ foreach (var be in bundle.Entry)
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
 
-#### 8.1) Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) 
+#### <a id="81-header"></a>8.1) Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) 
 
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
@@ -660,7 +664,7 @@ Il permet de contrôler le nombre maximal de ressources retournées sur une page
 
 `GET [BASE]/Device?_count=200`
 
-#### 8.2) Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
+#### <a id="82-header"></a>8.2) Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
 
 Comme son nom l'indique, ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche.
 Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
