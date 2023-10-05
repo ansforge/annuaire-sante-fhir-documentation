@@ -4,7 +4,24 @@ title: Practitioner Role
 subTitle: Ressources
 ---
 
-## Description métier de la ressource
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Description métier](#one-header)
+- [Caractéristiques techniques](#two-header)
+- [Recherche sur critères](#three-header)
+  - [Rechercher tout](#31-header)
+  - [Rechercher par identifiant](#32-header)
+  - [Rechercher par rôle](#33-header)
+    - [Recherche par profession et par catégorie professionnelle](#331-header)
+  - [Recherche par spécialité](#34-header)
+  - [Recherche par type de carte](#35-header)
+  - [Recherche par professionnel](#36-header)
+  - [Recherche par statut](#37-header)
+</div>
+<br />
+
+
+## <a id="one-header"></a>1) Description métier de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice »](https://mos.esante.gouv.fr/2.html#_5579aac4-b414-41f1-8569-2e99403e3af3) et la [« situation »](https://mos.esante.gouv.fr/2.html#_86e1685b-9e1d-47fb-bb66-d23ca0eb9679) d'exercice du professionnel :
 <div class="wysiwyg" markdown="1">
@@ -14,7 +31,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 </div>
 <br />
 
-## Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -65,11 +82,11 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <br />
 
 
-## Recherche d'exercice et d'activité du professionnel de santé sur critères
+## <a id="three-header"></a>3) Recherche d'exercice et d'activité du professionnel de santé sur critères
 
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
-### 1) Rechercher tout (sans critère)
+#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
 
@@ -152,7 +169,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 2) Recherche par identifiant (_id)
+#### <a id="32-header"></a>3.2) Recherche par identifiant (_id)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource par son identifiant technique. 
 
@@ -216,7 +233,7 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 <br />
 
 
-### 3) Recherche par rôle (role)
+#### <a id="33-header"></a>3.3) Recherche par rôle (role)
 
 La recherche par le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
 
@@ -250,7 +267,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 </div>
 <br />
 
-#### 3.1) Recherche par profession et par catégorie professionnelle
+##### <a id="331-header"></a>3.3.1) Recherche par profession et par catégorie professionnelle
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
 
@@ -367,7 +384,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 4) Recherche par spécialité (specialty)
+#### <a id="34-header"></a>3.4) Recherche par spécialité (specialty)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") ayant une spécialité ordinale "orthopédie dento-faciale" (code spécialité = "SCD01").
 
@@ -502,7 +519,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 5) Recherche par type de carte (type-smartcard)
+#### <a id="35-header"></a>3.5) Recherche par type de carte (type-smartcard)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les cartes de type CPS.
 
@@ -587,7 +604,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 6) Recherche par professionnel (practitioner)
+#### <a id="36-header"></a>3.6) Recherche par professionnel (practitioner)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
 
@@ -668,7 +685,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-### 7) Recherche par statut
+#### <a id="37-header"></a>3.7) Recherche par statut
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
 
