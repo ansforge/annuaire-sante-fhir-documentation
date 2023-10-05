@@ -15,16 +15,18 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 ### New Features (Nouvelles fonctionnalités)
 
+- Informations sur les ressources supprimées : Vous avez été nombreux à nous demander cette information capitale. C’est chose faite : Vous pouvez désormais isoler les ressources supprimées entre deux dates (synchronisations) via le paramètre (active=false). 
+
+- Implémentation d'un nouvel endpoint "Health check". Objectif : Vous permettre de surveiller l'état de santé de notre API en temps réel.
+
 - Ajout de nouveaux paramètres de recherche : 
 
   - "identifier-type" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
   - "_total" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
 
-- Implémentation d'un nouvel endpoint "Health check". Objectif : Vous permettre de surveiller l'état de santé de notre API en temps réel.
-
 - La ressource Organization intègre une nouvelle notion permettant de contaître l'origine des données.
 
-- Informations sur les ressources supprimées : Vous avez été nombreux à nous demander cette information capitale. C’est chose faite : Vous pouvez désormais isoler les ressources supprimées entre deux dates (synchronisations) via le paramètre (active=false).   
+  
 
 
 ### Improvements (Améliorations)
