@@ -5,7 +5,23 @@ subTitle: Ressources
 ---
 *Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm>*
 
-## Paramètres de recherche disponibles
+
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Paramètres de recherche disponibles](#one-header)
+- [Paramètres de type texte](#two-header)
+- [Paramètres de type token](#three-header)
+- [Paramètres de type date](#four-header)
+- [Paramètres de type référence](#five-header)
+- [Paramètres de type uri](#six-header)
+- [Paramètres combinés](#seven-header)
+- [Paramètres des résultats](#eight-header)
+
+</div>
+<br />
+
+
+## <a id="one-header"></a>1) Paramètres de recherche disponibles
 Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez interroger le CapabilityStatement.
 
 **Requête :**
@@ -13,11 +29,11 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 `GET [BASE]/metadata`
 
 
-## Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
+## <a id="two-header"></a>2) Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
 
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
-### Recherche sans "modifier"
+#### 2.1) Recherche sans "modifier"
 
 **Requête :**
 
@@ -99,7 +115,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### Recherche avec le "modifier" "contains"
+#### 2.2) Recherche avec le "modifier" "contains"
 
 **Requête :**
 
@@ -180,7 +196,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-### Recherche avec le "modifier" "exact"
+#### 2.3) Recherche avec le "modifier" "exact"
 
 **Requête :**
 
@@ -261,7 +277,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-## Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
+## <a id="three-header"></a>3) Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 
 Le serveur supporte la recherche par code, par système ou par les deux.
 
@@ -345,7 +361,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-## Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
+## <a id="four-header"></a>4) Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 
 La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
 
@@ -446,26 +462,26 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-## Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
+## <a id="five-header"></a>5) Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Cette partie de la spécification est en cours de construction.
 </p>
 
 
-## Paramètres de type [uri](https://www.hl7.org/fhir/search.html#uri)
+## <a id="six-header"></a>6) Paramètres de type [uri](https://www.hl7.org/fhir/search.html#uri)
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Cette partie de la spécification est en cours de construction.
 </p>
 
 
-## Paramètres combinés
+## <a id="seven-header"></a>7) Paramètres combinés
 
 Les paramètres combinés permettent d'effectuer des recherches en les cumulant.
 Ce cumul se fait de manière inclusive ou alternative.
 
-### Paramètres ET (AND)
+#### 7.1) Paramètres ET (AND)
 
 **Requête :**
 
@@ -549,7 +565,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-### Paramètres OU (OR)
+#### 7.2) Paramètres OU (OR)
 
 **Requête :**
 
@@ -631,12 +647,12 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
   
-### Paramètres des résultats de la recherche
+## <a id="eight-header"></a>8) Paramètres des résultats de la recherche
 
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
 
-#### Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) 
+#### 8.1) Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) 
 
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
@@ -644,7 +660,7 @@ Il permet de contrôler le nombre maximal de ressources retournées sur une page
 
 `GET [BASE]/Device?_count=200`
 
-#### Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
+#### 8.2) Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
 
 Comme son nom l'indique, ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche.
 Ce paramètre peut prendre 3 valeurs : none, estimate ou accurate.
