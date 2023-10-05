@@ -37,7 +37,7 @@ NOTE | Pour plus d'informations sur la MSSanté, [cliquez ici](https://mailiz.ms
 ## Cas d'utilisation 
 En tant que client de l'API, je souhaite rechercher l'ensemble des boîtes aux lettres de messagerie sécurisée d'un type de structure.
 
-## <a id="cs-header"></a> 1) Centres de santé (type=SA25)
+## <a id="cs-header"></a>1) Centres de santé (type=SA25)
 
 #### 1.1) Les BAL organisationnelles
 Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
