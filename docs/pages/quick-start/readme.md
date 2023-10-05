@@ -2,15 +2,27 @@
 layout: default
 title: Guide de démarrage rapide avec l'API
 ---
+
+#### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [Prérequis](#zero-header)
+- [Création d'un compte](#one-header)
+- [Création d'une application](#two-header)
+- [Tester l'API](#three-header)
+- [Aller plus loin](#four-header)
+</div>
+<br />
+
+
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
 
-### 0. Prérequis pour démarrer avec l'API
+## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
 [GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
 
-### 1. Création d'un compte dans Gravitee
+## <a id="one-header"></a>1) Création d'un compte dans Gravitee
 Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un compte.
 <div class="wysiwyg" markdown="1">
 * Rendez-vous sur le portail Gravitee à l'adresse : [ENREGISTREZ-VOUS](https://portal.api.esante.gouv.fr/user/registration){:target="_blank"}
@@ -24,7 +36,7 @@ Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un
 NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si vous n'avez pas d'adresse email, vous devez en créer une.
    
 
-### 2. Création d'une application dans Gravitee
+## <a id="two-header"></a>2) Création d'une application dans Gravitee
 Cette étape concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez suivre les étapes suivantes :
 <div class="wysiwyg" markdown="1">
@@ -58,7 +70,7 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 ![accueil.png](img/apim_creer_app_4.png){:style="max-width:600px"}
 
 
-### 3. Tester l'API
+## <a id="three-header"></a>3) Tester l'API
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 <div class="wysiwyg" markdown="1">
 * <b>Test 1</b> : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
@@ -76,6 +88,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 * La réponse de l'API devrait ressembler à ceci : 
 </div>
 &nbsp;
+
 ```json
 {
   "resourceType": "CapabilityStatement",
@@ -83,6 +96,8 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
   "format": [ "application/fhir+xml", "xml", "application/fhir+json", "json" ],
   "rest": [ {
     ...
+
+
 ```
 &nbsp;
 &nbsp;
@@ -102,6 +117,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 * La réponse devrait ressembler à cela :
 </div>
 &nbsp;
+
 ```json
 {
   "resourceType": "Bundle",
@@ -122,15 +138,17 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
   ...
   ]
 }
+
+
 ```
 
 &nbsp;
 
 
-## Aller plus loin
+## <a id="four-header"></a>Aller plus loin
 
 
-### Ressources internes 
+#### Ressources internes 
 
 <div class="wysiwyg" markdown="1">
 * Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }}),  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
@@ -141,7 +159,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 
 &nbsp;
 
-### Ressources externes
+#### Ressources externes
 
 <div class="wysiwyg" markdown="1">
 * [Site officiel de FHIR](https://www.hl7.org/fhir/){:target="_blank"}

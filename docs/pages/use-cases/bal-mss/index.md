@@ -8,7 +8,7 @@ subTitle: Cas d'utilisation
 Cette partie de la spécification est en cours de construction.
 </p>
 
-### Dans cette page
+#### Dans cette page
 <div class="wysiwyg" markdown="1">
 - [Rechercher les BAL des centres de santé](#cs-header)
 - [Rechercher les BAL des laboratoires](#lab-header)
@@ -137,7 +137,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <br />
 
-## <a id="lab-header"></a> 2) Laboratoires
+## <a id="lab-header"></a>2) Laboratoires
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
 Afin de récupérer les établissements de biologie , nous devons interroger l’endpoint Organization :
@@ -161,7 +161,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 
  <br />
 
-## <a id="ph-header"></a> 3) Officines
+## <a id="ph-header"></a>3) Officines
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
 Afin de récupérer les officines de pharmacie, nous devons interroger l’endpoint Organization :
@@ -185,7 +185,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 
  <br />
 
-## <a id="ep-header"></a> 4) EPHAD
+## <a id="ep-header"></a>4) EPHAD
 
 #### 4.1) Liste des EPHAD
 Afin de récupérer la liste des EPHAD, nous devons interroger l’endpoint Organization :
