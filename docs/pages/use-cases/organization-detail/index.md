@@ -11,7 +11,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 
 
-### Qui est concerné ?
+## Qui est concerné ?
 
 <div class="wysiwyg" markdown="1">
 * Vous avez une application existante et vous souhaitez sur certains composants ajouter de la données provenant de notre API,
@@ -23,7 +23,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 &nbsp;
 
-##3 Ce dont vous aurez besoin
+## Ce dont vous aurez besoin
 
 <div class="wysiwyg" markdown="1">
 * Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
@@ -35,7 +35,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 &nbsp;
 
 
-#### Initialisation du projet
+## Initialisation du projet
 
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
@@ -93,11 +93,13 @@ organization 010780914:
 	Secteur d'activité:
 	https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite : SA17
 	...
+
+
 ```
 
 &nbsp;
 
-### Récupérer les PractitionerRole rattachés à l'Organization précédemment trouvée
+#### Récupérer les PractitionerRole rattachés à l'Organization précédemment trouvée
 
 Pour aller plus loin, nous allons chercher les situations d'exercice rattachées à cette organization pour obtenir plus d'informations. 
 
@@ -129,6 +131,8 @@ Exercices/Situations d'exercice:
     Noms :[COLETTE] ROUSSEAU
     Fonction : FON-33 
     ...
+
+
 ```
 
 &nbsp;
@@ -192,7 +196,7 @@ Dans l'exemple ci-dessous nous voyons que le PractitionerRole est lié à la res
 &nbsp;
 
 
-### Aller plus loin
+## Aller plus loin
 
 #### Récupération par lots
 
@@ -206,8 +210,10 @@ Dans ce cas la première requête sera :
 
 ```bash 
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=060016219,030782866&_pretty=true&_format=json"
-```
 
+
+```
+<br />
 
 Cette requête permet de récupérer toutes les Organizations ayant un identifier à : 060016219 OU 030782866.
 
@@ -218,9 +224,13 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 
 ```bash 
 curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-1102727,001-01-1267408&_pretty=true&_format=json"
+
+
 ```
+<br />
 
 #### Trouver l’ensemble des EG d’un EJ
+
 Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-4) pour accéder à l'exemple.
 <br />
 
