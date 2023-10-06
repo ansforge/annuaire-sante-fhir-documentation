@@ -62,7 +62,7 @@ Il y a toutefois quelques points de vigilance à prendre en considération lorsq
 - Suite à la refonte du moteur d'intégration des données dans notre API, il se peut que certains identifiants techniques soient changés. 
 C'est pourqoui, nous vous recommandations de resynchroniser vos données à partir de zéro (from scratch).
 
-- Aussi, les urls canoninques des profils passent de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/{{profile-id}}" à "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/{{profile_id}}".
+- Les urls canoninques des profils passent de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/{{profile-id}}" à "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/{{profile_id}}".
 Conséquence : une mise à niveau est nécessaire si vous utilisez les urls dans vos implémentations.
 
   - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-practitioner" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner"
@@ -72,7 +72,7 @@ Conséquence : une mise à niveau est nécessaire si vous utilisez les urls dans
   - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-healthcare-activity" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-HealthCareActivity"
   - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-social-equipment" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-SocialEquipment"
 
-- Encore, la ressource organization intègre une nouvelle extension :
+- La ressource organization intègre une nouvelle extension :
 
 ```xml
 {
