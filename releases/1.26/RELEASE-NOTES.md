@@ -21,8 +21,8 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Ajout de nouveaux paramètres de recherche : 
 
-  - "identifier-type" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
-  - "_total" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
+  - "**identifier-type**" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
+  - "**_total**" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
 
 - La ressource Organization intègre une nouvelle notion permettant de contaître l'origine des données (trial-user).
 
