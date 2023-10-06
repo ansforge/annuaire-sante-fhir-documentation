@@ -3,7 +3,7 @@
 Découvrez la nouvelle version de L’API FHIR Annuaire Santé en libre accès : nouveau moteur d'intégration des données, nouvelles fonctionnalités, correctifs de bogues et nombreuses optimisations améliorant encore l'expérience 
 utilisateur, ...
 
-Nous vous remercions de votre utilisation de notre API et de vos commentaires précieux. Si vous avez des questions ou des retours, n'hésitez pas à nous contacter à l'adresse LT-DTEX-Annuaire@esante.gouv.fr.
+Nous vous remercions de votre utilisation de notre API et de vos commentaires précieux. Si vous avez des questions ou des retours, n'hésitez pas à nous contacter à l'adresse monserviceclient.annuaire@esante.gouv.fr.
 
 Restez à l'écoute pour de nouvelles mises à jour passionnantes !
  
