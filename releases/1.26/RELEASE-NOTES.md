@@ -24,7 +24,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
   - "identifier-type" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
   - "_total" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
 
-- La ressource Organization intègre une nouvelle notion permettant de contaître l'origine des données.
+- La ressource Organization intègre une nouvelle notion permettant de contaître l'origine des données (trial-user).
 
   
 
@@ -52,3 +52,58 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 - Next url non fontionel avec un filtre sur une organisation (https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/59)
 
 - Address.city [#26](https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/26)
+
+
+### Upgrade steps (Etapes de mise à niveau)
+
+En général, le passage de la version 1.22 à 1.26 est transparent pour l’utilisateur final et ne nécessite pas d’intervention de sa part.
+Il y a toutefois quelques points de vigilance à prendre en considération lorsque vous êtes sur une synchronisation delta ou vous utilisez les urls canoniques des profils. Faisons le point !
+
+- Suite à la refonte du moteur d'intégration des données dans notre API, il se peut que certains identifiants techniques soient changés. 
+C'est pourqoui, nous vous recommandations de resynchroniser vos données à partir de zéro (from scratch).
+
+- Aussi, les urls canoninques des profils passent de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/{{profile-id}}" à "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/{{profile_id}}".
+Conséquence : une mise à niveau est nécessaire si vous utilisez les urls dans vos implémentations.
+
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-practitioner" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner"
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-device" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device"
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-practitionerrole" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-PractitionerRole"
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-organization" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Organization"
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-healthcare-activity" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-HealthCareActivity"
+  - "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-social-equipment" au lieu de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-HealthcareService-SocialEquipment"
+
+- Encore, la ressource organization intègre une nouvelle extension :
+
+```xml
+{
+    "resourceType": "Bundle",
+...
+			"extension": [
+				{
+					"url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-data-trace",
+					"extension": [
+						{
+							"url": "autorite-enregistrement",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "1.2.250.1.213.1.6.1.57",
+										"code": "CNOP"
+									}
+								]
+							}
+						},
+						{
+							"url": "systeme-information",
+							"valueCode": "FINESS"
+						}
+					]
+				}
+			],     
+...
+
+
+} 
+
+
+``` 
