@@ -88,6 +88,33 @@ Voici des exemples de requêtes sur les équipements matériels lourds.
 
 **Exemples de requêtes :**
 
+```sh
+GET [base]/Device
+GET [base]/Device?_include=Device:organization #inclure les Organization qui sont référencées par les Device (Device + Organization)
+GET [base]/Device?_include=* #inclure toutes les ressources qui sont référencées par les Device 
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
+  Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
+  Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
+
+
+```
+
+<br />
+
+**Exemples de code :**
+
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -140,28 +167,36 @@ foreach (var be in bundle.Entry)
 
 <br />
 
-**Exemple de réponse (simplifiée) :**
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
-  Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
-  Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
-
-
-```
-
-<br />
-
-
 
 #### <a id="32-header"></a>3.2) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
 
 **Exemples de requêtes :**
+
+```sh
+GET [base]/Device?_lastUpdated=ge2022-08-07 #Les Device ayant été mis à jour depuis le 07/08/2022 inclus
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
+  Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
+  Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
+
+
+```
+
+<br />
+
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -227,27 +262,35 @@ foreach (var be in bundle.Entry)
 
 <br />
 
-**Exemple de réponse (simplifiée) :**
+
+#### <a id="33-header"></a>3.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
+
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
+
+**Exemples de requêtes :**
+
+```sh
+GET [base]/Device?number-authorization-arhgos=93-93-67204 #Les device ayant le numéro ARHGOS = 93-93-67204
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
 
 ```xml
 HTTP 200 OK
   resourceType: Bundle
   type: searchset
-  Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
-  Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
-  Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
+  total: 1
+    Device found: id=002-3122046 type=05602
 
 
 ```
-
 <br />
 
+**Exemples de code :**
 
-#### <a id="33-header"></a>3.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
-
--   **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
-
--   **Exemples de requêtes** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -311,21 +354,6 @@ foreach (var be in bundle.Entry)
 
 <br />
 
-**Exemple de réponse (simplifiée) :**
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Device found: id=002-3122046 type=05602
-
-
-```
-
-<br />
-
-
 
 #### <a id="34-header"></a>3.4) Rechercher par type EML (type)
 
@@ -336,6 +364,30 @@ HTTP 200 OK
 Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R272-EquipementMaterielLourd](https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd) des NOS.
 
 **Exemples de requêtes :**
+
+```sh
+GET [base]/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602 #Critère de recherche sur le type EML
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  Device found: id=002-3405555 | type=05602
+  Device found: id=002-3405559 | type=05602
+  Device found: id=002-3405562 | type=05602
+
+  
+```
+
+<br />
+
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -397,20 +449,6 @@ foreach (var be in bundle.Entry)
 </div>
 
 </div>
-<br />
-
-**Exemple de réponse (simplifiée) :**
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=002-3405555 | type=05602
-  Device found: id=002-3405559 | type=05602
-  Device found: id=002-3405562 | type=05602
-
-  
-```
 
 <br />
 
@@ -420,6 +458,29 @@ HTTP 200 OK
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
 
 **Exemples de requêtes :**
+
+```sh
+GET [base]/Device?v1/identifier=32-31-1156%2C93-93-4364 #Critère de recherche sur l'identifiant
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+  total: 1
+    Device found: id=32-31-1156
+
+  
+```
+
+<br />
+  
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -481,26 +542,35 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-**Exemple de réponse (simplifiée) :**
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Device found: id=32-31-1156
-
-  
-```
-
-<br />
-
-
 #### <a id="36-header"></a>3.6) Rechercher par statut (status)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les EML actifs.
 
 **Exemples de requêtes :**
+
+```sh
+GET [base]/Device?status=active #actif
+GET [base]/Device?status=inactive #inactif
+
+
+```
+<br />
+
+**Réponse (simplifiée) :** 
+
+```xml
+HTTP 200 OK
+  resourceType: Bundle
+  type: searchset
+    Device found: id=device-147 | status=Active
+    Device found: id=device-389 | status=Active
+    Device found: id=device-146 | status=Active
+
+
+```
+<br />
+
+**Exemples de code :**
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
@@ -562,18 +632,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-**Exemple de réponse (simplifiée) :**
 
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=device-147 | status=Active
-  Device found: id=device-389 | status=Active
-  Device found: id=device-146 | status=Active
-
-
-```
 
 &nbsp;
 
