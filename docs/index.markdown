@@ -63,6 +63,7 @@ IRIS-DP est un serveur FHIR, exposant une API RESTfull basée sur la spécificat
 * Mettre en œuvre des mécanismes de synchronisation avec un annuaire local,
 * Récupérer l'identifiant national pour gérer les accès au système d'information,
 * Utiliser les identifiants nationaux pour alimenter les métadonnées d’un document structuré.
+* Vérifier les numéros RPPS dans les documents [#CDA](https://github.com/ansforge/TestContenuCDA)
 </div>
 
 
