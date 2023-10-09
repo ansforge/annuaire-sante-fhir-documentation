@@ -6,7 +6,7 @@ subTitle: Ressources
 
 ## Différents modes de stockage
 
-Cette section vise à donner des pistes sur le stockage des données de l'api. Il s'agit de guides non exhaustifs donnés à titre d'exemple. 
+Cette section vise à donner des pistes sur le stockage des données de l'API. Il s'agit de guides non exhaustifs donnés à titre d'exemple. 
 Beaucoup d'autres techniques existent.
 
 ### Fhir to Fhir
@@ -18,17 +18,17 @@ Il est aussi tout à fait possible d'utiliser un serveur FHIR du marché.
 
 C'est un bon choix si vous souhaitez avoir un référentiel "on premise" rapidement.  
 
-Avantages: 
+**Avantages :** 
 
 <div class="wysiwyg" markdown="1">
 * Relativement rapide/simple à mettre en place
   * Le schéma existe déjà
   * Vous n'avez pas de traitement particulier pour stocker la donnée
 * Performances 
-  * Pas de relations a gérer
+  * Pas de relations à gérer
 </div>
 
-Inconvénients:
+**Inconvénients :**
 
 <div class="wysiwyg" markdown="1">
 * Contrôle d'intégrité 
@@ -53,7 +53,7 @@ Représenter le format FHIR en un schéma relationnel est complexe et va entrain
 
 NOTE | Certaines implémentations sont basées sur le pattern [EAV](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model) dont nous ne parlerons pas ici. 
 
-Imaginons par exemple que vous ne souhaitiez récupérer que les id rpps des Practitioner ainsi que leurs qualifications, vous pourriez avoir un schéma de type: 
+Imaginons par exemple que vous ne souhaitiez récupérer que les id RPPS des Practitioner ainsi que leurs qualifications, vous pourriez avoir un schéma de type: 
 
 ![](simple-practitioner-specialty.png)
 
