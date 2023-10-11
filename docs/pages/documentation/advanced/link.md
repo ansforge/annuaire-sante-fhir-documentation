@@ -4,11 +4,21 @@ title: Liaison entre plusieurs ressources
 subTitle: Ressources
 ---
 
+#### Dans cette page
+
+<div class="wysiwyg" markdown="1">
+- [Trouver l'Organization et le Practitioner d'un PractitionerRole](#one-header)
+- [Trouver le nom/prénom d'exercice, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS](#link-head-3)
+- [Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice](#link-head-5)
+- [Trouver l'ensemble des EG d'un EJ](#link-head-4)
+</div>
+<br />
+
 Voici des exemples de requêtes permettant de récupérer plusieurs ressources liées en un seul appel.
 Il est par exemple possible de récupérer les ressources "HealthcareServices" liées à une ressource "PractitionerRole".
 
 
-### Trouver l'Organization et le Practitioner d'un PractitionerRole
+## <a id="one-header"></a>1) Trouver l'Organization et le Practitioner d'un PractitionerRole
 Le but ici étant de récupérer les ressources "Organization" et "Practitioner" liées à un PractitionerRole.
 
 Pour cela, nous devons utiliser l'inclusion **_include**.
@@ -109,7 +119,7 @@ foreach($practitionerRoles->getEntry() as $entry){
 </div>
 <br />
 
-###  <a id="link-head-3"></a> Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+##  <a id="link-head-3"></a>2) Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
 1) Le nom, le prénom, la civilité et les adresses MSS sont récupérables en une seule requête qui retournera plusieurs objets. 
 
 D'une part, le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
@@ -161,11 +171,11 @@ Le résultat retourné est un Bundle contenant l'Organization.
 </div>
 <br />
 
-###  <a id="link-head-5"></a> Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom et son prénom d'exercice
+##  <a id="link-head-5"></a>3) Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice
 
 L'ensemble des informations sont récupérables en une seule requête qui retournera plusieurs objets. 
 
-1) D'une part, pour récupérer les activités, il faut interroger l'endpoint PractitionerRole en filtrant sur le nom d'exercice et le prénom d'exercice du Practitioner. 
+**D'une part**, pour récupérer les activités, il faut interroger l'endpoint PractitionerRole en filtrant sur le nom d'exercice et le prénom d'exercice du Practitioner. 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -181,7 +191,7 @@ Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole (
 
 Les PR retournés contiendront différentes informations comme le nom, le prénom, la civilité d'exerce, la profession, la catégorie professionnelle, le mode d'exercice, la fonction, la carte CPX, le lien vers le professionnel (Practitioner) et le lien vers la structure d'exercice (Organization).
 
-```bash
+```json
 PractitionerRole/005-324864	
 PractitionerRole/005-200354-226359	
 PractitionerRole/005-231819	
@@ -197,7 +207,7 @@ PractitionerRole/005-296896
 </div>
 <br />
 
-2) D'autre part, il est possible de récupéer les Practitioner (professionnels) au même temps que les PractitionerRole (activités) précédemment récupérés 1).
+**D'autre part**, il est possible de récupéer les Practitioner (professionnels) au même temps que les PractitionerRole (activités) précédemment récupérés 1).
 
 Pour ce faire, il faut utiliser le paramètre '_include' comme suit :
 
@@ -216,7 +226,7 @@ Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole e
 
 Les Practitioner retournés contienderont les données relatives au professionel à savoir : le numéro RPPS ou ADELI, la civilité, les diplômes et les BAL MSS. 
 
-```bash
+```json
 Les PractitionerRole :
 
 PractitionerRole/005-324864	
@@ -242,7 +252,7 @@ Practitioner/003-351933
 </div>
 <br />
 
-3) Par ailleurs, il est également possible de récupéer les Organization (structures d'exercice) au même temps que les PractitionerRole (activités) et les Practitioner (professionnels) précédemment récupérés 2).
+**Par ailleurs**, il est également possible de récupéer les Organization (structures d'exercice) au même temps que les PractitionerRole (activités) et les Practitioner (professionnels) précédemment récupérés 2).
 
 Pour ce faire, il faut réutiliser le paramètre **_include** comme suit :
 
@@ -261,7 +271,7 @@ Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole ,
 
 Les Organization retournées contienderont les données relatives à la structure comme : le numéro FINESS/SIRET/SIREN, la raison sociale, l'adresse de coresspondance, les adresses mails, le secteur d'activité, la catégorie juridque, ...
 
-```bash
+```json
 Les PractitionerRole :
 
 PractitionerRole/005-324864	
@@ -280,15 +290,18 @@ Practitioner/003-351933
 Les Organization :
 
 Organization/001-01-237805
+
+
 ```
 <br />
+
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données relatives à la première Organization du bundle
   <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_7.png' alt='' max-width=670px>
 </div>
 <br />
 
-###  <a id="link-head-4"></a> Trouver l'ensemble des EG d'un EJ
+##  <a id="link-head-4"></a>4) Trouver l'ensemble des EG d'un EJ
 Le but ici est de remonter l'entité juridique (Ressource Organization) ainsi que les entités géographiques qui lui sont rattachées (Ressource Organization)
 en partant de l'identifiant EJ.
 

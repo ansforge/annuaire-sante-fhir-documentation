@@ -4,12 +4,19 @@ title: Stockage
 subTitle: Ressources
 ---
 
-## Différents modes de stockage
+#### Dans cette page
+
+<div class="wysiwyg" markdown="1">
+- [Stockage Fhir to Fhir](#one-header)
+- [Stockage Fhir to Sql](#two-header)
+- [Stockage hybride](#three-header)
+</div>
+<br />
 
 Cette section vise à donner des pistes sur le stockage des données de l'API. Il s'agit de guides non exhaustifs donnés à titre d'exemple. 
 Beaucoup d'autres techniques existent.
 
-### Fhir to Fhir
+## <a id="one-header"></a>1) Fhir to Fhir
 
 Dans le mode de stockage Fhir to Fhir, vous stockez la donnée telle que vous la recevez au format FHIR. 
 
@@ -39,7 +46,7 @@ C'est un bon choix si vous souhaitez avoir un référentiel "on premise" rapidem
 
 &nbsp;
 
-### Fhir to Sql
+## <a id="two-header"></a>2) Fhir to Sql
 
 Dans le mode de stockage Fhir to Sql, vous allez convertir les données fhir en un schéma relationnel. 
 
@@ -71,10 +78,9 @@ Imaginons par exemple que vous ne souhaitiez récupérer que les id RPPS des Pra
 ,[TRE-R47](https://mos.esante.gouv.fr/NOS/TRE_R47-CommissionQualification/FHIR/TRE-R47-CommissionQualification)
 ,[TRE-R226](https://mos.esante.gouv.fr/NOS/TRE_R226-Dip2iemeCycleNQ/FHIR/TRE-R226-Dip2iemeCycleNQ)
 
-### Hybride
+## <a id="three-header"></a>2) Hybride
 
-Il est tout à fait possible de stocker les données dans un format mixte : Sql + Fhir brute. Par exemple, vous pouvez stocker quelques données 
-utiles pour votre système dans une base de données relationnelle (intégrité, indexes...) et avoir une colonne spécifique qui stock les données Fhir au format JSON/XML. 
+Il est tout à fait possible de stocker les données dans un format mixte : Sql + Fhir brute. Par exemple, vous pouvez stocker quelques données utiles pour votre système dans une base de données relationnelle (intégrité, indexes...) et avoir une colonne spécifique qui stocke les données Fhir au format JSON/XML. 
 
 
 
