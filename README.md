@@ -7,18 +7,21 @@ API Annuaire Santé, le nouveau service permettant au grand public de consulter 
 
 ## A propos des endpoints de l'API
 Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
-> - [Practitioner](https://www.hl7.org/fhir/practitioner.html) : https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner
-> - [PractitionerRole](https://hl7.org/fhir/practitionerrole.html) : https://gateway.api.esante.gouv.fr/fhir/v1/PractitionerRole
-> - [Organization](https://hl7.org/fhir/organization.html) : https://gateway.api.esante.gouv.fr/fhir/v1/Organization
-> - [Healthcareservice](https://hl7.org/fhir/Healthcareservice.html) : https://gateway.api.esante.gouv.fr/fhir/v1/HealthcareService
-> - [Device](https://hl7.org/fhir/device.html) : https://gateway.api.esante.gouv.fr/fhir/v1/Device 
-> - [CapabilityStatement](https://www.hl7.org/fhir/capabilitystatement.html) :  https://gateway.api.esante.gouv.fr/fhir/v1/metadata
+> - Practitioner : https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner
+> - PractitionerRole : https://gateway.api.esante.gouv.fr/fhir/v1/PractitionerRole
+> - Organization : https://gateway.api.esante.gouv.fr/fhir/v1/Organization
+> - Healthcareservice : https://gateway.api.esante.gouv.fr/fhir/v1/HealthcareService
+> - Device : https://gateway.api.esante.gouv.fr/fhir/v1/Device 
+> - CapabilityStatement :  https://gateway.api.esante.gouv.fr/fhir/v1/metadata
 > - Healthcheck : https://gateway.api.esante.gouv.fr/fhir/v1/health
 
 ## Modèle de données FHIR
 Le projet utilise le standard FHIR sur la version R4.
+
 FHIR (Fast Healthcare Interoperability Resources) est une norme d'échange de données de santé, publiée par HL7.
+
 Cette norme nous aide à être interopérables et à proposer des modèles de données de santé approuvés à l’échelle mondiale.
+
 Le modèle est disponible ici : https://interop.esante.gouv.fr/ig/fhir/annuaire
 
 ## Documentation et Wiki
@@ -26,7 +29,7 @@ Le modèle est disponible ici : https://interop.esante.gouv.fr/ig/fhir/annuaire
 * Démonstration : https://portail.openfhir.annuaire.sante.fr/
 * Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
 * Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur/
-* IG [(Implementation Guide)](https://build.fhir.org/implementationguide.html): https://interop.esante.gouv.fr/ig/fhir/annuaire
+* IG : https://interop.esante.gouv.fr/ig/fhir/annuaire
 * API statuts : https://status.annuaire-sante.esante.gouv.fr/
 
 ## CI/CD
