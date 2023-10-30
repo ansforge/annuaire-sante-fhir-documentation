@@ -62,7 +62,7 @@ NOTE | Certaines implémentations sont basées sur le pattern [EAV](https://en.w
 
 Imaginons par exemple que vous ne souhaitiez récupérer que les id RPPS des Practitioner ainsi que leurs qualifications, vous pourriez avoir un schéma de type: 
 
-![](simple-practitioner-specialty.png)
+![](img/simple-practitioner-specialty.png)
 
 (*) Référentiels pour les Quanlifications : [TRE-R14](https://mos.esante.gouv.fr/NOS/TRE_R14-TypeDiplome/FHIR/TRE-R14-TypeDiplome), [TRE-R48](https://mos.esante.gouv.fr/NOS/TRE_R48-DiplomeEtatFrancais/FHIR/TRE-R48-DiplomeEtatFrancais),[TRE-R49](https://mos.esante.gouv.fr/NOS/TRE_R49-DiplomeEtudeSpecialisee/FHIR/TRE-R49-DiplomeEtudeSpecialisee),
 ,[TRE-R50](https://mos.esante.gouv.fr/NOS/TRE_R50-DESCGroupe1Diplome/FHIR/TRE-R50-DESCGroupe1Diplome)
