@@ -21,7 +21,6 @@ Ici, vous allez trouver la documentation complète permettant de faciliter l'uti
 ## Présentation
 
 l'API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. 
-
 Une API RESTfull  basée sur la spécification HL7 FHIR, qui se veut : 
 <div class="wysiwyg"  markdown="1">
 - Simple d'utilisation
@@ -29,7 +28,7 @@ Une API RESTfull  basée sur la spécification HL7 FHIR, qui se veut :
 - Toujours à jour
 - Compatible FHIR
 </div>
-
+<br />
 
 ## A qui sert l'API ?
 
