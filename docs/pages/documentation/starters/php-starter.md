@@ -1,6 +1,6 @@
 ---
 layout: documentation
-title: Mettre en place un projet PHP
+title: Utilisation de PHP
 ---
 
 Ce guide décrit comment intégrer l'API à un projet PHP.
@@ -9,7 +9,7 @@ Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({
 
 NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dcarbone/php-fhir pour FHIR et Guzzle pour le REST. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
-## Dépendances composer
+### Dépendances composer
 
 dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être utilisé par exemple pour la complétion. 
 
@@ -29,7 +29,7 @@ dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être u
 </div>
 
 
-## Configuration du client HTTP FHIR avec Guzzle
+### Configuration du client HTTP FHIR avec Guzzle
 
 Les requêtes sont des requêtes REST auxquelles nous précisons un header https. 
 

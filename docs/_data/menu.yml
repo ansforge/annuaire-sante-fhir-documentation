@@ -18,22 +18,22 @@ header:
       - page: Guides de prise en main
         url: /pages/documentation/starters/postman-starter.html
         subfolderitems:
-          - page: Postman
+          - page: Utilisation de Postman
             url: /pages/documentation/starters/postman-starter.html
             title: Utilisation de Postman
-            next-url: pages/documentation/starters/java-starter.html
+            next-url: /pages/documentation/starters/java-starter.html
             next-title: Documentation >> Guides de prise en main >> Utilisation de Java
-          - page: Java
+          - page: Utilisation de Java
             url: /pages/documentation/starters/java-starter.html
             title: Utilisation de Java
             next-url: /pages/documentation/starters/php-starter.html
             next-title: Documentation >> Guides de prise en main >> Utilisation de PHP
-          - page: PHP
+          - page: Utilisation de PHP
             url: /pages/documentation/starters/php-starter.html
             title: Utilisation de PHP
             next-url: /pages/documentation/starters/dotnet-starter.html
             next-title: Documentation >> Guides de prise en main >> Utilisation de C#
-          - page: C#
+          - page: Utilisation de C#
             url: /pages/documentation/starters/dotnet-starter.html
             title: Utilisation de C#
             next-url: /pages/documentation/resources/search-params.html
@@ -89,25 +89,25 @@ header:
       - page: Synchronisation complète
         url: /pages/use-cases/full/index
         title: Synchronisation complète
-        next-url: /pages/use-cases/practitioner-detail/index
+        next-url: /pages/use-cases/practitioner-detail/index.html
         next-title: Cas d'utilisation >> Appels unitaires autour du professionnel (PP)
       - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/use-cases/practitioner-detail/index
+        url: /pages/use-cases/practitioner-detail/index.html
         title: Appels unitaires autour du professionnel de santé 
-        next-url: /pages/use-cases/organization-detail/index
+        next-url: /pages/use-cases/organization-detail/index.htmil
         next-title: Cas d'utilisation >> Appels unitaires autour de la structure (PM)
       - page: Appels unitaires autour de la structure (PM)
-        url: /pages/use-cases/organization-detail/index
+        url: /pages/use-cases/organization-detail/index.html
         title: Appels unitaires autour de la structure
-        next-url: /pages/use-cases/segur/index
+        next-url: /pages/use-cases/segur/index.html
         next-title: Cas d'utilisation >> Couloirs du Ségur du Numérique en Santé
       - page: Couloirs du Ségur du Numérique en Santé
-        url: /pages/use-cases/segur/index
+        url: /pages/use-cases/segur/index.html
         title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
-        next-url: /pages/use-cases/bal-mss/index
+        next-url: /pages/use-cases/bal-mss/index.html
         next-title: Cas d'utilisation >> Boîtes au lettres MSSanté
       - page: BAL MSSanté
-        url: /pages/use-cases/bal-mss/index
+        url: /pages/use-cases/bal-mss/index.html
         title: Extraction des boîtes aux lettres MSSanté   
         next-url: https://portail.openfhir.annuaire.sante.fr
         next-title: Démonstrateur API
