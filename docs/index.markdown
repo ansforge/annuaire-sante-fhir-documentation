@@ -20,9 +20,16 @@ Ici, vous allez trouver la documentation complète permettant de faciliter l'uti
 
 ## Présentation
 
-l'API Annuaire auire Santé permet au grand public de consulter et extraire les données en libre accès de l’Annuaire Santé. une API RESTfull basée sur la spécification HL7 FHIR. Il implémente les ressources FHIR suivantes :
+l'API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. 
+Une API RESTfull  basée sur la spécification HL7 FHIR, qui se veut : 
+- Simple d'utilisation
+- Rapide  
+- Toujours à jour
+- Compatible FHIR
 
 ## A qui sert l'API ?
+
+En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement de trouver un professionnel de santé ou une structure, filtrer, ordonner et paginer les résulat selons vous souhaits.
 
 ![](./assets/img/home-schema.png)
 
@@ -87,6 +94,6 @@ l'API Annuaire auire Santé permet au grand public de consulter et extraire les 
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#view-projection' | relative_url }}"></use></svg><br/>
         <span  class="doc-section-title"><a href="https://interop.esante.gouv.fr/ig/fhir/annuaire/" target="_blank">IG (Implementation Guide): </a></span>
-        Découvrez le modèle FHIR de l'Annauire Santé au travers du guide d'implémentation.
+        Découvrez le modèle FHIR de l'Annuaire Santé au travers du guide d'implémentation.
     </div>
 </div>

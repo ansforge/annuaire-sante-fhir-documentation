@@ -3,12 +3,12 @@ header:
     url: /
   - title: Commencer 
     subfolderitems:
-      - page: quick-start
+      - page: Démarrage rapide
         url: /pages/quick-start/readme
         title: Démarrage rapide
         next-url: /pages/documentation/starters/api-basics.html
         next-title: Commencer >> Bases de l'API
-      - page: api-basics
+      - page: Bases de l'API
         url: /pages/documentation/starters/api-basics.html
         title: Bases de l'API
         next-url: /pages/documentation/starters/postman-starter.html
