@@ -76,7 +76,7 @@ Le bundle encapsule 0 à n ressources Location corespondant aux critères de rec
 Le service développé renvoie les 200 premiers résultats et indique le total trouvé dans une balise `total`. Dans le cas où il n'y a pas de résultat le service renvoie `total`: 0.
 </div>
 <br />
-Remarque : la recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n correspondances.
+NOTE| La recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n correspondances.
 Plus de précision sur la spécification FHIR : https://www.hl7.org/fhir/R4/http.html
 
 #### Réponse de base -- Echec
@@ -90,7 +90,7 @@ Si la recherche échoue, le serveur doit répondre :
 </div>
 <br />
 
-Remarque : l'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
+NOTE| L'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
 Plus de précision sur la spécification FHIR : <https://www.hl7.org/fhir/R4/http.html>
 
 ### Paramètres d’entrée
@@ -102,7 +102,7 @@ Les paramètres et critères de recherche de l'API sont standard FHIR  :
 -	Paramètres créés pour les recherches sur les champs inclus dans des extensions et autres : https://www.hl7.org/fhir/searchparameter.html
 </div>
 <br />
-Pour plus de détails sur les paramètres d’entrées de l'API, se référer au CapabilityStatement : [api-url]/metadata
+NOTE| Pour plus de détails sur les paramètres d’entrées de l'API, se référer au CapabilityStatement : [api-url]/metadata
 
 ### Paramètres et modificateurs de requêtes FHIR
 

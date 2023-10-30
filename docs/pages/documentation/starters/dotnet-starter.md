@@ -1,6 +1,6 @@
 ---
 layout: documentation
-title: Mettre en place un projet .Net Core
+title: Utilisation de C#
 ---
 
 Ce guide décrit comment intégrer l'API à un projet .Net Core.
@@ -10,7 +10,7 @@ Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({
 NOTE| Dans nos différents exemples, nous utilisons maven et la librairie développée par Firely Hl7.Fhir.R4. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
 
-## Dépendance
+### Dépendance
 
 Ajoutez la dépendance Hl7.Fhir.R4 à votre projet. Nous choisirons la version R4 car l'api proposée est basée sur FHIR R4.
 
@@ -21,7 +21,7 @@ dotnet add package Hl7.Fhir.R4 --version 4.3.0
 
 &nbsp;
 
-## Configuration du client HTTP FHIR avec HAPI
+### Configuration du client HTTP FHIR avec HAPI
 
 Par rapport à l'utilisation de base du client Fhir, nous spécifions un HttpClientHandler afin d'ajouter l'API Key d'authentification. 
 
