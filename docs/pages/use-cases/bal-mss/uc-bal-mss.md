@@ -63,7 +63,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width=670px>
+  <img src='img/postman_irisdp_bal_mss_org_centre_de_sante.png' alt='' max-width=670px>
   </div>
 </div>
  
@@ -115,8 +115,8 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 {% endhighlight %}
  </div>
 <div class="tab-content" data-name="postman">
-  <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_1.png' alt='' max-width=670px>
-  <img src='postman_irisdp_bal_mss_per_centre_de_sante_requete_2.png' alt='' max-width=670px>
+  <img src='img/postman_irisdp_bal_mss_per_centre_de_sante_requete_1.png' alt='' max-width=670px>
+  <img src='img/postman_irisdp_bal_mss_per_centre_de_sante_requete_2.png' alt='' max-width=670px>
 </div>
 </div>
 <br />
@@ -249,7 +249,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/O
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='postman_irisdp_bal_mss_org_ephad.png' alt='' max-width=670px>
+  <img src='img/postman_irisdp_bal_mss_org_ephad.png' alt='' max-width=670px>
   </div>
 </div>
 

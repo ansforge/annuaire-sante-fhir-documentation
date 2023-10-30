@@ -4,12 +4,12 @@ header:
   - title: Commencer 
     subfolderitems:
       - page: Démarrage rapide
-        url: /pages/quick-start/readme
+        url: /pages/quick-start/quick-start.html
         title: Démarrage rapide
-        next-url: /pages/documentation/starters/api-basics.html
+        next-url: /pages/quick-start/api-basics.html
         next-title: Commencer >> Bases de l'API
       - page: Bases de l'API
-        url: /pages/documentation/starters/api-basics.html
+        url: /pages/quick-start/api-basics.html
         title: Bases de l'API
         next-url: /pages/documentation/starters/postman-starter.html
         next-title: Documentation >> Guides de prise en main >> Utilisation de Postman
@@ -82,32 +82,32 @@ header:
           - page: Stockage
             url: /pages/documentation/advanced/storage.html
             title: Stockage
-            next-url: /pages/use-cases/full/index
+            next-url: /pages/use-cases/full/uc-full.html
             next-title: Cas d'utilisation >> Synchronisation complète
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
-        url: /pages/use-cases/full/index
+        url: /pages/use-cases/full/uc-full.html
         title: Synchronisation complète
-        next-url: /pages/use-cases/practitioner-detail/index.html
+        next-url: /pages/use-cases/practitioner-detail/uc-practitioner.html
         next-title: Cas d'utilisation >> Appels unitaires autour du professionnel (PP)
       - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/use-cases/practitioner-detail/index.html
+        url: /pages/use-cases/practitioner-detail/uc-practitioner.html
         title: Appels unitaires autour du professionnel de santé 
-        next-url: /pages/use-cases/organization-detail/index.htmil
+        next-url: /pages/use-cases/organization-detail/uc-organization.htmil
         next-title: Cas d'utilisation >> Appels unitaires autour de la structure (PM)
       - page: Appels unitaires autour de la structure (PM)
-        url: /pages/use-cases/organization-detail/index.html
+        url: /pages/use-cases/organization-detail/uc-organization.html
         title: Appels unitaires autour de la structure
-        next-url: /pages/use-cases/segur/index.html
+        next-url: /pages/use-cases/segur/uc-segur.html
         next-title: Cas d'utilisation >> Couloirs du Ségur du Numérique en Santé
       - page: Couloirs du Ségur du Numérique en Santé
-        url: /pages/use-cases/segur/index.html
+        url: /pages/use-cases/segur/uc-segur.html
         title: Extraction des acteurs des couloirs du Ségur du Numérique en Santé
-        next-url: /pages/use-cases/bal-mss/index.html
+        next-url: /pages/use-cases/bal-mss/uc-bal-mss.html
         next-title: Cas d'utilisation >> Boîtes au lettres MSSanté
       - page: BAL MSSanté
-        url: /pages/use-cases/bal-mss/index.html
+        url: /pages/use-cases/bal-mss/uc-bal-mss.html
         title: Extraction des boîtes aux lettres MSSanté   
         next-url: https://portail.openfhir.annuaire.sante.fr
         next-title: Démonstrateur API
