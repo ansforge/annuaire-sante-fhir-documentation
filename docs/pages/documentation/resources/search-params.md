@@ -20,6 +20,8 @@ subTitle: Ressources
 - [Paramètres des résultats](#eight-header)
   - [Paramètre _count](#81-header)
   - [Paramètre _total](#82-header)
+  - [Paramètre _include](#83-header)
+  - [Paramètre _revinclude](#84-header)
 
 </div>
 <br />
@@ -685,6 +687,29 @@ Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas affic
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
+
+#### <a id="83-header"></a>8.2) Paramètre ["include"](https://www.hl7.org/fhir/search.html#_include) 
+
+Le paramètre **_include** permet d’afficher dans le résultat les ressources mères liées à la ressource fille. La/Les ressource(s) mère(s) es/sont récupérée(s) à partir de la ressource fille. 
+
+
+**Exemples:**
+
+`GET [base]/PractitionerRole&?_include=PractitionerRole:organization`
+
+Cette requête par exemple remonte les PractitionerRole ainsi que les Oganization auxquelles ils sont rattachés.
+ 
+
+#### <a id="84-header"></a>8.2) Paramètre ["revinclude"](https://www.hl7.org/fhir/search.html#_revinclude) 
+
+Le paramètre **_revinclude** permet d’afficher dans le résultat les ressources filles liées à la ressource mère. La/Les ressource(s) filles est/sont récupérée(s) à partir de la ressource mère. 
+
+
+**Exemples:**
+
+`GET [base]/Organization&?_revinclude=Organization:partof`
+
+Cette requête par exemple remonte les Entités Géographiques (EG) et les Entités Juridiques (EJ) de rattachement.
 
 &nbsp;
 

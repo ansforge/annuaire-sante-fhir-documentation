@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Fiche de la structure"
+title: "Fiche de structure"
 subTitle: Cas d'utilisation
 ---
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
@@ -49,7 +49,8 @@ Pour ce faire, nous allons effectuer une recherche sur la ressource Organization
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=010780914&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+  "{{site.ans.api_url}}/fhir/v1/Organization?identifier=010780914&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -109,7 +110,8 @@ Nous faisons donc une requête sur la ressource PractitionerRole en précisant d
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+  "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -149,7 +151,8 @@ Cela se fait par le biais du paramètre **_include** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_include=PractitionerRole:practitioner&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+  "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_include=PractitionerRole:practitioner&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -208,8 +211,9 @@ Imaginons que vous cherchiez les fiches de 2 structures avec pour leurs identifi
 
 Dans ce cas la première requête sera : 
 
-```bash 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=060016219,030782866&_pretty=true&_format=json"
+```json 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+  "{{site.ans.api_url}}/fhir/v1/Organization?identifier=060016219,030782866&_pretty=true&_format=json"
 
 
 ```
@@ -222,8 +226,9 @@ La liste retournée contiendra plusieurs Organization si les identifiants FINESS
 Ensuite, vous pourrez là encore effectuer une unique requête pour aller chercher les ressources associées: 
 
 
-```bash 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-1102727,001-01-1267408&_pretty=true&_format=json"
+```json 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+  "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-1102727,001-01-1267408&_pretty=true&_format=json"
 
 
 ```
