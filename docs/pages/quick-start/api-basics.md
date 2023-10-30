@@ -76,6 +76,7 @@ Le bundle encapsule 0 à n ressources Location corespondant aux critères de rec
 Le service développé renvoie les 200 premiers résultats et indique le total trouvé dans une balise `total`. Dans le cas où il n'y a pas de résultat le service renvoie `total`: 0.
 </div>
 <br />
+
 NOTE| La recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n correspondances.
 Plus de précision sur la spécification FHIR : https://www.hl7.org/fhir/R4/http.html
 
@@ -131,4 +132,3 @@ De manière générale, la ressource n'est plus publiée dans l'API à partir du
 - active=false pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=false)
 - status=false pour Device (exemple : [api-url]/Device?status=inactive)
 </div>
-<br />

@@ -132,7 +132,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_1.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_practitioner_revinclude_pr_1.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -140,11 +140,11 @@ Le résultat retourné est un Bundle contenant le Practitioner et le Practitione
 <br/>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données : identifier, prefix et mailbox
-  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_2.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_practitioner_revinclude_pr_2.png' alt='' max-width=670px>
 </div>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données : family , given name et reference:Oganization 
-  <img src='focus_postman_irisdp_trouver_practitioner_revinclude_pr_3.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_practitioner_revinclude_pr_3.png' alt='' max-width=670px>
 </div>
 <br />
 
@@ -159,7 +159,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Orga
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_organization_pr_1.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_organization_pr_1.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -167,7 +167,7 @@ Le résultat retourné est un Bundle contenant l'Organization.
 <br/>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant : l'adresse postale 
-  <img src='focus_postman_irisdp_trouver_organization_pr_2.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_organization_pr_2.png' alt='' max-width=670px>
 </div>
 <br />
 
@@ -183,7 +183,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_2.png' alt='' max-width=670px>
 </div>
 </div>
 <br />
@@ -203,7 +203,7 @@ PractitionerRole/005-296896
 
 <div class="wysiwyg" markdown="1">
  - Schéma montrant les données : total, nom et prénom du premier PR du bundle
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_3.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_3.png' alt='' max-width=670px>
 </div>
 <br />
 
@@ -218,7 +218,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_4.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_4.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -248,7 +248,7 @@ Practitioner/003-351933
 
 <div class="wysiwyg" markdown="1">
  - Schéma montrant les données : le numéro RPPS, la BAL MSS du premier Practitioner du Bundle
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_5.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_5.png' alt='' max-width=670px>
 </div>
 <br />
 
@@ -263,7 +263,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_6.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_6.png' alt='' max-width=670px>
 </div>
 </div>
 <br/>
@@ -297,7 +297,7 @@ Organization/001-01-237805
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les données relatives à la première Organization du bundle
-  <img src='focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_7.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_pr_practitioner_organization_nom_prenom_7.png' alt='' max-width=670px>
 </div>
 <br />
 
@@ -314,7 +314,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Orga
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
-  <img src='focus_postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_EG_EJ_1.png' alt='' max-width=670px>
 </div>
 </div>
 <br />
@@ -322,9 +322,9 @@ Le résultat retourné est un Bundle contenant l'EJ et les EG rattachées.
 <br/>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant l'EJ (identifier:010000347) : 
-  <img src='focus_postman_irisdp_trouver_EG_EJ_2.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_EG_EJ_2.png' alt='' max-width=670px>
 </div>
 <div class="wysiwyg" markdown="1">
  * Schéma montrant l'EG (identifier:010780914) rattachée à l'EJ (identifier:010000347): 
-  <img src='focus_postman_irisdp_trouver_EG_EJ_3.png' alt='' max-width=670px>
+  <img src='img/focus_postman_irisdp_trouver_EG_EJ_3.png' alt='' max-width=670px>
 </div>
