@@ -132,3 +132,42 @@ De manière générale, la ressource n'est plus publiée dans l'API à partir du
 - active=false pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=false)
 - status=false pour Device (exemple : [api-url]/Device?status=inactive)
 </div>
+
+```json
+
+{
+    "resourceType": "Bundle",
+    "id": "835a413a-d78e-4e80-8735-7a9e14b1b4e9",
+    "meta": {
+        "lastUpdated": "2023-11-02T10:02:24.909+00:00"
+    },
+    "type": "searchset",
+    "total": 1,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://gateway.preprod.api.esante.gouv.fr/fhir/v1/Practitioner?_id=003-118475&active=false"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner/003-118475",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "003-118475",
+                "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2023-09-05T08:55:12.763+00:00",
+                    "source": "https://annuaire.sante.fr",
+                    "profile": [
+                        "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Practitioner"
+                    ]
+                },
+                "active": false
+            }
+        }
+    ]
+}
+
+
+```
