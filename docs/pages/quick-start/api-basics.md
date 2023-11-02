@@ -132,6 +132,7 @@ De manière générale, la ressource n'est plus publiée dans l'API à partir du
 - active=false pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=false)
 - status=false pour Device (exemple : [api-url]/Device?status=inactive)
 </div>
+<br />
 
 ```json
 
