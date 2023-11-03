@@ -117,13 +117,9 @@ header:
     subfolderitems:
        - page: Issue sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
-        external: true
       - page: IG FHIR de l'Annuaire Santé
         url: https://interop.esante.gouv.fr/ig/fhir/annuaire
-        external: true
       - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
-        external: true
       - page: Page statut de l'API
-        url: https://status.annuaire-sante.esante.gouv.fr/
-        external: true
+        url: https://status.annuaire-sante.esante.gouv.fr
