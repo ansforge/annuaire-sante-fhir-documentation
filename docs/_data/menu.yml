@@ -110,9 +110,25 @@ header:
         url: /pages/use-cases/bal-mss/uc-bal-mss.html
         title: Extraction des boîtes aux lettres MSSanté   
         next-url: https://portail.openfhir.annuaire.sante.fr
-        next-title: Démonstrateur API
+        next-title: Démonstrateur de l'API
   - title: Démonstrateur API
     url: https://portail.openfhir.annuaire.sante.fr
-  - title: IG FHIR
-    url: https://interop.esante.gouv.fr/ig/fhir/annuaire
-    external: true
+  - title: Autres
+    subfolderitems:
+       - page: Issue sur la documentation
+        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
+        title: Issue sur la documentation
+        external: true
+      - page: IG FHIR de l'Annuaire Santé
+        url: https://interop.esante.gouv.fr/ig/fhir/annuaire
+        title: IG FHIR de l'Annuaire Santé
+        external: true
+      - page: Code source de l'API
+        url: https://github.com/ansforge/annuaire-sante-fhir-serveur
+        title: Code source de l'API
+        external: true
+      - page: Page statut de l'API
+        url: https://status.annuaire-sante.esante.gouv.fr/
+        title: Page statut de l'API
+        external: true
+
