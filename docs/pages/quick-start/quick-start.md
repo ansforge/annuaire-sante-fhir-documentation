@@ -16,9 +16,8 @@ title: Guide de démarrage rapide avec l'API
 
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
-<p align="center">
-  <img width="460" height="300" src="img/workflow-gravitee-souscription-apikey.png">
-</p>
+![accueil.png](img/workflow-gravitee-souscription-apikey.png){:style="max-width:600px"}
+
 
 ## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
