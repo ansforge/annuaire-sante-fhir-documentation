@@ -13,19 +13,15 @@ title: Guide de démarrage rapide avec l'API
 </div>
 <br />
 
-
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
 <p align="center">
   <img src="img/workflow-gravitee-souscription-apikey.png" style="width:100%;">
 </p>
 
-
-
 ## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
 [GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
-
 
 ## <a id="one-header"></a>1) Création d'un compte dans Gravitee
 Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un compte.
@@ -36,11 +32,12 @@ Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un
 </div>
 &nbsp;
 
-![accueil.png](img/apim_creer_compte.png){:style="max-width:600px"}
+<p align="center">
+  <img src="img/apim_creer_compte.png" style="width:100%;">
+</p>
 
 NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si vous n'avez pas d'adresse email, vous devez en créer une.
    
-
 ## <a id="two-header"></a>2) Création d'une application dans Gravitee
 Cette étape concerne les utilisateurs qui n’ont pas encore créé d’application à souscrire à l’API.
 Pour créer une application, vous devez suivre les étapes suivantes :
@@ -50,30 +47,37 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 </div>
 &nbsp;
 
-![accueil.png](img/apim_creer_app.png){:style="max-width:600px"}
+<p align="center">
+  <img src="img/apim_creer_app.png" style="width:100%;">
+</p>
 
 <div class="wysiwyg" markdown="1">
 * Ensuite, remplissez les informations générales requises pour l'application.
 </div>
 &nbsp;
 
-![accueil.png](img/apim_creer_app_1.png){:style="max-width:600px"}
+<p align="center">
+  <img src="img/apim_creer_app_1.png" style="width:100%;">
+</p>
 
 <div class="wysiwyg" markdown="1">
 * Pour souscrire votre application à l’API, vous pouvez rechercher "API Annuaire Santé en libre accès".
 </div>
 &nbsp;
 
-![accueil.png](img/apim_creer_app_2.png){:style="max-width:600px"}
-![accueil.png](img/apim_creer_app_3.png){:style="max-width:600px"}
+<p align="center">
+  <img src="img/apim_creer_app_2.png" style="width:100%;">
+  <img src="img/apim_creer_app_3.png" style="width:100%;">
+</p>
 
 <div class="wysiwyg" markdown="1">
 * Une fois la création de l’application terminée, une clé d'API vous est automatiquement générée. Celle-ci est disponible dans l’onglet "SOUSCRIPTIONS" de votre Application.
 </div>
 &nbsp;
 
-![accueil.png](img/apim_creer_app_4.png){:style="max-width:600px"}
-
+<p align="center">
+  <img src="img/apim_creer_app_4.png" style="width:100%;">
+</p>
 
 ## <a id="three-header"></a>3) Tester l'API
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
