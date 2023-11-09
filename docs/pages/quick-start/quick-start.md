@@ -16,12 +16,16 @@ title: Guide de démarrage rapide avec l'API
 
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
-![workflow](img/workflow-gravitee-souscription-apikey.png{:style="max-width:600px"}
+<center>
+![workflow](img/workflow-gravitee-souscription-apikey.png){:style="max-width:600px"}
+</center>
 
 ## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
-[GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
+<center>
+[GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
+</center>
 
 ## <a id="one-header"></a>1) Création d'un compte dans Gravitee
 Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un compte.
