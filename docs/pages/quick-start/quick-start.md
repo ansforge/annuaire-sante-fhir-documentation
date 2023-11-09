@@ -58,6 +58,7 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 &nbsp;
 <center>
 ![accueil.png](img/apim_creer_app_1.png)
+</center>
 
 <div class="wysiwyg" markdown="1">
 * Pour souscrire votre application à l’API, vous pouvez rechercher "API Annuaire Santé en libre accès".
