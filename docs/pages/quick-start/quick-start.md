@@ -16,7 +16,10 @@ title: Guide de démarrage rapide avec l'API
 
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
-![accueil.png](img/workflow-gravitee-souscription-apikey.png){:style="max-width:600px"}
+<p align="center">
+  <img src="img/workflow-gravitee-souscription-apikey.png" style="width:100%;">
+</p>
+
 
 
 ## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
