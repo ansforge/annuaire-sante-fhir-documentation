@@ -16,9 +16,9 @@ title: Guide de démarrage rapide avec l'API
 
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
-<center>
+
 ![workflow](img/workflow-gravitee-souscription-apikey.png)
-</center>
+
 
 ## <a id="zero-header"></a>0) Prérequis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
@@ -33,9 +33,9 @@ Il s'agit de votre première connexion à l'outil Gravitee, vous devez créer un
 * À l'issue de la création de votre compte, un email de confirmation vous est envoyé à l'adresse email que vous avez indiquée. Cet email contient un lien permettant de terminer le processus de validation de votre compte.
 </div>
 &nbsp;
-<center>
+
 ![accueil.png](img/apim_creer_compte.png)
-</center>
+
 
 NOTE|L'adresse email est indispensable pour créer un compte dans Gravitee. Si vous n'avez pas d'adresse email, vous devez en créer une.
    
@@ -48,34 +48,34 @@ Pour créer une application, vous devez suivre les étapes suivantes :
 * Dans l'onglet "Applications", cliquer sur "CREER UNE APP".
 </div>
 &nbsp;
-<center>
+
 ![accueil.png](img/apim_creer_app.png)
-</center>
+
 
 <div class="wysiwyg" markdown="1">
 * Ensuite, remplissez les informations générales requises pour l'application.
 </div>
 &nbsp;
-<center>
+
 ![accueil.png](img/apim_creer_app_1.png)
-</center>
+
 
 <div class="wysiwyg" markdown="1">
 * Pour souscrire votre application à l’API, vous pouvez rechercher "API Annuaire Santé en libre accès".
 </div>
 &nbsp;
-<center>
+
 ![accueil.png](img/apim_creer_app_2.png)
 ![accueil.png](img/apim_creer_app_3.png)
-</center>
+
 
 <div class="wysiwyg" markdown="1">
 * Une fois la création de l’application terminée, une clé d'API vous est automatiquement générée. Celle-ci est disponible dans l’onglet "SOUSCRIPTIONS" de votre Application.
 </div>
 &nbsp;
-<center>
+
 ![accueil.png](img/apim_creer_app_4.png)
-</center>
+
 
 
 ## <a id="three-header"></a>3) Tester l'API
