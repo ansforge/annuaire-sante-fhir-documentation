@@ -1,0 +1,91 @@
+[
+    {
+      "resourceType": "Organization",
+      "meta": {
+        "versionId": "0.1",
+        "source": "https://annuaire.sante.fr",
+        "lastUpdated": "2019-09-02T01:00:00.000+01:00",
+        "profile": [
+          "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/organization-rass"
+        ]
+      },
+      "id": "481677",			
+      "endpoint": "/Organization",
+      "name": "PHARMACIE NOLOT",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://www.interopsante.org/fhir/valuesets/fr-organization-type",
+              "code": "LEGAL-ENTITY"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "system": "urn:oid:1.2.250.1.71.4.2.4",
+              "code": "SA33"
+            }
+          ]
+        }
+      ],
+      "active": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+          "valuePeriod": {
+            "start": "2019-09-02",
+            "end": null
+          }
+        },
+        {
+          "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/organization-pharmacyLicence",
+          "valueString": null
+        }
+      ],
+      "language": "fr",
+      "alias": null,
+      "telecom": [],
+      "address": [],
+      "identifier": [
+            {
+              "type": {
+                "coding": [
+                  {
+                    "code": "IDNST",
+                    "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+                  }
+                ]
+              },
+              "use": "official",
+              "value": "1580008803",
+              "system": "urn:oid:1.2.250.1.71.4.2.2"
+            },
+            {
+              "type": {
+                "coding": [
+                  {
+                    "code": "FINEJ",
+                    "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+                  }
+                ]
+              },
+              "use": "official",
+              "value": "580008803",
+              "system": "http://finess.sante.gouv.fr"
+            },
+            {
+              "type": {
+                "coding": [
+                  {
+                    "code": "INTRN",
+                    "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+                  }
+                ]
+              },
+              "use": "official",
+              "value": "F58000880311022013",
+              "system": "https://annuaire.sante.fr"
+            }
+          ]

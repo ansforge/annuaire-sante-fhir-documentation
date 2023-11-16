@@ -1,0 +1,192 @@
+{
+
+    "fullUrl": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-professionalRole-rass",
+    "resource": {
+        "resourceType": "PractitionerRole",
+        "meta": {
+            "versionId": "0.1",
+            "source": "https://annuaire.sante.fr",
+            "lastUpdated": "2019-08-31T01:00:00.000+01:00",
+            "profile": [
+                "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-professionalRole-rass"
+            ]
+        },
+        "id": "3775792",
+        "period": {
+            "start": "2019-01-15",
+            "end": null
+        },
+        "code": [{
+                "coding": [{
+                        "system": "urn:oid:1.2.250.1.71.1.2.7",
+                        "code": "21"
+                    }, {
+                        "system": "urn:oid:1.2.250.1.213.1.6.1.10",
+                        "code": "C"
+                    }
+                ]
+            }
+        ],
+        "active": true,
+        "extension": [{
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-name",
+                "valueHumanName": {
+                    "family": "CHATELIER",
+                    "suffix": null,
+                    "given": [
+                        "David"
+                    ]
+                }
+            }, {
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-registration",
+                "extension": [{
+                        "url": "isFirst",
+                        "valueBoolean": true
+                    }, {
+                        "url": "registeringOrganization",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.57",
+                                    "code": "CNOP"
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "registeringOrganizationDetail",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.71.1.2.16",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "status",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.12",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "hostingDepartment",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.71.1.2.16",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "period",
+                        "valuePeriod": {
+                            "start": "2019-01-15",
+                            "end": null
+                        }
+                    }
+                ]
+            }, {
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-registration",
+                "extension": [{
+                        "url": "isFirst",
+                        "valueBoolean": false
+                    }, {
+                        "url": "registeringOrganization",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.57",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "registeringOrganizationDetail",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.71.1.2.16",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "status",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.12",
+                                    "code": "D"
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "hostingDepartment",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.71.1.2.16",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "period",
+                        "valuePeriod": {
+                            "start": "2019-01-15",
+                            "end": null
+                        }
+                    }
+                ]
+            }, {
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-educationLevel",
+                "extension": [{
+                        "url": "qualification",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.34",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "qualificationType",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.36",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "academicDegree",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.115",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "achievedLevel",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.116",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }, {
+                        "url": "academicYear",
+                        "valueCodeableConcept": {
+                            "coding": [{
+                                    "system": "urn:oid:1.2.250.1.213.1.6.1.117",
+                                    "code": null
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "language": "fr",
+        "specialty": null
+    }
+}
