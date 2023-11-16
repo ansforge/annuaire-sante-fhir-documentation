@@ -12,7 +12,9 @@ Vous pouvez utiliser cette collection Postman pour tester l'API via des exemples
 
 Une fois le projet importé dans votre espace Postman, vous devez renseigner les variables se trouvant dans  "Environnements > Prod".
 
-![img.png](img/postman-config.png)
+<p align="center">
+  <img src="img/postman-config.png" style="width:100%;">
+</p>
 
 Voici les variables utilisées dans le projet Postman: 
 

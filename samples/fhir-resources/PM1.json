@@ -1,0 +1,172 @@
+[
+    {
+      "resourceType": "Organization",
+      "id": "158480",
+      "meta": {
+        "versionId": "0.1",
+        "source": "https://annuaire.sante.fr",
+        "lastUpdated": "2019-09-01T01:00:00.000+01:00",
+        "profile": [
+          "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/organization-rass"
+        ]
+      },
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "IDNST",
+                "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+              }
+            ]
+          },
+          "use": "official",
+          "value": "1754567860",
+          "system": "urn:oid:1.2.250.1.71.4.2.2"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "FINEG",
+                "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+              }
+            ]
+          },
+          "use": "official",
+          "value": "754567860",
+          "system": "http://finess.sante.gouv.fr"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "INTRN",
+                "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type"
+              }
+            ]
+          },
+          "use": "official",
+          "value": "F754567860",
+          "system": "https://annuaire.sante.fr"
+        }
+      ],
+
+      "endpoint": "/Organization",
+      "name": "CH EURE-SEINE",
+      "type": [
+            {
+              "coding": [
+                {
+                  "code": "GEOGRAPHICAL-ENTITY",
+                  "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-type"
+                },
+                {
+                  "code": "86.10Z",
+                  "system": "urn:oid:1.2.250.1.213.1.6.1.47"
+                },
+                {
+                  "code": null,
+                  "system": "urn:oid:1.2.250.1.213.1.6.1.44"
+                },
+                {
+                  "code": "SA01",
+                  "system": "urn:oid:1.2.250.1.71.4.2.4"
+                }
+              ]
+            }
+          ],
+      "active": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+          "valuePeriod": {
+            "start": "2019-06-01",
+            "end": null
+          }
+        },
+        {
+          "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/organization-pharmacyLicence",
+          "valueString": null
+        }
+      ],
+      "language": "fr",
+      "alias": null,
+      "telecom": [
+            {
+              "rank": "1",
+              "value": "0450636363",
+              "system": "phone"
+            },
+            {
+              "system": "fax",
+              "value": "0450455933"
+            }
+          ],
+      "address": [
+            {
+              "extension": [
+                {
+                  "url": "http://www.interopsante.org/fhir/structuredefinition/datatype/fr-address-insee-code",
+                  "valueCode": "75114"
+                },
+                {
+                  "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/address-country-code",
+                  "valueCode": null
+                }
+              ],
+              "period": {
+                "end": null
+              },
+              "city": "75014 PARIS",
+              "postalCode": "75014",
+              "_line": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
+                      "valueString": [
+                        "96"
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameType",
+                      "valueString": [
+                        "R"
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+                      "valueString": [
+                        "DIDOT"
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf",
+                      "valueString": [
+                        null
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix",
+                      "valueString": [
+                        null
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator",
+                      "valueString": [
+                        null
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox",
+                      "valueString": [
+                        null
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],

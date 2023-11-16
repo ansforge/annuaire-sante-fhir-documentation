@@ -1,0 +1,151 @@
+{
+    "fullUrl": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-organizationalRole-rass",
+    "resource": {
+        "resourceType": "PractitionerRole",
+        "endpoint": "/$rb_pp",
+        "meta": {
+            "versionId": "0.1",
+            "source": "https://annuaire.sante.fr",
+            "lastUpdated": "2019-08-31T01:00:00.000+01:00",
+            "profile": [
+                "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-organizationalRole-rass"
+            ]
+        },
+        "id": "5015602",
+        "location": [{
+                "reference": "-2"
+            }
+        ],
+        "period": {
+            "start": "2019-01-31"
+        },
+        "code": [{
+                "coding": [{
+                        "system": "urn:oid:1.2.250.1.213.1.6.1.17",
+                        "code": "FON-AU"
+                    }
+                ]
+            }, {
+                "coding": [{
+                        "system": "urn:oid:1.2.250.1.213.1.6.1.19",
+                        "code": "GENR01"
+                    }
+                ]
+            }, {
+                "coding": [{
+                        "system": "urn:oid:1.2.250.1.213.1.6.1.18",
+                        "code": "L"
+                    }
+                ]
+            }
+        ],
+        "active": true,
+        "extension": [{
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-partOf",
+                "valueReference": {
+                    "reference": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-professionalRole-rass"
+                }
+            }, {
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-endCause",
+                "valueCodeableConcept": {
+                    "coding": [{
+                            "system": "urn:oid:1.2.250.1.213.1.6.1.20",
+                            "code": null
+                        }
+                    ]
+                }
+            }, {
+                "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/practitionerRole-practiceRegion",
+                "valueCodeableConcept": {
+                    "coding": [{
+                            "system": "urn:oid:1.2.250.1.213.2.25",
+                            "code": null
+                        }
+                    ]
+                }
+            }
+        ],
+        "language": "fr",
+        "telecom": [{
+                "system": "phone",
+                "value": null,
+                "rank": 1
+            }, {
+                "system": "phone",
+                "value": null,
+                "rank": 2
+            }, {
+                "system": "fax",
+                "value": null
+            }, {
+                "system": "email",
+                "value": null
+            }
+        ],
+        "contained": [{
+                "resourceType": "Location",
+                "id": "-2",
+                "address": {
+                    "period": {
+                        "end": null
+                    },
+                    "_line": [{
+                            "extension": [{
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameType",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator",
+                                    "valueString": null
+                                }, {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox",
+                                    "valueString": null
+                                }
+                            ]
+                        }
+                    ],
+                    "city": null,
+                    "postalCode": null,
+                    "extension": [{
+                            "valueCode": null,
+                            "url": "http://www.interopsante.org/fhir/structuredefinition/datatype/fr-address-insee-code"
+                        }, {
+                            "valueCode": null,
+                            "url": "https://apifhir.annuaire.sante.fr/exposed/structuredefinition/address-country-code"
+                        }
+                    ]
+                }
+            }
+        ],
+        "organization": {
+            "identifier": {
+                "system": "urn:oid:1.2.250.1.71.4.2.2",
+                "type": {
+                    "coding": [{
+                            "system": "https://simplifier.net/FrenchProfiledFHIRAr/fr-organization-identifier-type",
+                            "code": "IDNST"
+                        }
+                    ]
+                },
+                "use": "official",
+                "value": "1580008803"
+            }
+        },
+        "identifier": [{
+                "system": "https://annuaire.sante.fr",
+                "value": "F58000880311022013"
+            }
+        ]
+    }
+}
