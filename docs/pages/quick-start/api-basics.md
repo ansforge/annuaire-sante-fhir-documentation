@@ -124,7 +124,7 @@ Lorsqu’une réponse inclut de nombreux résultats, l'API les pagine et en reto
 éléments .Quand une réponse est paginée, les réponses incluent des  liens permettant de récupérer les pages suivantes.
 Seul le lien Next est supporté.
 
-### Ressources supprimées (active=false ; status=inactive) 
+### Suppression d'une ressource (active=false ; status=inactive) 
 
 De manière générale, la ressource n'est plus publiée dans l'API à partir du moment où elle devient inactive. Cependant, elle ne disparait pas complétement de l'API puisqu'elle reste présente dans le delta avec uniquement son id et le champs active = false (device : status inactive). Ce fonctionnement permet notamment aux consommateurs du delta d'isoler les ressources supprimées entre deux dates (synchronisations).
 
