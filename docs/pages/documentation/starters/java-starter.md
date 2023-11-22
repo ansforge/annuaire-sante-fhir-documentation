@@ -5,7 +5,7 @@ title: Utilisation de Java
 
 Ce guide décrit comment intégrer l'API à un projet Java.
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/quick-start/readme' | relative_url}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/quick-start/quick-start.html' | relative_url}}).
 
 NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
