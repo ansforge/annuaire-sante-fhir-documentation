@@ -76,17 +76,17 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs total et next : 
-<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="total & next">
+<img src="img/focus_postman_irisdp_bal_mss_org_centre_de_sante_1.png" alt="total & next">
 </div>
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs mailbox et son type : 
-<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="bal-mss & type-bal-mss">
+<img src="img/focus_postman_irisdp_bal_mss_org_centre_de_sante_2.png" alt="bal-mss & type-bal-mss">
 </div>
 
 <div class="wysiwyg" markdown="1">
  * Schéma montrant les champs n°finess, raison sociale et département : 
-<img src="focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="finess & name & postalcode">
+<img src="img/focus_postman_irisdp_bal_mss_org_centre_de_sante_3.png" alt="finess & name & postalcode">
 </div>
 
 <br />
