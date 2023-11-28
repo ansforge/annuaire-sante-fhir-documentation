@@ -30,7 +30,7 @@ Une API RESTfull  basée sur la spécification HL7 FHIR, qui se veut :
 </div>
 <br />
 
-## A qui sert l'API ?
+## A quoi sert l'API ?
 
 En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement de trouver un professionnel de santé ou une structure, filtrer, ordonner et paginer les résulat selons vous souhaits.
 
