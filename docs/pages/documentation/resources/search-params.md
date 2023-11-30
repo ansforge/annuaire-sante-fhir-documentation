@@ -22,6 +22,7 @@ subTitle: Ressources
   - [Paramètre _total](#82-header)
   - [Paramètre _include](#83-header)
   - [Paramètre _revinclude](#84-header)
+  - [Paramètre _elements](#85-header)
 
 </div>
 <br />
@@ -32,7 +33,7 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 
 **Requête :**
 
-`GET [BASE]/metadata`
+`GET [base]/metadata`
 
 
 ## <a id="two-header"></a>2) Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
@@ -43,7 +44,7 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 
 **Requête :**
 
-`GET [BASE]/Organization?name=Renard`
+`GET [base]/Organization?name=Renard`
 
 **Réponse (simplifiée) :** 
   
@@ -125,7 +126,7 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [BASE]/Organization?name%3Acontains=EURL`
+`GET [base]/Organization?name%3Acontains=EURL`
 
 **Réponse (simplifiée) :** 
 
@@ -206,7 +207,7 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [BASE]/Organization?name%3Aexact=Gautier%20EURL`
+`GET [base]/Organization?name%3Aexact=Gautier%20EURL`
 
 **Réponse (simplifiée) :** 
 
@@ -291,7 +292,7 @@ Le serveur supporte la recherche par code, par système ou par les deux.
 
 **Requête :**
 
-`GET [BASE]/Organization?identifier=org-org-148`
+`GET [base]/Organization?identifier=org-org-148`
 
 **Réponse (simplifiée) :** 
 
@@ -388,7 +389,7 @@ Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour
 
 **Requête :**
 
-`GET [BASE]/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04`
+`GET [base]/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04`
 
 **Réponse (simplifiée) :** 
 
@@ -491,7 +492,7 @@ Ce cumul se fait de manière inclusive ou alternative.
 
 **Requête :**
 
-`GET [BASE]/Organization?name%3Acontains=Renard&name%3Acontains=et`
+`GET [base]/Organization?name%3Acontains=Renard&name%3Acontains=et`
 
 **Réponse (simplifiée) :** 
 
@@ -575,7 +576,7 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [BASE]/Organization?name%3Acontains=Renard%2Cet`
+`GET [base]/Organization?name%3Acontains=Renard%2Cet`
 
 **Réponse (simplifiée) :** 
 
@@ -664,7 +665,7 @@ Il permet de contrôler le nombre maximal de ressources retournées sur une page
 
 **Requête:**
 
-`GET [BASE]/Device?_count=200`
+`GET [base]/Device?_count=200`
 
 #### <a id="82-header"></a>8.2) Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
 
@@ -683,7 +684,7 @@ Cet exemple montre comment utiliser le paramètre  _total=none pour ne pas affic
 
 **Requête:**
 
-`GET [BASE]/Device?_total=none`
+`GET [base]/Device?_total=none`
 
 Par défaut, l'affichage (ou pas) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».   
@@ -695,7 +696,7 @@ Le paramètre **_include** permet d’afficher dans le résultat les ressources 
 
 **Exemples:**
 
-`GET [base]/PractitionerRole&?_include=PractitionerRole:organization`
+`GET [base]/PractitionerRole?_include=PractitionerRole:organization`
 
 Cette requête par exemple remonte les PractitionerRole ainsi que les Oganization auxquelles ils sont rattachés.
  
@@ -707,9 +708,66 @@ Le paramètre **_revinclude** permet d’afficher dans le résultat les ressourc
 
 **Exemples:**
 
-`GET [base]/Organization&?_revinclude=Organization:partof`
+`GET [base]/Organization?_revinclude=Organization:partof`
 
 Cette requête par exemple remonte les Entités Géographiques (EG) et les Entités Juridiques (EJ) de rattachement.
+
+#### <a id="85-header"></a>8.2) Paramètre ["_elements"](https://hl7.org/fhir/search.html#_elements) 
+
+Le paramètre **_elements** permet de préciser la liste d’attributs qui doit être retournée avec la ressource.  
+
+
+**Exemples:**
+
+`GET [base]/Practitioner?_elements=identifier,active`
+
+Dans la requête ci-dessus, la réponse retournée contiendra un lot de practitioner, mais chaque entrée n’inclura que les attributs identifier et active du practitioner.
+
+A noter que la réponse contient également une meta.tag valeur de SUBSETTED pour indiquer que tous les attributs de la ressource ne sont pas inclus.
+
+```json
+
+...
+                    "tag": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+                            "code": "SUBSETTED",
+                            "display": "Resource encoded in summary mode"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://interopsante.org/CodeSystem/v2-0203",
+                                    "code": "IDNPS"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.250.1.71.4.2.1",
+                        "value": "810000001916"
+                    },
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://interopsante.org/CodeSystem/v2-0203",
+                                    "code": "RPPS"
+                                }
+                            ]
+                        },
+                        "system": "http://rpps.fr",
+                        "value": "10000001916"
+                    }
+                ],
+                "active": true
+...
+
+```
 
 &nbsp;
 
