@@ -115,6 +115,7 @@ Sont supportés les paramètres et le modificateurs suivants :
 - _total : none, estimate, accurate. le calcul du total par le service n'est pas systématique car ça dépend du temps nécessaire à son  calcul. si ce temps est important, le total ne sera pas affiché.
 - Tous les préfixes de comparaison 
 - Préfixes [date](https://hl7.org/FHIR/search.html#date): eq (equal), ge (greater equal), gt (greater than), lt (less than), le (less equal)
+- _elements : permet de préciser la liste d’attributs qui doit être retournée avec la ressource.
 </div>
 <br />
 
