@@ -1,4 +1,4 @@
-# Release Note - #ApiFhirAnnuaire - Version 1.26
+# Release Note - #ApiFhirAnnuaire - Version 1.29
 
 Découvrez la nouvelle version de L’API FHIR Annuaire Santé en libre accès : nouveau moteur d'intégration des données, nouvelles fonctionnalités, correctifs de bogues et nombreuses optimisations améliorant encore l'expérience 
 utilisateur, ...
@@ -23,6 +23,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
   - "**identifier-type**" : Les ressources Practitioner et Organization évoluent pour proposer la recherche par type d'identifiant. Vous pouvez désormais isoler les Practitioner possédant un identifiant RPPS ou ADELI, aussi les Organization de type FINESS ou SIRET, ...
   - "**_total**" : Alors que jusqu'à présent le calcul du nombre total de résulats  d'une recherche était systèmatique, il est désormais possible de choisir de le calculer ou non. Avantage? Vous permettre d'améliorer les performances des requêtes avec de grandes quantités de données.
+  - "**_elements**" : Permettant de préciser la liste d’attributs qui doit être retournée dans la réponse.
 
 - La ressource Organization intègre une nouvelle notion permettant de contaître l'origine des données (trial-user).
 
@@ -35,6 +36,8 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Nettoyage des données non pertinentes : Désormais, les identifiants internes (de type INTRN) des Oganization ne sont plus publiés (https://simplifier.net/packages/hl7.fhir.fr.core/1.1.0/files/783566) 
 
+- Indexation des recherches par practitioner.ref et organization.ref [#20](https://github.com/ansforge/annuaire-sante-fhir-serveur/issues/20)
+
 
 ### Bug Fixes (Bogues corrigés)
 
@@ -44,6 +47,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 - Ressource Practitioner définie mais inexistante [#60](https://github.com/ansforge/annuaire-sante-fhir-documentation/issues/60)
 
+- Corrections de bugs concernant la recherche avec deux paramètres
 
 ### known bugs and workarounds (Problèmes connus et solutions de contournement)
 
@@ -56,7 +60,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 
 ### Upgrade steps (Etapes de mise à niveau)
 
-En général, le passage de la version 1.22 à 1.26 est transparent pour l’utilisateur final et ne nécessite pas d’intervention de sa part.
+En général, le passage de la version 1.22 à 1.29 est transparent pour l’utilisateur final et ne nécessite pas d’intervention de sa part.
 Il y a toutefois quelques points de vigilance à prendre en considération lorsque vous êtes sur une synchronisation delta ou vous utilisez les urls canoniques des profils. Faisons le point !
 
 - Suite à la refonte du moteur d'intégration des données dans notre API, il se peut que certains identifiants techniques soient changés. 
