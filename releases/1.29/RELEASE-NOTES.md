@@ -63,8 +63,7 @@ Restez à l'écoute pour de nouvelles mises à jour passionnantes !
 En général, le passage de la version 1.22 à 1.29 est transparent pour l’utilisateur final et ne nécessite pas d’intervention de sa part.
 Il y a toutefois quelques points de vigilance à prendre en considération lorsque vous êtes sur une synchronisation delta où vous utilisez les urls canoniques des profils. Faisons le point !
 
-- Suite à la refonte du moteur d'intégration des données dans notre API, il se peut que certains identifiants techniques soient changés. 
-C'est pourquoi, nous vous recommandons de resynchroniser vos données à partir de zéro (from scratch).
+- Rechargement complet de la base de données, impliquant une mise à jour de toutes les ressources, y compris les dates de mise à jour des données (lastupdated), ainsi que certains identifiants techniques des ressources. C'est pourquoi, nous vous recommandons de resynchroniser vos données à partir de zéro (from scratch).
 
 - Les urls canoninques des profils passent de "https://annuaire.sante.gouv.fr/fhir/StructureDefinition/{{profile-id}}" à "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/{{profile_id}}".
 Conséquence : une mise à niveau est nécessaire si vous utilisez les urls dans vos implémentations.
