@@ -106,7 +106,6 @@ Toutes les réponses utilisent des codes d'état HTTP standard.
 
 ### Erreur NET::ERR_CERT_AUTHORITY_INVALID sur l'IHM (https://portail.openfhir.annuaire.sante.fr)
 L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc).
-
 Pour y remédier, il faut  ajouter l’AC IGC Santé dans le navigateur pour qu’elle soit reconnue par la suite. 
 
 <p align="center">
