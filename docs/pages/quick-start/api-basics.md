@@ -16,7 +16,7 @@ Tous les accès se font via HTTPS.
 </div>
 <br />
 
-#### Environnement Bac à sable
+#### Environnement Bac à sable (en accès restreint)
 <div class="wysiwyg"  markdown="1">
 - [api-url] : https://gateway.preprod.api.esante.gouv.fr/fhir/v1
 - [ihm-url] : https://demo.portail.openfhir.annuaire.asipsante.fr 
@@ -93,6 +93,18 @@ Si la recherche échoue, le serveur doit répondre :
 
 NOTE| L'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
 Plus de précision sur la spécification FHIR : <https://www.hl7.org/fhir/R4/http.html>
+
+### Codes d’état HTTP (HTTP status codes)
+Toutes les réponses utilisent des codes d'état HTTP standard.
+TODO - lister les status codes
+
+### Erreur NET::ERR_CERT_AUTHORITY_INVALID sur l'IHM (https://portail.openfhir.annuaire.sante.fr)
+L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc).
+Pour y remédier, il faut  ajouter l’AC IGC Santé dans le navigateur pour qu’elle soit reconnue par la suite. 
+
+<p align="center">
+  <img src="img/err_cert_authority_invalid.png" style="width:100%;">
+</p>
 
 ### Paramètres d’entrée
 
