@@ -128,6 +128,9 @@ header:
       - page: StructureDefinition
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/tree/main/StructureDefinition
         external: true
+      - page: Exemples de ressources FHIR
+        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/tree/main/samples/fhir-resources
+        external: true
       - page: IG FHIR (en concertation)
         url: https://interop.esante.gouv.fr/ig/fhir/annuaire
         external: true
