@@ -5,7 +5,7 @@
     <lastUpdated value="2022-07-25T17:44:28.256626+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/CodeableConcept-Period" />
-  <version value="0.3" />
+  <version value="1.29" />
   <name value="CodeableConceptPeriod" />
   <status value="draft" />
   <publisher value="ANS" />

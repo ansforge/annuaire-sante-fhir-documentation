@@ -5,7 +5,7 @@
     <lastUpdated value="2022-07-08T13:19:10.1242412+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-HasCAS" />
-  <version value="0.3" />
+  <version value="1.29" />
   <name value="PractitionerRoleHasCAS" />
   <status value="draft" />
   <publisher value="ANS" />

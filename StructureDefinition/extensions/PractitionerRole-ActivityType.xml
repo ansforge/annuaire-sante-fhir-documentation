@@ -5,7 +5,7 @@
     <lastUpdated value="2022-07-25T17:24:45.7871829+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-ActivityType" />
-  <version value="0.3" />
+  <version value="1.29" />
   <name value="PractitionerRoleActivityType" />
   <status value="draft" />
   <publisher value="ANS" />

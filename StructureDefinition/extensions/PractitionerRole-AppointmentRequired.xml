@@ -5,7 +5,7 @@
     <lastUpdated value="2022-07-08T13:17:18.9970158+00:00" />
   </meta>
   <url value="https://annuaire.sante.gouv.fr/fhir/StructureDefinition/PractitionerRole-AppointmentRequired" />
-  <version value="0.3" />
+  <version value="1.29" />
   <name value="PractitionerRoleAppointmentRequired" />
   <status value="draft" />
   <publisher value="ANS" />
