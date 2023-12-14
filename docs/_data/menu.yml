@@ -125,12 +125,6 @@ header:
       - page: Page statut de l'API
         url: https://status.annuaire-sante.esante.gouv.fr
         external: true
-      - page: StructureDefinition
-        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/tree/main/StructureDefinition
-        external: true
-      - page: Exemples de ressources FHIR
-        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/tree/main/samples/fhir-resources
-        external: true
-      - page: IG FHIR (en concertation)
-        url: https://interop.esante.gouv.fr/ig/fhir/annuaire
+      - page: IG FHIR (StructureDefinition)
+        url: https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0
         external: true
