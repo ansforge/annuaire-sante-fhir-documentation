@@ -14,7 +14,7 @@ Ici, vous allez trouver la documentation complète permettant de faciliter l'uti
 [Documentation complète](pages/hub.md){:class="btn  btn--style1"}
 </div>
 <div markdown="1">
-[Démarrage rapide](pages/quick-start/readme.md){:class="btn  btn--style1"}
+[Démarrage rapide](pages/quick-start/quick-start.html){:class="btn  btn--style1"}
 </div>
 </div>
 
