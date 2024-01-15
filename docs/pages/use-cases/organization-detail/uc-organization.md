@@ -40,7 +40,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
 
 
-#### Trouver une Oraganization avec son numéro FINESS
+#### Trouver une Organization avec son numéro FINESS
 
 Pour l'exemple, nous allons rechercher une organization ayant le numéro FINESS : 010780914
 
