@@ -150,15 +150,6 @@ De manière générale, la ressource n'est plus publiée dans l'API à partir du
 Par défaut, l'API remonte toutes les ressources (actives et inactives). 
 Pour exlcure les ressources inactives du résulat, utilisez le filtre active=true.
 
-Exemple : 
-```json
-
-GET ../Organization // la requête remonte les structures ouvertes et fermées
-GET ../Organization?active=true // la requête ne remonte que les structures ouvertes
-GET ../Organization?active=false // la requête ne remonte que les structures fermées
-
-```
-
 <div class="wysiwyg"  markdown="1">
 - active=false pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=false)
 - status=false pour Device (exemple : [api-url]/Device?status=inactive)
