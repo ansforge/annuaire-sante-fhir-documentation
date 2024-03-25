@@ -32,35 +32,31 @@ Nous allons vous détailler ci-dessous comment interroger l'API pour identifier 
 ### <a id="es-header"></a>2.1) Le couloir ESMS
 
 **Définition :**
-
 Ce Couloir est défini par des types d’activité regroupés en sous-domaines et est en fonction de catégories d’établissement FINESS [CEF] :
 <div class="wysiwyg" markdown="1">
  * Liste sous-domaines > Types d’activités : 
-  * MS1 > PA / PH / DOM : Personnes Agées / Personnes en situation de Handicap / DOMicile
-  * MS2 > PDE / PDS : Protection De l'Enfance / Personnes concernées par des Difficultés Spécifiques
-  * MS3 > AHI / PJM : Accueil l’Hébergement et l’Insertion / Protection Juridique des Majeurs
+   * MS1 > PA / PH / DOM : Personnes Agées / Personnes en situation de Handicap / DOMicile
+   * MS2 > PDE / PDS : Protection De l'Enfance / Personnes concernées par des Difficultés Spécifiques
+   * MS3 > AHI / PJM : Accueil l’Hébergement et l’Insertion / Protection Juridique des Majeurs
  * Liste sous-domaines > Types d’activité > codes de catégorie d’établissement : 
-  * MS1 : 
-	* PA : 202 ; 207 ; 381 ; 463 ; 500 ; 501 ; 502
-	* PH : 182 ; 183 ; 186 ; 188 ; 189 ; 190 ; 192 ; 194 ; 195 ; 196 ; 198 ; 221 ; 238 ; 246 ; 247 ; 249 ; 252 ; 253 ; 255 ; 370 ; 377 ; 379 ; 382 ; 390 ; 395 ; 396 ; 402 ; 437 ; 445 ; 446 ; 448 ; 449
-    * DOM : 209 ; 354 ; 460 ; 608
-  * MS2 :  
-   * PDS : 165 ; 178 ; 180 ; 197 ; 213
-   * PDE : 159 ; 166 ; 172 ; 175 ; 176 ; 177 ; 236 ; 241 ; 286 ; 295 ; 344 ; 378 ; 411 ; 418 ; 427 ; 440 ; 441 ; 453 
-  * MS3 : 
-   * 214 ; 216 ; 219 ; 258 ; 259 ; 340 ; 341 ; 342 ; 442
-   * AHI : 214 ; 216 ; 219 ; 258 ; 259 ; 442
-   * PJM : 340 ; 341 ; 342
-  * Autres : 218 ; 220 ; 256 ; 257 ; 271 ; 324 ; 330 ; 345 ; 359 ; 380 ; 400 ; 403 ; 405 ; 436 ; 443 ; 461 ; 462 ; 464
+   * MS1 : 
+	 * PA : 202 ; 207 ; 381 ; 463 ; 500 ; 501 ; 502
+	 * PH : 182 ; 183 ; 186 ; 188 ; 189 ; 190 ; 192 ; 194 ; 195 ; 196 ; 198 ; 221 ; 238 ; 246 ; 247 ; 249 ; 252 ; 253 ; 255 ; 370 ; 377 ; 379 ; 382 ; 390 ; 395 ; 396 ; 402 ; 437 ; 445 ; 446 ; 448 ; 449
+     * DOM : 209 ; 354 ; 460 ; 608
+   * MS2 :  
+     * PDS : 165 ; 178 ; 180 ; 197 ; 213
+     * PDE : 159 ; 166 ; 172 ; 175 ; 176 ; 177 ; 236 ; 241 ; 286 ; 295 ; 344 ; 378 ; 411 ; 418 ; 427 ; 440 ; 441 ; 453 
+   * MS3 : 
+     * 214 ; 216 ; 219 ; 258 ; 259 ; 340 ; 341 ; 342 ; 442
+     * AHI : 214 ; 216 ; 219 ; 258 ; 259 ; 442
+     * PJM : 340 ; 341 ; 342
+   * Autres : 218 ; 220 ; 256 ; 257 ; 271 ; 324 ; 330 ; 345 ; 359 ; 380 ; 400 ; 403 ; 405 ; 436 ; 443 ; 461 ; 462 ; 464
 </div>
 <br/>
 
 **Requêtes :**
-
 Afin de récupérer les ESMS, il faut interroger l'endpoint Organization.
-
 Nous appliquerons deux filtres aux requêtes afin d'obtenir le résultats attendus :
-
 
 <div class="wysiwyg" markdown="1">
  * la catégorie d'Organization parmi la liste ci-dessous (point 2 sur l'image ci-dessous)
