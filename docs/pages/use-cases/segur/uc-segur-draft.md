@@ -284,7 +284,7 @@ do {
 
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
-#### <a id="es-header-23"></a>2.1.2.3 ) AUTRES
+#### <a id="es-header-24"></a>2.1.2.4 ) AUTRES
 
 Liste des codes catégorie AUTRES : 218, 220, 256, 257, 271, 324, 330, 345, 359, 380, 400, 403, 405, 436, 443, 461, 462, 464
 
