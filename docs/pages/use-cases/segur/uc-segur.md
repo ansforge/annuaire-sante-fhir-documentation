@@ -1,9 +1,24 @@
 ---
 layout: default
-title: "Extraction des acteurs des couloirs du Ségur du Numérique en Santé"
+title: "Extraction des acteurs du Ségur du Numérique en Santé"
 subTitle: Cas d'utilisation
 ---
  
+ #### Dans cette page
+<div class="wysiwyg" markdown="1">
+- [1) LE SEGUR](#se-header)
+- [2) LES COULOIRS](#co-header)
+  - [2.1) Le couloir ESMS](#es-header)
+  - [2.2) Le couloir Hôpital](#ho-header)
+  - [2.3) Le couloir biologie médicale](#bi-header)
+  - [2.4) Le couloir Radiologie](#ra-header)
+  - [2.4) Le couloir Médecine de Ville](#me-header)
+  - [2.6) Le couloir Officine](#of-header)
+
+</div>
+<br />
+
+## <a id="se-header"></a>1) LE SEGUR
 Le Ségur du numérique vise à développer le partage des données de santé entre les différents acteurs de la prise en charge et les patients, par le financement d’une mise à jour logicielle prise en charge par l’Etat pour favoriser l’augmentation des usages numériques dans les établissements. 
 
 Les établissements de santé peuvent être accompagnés par les acteurs régionaux (ARS, GRADeS) dans leur déploiement, le pilotage de services socles nationaux et leur mise en conformité réglementaire.
@@ -11,12 +26,40 @@ Les établissements de santé peuvent être accompagnés par les acteurs région
 Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs appelés couloirs. 
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-### 1. Le couloir Médico-Social
 
-Afin de récupérer les établissements médico-sociaux ayant un numéro finess, il faut interroger l'endpoint Organization.
+## <a id="se-header"></a>2) LES COULOIRS
 
-Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attendu :
+### <a id="es-header"></a>2.1) Le couloir ESMS
 
+**Définition :**
+
+Ce Couloir est défini par des types d’activité regroupés en sous-domaines et est en fonction de catégories d’établissement FINESS [CEF] :
+<div class="wysiwyg" markdown="1">
+ * Liste sous-domaines > Types d’activités : 
+  * MS1 > PA / PH / DOM : Personnes Agées / Personnes en situation de Handicap / DOMicile
+  * MS2 > PDE / PDS : Protection De l'Enfance / Personnes concernées par des Difficultés Spécifiques
+  * MS3 > AHI / PJM : Accueil l’Hébergement et l’Insertion / Protection Juridique des Majeurs
+ * Liste sous-domaines > Types d’activité > codes de catégorie d’établissement : 
+  * MS1 : 
+	* PA : 202 ; 207 ; 381 ; 463 ; 500 ; 501 ; 502
+	* PH : 182 ; 183 ; 186 ; 188 ; 189 ; 190 ; 192 ; 194 ; 195 ; 196 ; 198 ; 221 ; 238 ; 246 ; 247 ; 249 ; 252 ; 253 ; 255 ; 370 ; 377 ; 379 ; 382 ; 390 ; 395 ; 396 ; 402 ; 437 ; 445 ; 446 ; 448 ; 449
+    * DOM : 209 ; 354 ; 460 ; 608
+  * MS2 :  
+   * PDS : 165 ; 178 ; 180 ; 197 ; 213
+   * PDE : 159 ; 166 ; 172 ; 175 ; 176 ; 177 ; 236 ; 241 ; 286 ; 295 ; 344 ; 378 ; 411 ; 418 ; 427 ; 440 ; 441 ; 453 
+  * MS3 : 
+   * 214 ; 216 ; 219 ; 258 ; 259 ; 340 ; 341 ; 342 ; 442
+   * AHI : 214 ; 216 ; 219 ; 258 ; 259 ; 442
+   * PJM : 340 ; 341 ; 342
+  * Autres : 218 ; 220 ; 256 ; 257 ; 271 ; 324 ; 330 ; 345 ; 359 ; 380 ; 400 ; 403 ; 405 ; 436 ; 443 ; 461 ; 462 ; 464
+</div>
+<br/>
+
+**Requêtes :**
+
+Afin de récupérer les ESMS, il faut interroger l'endpoint Organization.
+
+Nous appliquerons deux filtres aux requêtes afin d'obtenir le résultats attendus :
 
 
 <div class="wysiwyg" markdown="1">
@@ -25,8 +68,13 @@ Nous appliquerons deux filtres à la requête afin d'obtenir le résultat attend
 </div>
 <br/>
 
-Liste des codes catégorie: 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462, 608
+- Liste des codes catégorie MS1 : 202, 207, 381, 463, 500, 501, 502, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 221, 238, 246, 247, 249, 252, 253, 255, 370, 377, 379, 382, 390, 395, 396, 402, 437, 445, 446, 448, 449, 209, 354, 460, 608
 
+- Liste des codes catégorie MS2 : 165, 178, 180, 197, 213, 159, 166, 172, 175, 176, 177, 236, 241, 286, 295, 344, 378, 411, 418, 427, 440, 441, 453 
+
+- Liste des codes catégorie MS3 : 214, 216, 219, 258, 259, 340, 341, 342, 442, 214, 216, 219, 258, 259, 442, 340, 341, 342
+
+- Liste des codes catégorie AUTRES : 218, 220, 256, 257, 271, 324, 330, 345, 359, 380, 400, 403, 405, 436, 443, 461, 462, 464
 
 ![Schéma montrant les champs de filtre](img/focus-json-couloir-medi-soc.png){:style="max-width:670px"}
 
@@ -97,7 +145,19 @@ do {
 Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
 
 
-### 2. Le couloir Hôpital
+### <a id="ho-header"></a>2.2) Le couloir Hôpital
+
+**Définition :**
+
+Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : 
+<div class="wysiwyg" markdown="1">
+ * SA01 ; SA02 ; SA03 ; SA04 ; SA30 ; SA34 ; SA36
+ * Dans le cas d’une EG, sont exclues les catégories d’établissements FINESS du secteur médico-social (voir ci-dessus)
+</div>
+<br />
+
+
+**Requête :**
 
 Afin de récupérer les établissements sanitaires, nous devons interroger l'endpoint de recherche transactionnel en deux étapes :
 <div class="wysiwyg" markdown="1">
@@ -202,12 +262,31 @@ Total Hospital - 11722
 ```
 <br />
 
-### 3. Le couloir Biologie Médicale
+### <a id="bi-header"></a>2.3) Le couloir Biologie Médicale
 
-Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
+**Définition :**
+
+Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : 
 <div class="wysiwyg" markdown="1">
- * En filtrant sur les types d'établissements : SA25, SA29
- * En incluant les PractitionerRoles liés aux Organizations afin de pouvoir filtrer sur le code profession de l'activité du professionel (PractitionerRole)
+ * SA25 ; SA29
+ * Avec au moins un PS
+   * dont le code de Professionnels de Santé [PPS] = 10 ou 21
+</div>
+<br />
+
+NOS : 
+<div class="wysiwyg" markdown="1">
+ * Secteurs d’activités Annuaires [SAA] : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). 
+ * Populations des Professionnels de Santé [PPS] : [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante)
+</div>
+<br />
+
+**Requête :**
+
+Afin de récupérer les laboratoires de biologie médicale de ville et en établissements de santé, nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur le type = SA25, SA29
+ * En incluant les PractitionerRoles liés aux Organizations afin de pouvoir filtrer sur le role = 10,21 
 </div>
 
 <br />
@@ -218,11 +297,6 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 
 
 ![Schéma montrant comment relier les Organization et les PractitionerRole](img/focus-json-couloir-bio-med.png){:style="max-width:670px"}
-
-
-Note : La liste des codes des établissements sanitaires (ex: SA25, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). Les Roles souhaités (10 et 21) sont disponibles dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante)
-
-
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
@@ -328,12 +402,25 @@ Total filtered - 523
 <br />
 
 
-### 4. Le couloir Radiologie
+### <a id="ra-header"></a>2.4) Le couloir Radiologie
 
-Afin de récupérer les établissements de radiologie, nous devons interroger l'endpoint Organization :
+**Définition :**
+
+Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : 
 <div class="wysiwyg" markdown="1">
- * En filtrant sur les types d'établissements : SA07, SA08, SA09
- * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des PractitionerRole
+ * SA07 ; SA08 ; SA09
+ * Avec au moins un PS 
+   * dont le code de Professionnels de Santé [PPS] = 10
+   * qui possède un savoir-faire [SMP] de type : SM28 ; SM44 ; SM45 ; SM55
+</div>
+<br />
+
+**Requête :**
+
+Afin de récupérer les cabinets de médecins radiologues libéraux et les plateaux d’imagerie des établissements de santé., nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur le pramètre de recherche type = SA07, SA08, SA09
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le paramètre de recherche speciality = SM28,SM44,SM45,SM55
 </div>
 
 <br />
@@ -343,7 +430,7 @@ Une fois l’ensemble des données récupéré, procédez aux filtres suivant :
 
 Les PractitionerRoles doivent correspondre à la profession de santé "Médecin" (10) (champs code du PractitionerRole comme le montre le point 3 sur l'image ci-dessous).
 
-Ensuite les PractitionerRoles souhaités doivent correspondre à certaines spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous).
+Ensuite les PractitionerRoles souhaités doivent correspondre aux spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous).
 
 Enfin, faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l’image ci-dessous)
 
@@ -362,7 +449,7 @@ Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se si
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA0 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA09 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
 3) Pour chacun des PractitionerRole filtrés, vérifier qu'il y a au moins 1 Spécialité (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
@@ -498,28 +585,41 @@ Total filtered - 0
 <br />
 
 
-### 5. Le couloir Médecine de ville
+### <a id="me-header"></a>2.5) Le couloir Médecine de ville
 
-Afin de récupérer les établissements de médecine de ville qui ne sont pas des cabinets de radiologie, nous devons interroger l'endpoint Organization :
+**Définition :**
+
 <div class="wysiwyg" markdown="1">
- * En filtrant sur les types d'établissements : SA05, SA07, SA08, SA09, SA52
- * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le savoir-faire des Practitioner
+Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants :
+* SA05 ; SA07 ; SA08 ; SA09 ; SA52
+* Avec au moins un PS 
+  * dont le code de Professionnels de Santé [PPS] = 10 
+  * qui possède un savoir-faire [SMP] différent de : SM28 ; SM44 ; SM45 ; SM55
+
+NOS : 
+* Populations des Professionnels de Santé [PPS] : [JDV_J106-EnsembleProfession-RASS](https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS)
+* Savoir-Faire et Maîtrises des Professionnels [SMP] : [JDV_J107-EnsembleSavoirFaire-RASS](https://mos.esante.gouv.fr/NOS/JDV_J107-EnsembleSavoirFaire-RASS)
+
+</div>
+<br />
+
+**Requête :**
+
+Afin de récupérer les cabinets de médecins qui ne sont pas des cabinets de radiologie, nous devons interroger l'endpoint Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur le paramètre de recherche type = SA05, SA07, SA08, SA09, SA52
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur paramètre de recherche speciality
 </div>
 
 <br />
 
-Une fois l’ensemble des données récupéré, procédez aux filtres suivant : 
+Une fois l’ensemble des données récupéré, procédez aux filtres suivants : 
 
 Les PractitionerRoles doivent correspondre à la profession de santé "Médecin" (10) (champs code du PractitionerRole comme le montre le point 3 sur l'image ci-dessous).
 
-Ensuite les PractitionerRoles souhaités ***NE DOIVENT PAS correspondre*** à certaines spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous)
+Ensuite les PractitionerRoles souhaités ***NE DOIVENT PAS correspondre*** aux spécialités : SM28, SM44, SM45, SM55 (champs specialty du PractitionerRole comme le montre le point 2 sur l'image ci-dessous)
 
-Enfin, faut regrouper les PractitionerRoles pour les lier aux bonnes Organizations (champ organization du PractitionerRole comme le montre le point 1 sur l’image ci-dessous)
-
-
-
-Puis les Roles souhaités ne doivent pas correspondre à certaines spécialités (SM28, SM44, SM45, SM55), disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
-
+Enfin, il faut regrouper les PractitionerRoles pour les lier aux bonnes Organization (champ organization du PractitionerRole comme le montre le point 1 sur l’image ci-dessous)
 
 Nous pouvons finalement ne récupérer que les Organizations contenant des PractitionerRoleRoles selon les filtres que nous avons appliqués.
 
@@ -531,7 +631,7 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA0 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA05, SA07, SA08, SA09 ou SA52 (&type=SA05,SA07,SA08,SA09,SA52). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
 3) Pour chacun des PractitionerRole filtrés, vérifier qu'il ne dispose pas des spécialités de radiologie (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole filtrés, vérifier qu'il est toujours en activité
@@ -541,7 +641,7 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=SA05%2CSA07%2CSA08%2CSA09%2CSA52&_revinclude=PractitionerRole%3Aorganization"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=SA05%2C%20SA07%2C%20SA08%2C%20SA09%2C%20SA52&_revinclude=PractitionerRole%3Aorganization"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -668,23 +768,30 @@ Total filtered - 0
 <br />
 
 
-### 6. Le couloir Pharmacie
+### <a id="of-header"></a>2.6) Le couloir Officine
 
-Afin de récupérer les officines de pharmacie, nous devons interroger l'endpoint Organization :
+**Définition :**
+
+Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : SA33, SA38, SA39, SA56.
+
+NOS : Secteurs d’activités Annuaires [SAA] [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+
+**Requête :**
+
+Afin de récupérer les officines, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
- * En filtrant sur le système et les types d'établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39, SA56
+ * En filtrant sur le système et le type : système = https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite et type = SA33, SA38, SA39, SA56
 </div>
-
 <br />
-La liste des codes des pharmacies (ex: SA33, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
-Les données récupérées sont déjà pré-filtrées selon notre besoin et ne sont que des pharmacies.
+
+Les données récupérées sont déjà pré-filtrées selon notre besoin et ne sont que des officines.
 
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA33, SA38, SA39 ou SA56. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un type SA33, SA38, SA39 ou SA56. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
 2) L'ensembles des Organization récupérées sont des pharmacies
 {% endhighlight %}
 </div>
