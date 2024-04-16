@@ -344,7 +344,7 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [base]/Organization?identifier=http%3A%2F%2Ffiness.esante.gouv.fr%7C060016219`
+`GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C060016219`
 
 **Réponse (simplifiée) :** 
   
@@ -364,7 +364,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=http%3A%2F%2Ffiness.esante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000735" 
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C010000602%2Chttps%3A%2F%2Ffiness.esante.gouv.fr%7C010000628%2Chttps%3A%2F%2Ffiness.esante.gouv.fr%7C010000735" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -391,7 +391,7 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?identifier=http%3A%2F%2Ffiness.esante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000735');
+$response = $client->request('GET', '/fhir/v1/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C010000602%2Chttps%3A%2F%2Ffiness.esante.gouv.fr%7C010000628%2Chttps%3A%2F%2Ffiness.esante.gouv.fr%7C010000735');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
