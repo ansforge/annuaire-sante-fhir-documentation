@@ -1,4 +1,4 @@
-const contactEmail = 'LT-DTEX-Annuaire@esante.gouv.fr';
+const contactEmail = 'monserviceclient.annuaire@esante.gouv.fr';
 
 function normalizeText(s){
    return s.replace(/[^\w ]/g, '')
