@@ -81,7 +81,7 @@ namespace sample_usecases_tests
             var client = FhirTestUtils.CreateClient();
 
             var q = new SearchParams()
-              .Where("identifier=http://finess.sante.gouv.fr|010000602,http://finess.sante.gouv.fr|010000628")
+              .Where("identifier=https://finess.esante.gouv.fr|010000602,https://finess.esante.gouv.fr|010000628")
               .LimitTo(50);
             var bundle = client.Search<Organization>(q);
             foreach (var be in bundle.Entry)

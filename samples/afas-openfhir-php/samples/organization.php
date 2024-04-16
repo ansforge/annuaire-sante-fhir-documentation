@@ -41,7 +41,7 @@ foreach($organizations->getEntry() as $entry){
 
 
 echo "Find by finess number:\n";
-$response = $client->request('GET', '/fhir/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735');
+$response = $client->request('GET', '/fhir/Organization?identifier=http%3A%2F%2Ffiness.esante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.esante.gouv.fr%7C010000735');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){

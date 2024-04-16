@@ -84,7 +84,7 @@ public class OrganizationTest {
 
         // create finess where clause
         var finessSearchClause = Organization.IDENTIFIER.exactly().systemAndValues(
-                "http://finess.sante.gouv.fr", "010000602", "010000628", "010000735");
+                "https://finess.esante.gouv.fr", "010000602", "010000628", "010000735");
 
         var bundle = client.search()
                 .forResource(Organization.class)

@@ -109,7 +109,7 @@ public class SampleDataService {
         organization.setId(id);
         organization.addIdentifier().setSystem("http://sample/org/ids").setValue("org-" + id);
         organization.addIdentifier().setSystem("http://otherid/org/ids").setValue("org-" + faker.code().isbnRegistrant());
-        organization.addIdentifier().setSystem("http://finess.sante.gouv.fr").setValue(faker.idNumber().valid()).setUse(Identifier.IdentifierUse.OFFICIAL);
+        organization.addIdentifier().setSystem("https://finess.esante.gouv.fr").setValue(faker.idNumber().valid()).setUse(Identifier.IdentifierUse.OFFICIAL);
         organization.setName(faker.company().name());
         organization.setActive(true);
 
