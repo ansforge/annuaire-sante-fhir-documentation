@@ -87,7 +87,7 @@ Liste des codes catégorie MS1 :
 
 ![Schéma montrant les champs de filtre](img/focus-json-couloir-medi-soc.png){:style="max-width:670px"}
 
-Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
+Pour information, ces codes font partie de la [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
 
 
 <div class="code-sample">
@@ -307,7 +307,7 @@ Le résultat retourné est un Bundle contenant la première page de résultat. I
 
 #### <a id="ho-header-1"></a>2.2.1) Définition
 
-Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : 
+Ce Couloir est défini par les secteurs d’activité suivants : 
 <div class="wysiwyg" markdown="1">
  * SA01 ; SA02 ; SA03 ; SA04 ; SA30 ; SA34 ; SA36
  * Dans le cas d’une EG, sont exclues les catégories d’établissements FINESS du secteur médico-social (voir ci-dessus)
@@ -332,14 +332,16 @@ Liste des secteurs d'activité: SA01;SA02;SA03;SA04;SA30;SA34;SA36
 ![Schéma montrant les champs de filtre](img/focus-json-couloir-hopitaux.png){:style="max-width:670px"}
 
 
-Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un secteur d'activité parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA01&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA02 ...).
-2) Vérifier que pour chaque établissement, son type n'est pas présent dans la liste des catégories "médico-sociaux" (voir la liste dans le use case précédent). 
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un secteur d'activité parmi la liste ci-dessus 
+(&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA01&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA02 ...).
+2) Vérifier que pour chaque établissement, son type n'est pas présent dans la liste des catégories "médico-sociaux" 
+(voir la liste dans le use case précédent). 
 3) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -434,7 +436,7 @@ Ce Couloir est défini par les secteurs d’activité suivants :
 
 **NOS :** 
 <div class="wysiwyg" markdown="1">
- * Secteurs d’activités : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). 
+ * Secteurs d’activité : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). 
 </div>
 <br />
 
@@ -524,7 +526,7 @@ Total filtered - 523
 
 #### <a id="ra-header-1"></a>2.4.1) Définition
 
-Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : 
+Ce Couloir est défini par les secteurs d’activité suivants : 
 <div class="wysiwyg" markdown="1">
  * SA07 ; SA08 ; SA09
  * Avec au moins un PS 
@@ -561,14 +563,16 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 
 
 
-Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). La liste des profession est disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante). La liste des code spécialités est disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
+Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/). 
+La liste des profession est disponible dans le référentiel [TRE-G15-ProfessionSante](https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante). 
+La liste des code spécialités est disponibles dans le référentiel [TRE_R38-SpecialiteOrdinale](https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale)
 
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un <b>type</b> = SA07, SA08 ou SA09. 
-Cet appel devra inclure les PractitionerRoles attachés (<b>&_revinclude=PractitionerRole:organization</b>)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un type = SA07, SA08 ou SA09. 
+Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour : 
 - system = "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" 
 - et un code = 10 (médecin)
@@ -715,11 +719,11 @@ Total filtered - 0
 #### <a id="me-header-1"></a>2.5.1) Définition
 
 <div class="wysiwyg" markdown="1">
-Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants :
-* SA07 | SA08 | SA09 
-* Pour SA07 | SA08 | SA09 avec au moins un PS 
+Ce Couloir est défini par les secteurs d’activité suivants :
+* SA07 ; SA08 ; SA09 
+* Pour SA07 ; SA08 ; SA09 avec au moins un PS 
   * dont le code profession = 10 
-  * qui possède un savoir-faire différent de : SM28 | SM44 | SM45 | SM55
+  * qui possède un savoir-faire différent de : SM28, SM44, SM45, SM55
 
 **NOS :** 
 * Ensemble des professions : [JDV_J106-EnsembleProfession-RASS](https://mos.esante.gouv.fr/NOS/JDV_J106-EnsembleProfession-RASS)
@@ -927,7 +931,7 @@ Les données récupérées sont déjà pré-filtrées selon notre besoin et ne s
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un type parmi SA33, SA38, SA39 ou SA56. 
-Cet appel devra également inclure le filtre sur le system (ie : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
+Cet appel devra également inclure le filtre sur le system (&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33...)
 2) L'ensembles des Organization récupérées sont des pharmacies
 {% endhighlight %}
 </div>
