@@ -166,7 +166,9 @@ Liste des codes catégorie MS2 :
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
+- un identifier de type Finess (system=http://finess.sante.gouv.fr) 
+- et qui ont un type parmi la liste ci-dessus (ie : &type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159).
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -446,90 +448,58 @@ Afin de récupérer les laboratoires de biologie médicale de ville et en établ
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un type SA25 ou SA29 (&type=SA25,SA29). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un type SA25 ou SA29 (&type=SA25,SA29).
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
 curl \
     -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
-    "{{site.ans.api_url}}/fhir/Organization?type=SA25%2CSA29&_revinclude=PractitionerRole%3Aorganization"
+    "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA25%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
 var client = createClient();
 
-// construct biology facility request
-var orgBundle = client.search().forResource(Organization.class)
-        .where(Organization.TYPE.exactly().codes("SA25","SA29"))
-        .revInclude(PractitionerRole.INCLUDE_ORGANIZATION)
-        .returnBundle(Bundle.class).execute();
+// construct type search clause
+var codes = Arrays.asList("SA25","SA29");
+var activityClause = Organization.TYPE.exactly()
+        .systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite", codes);
 
-var totalElements = orgBundle.getTotal();
-var goodElements = new ArrayList<>();
+// construct identifier search clause
+var identifierClause = Organization.IDENTIFIER.hasSystemWithAnyCode("http://finess.sante.gouv.fr");
+
+// create and execute request
+var bundle = client
+        .search()
+        .forResource(Organization.class)
+        .where(activityClause)
+        .and(identifierClause)
+        .returnBundle(Bundle.class)
+        .execute();
+
 var hasNext = true;
-var treated = 0;
+var finessOrganizations = new LinkedList<>();
 
-logger.info("Total results - {}", orgBundle.getTotal());
-
+// for each page
 do {
-    var bundleContent = orgBundle.getEntry();
-    var organizationMap = new LinkedHashMap<String, Organization>();
+    logger.info("Total result {}", bundle.getTotal());
 
-    for (var e : bundleContent) {
-        // store the organization inside a map
-        if(e.getResource() instanceof Organization) {
-            var org = (Organization) e.getResource();
-            organizationMap.put(org.getId(), org);
-        }
+    // extract data from bundle
+    finessOrganizations.add(bundle.getEntry());
 
-        if(e.getResource() instanceof PractitionerRole) {
-            var role = (PractitionerRole) e.getResource();
-            var medicOrPharmacist = false;
-
-            // check if the Role contains a medic or pharmacist code
-            for(var code : role.getCode()) {
-                for(var coding : code.getCoding()) {
-                    if (coding.getSystem().equals("https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante") &&
-                            (coding.getCode().equals("10") || coding.getCode().equals("21"))) {
-                        medicOrPharmacist = true;
-                        break;
-                    }
-                }
-            }
-
-            // if the Role is right and still practicing, link it to the right Organization
-            if(medicOrPharmacist && !role.getPeriod().hasEnd() && role.getOrganization() != null) {
-                var org = (Organization) role.getOrganization().getResource();
-
-                if(organizationMap.containsKey(org.getId())) {
-                    organizationMap.get(org.getId()).addContained(role);
-                }
-            }
-        }
-    }
-
-    // loop over Organization and keep only those with roles
-    for(var org : organizationMap.values()) {
-        logger.info("Organization has {} roles", org.getContained().size());
-        if(org.getContained().size() > 0) {
-            goodElements.add(org);
-        }
-    }
-
-    // check if result has a next page
-    if (orgBundle.getLink("next")!=null) {
-        orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+    if (bundle.getLink("next") != null) {
+        // get the next page
+        bundle = client
+                .loadPage()
+                .byUrl(bundle.getLink("next").getUrl())
+                .andReturnBundle(Bundle.class)
+                .execute();
     } else {
         hasNext = false;
     }
-
-    treated += bundleContent.size();
-} while (hasNext);
-
-logger.info("Total global - {}", totalElements);
-logger.info("Total filtered - {}", goodElements.size());
+} while(hasNext);
 {% endhighlight %}
 </div>
 
