@@ -94,9 +94,9 @@ Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissemen
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
-- un "identifier" de type finess (system=http://finess.sante.gouv.fr) 
+- un identifier Finess (identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C) 
 - et qui ont un "type" parmi la liste ci-dessus 
-(system=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement)
+(&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C202...)
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -160,15 +160,16 @@ Le résultat retourné est un Bundle contenant la première page de résultat. I
 #### <a id="es-header-22"></a>2.1.2.2 ) MS2
 
 Liste des codes catégorie MS2 :      
-  * PDS : 165 ; 178 ; 180 ; 197 ; 213 ; 608
-  * PDE : 159 ; 166 ; 172 ; 175 ; 176 ; 177 ; 236 ; 241 ; 286 ; 295 ; 344 ; 378 ; 411 ; 418 ; 427 ; 440 ; 441 ; 453 
+  * [PDS] : 165 ; 178 ; 180 ; 197 ; 213 ; 608
+  * [PDE] : 159 ; 166 ; 172 ; 175 ; 176 ; 177 ; 236 ; 241 ; 286 ; 295 ; 344 ; 378 ; 411 ; 418 ; 427 ; 440 ; 441 ; 453 
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
-- un identifier de type Finess (system=http://finess.sante.gouv.fr) 
-- et qui ont un type parmi la liste ci-dessus (ie : &type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159).
+- un identifier Finess (identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C) 
+- et qui ont un "type" parmi la liste ci-dessus 
+(&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C165...)
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -238,8 +239,9 @@ Liste des codes catégorie MS3 :
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
-- un "identifier" de type Finess (system=http://finess.sante.gouv.fr) 
-- et qui ont un type parmi la liste ci-dessus (system=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
+- un identifier Finess (identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C) 
+- et qui ont un "type" parmi la liste ci-dessus 
+(&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C214...)
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -343,7 +345,9 @@ Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1?_getpages=b109ca26-32eb-416f-8c8a-fee6c6597bb9&_pageId=lZg9MO8QrAVQZoT5uxjWir7vNAEr7AGfqD_nysfrz5wl53MhYmudRGTxjJfwUVMYuYOdvQq4OASgzZbCGJjhb7EH19BN-GH2uG5r5q9ZT680D729MuB8AQowHOP0m-nlaq5JQ3eWKdOAc4z6ZlPQSKRIa2LDXto2BFdF4cEs2TVtK1uJsLVSBVq6JJElmJv5vrd0wkQaaf9H5HNBJG_W1g4gIxbflOSdm8MMyIAvA_Jm6tKvrcC9kFA5Rqn0_FawrKQJbmA2hi0ZbTJaZmaNHJSRA05shFi4vQMBSL0jqs1vo3bZCgFquO5qHyghvwrqmanzRhMjWzSGwanYS4jdpuScMd-btLsRIobeF9bNhGS3bcAVcS3a6SuUkya1H-nfd5XP957ZzPFP-hPsjHuSk4oXbbxYirHZFaKHMrdM3dmXbOdHzPsbgxA9-6RhJgwtlXzOuBToLIQ9VPQrL5F1Z0VeDkpHN50pG445m9Y6zL-YmKruLhsEvfnW0f3PgDKnIUZsFQNMmTetD7vRMlfxiPBws5J7d0HJB1WFG-Qk0n6q6hW4PStx9lsvmSS5Ggkg5At7ko005tiVj50SjbvTz9Bgj-4MfVHpmzY5og8avqHwci6Vo4iE57W4QaGuEQFKkFp2aDF6kBpY8SmKAbYGS08NjjiXqHSpsaj0PxGaS5NMX0vf69eQSd1X8HVQtFlbZubcKQs-F3wrZwp4J9a_Tfhd913wZB5wDHA1C226GfnhFQ5jx2BilMUjw-sVDb-_RmWsDYPG&_bundletype=searchset"
+curl \
+    -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+    "{{site.ans.api_url}}/fhir/v1?_getpages=b109ca26-32eb-416f-8c8a-fee6c6597bb9&_pageId=lZg9MO8QrAVQZoT5uxjWir7vNAEr7AGfqD_nysfrz5wl53MhYmudRGTxjJfwUVMYuYOdvQq4OASgzZbCGJjhb7EH19BN-GH2uG5r5q9ZT680D729MuB8AQowHOP0m-nlaq5JQ3eWKdOAc4z6ZlPQSKRIa2LDXto2BFdF4cEs2TVtK1uJsLVSBVq6JJElmJv5vrd0wkQaaf9H5HNBJG_W1g4gIxbflOSdm8MMyIAvA_Jm6tKvrcC9kFA5Rqn0_FawrKQJbmA2hi0ZbTJaZmaNHJSRA05shFi4vQMBSL0jqs1vo3bZCgFquO5qHyghvwrqmanzRhMjWzSGwanYS4jdpuScMd-btLsRIobeF9bNhGS3bcAVcS3a6SuUkya1H-nfd5XP957ZzPFP-hPsjHuSk4oXbbxYirHZFaKHMrdM3dmXbOdHzPsbgxA9-6RhJgwtlXzOuBToLIQ9VPQrL5F1Z0VeDkpHN50pG445m9Y6zL-YmKruLhsEvfnW0f3PgDKnIUZsFQNMmTetD7vRMlfxiPBws5J7d0HJB1WFG-Qk0n6q6hW4PStx9lsvmSS5Ggkg5At7ko005tiVj50SjbvTz9Bgj-4MfVHpmzY5og8avqHwci6Vo4iE57W4QaGuEQFKkFp2aDF6kBpY8SmKAbYGS08NjjiXqHSpsaj0PxGaS5NMX0vf69eQSd1X8HVQtFlbZubcKQs-F3wrZwp4J9a_Tfhd913wZB5wDHA1C226GfnhFQ5jx2BilMUjw-sVDb-_RmWsDYPG&_bundletype=searchset"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
