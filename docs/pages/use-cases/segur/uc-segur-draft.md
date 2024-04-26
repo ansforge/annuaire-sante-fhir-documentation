@@ -93,9 +93,10 @@ Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissemen
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) 
-et qui ont une catégorie parmi la liste ci-dessus 
-(&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
+- un "identifier" de type finess (system=http://finess.sante.gouv.fr) 
+- et qui ont un "type" parmi la liste ci-dessus 
+(system=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement)
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -229,12 +230,14 @@ Le résultat retourné est un Bundle contenant la première page de résultat. I
 #### <a id="es-header-23"></a>2.1.2.3 ) MS3
 
 Liste des codes catégorie MS3 : 
-  * AHI : 214 ; 216 ; 219 ; 258 ; 259 ; 442
+  * [AHI] : 214 ; 216 ; 219 ; 258 ; 259 ; 442
 
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
+- un "identifier" de type Finess (system=http://finess.sante.gouv.fr) 
+- et qui ont un type parmi la liste ci-dessus (system=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
@@ -551,8 +554,8 @@ Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants :
 <div class="wysiwyg" markdown="1">
  * SA07 ; SA08 ; SA09
  * Avec au moins un PS 
-   * dont le code de Professionnels de Santé [PPS] = 10
-   * qui possède un savoir-faire [SMP] de type : SM28 ; SM44 ; SM45 ; SM55
+   * dont le code profession = 10
+   * qui possède un savoir-faire parmi : SM28 ; SM44 ; SM45 ; SM55
 </div>
 <br />
 
@@ -560,8 +563,8 @@ Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants :
 
 Afin de récupérer les cabinets de médecins radiologues libéraux et les plateaux d’imagerie des établissements de santé., nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
- * En filtrant sur le pramètre de recherche type = SA07, SA08, SA09
- * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le paramètre de recherche speciality = SM28,SM44,SM45,SM55
+ * En filtrant sur le paramètre de recherche <b>type</b> = SA07, SA08, SA09
+ * En incluant les PractitionerRole liés aux Organizations afin de pouvoir filtrer ensuite sur le paramètre de recherche <b>speciality</b> = SM28,SM44,SM45,SM55
 </div>
 
 <br />
@@ -590,16 +593,23 @@ Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se si
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA09 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
-2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
-3) Pour chacun des PractitionerRole filtrés, vérifier qu'il y a au moins 1 Spécialité (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un <b>type</b> = SA07, SA08 ou SA09. 
+Cet appel devra inclure les PractitionerRoles attachés (<b>&_revinclude=PractitionerRole:organization</b>)
+2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour : 
+- system = "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" 
+- et un code = 10 (médecin)
+3) Pour chacun des PractitionerRole filtrés, vérifier qu'il y a au moins 1 Spécialité (champs speciality) avec pour :
+- system = "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" 
+- et un code = SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
 5) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=SA07%2CSA08%2CSA09&_revinclude=PractitionerRole%3Aorganization"
+curl \
+    -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+    "{{site.ans.api_url}}/fhir/Organization?type=SA07%2CSA08%2CSA09&_revinclude=PractitionerRole%3Aorganization"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -772,9 +782,14 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type SA07, SA08 ou SA09 (&type=SA07,SA08,SA09). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
-2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
-3) Pour chacun des PractitionerRole filtrés, vérifier qu'il ne dispose pas des spécialités de radiologie (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization qui ont un type = SA07, SA08 ou SA09. 
+Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
+2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour : 
+- system = "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" 
+- et un code = 10 (médecin)
+3) Pour chacun des PractitionerRole filtrés, vérifier qu'il ne dispose pas des spécialités de radiologie (champs speciality) avec pour :
+- system = "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" 
+- et un code = SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole filtrés, vérifier qu'il est toujours en activité
 5) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
 6) Répeter l'opération sur toutes les pages (1)
@@ -915,16 +930,18 @@ Total filtered - 0
 
 #### <a id="of-header-1"></a>2.6.1) Définition
 
-Ce Couloir est défini par les Secteurs d’activité Annuaires [SAA] suivants : SA33, SA38, SA39, SA56.
+Ce Couloir est défini par les secteurs d’activité suivants : SA33, SA38, SA39, SA56.
 
-**NOS** : Secteurs d’activités Annuaires [SAA] [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+**NOS** : Secteurs d’activité [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 #### <a id="of-header-2"></a>2.6.2) Requête
 
 Afin de récupérer les officines, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
- * En filtrant sur le système et le type : système = https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite et type = SA33, SA38, SA39, SA56
+ En filtrant sur le paramètre <b>type</b> : 
+ - system = "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite"
+ - et code = SA33, SA38, SA39, SA56
 </div>
 <br />
 
@@ -935,13 +952,16 @@ Les données récupérées sont déjà pré-filtrées selon notre besoin et ne s
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un type SA33, SA38, SA39 ou SA56. Cet appel devra également inclure le filtre sur le système (ex : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
+1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization ayant un type parmi SA33, SA38, SA39 ou SA56. 
+Cet appel devra également inclure le filtre sur le system (ie : type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite|SA33)
 2) L'ensembles des Organization récupérées sont des pharmacies
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA56"
+curl \
+    -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+    "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA56"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
