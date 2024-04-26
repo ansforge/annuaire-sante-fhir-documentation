@@ -81,9 +81,9 @@ Nous appliquerons deux filtres aux requêtes afin d'obtenir le résultats attend
 #### <a id="es-header-21"></a>2.1.2.1 ) MS1
 
 Liste des codes catégorie MS1 : 	 
-  * PA : 202 ; 207 ; 381 ; 500 ; 501 ; 502
-  * PH : 182 ; 183 ; 186 ; 188 ; 189 ; 190 ; 192 ; 194 ; 195 ; 196 ; 198 ; 221 ; 238 ; 246 ; 247 ; 249 ; 252 ; 253 ; 255 ; 370 ; 377 ; 379 ; 382 ; 390 ; 395 ; 396 ; 402 ; 437 ; 445 ; 446 ; 448 ; 449
-  * DOM : 209 ; 354 ; 460 ; 462
+[PA] : 202 ; 207 ; 381 ; 500 ; 501 ; 502
+[PH] : 182 ; 183 ; 186 ; 188 ; 189 ; 190 ; 192 ; 194 ; 195 ; 196 ; 198 ; 221 ; 238 ; 246 ; 247 ; 249 ; 252 ; 253 ; 255 ; 370 ; 377 ; 379 ; 382 ; 390 ; 395 ; 396 ; 402 ; 437 ; 445 ; 446 ; 448 ; 449
+[DOM] : 209 ; 354 ; 460 ; 462
 
 ![Schéma montrant les champs de filtre](img/focus-json-couloir-medi-soc.png){:style="max-width:670px"}
 
@@ -93,7 +93,9 @@ Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissemen
 <div class="code-sample">
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
+1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont :
+- un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) 
+- et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
 2) Répeter l'opération sur toutes les pages (1)
 {% endhighlight %}
 </div>
