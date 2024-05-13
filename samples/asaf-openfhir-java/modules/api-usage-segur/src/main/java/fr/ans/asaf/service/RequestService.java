@@ -58,7 +58,7 @@ public class RequestService {
                 .systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement", codes);
 
         // construct identifier search clause
-        var identifierClause = Organization.IDENTIFIER.hasSystemWithAnyCode("http://finess.sante.gouv.fr");
+        var identifierClause = Organization.IDENTIFIER.hasSystemWithAnyCode("https://finess.esante.gouv.fr");
 
         // create and execute request
         var bundle = client
