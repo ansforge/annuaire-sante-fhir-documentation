@@ -14,20 +14,28 @@ title: Guide de démarrage rapide avec l'API
 
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
-<b>Etape 1: Souscrire à l'API</b>
-|#| DESCRIPTION |
+<b>Souscrire à l'API</b>
+
+|ETAPES| DESCRIPTION |
 |---|---|
-|1| Créer votre compte personnel sur l'API manager de l'ANS: [GRAVITEE](https://portal.api.esante.gouv.fr){:target="_blank"}.|
-|2| Créer l'application qui a vocation à se connecter à l'API dans GRAVITEE|
-|3| Obtenir un jeton depuis l'application créée dans GRAVITEE|
+|1| Créer votre compte personnel sur l'API manager de l'ANS: [GRAVITEE](https://portal.api.esante.gouv.fr){:target="_blank"}. |
+|2| Créer l'application qui a vocation à se connecter à l'API dans GRAVITEE |
+|3| Obtenir un jeton depuis l'application créée dans GRAVITEE |
+&nbsp;
 
-<b>Etape 2: Se connecter à l'API</b>
-1| Utiliser l'API KEY "<b>ESANTE-API-KEY</b>" et le jeton récupéré par GRAVITEE
-2| Effectuer des requêtes API en utilisant le démonstrateur API ou en utilisant des logiciels gratuits (ex: Postman)
+<b>Se connecter à l'API</b>
 
-<b>Etape 3: Les liens d'accès</b>
-Serveur d'accès au service| https://gateway.api.esante.gouv.fr/fhir
-URL d'accès au Démonstrateur API| https://portail.openfhir.annuaire.sante.fr
+|ETAPES| DESCRIPTION |
+|1| Utiliser l'API KEY "<b>ESANTE-API-KEY</b>" et le jeton récupéré par GRAVITEE |
+|2| Effectuer des requêtes API en utilisant le démonstrateur API ou en utilisant des logiciels gratuits (ex: Postman) |
+&nbsp;
+
+<b>Les liens d'accès</b>
+|NOM| LIEN URL |
+|---|---|
+|Serveur d'accès au service| https://gateway.api.esante.gouv.fr/fhir |
+|URL d'accès au Démonstrateur API| https://portail.openfhir.annuaire.sante.fr |
+&nbsp;
 
 ## <a id="one-header"></a>1) Pré-requis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
