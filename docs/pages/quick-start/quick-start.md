@@ -53,14 +53,17 @@ Pour créer une application, les étapes à réaliser sont :
 <div class="wysiwyg" markdown="1">
 * Connectez-vous sur le portail Gravitee à l'adresse : [IDENTIFIEZ-VOUS](https://portal.api.esante.gouv.fr/user/login){:target="_blank"}
 * Dans l'onglet "Applications", cliquer sur "CREER UNE APP". La création de l'application se fait en trois étapes
-GENERAL| Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image
-SECURITE| Saisir  le type (web, mobile, etc.) et le client_ID (facultatif)
-SOUSCRIPTION| Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant"
-CREATION| Cliquer sur "Créer l'application" pour terminer
-
 </div>
-&nbsp;
 
+
+| ETAPE | Description |
+| --- | --- |
+| GENERAL| Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image |
+| SECURITE | Saisir  le type (web, mobile, etc.) et le client_ID (facultatif) |
+| SOUSCRIPTION | Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant" |
+| FINALISATION | Cliquer sur "Créer l'application" pour terminer |
+
+&nbsp;
 
 
 <div class="wysiwyg" markdown="1">
@@ -155,7 +158,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 <div class="wysiwyg" markdown="1">
 * Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }}),  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
 * [Accéder aux ressources]({{ '/pages/hub' | relative_url }})
-* [Cas d'utilisation de synchronisation]({{ '/pages/use-cases/full/uc_full' | relative_url }})
+* [Cas d'utilisation de synchronisation]({{ '/pages/use-cases/full/uc-full' | relative_url }})
 * [Cas d'utilisation d'appels unitaires]({{ '/pages/use-cases/practitioner-detail/uc-practitioner' | relative_url }})
 </div>
 
