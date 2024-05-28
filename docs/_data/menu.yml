@@ -92,7 +92,7 @@ header:
       - page: Appels unitaires autour du professionnel (PP)
         url: /pages/use-cases/practitioner-detail/uc-practitioner.html
         title: Appels unitaires autour du professionnel de santé 
-        next-url: /pages/use-cases/organization-detail/uc-organization.htmil
+        next-url: /pages/use-cases/organization-detail/uc-organization.html
         next-title: Cas d'utilisation >> Appels unitaires autour de la structure (PM)
       - page: Appels unitaires autour de la structure (PM)
         url: /pages/use-cases/organization-detail/uc-organization.html
@@ -109,7 +109,7 @@ header:
         title: Extraction des boîtes aux lettres MSSanté   
         next-url: https://portail.openfhir.annuaire.sante.fr
         next-title: Démonstrateur de l'API
-    external: true
+        external: true
   - title: Autres
     subfolderitems:
       - page: Guide d'implémentation FHIR
@@ -121,7 +121,7 @@ header:
       - page: Météo des services de l'Annuaire
         url: https://status.annuaire-sante.esante.gouv.fr
         external: true
-        - page: Questions sur la documentation
+      - page: Questions sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
         external: true
   - title: Démonstrateur API
