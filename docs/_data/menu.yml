@@ -15,73 +15,73 @@ header:
         next-title: Documentation >> Guides de prise en main >> Utilisation de Postman
       - page: Guides de prise en main
         url: /pages/documentation/starters/postman-starter.html
-        subfolderitems:
-          - page: Utilisation de Postman
-            url: /pages/documentation/starters/postman-starter.html
-            title: Utilisation de Postman
-            next-url: /pages/documentation/starters/java-starter.html
-            next-title: Documentation >> Guides de prise en main >> Utilisation de Java
-          - page: Utilisation de Java
-            url: /pages/documentation/starters/java-starter.html
-            title: Utilisation de Java
-            next-url: /pages/documentation/starters/php-starter.html
-            next-title: Documentation >> Guides de prise en main >> Utilisation de PHP
-          - page: Utilisation de PHP
-            url: /pages/documentation/starters/php-starter.html
-            title: Utilisation de PHP
-            next-url: /pages/documentation/starters/dotnet-starter.html
-            next-title: Documentation >> Guides de prise en main >> Utilisation de C#
-          - page: Utilisation de C#
-            url: /pages/documentation/starters/dotnet-starter.html
-            title: Utilisation de C#
-            next-url: /pages/documentation/resources/search-params.html
-            next-title: Ressources FHIR >> Paramètres de recherche
+    subfolderitems:
+      - page: Utilisation de Postman
+        url: /pages/documentation/starters/postman-starter.html
+        title: Utilisation de Postman
+        next-url: /pages/documentation/starters/java-starter.html
+        next-title: Documentation >> Guides de prise en main >> Utilisation de Java
+      - page: Utilisation de Java
+        url: /pages/documentation/starters/java-starter.html
+        title: Utilisation de Java
+        next-url: /pages/documentation/starters/php-starter.html
+        next-title: Documentation >> Guides de prise en main >> Utilisation de PHP
+      - page: Utilisation de PHP
+        url: /pages/documentation/starters/php-starter.html
+        title: Utilisation de PHP
+        next-url: /pages/documentation/starters/dotnet-starter.html
+        next-title: Documentation >> Guides de prise en main >> Utilisation de C#
+      - page: Utilisation de C#
+        url: /pages/documentation/starters/dotnet-starter.html
+        title: Utilisation de C#
+        next-url: /pages/documentation/resources/search-params.html
+        next-title: Ressources FHIR >> Paramètres de recherche
       - page: Ressources FHIR
         url: /pages/documentation/resources/search-params.html
-        subfolderitems:
-          - page: Paramètres de recherche (Search Parameters)
-            url: /pages/documentation/resources/search-params.html
-            title: Paramètres de recherche
-            next-url: /pages/documentation/resources/organization.html
-            next-title: Ressources FHIR >> Organization
-          - page: Organization
-            url: /pages/documentation/resources/organization.html
-            title: Organization
-            next-url: /pages/documentation/resources/practitioner.html
-            next-title: Ressources FHIR >> Practitioner
-          - page: Practitioner
-            url: /pages/documentation/resources/practitioner.html
-            title: Practitioner
-            next-url: /pages/documentation/resources/practitioner-role.html
-            next-title: Ressources FHIR >> PractitionerRole
-          - page: PractitionerRole
-            url: /pages/documentation/resources/practitioner-role.html
-            title: PractitionerRole
-            next-url: /pages/documentation/resources/healthcare-service.html
-            next-title: Ressources FHIR >> HealthcareService
-          - page: HealthcareService
-            url: /pages/documentation/resources/healthcare-service.html
-            title: HealthcareService
-            next-url: /pages/documentation/resources/device.html
-            next-title: Ressources FHIR >> Device
-          - page: Device
-            url: /pages/documentation/resources/device.html
-            title: Device
-            next-url: /pages/documentation/advanced/link.html
-            next-title: Techniques avancées >> Lier plusieurs ressources
+    subfolderitems:
+      - page: Paramètres de recherche (Search Parameters)
+        url: /pages/documentation/resources/search-params.html
+        title: Paramètres de recherche
+        next-url: /pages/documentation/resources/organization.html
+        next-title: Ressources FHIR >> Organization
+      - page: Organization
+        url: /pages/documentation/resources/organization.html
+        title: Organization
+        next-url: /pages/documentation/resources/practitioner.html
+        next-title: Ressources FHIR >> Practitioner
+      - page: Practitioner
+        url: /pages/documentation/resources/practitioner.html
+        title: Practitioner
+        next-url: /pages/documentation/resources/practitioner-role.html
+        next-title: Ressources FHIR >> PractitionerRole
+      - page: PractitionerRole
+        url: /pages/documentation/resources/practitioner-role.html
+        title: PractitionerRole
+        next-url: /pages/documentation/resources/healthcare-service.html
+        next-title: Ressources FHIR >> HealthcareService
+      - page: HealthcareService
+        url: /pages/documentation/resources/healthcare-service.html
+        title: HealthcareService
+        next-url: /pages/documentation/resources/device.html
+        next-title: Ressources FHIR >> Device
+      - page: Device
+        url: /pages/documentation/resources/device.html
+        title: Device
+        next-url: /pages/documentation/advanced/link.html
+        next-title: Techniques avancées >> Lier plusieurs ressources
       - page: Techniques avancées
         url: /pages/documentation/advanced/link.html
-        subfolderitems:
-          - page: Lier plusieurs ressources
-            url: /pages/documentation/advanced/link.html
-            title: Liaison entre plusieurs ressources
-            next-url: /pages/documentation/advanced/storage.html
-            next-title: Techniques avancées >> Stockage
-          - page: Stockage
-            url: /pages/documentation/advanced/storage.html
-            title: Stockage
-            next-url: /pages/use-cases/full/uc-full.html
-            next-title: Cas d'utilisation >> Synchronisation complète
+    subfolderitems:
+      - page: Lier plusieurs ressources
+        url: /pages/documentation/advanced/link.html
+        title: Liaison entre plusieurs ressources
+        next-url: /pages/documentation/advanced/storage.html
+        next-title: Techniques avancées >> Stockage
+      - page: Stockage
+        url: /pages/documentation/advanced/storage.html
+        title: Stockage
+        next-url: /pages/use-cases/full/uc-full.html
+        next-title: Cas d'utilisation >> Synchronisation complète
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
