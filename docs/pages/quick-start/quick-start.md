@@ -15,9 +15,11 @@ title: Guide de démarrage rapide avec l'API
 Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer votre premier appel à l'API.
 
 <b>Etape 1: Souscrire à l'API</b>
-1| Créer votre compte personnel sur l'API manager de l'ANS: [GRAVITEE](https://portal.api.esante.gouv.fr){:target="_blank"}. 
-2| Créer l'application qui a vocation à se connecter à l'API dans GRAVITEE
-3| Obtenir un jeton depuis l'application créée dans GRAVITEE
+|#| DESCRIPTION |
+|---|---|
+|1| Créer votre compte personnel sur l'API manager de l'ANS: [GRAVITEE](https://portal.api.esante.gouv.fr){:target="_blank"}.|
+|2| Créer l'application qui a vocation à se connecter à l'API dans GRAVITEE|
+|3| Obtenir un jeton depuis l'application créée dans GRAVITEE|
 
 <b>Etape 2: Se connecter à l'API</b>
 1| Utiliser l'API KEY "<b>ESANTE-API-KEY</b>" et le jeton récupéré par GRAVITEE
@@ -27,11 +29,11 @@ Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer
 Serveur d'accès au service| https://gateway.api.esante.gouv.fr/fhir
 URL d'accès au Démonstrateur API| https://portail.openfhir.annuaire.sante.fr
 
-## <a id="one-header"></a>0) Prérequis pour démarrer avec l'API
+## <a id="one-header"></a>1) Pré-requis pour démarrer avec l'API
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS :
 [GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
 
-## <a id="two-header"></a>1) Création d'un compte dans Gravitee
+## <a id="two-header"></a>2) Création d'un compte dans Gravitee
 La création d'un compte est obligatoire dans l'outil GRAVITEE.
 
 <div class="wysiwyg" markdown="1">
@@ -42,7 +44,7 @@ La création d'un compte est obligatoire dans l'outil GRAVITEE.
 &nbsp;
 
    
-## <a id="three-header"></a>2) Création d'une application dans Gravitee
+## <a id="three-header"></a>3) Création d'une application dans Gravitee
 Cette étape consite à créer une application dans GRAVITEE afin d'obtenir une clé API.
 
 <p align="center">
@@ -54,17 +56,16 @@ Pour créer une application, les étapes à réaliser sont :
 * Connectez-vous sur le portail Gravitee à l'adresse : [IDENTIFIEZ-VOUS](https://portal.api.esante.gouv.fr/user/login){:target="_blank"}
 * Dans l'onglet "Applications", cliquer sur "CREER UNE APP". La création de l'application se fait en trois étapes
 </div>
+&nbsp;
 
 
-| ETAPE | Description |
+| ETAPES | DESCRIPTION |
 | --- | --- |
 | GENERAL| Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image |
 | SECURITE | Saisir  le type (web, mobile, etc.) et le client_ID (facultatif) |
 | SOUSCRIPTION | Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant" |
 | FINALISATION | Cliquer sur "Créer l'application" pour terminer |
-
 &nbsp;
-
 
 <div class="wysiwyg" markdown="1">
 * Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver toutes les API souscrites. En cliquant dans le tableau sur l'une des API, la clé API à utiliser s'affiche
@@ -75,7 +76,7 @@ Pour créer une application, les étapes à réaliser sont :
   <img src="img/apim_creer_app_2.png" style="width:100%;">
 </p>
 
-## <a id="four-header"></a>3) Tester l'API
+## <a id="four-header"></a>4) Tester l'API
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 <div class="wysiwyg" markdown="1">
 * <b>Test 1</b> : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) : 
@@ -90,7 +91,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 {% endhighlight %}
 </div></div>
 <div class="wysiwyg" markdown="1">
-* La réponse de l'API devrait ressembler à ceci : 
+* Ci-dessous la réponse de l'API : 
 </div>
 &nbsp;
 
@@ -105,7 +106,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 
 ```
 &nbsp;
-&nbsp;
+
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
 <div class="wysiwyg" markdown="1">
