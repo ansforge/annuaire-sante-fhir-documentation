@@ -4,7 +4,7 @@ layout: base
 <div class="row no-gutters">
     <div id="sidebar-container" class="sidebar-expanded col-3 d-none d-md-block left-menu">
         <ul class="navbar-nav nav-lvl-1">
-            {% for item in site.data.menu.header[2].subfolderitems %}
+            {% for item in site.data.menu.header[1].subfolderitems %}
                 {% if item.subfolderitems[0] %}
                     {% assign counter = counter | plus: 1 %}
                     <li class="nav-item common-nav-item">
