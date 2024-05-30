@@ -176,5 +176,5 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 <div class="wysiwyg" markdown="1">
 * [Site officiel de FHIR](https://www.hl7.org/fhir/){:target="_blank"}
 * [Librairie HAPI FHIR](https://hapifhir.io/){:target="_blank"}
-* [Profils de l'annuaire santé](TODO){:target="_blank"}
+* [Guide d'implémentation FHIR - Annuaire Santé](https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0/){:target="_blank"}
 </div>
