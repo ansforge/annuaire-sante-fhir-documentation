@@ -14,7 +14,7 @@ title: Documentation
         <h3>Guides</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[0].subfolderitems %}
+            {% for item in site.data.menu.header[1].subfolderitems[2].subfolderitems %}
                 <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
             {% endfor %}
         </div>
@@ -23,7 +23,7 @@ title: Documentation
         <h3>Ressources FHIR</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[2].subfolderitems %}
+            {% for item in site.data.menu.header[1].subfolderitems[3].subfolderitems %}
                 <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
             {% endfor %}
         </div>
@@ -32,7 +32,7 @@ title: Documentation
         <h3>Techniques avancées</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[3].subfolderitems %}
+            {% for item in site.data.menu.header[1].subfolderitems[4].subfolderitems %}
                 <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
             {% endfor %}
         </div>
