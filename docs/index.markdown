@@ -3,11 +3,7 @@ layout: home
 title: Bienvenue sur la documentation de l'API FHIR Annuaire Santé en libre accès
 ---
 
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation est en cours de construction.
-</p>
-
-Ici, vous allez trouver la documentation complète permettant de faciliter l'utilisation de l'API : des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, des exemples de code,...
+Voici la documentation complète pour faciliter l'utilisation de l'API. Elle comprend des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, ainsi que des exemples de code. Cette documentation est conçue pour vous aider à maîtriser rapidement et efficacement l'API.
 
 <div style="display: flex; justify-content: space-around;" class="m-5">
 <div markdown="1">
@@ -20,8 +16,7 @@ Ici, vous allez trouver la documentation complète permettant de faciliter l'uti
 
 ## Présentation
 
-l'API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. 
-Une API RESTfull  basée sur la spécification HL7 FHIR, qui se veut : 
+L’API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. Cette API RESTful, basée sur la spécification HL7 FHIR, est conçue pour être: 
 <div class="wysiwyg"  markdown="1">
 - Simple d'utilisation
 - Rapide  
