@@ -111,7 +111,7 @@ header:
         next-title: Démonstrateur de l'API
         external: true
   - title: Changelog
-    url: /pages/use-cases/changelog/changelog.html
+    url: /pages/changelog/changelog.html
   - title: Liens externes
     subfolderitems:
       - page: Démonstrateur API
