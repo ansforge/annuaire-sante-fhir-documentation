@@ -1,6 +1,6 @@
 ---
 layout: documentation
-title: Utilisation de Postman
+title: Guide de démarrage rapide avec l'API
 ---
 
 Vous pouvez utiliser cette collection Postman avec des exemples d'appels FHIR pour tester l'API.
