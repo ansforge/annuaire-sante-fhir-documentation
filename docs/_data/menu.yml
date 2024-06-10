@@ -1,7 +1,7 @@
 header:
   - title: Accueil
     url: /
-  - title: Commencer 
+  - title: Commencer
     subfolderitems:
       - page: Démarrage rapide
         url: /pages/quick-start/quick-start.html
@@ -13,8 +13,6 @@ header:
         title: Bases de l'API
         next-url: /pages/documentation/starters/postman-starter.html
         next-title: Documentation >> Guides de prise en main >> Utilisation de Postman
-  - title: Documentation
-    subfolderitems:
       - page: Guides de prise en main
         url: /pages/documentation/starters/postman-starter.html
         subfolderitems:
@@ -94,7 +92,7 @@ header:
       - page: Appels unitaires autour du professionnel (PP)
         url: /pages/use-cases/practitioner-detail/uc-practitioner.html
         title: Appels unitaires autour du professionnel de santé 
-        next-url: /pages/use-cases/organization-detail/uc-organization.htmil
+        next-url: /pages/use-cases/organization-detail/uc-organization.html
         next-title: Cas d'utilisation >> Appels unitaires autour de la structure (PM)
       - page: Appels unitaires autour de la structure (PM)
         url: /pages/use-cases/organization-detail/uc-organization.html
@@ -111,20 +109,23 @@ header:
         title: Extraction des boîtes aux lettres MSSanté   
         next-url: https://portail.openfhir.annuaire.sante.fr
         next-title: Démonstrateur de l'API
-  - title: Démonstrateur API
-    url: https://portail.openfhir.annuaire.sante.fr
-    external: true
-  - title: Autres
+        external: true
+  - title: Changelog
+    url: /pages/changelog/changelog.html
+  - title: Liens externes
     subfolderitems:
-      - page: Issue sur la documentation
-        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
+      - page: Démonstrateur API
+        url: https://portail.openfhir.annuaire.sante.fr
+        external: true
+      - page: Guide d'implémentation FHIR
+        url: https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0
         external: true
       - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
         external: true
-      - page: Page statut de l'API
+      - page: Météo des services de l'Annuaire
         url: https://status.annuaire-sante.esante.gouv.fr
         external: true
-      - page: IG FHIR (StructureDefinition)
-        url: https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0
+      - page: Questions sur la documentation
+        url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
         external: true

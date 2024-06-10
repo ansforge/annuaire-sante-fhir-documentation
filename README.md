@@ -29,7 +29,7 @@ Le modèle est disponible ici : https://interop.esante.gouv.fr/ig/fhir/annuaire
 * Démonstration : https://portail.openfhir.annuaire.sante.fr/
 * Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
 * Code source : https://github.com/ansforge/annuaire-sante-fhir-serveur/
-* IG : https://interop.esante.gouv.fr/ig/fhir/annuaire
+* IG (StructureDefintion): https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0/
 * API statuts : https://status.annuaire-sante.esante.gouv.fr/
 
 ## CI/CD

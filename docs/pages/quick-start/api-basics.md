@@ -147,9 +147,12 @@ Seul le lien Next est supporté.
 
 De manière générale, la ressource n'est plus publiée dans l'API à partir du moment où elle devient inactive. Cependant, elle ne disparait pas complétement de l'API puisqu'elle reste présente dans le delta avec uniquement son id et le champs active = false (device : status inactive). Ce fonctionnement permet notamment aux consommateurs du delta d'isoler les ressources supprimées entre deux dates (synchronisations).
 
+Par défaut, l'API remonte toutes les ressources (actives et inactives). 
+Pour exlcure les ressources inactives du résulat, utilisez le paramètre active ou status.
+
 <div class="wysiwyg"  markdown="1">
-- active=false pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=false)
-- status=false pour Device (exemple : [api-url]/Device?status=inactive)
+- active pour l'ensemble des ressources excepté Device (exemple : [api-url]/Practitioner?active=true)
+- status pour Device (exemple : [api-url]/Device?status=active)
 </div>
 <br />
 
