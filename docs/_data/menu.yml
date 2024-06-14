@@ -135,9 +135,9 @@ header:
         url: /pages/guide/version-1/getting-started/get-api-key.html
         title: Version 1
         subfolderitems:
-          - page: Introduction
+          - page: Pour démarrer
             url: /pages/guide/version-1/getting-started/get-api-key.html
-            title: Introduction
+            title: Pour démarrer
             subfolderitems:
               - page: Obtenir une clé API
                 url: /pages/guide/version-1/getting-started/get-api-key.html
@@ -152,3 +152,21 @@ header:
               - page: Bases de l'API
                 url: /pages/guide/version-1/getting-started/api-basics.html
                 title: Bases de l'API
+        subfolderitems:
+          - page: Intégration FHIR
+            url: /pages/guide/version-1/getting-started/get-api-key.html
+            title: Intégration FHIR
+            subfolderitems:
+              - page: Utilisation de Java
+                url: /pages/guide/version-1/integration-fhir/integration-java.html
+                title: Utilisation de Java
+                next-url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
+                next-title: Utilisation de C#
+              - page: Utilisation de C#
+                url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
+                title: Utilisation de C#
+                next-url: /pages/guide/version-1/integration-fhir/integration-php.html
+                next-title: Utilisation de PHP
+              - page: Utilisation de PHP
+                url: /pages/guide/version-1/integration-fhir/integration-php.html
+                title: Utilisation de PHP
