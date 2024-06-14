@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: menu-version-1
 title: Guide de démarrage rapide avec l'API
 ---
 
@@ -20,6 +20,5 @@ Voici les variables utilisées dans le projet Postman:
 
 |Variable|Description|Valeur|
 |---|---|---|
-|api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/quick-start.html))|Saisissez votre clé
-|
+|api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/quick-start/quick-start.html))|Saisissez votre clé|
 |api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir|
