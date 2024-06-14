@@ -8,16 +8,16 @@ layout: base
             {% assign version_1_menu = guides_menu.subfolderitems | where: "page", "Version 1" | first %}
 
             <li class="nav-item common-nav-item">
-                <a>{{ version_1_menu.page }}</a>
+                <a>{{ version_1_menu.title }}</a>
                 <ul class="navbar-nav nav-lvl-1">
                     {% for item in version_1_menu.subfolderitems %}
                         <li class="nav-item common-nav-item">
-                            <a>{{ item.page }}</a>
+                            <a>{{ item.title }}</a>
                             {% if item.subfolderitems %}
                                 <ul class="navbar-nav nav-lvl-2">
                                     {% for subitem in item.subfolderitems %}
                                         <li class="nav-item common-nav-item {% if subitem.url == page.url %}active{% endif %}">
-                                            <a href="{{ subitem.url | relative_url }}">{{ subitem.page }}</a>
+                                            <a href="{{ subitem.url | relative_url }}">{{ subitem.title }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
