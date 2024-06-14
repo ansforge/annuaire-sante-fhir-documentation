@@ -129,3 +129,10 @@ header:
       - page: Questions sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
         external: true
+  - title: Guides
+    subfolderitems:
+      - page: Version 1
+        url: /pages/guide/version-1/quick-start.html
+        title: Démarrage rapide
+        next-url: /pages/quick-start/api-basics.html
+        next-title: Commencer >> Bases de l'API
