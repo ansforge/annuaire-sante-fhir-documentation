@@ -4,23 +4,28 @@ layout: base
 <div class="row no-gutters">
     <div id="sidebar-container" class="sidebar-expanded col-3 d-none d-md-block left-menu">
         <ul class="navbar-nav nav-lvl-1">
-            {% for item in site.data.menu.header[5].subfolderitems %}
-                {% if item.subfolderitems[0] %}
-                    {% assign counter = counter | plus: 1 %}
-                    <li class="nav-item common-nav-item">
-                        <a>{{ item.page }}</a>
-                        <ul class="navbar-nav nav-lvl-1">
-                            {% for item in item.subfolderitems %}
-                                <li class="nav-item common-nav-item {% if item.url == page.url %}active{% endif %}">
-                                    <a href="{{ item.url | relative_url }}">{{ item.page }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>                    
-                    </li>
-                {% else %}
-                    <li class="nav-item common-nav-item"><a  href="{{ item.url | relative_url }}">{{ item.page }}</a></li>
-                {% endif %}
-            {% endfor %}
+            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
+            {% assign version_1_menu = guides_menu.subfolderitems | where: "page", "Version 1" | first %}
+
+            <li class="nav-item common-nav-item">
+                <a>{{ version_1_menu.page }}</a>
+                <ul class="navbar-nav nav-lvl-1">
+                    {% for item in version_1_menu.subfolderitems %}
+                        <li class="nav-item common-nav-item">
+                            <a>{{ item.page }}</a>
+                            {% if item.subfolderitems %}
+                                <ul class="navbar-nav nav-lvl-2">
+                                    {% for subitem in item.subfolderitems %}
+                                        <li class="nav-item common-nav-item {% if subitem.url == page.url %}active{% endif %}">
+                                            <a href="{{ subitem.url | relative_url }}">{{ subitem.page }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
         </ul>
     </div>
     <div class="col">
@@ -40,4 +45,3 @@ layout: base
         </main>
     </div>
 </div>
-
