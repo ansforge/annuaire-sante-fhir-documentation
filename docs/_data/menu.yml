@@ -131,10 +131,13 @@ header:
         external: true
   - title: Guides
     subfolderitems:
-      - page: Introduction
-        url: /pages/guide/version-1/quick-start.html
-        title: Démarrage rapide
+      - page: Version 1
+        url: /pages/guide/version-1/getting-started/get-api-key.html
+        title: Version 1
         subfolderitems:
+          - page: Obtenir une clé API
+            url: /pages/guide/version-1/getting-started/get-api-key.html
+            title: Démarrage rapide avec Postman
           - page: Démarrage rapide avec Postman
             url: /pages/guide/version-1/getting-started/quick-start-postman.html
             title: Démarrage rapide avec Postman
