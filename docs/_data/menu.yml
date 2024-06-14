@@ -135,12 +135,16 @@ header:
         url: /pages/guide/version-1/getting-started/get-api-key.html
         title: Version 1
         subfolderitems:
-          - page: Obtenir une clé API
+          - page: Introduction
             url: /pages/guide/version-1/getting-started/get-api-key.html
-            title: Démarrage rapide avec Postman
-          - page: Démarrage rapide avec Postman
-            url: /pages/guide/version-1/getting-started/quick-start-postman.html
-            title: Démarrage rapide avec Postman
-          - page: Bases de l'API
-            url: /pages/guide/version-1/getting-started/api-basics.html
-            title: Bases de l'API
+            title: Introduction
+            subfolderitems:
+              - page: Obtenir une clé API
+                url: /pages/guide/version-1/getting-started/get-api-key.html
+                title: Démarrage rapide avec Postman
+              - page: Démarrage rapide avec Postman
+                url: /pages/guide/version-1/getting-started/quick-start-postman.html
+                title: Démarrage rapide avec Postman
+              - page: Bases de l'API
+                url: /pages/guide/version-1/getting-started/api-basics.html
+                title: Bases de l'API
