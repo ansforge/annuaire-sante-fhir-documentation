@@ -41,7 +41,19 @@ Tous les accès se font via HTTPS.
 Toutes les réponses utilisent les codes HTTP Standard.
 Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste des codes HTTP les plus courants et leur signification
 
-### Méthodes HTTP (http verbs)
+| Status code | Type | Definition |
+| --- | --- | --- |
+| 200 | OK | Requête réussie |
+| 400 | Bad Request | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe |
+| 401 | Unauthorized | Impossible d'authentifier la requête |
+| 403 | Forbidden | La requêtes n'est pas autorisée |
+| 404 | Not found| La ressource n'est pas trouvée |
+| 500 | Internal Server Error|Une erreur inattendue est survenue |
+| 501 | Not Implemented |
+| 503 | Service Unavailable|Le service est non disponible |
+
+
+### Méthodes HTTP (HTTP VERBS)
 
 L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec les méthodes HTTP suivantes :
 <div class="wysiwyg"  markdown="1">
@@ -67,19 +79,6 @@ L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec le
 
 ```
 <br />
-
-### Construction de la réponse de base
-|Status code|Type|Definition|
-|---|---|---|
-|200|OK|Requête réussie|
-|400|Bad Request|La requête est mal formatée. Vérifiez les paramètres ou la syntaxe.|
-|401|Unauthorized|Impossible d'authentifier la requête|
-|403|Forbidden|La requêtes n'est pas autorisée|
-|404|Not found|La ressource n'est pas trouvée||
-|500|Internal Server Error|Une erreur inattendue est survenue|
-|501|Not Implemented||
-|503|Service Unavailable|Le service est non disponible|
-
 
 
 #### Réponse de base -- Succès
