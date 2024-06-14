@@ -123,7 +123,7 @@ header:
       - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
         external: true
-      - page: Météo des services de l'Annuaire
+      - page: Météo des services de l'Annuaire Santé
         url: https://status.annuaire-sante.esante.gouv.fr
         external: true
       - page: Questions sur la documentation
@@ -131,8 +131,13 @@ header:
         external: true
   - title: Guides
     subfolderitems:
-      - page: Version 1
+      - page: Introduction
         url: /pages/guide/version-1/quick-start.html
         title: Démarrage rapide
-        next-url: /pages/quick-start/api-basics.html
-        next-title: Commencer >> Bases de l'API
+        subfolderitems:
+          - page: Démarrage rapide avec Postman
+            url: /pages/guide/version-1/getting-started/quick-start-postman.html
+            title: Démarrage rapide avec Postman
+          - page: Bases de l'API
+            url: /pages/guide/version-1/getting-started/api-basics.html
+            title: Bases de l'API
