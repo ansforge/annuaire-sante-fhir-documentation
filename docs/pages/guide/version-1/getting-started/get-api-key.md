@@ -160,7 +160,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 #### Ressources internes 
 
 <div class="wysiwyg" markdown="1">
-* Démarrage par langage: [JAVA]({{ '/pages/documentation/starters/java-starter.html' | relative_url }}),  [PHP]({{ '/pages/documentation/starters/php-starter.html' | relative_url }})
+* Démarrage par langage: [JAVA]({{ '/pages/guide/version-1/integration-fhir/integration-java.html' | relative_url }}),  [PHP]({{ '/pages/guide/version-1/integration-fhir/integration-php' | relative_url }}),[C#]({{ '/pages/guide/version-1/integration-fhir/integration-dotnet.html' | relative_url }})
 * [Accéder aux ressources]({{ '/pages/hub' | relative_url }})
 * [Cas d'utilisation de synchronisation]({{ '/pages/use-cases/full/uc-full' | relative_url }})
 * [Cas d'utilisation d'appels unitaires]({{ '/pages/use-cases/practitioner-detail/uc-practitioner' | relative_url }})
