@@ -55,17 +55,16 @@ header:
               - page: SearchParameter
                 url: /pages/guide/version-1/resources/search-params.html
                 title: SearchParameter
-  - title: Ressources
-      - page: Techniques avancées
-        url: /pages/documentation/advanced/link.html
-        title: Techniques avancées
-        subfolderitems:
-          - page: Lier plusieurs ressources
+          - page: Techniques avancées
             url: /pages/documentation/advanced/link.html
-            title: Lier plusieurs ressources
-          - page: Stockage
-            url: /pages/documentation/advanced/storage.html
-            title: Stockage
+            title: Techniques avancées
+            subfolderitems:
+              - page: Lier plusieurs ressources
+                url: /pages/documentation/advanced/link.html
+                title: Lier plusieurs ressources
+              - page: Stockage
+                url: /pages/documentation/advanced/storage.html
+                title: Stockage
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
