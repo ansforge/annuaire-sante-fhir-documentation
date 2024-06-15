@@ -34,7 +34,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 
 #### Initialisation du projet
 
-Voir la section [Démarrage/Java]({{ '/pages/documentation/starters/java-starter.html' | relative_url }})
+Voir la section [Démarrage/Java]({{ '/pages/guide/version-1/integration-fhir/integration-java.html' | relative_url }})
 
 
 #### Trouver un professionnel de santé avec son numéro RPPS
