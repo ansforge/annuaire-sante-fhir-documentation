@@ -10,7 +10,7 @@ Voici la documentation complète pour faciliter l'utilisation de l'API. Elle com
 [Documentation complète](pages/hub.md){:class="btn  btn--style1"}
 </div>
 <div markdown="1">
-[Démarrage rapide](/pages/guide/version-1/getting-started/get-api-key.html){:class="btn  btn--style1"}
+[Démarrage rapide](pages/guide/version-1/getting-started/get-api-key.html){:class="btn  btn--style1"}
 </div>
 </div>
 
