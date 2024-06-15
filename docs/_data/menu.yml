@@ -1,30 +1,43 @@
 header:
   - title: Accueil
     url: /
+  - title: Guides
+    subfolderitems:
+      - page: Version 1
+        url: /pages/guide/version-1/getting-started/get-api-key.html
+        title: Version 1
+        subfolderitems:
+          - page: Pour démarrer
+            url: /pages/guide/version-1/getting-started/get-api-key.html
+            title: Pour démarrer
+            subfolderitems:
+              - page: Obtenir une clé API
+                url: /pages/guide/version-1/getting-started/get-api-key.html
+                title: Obtenir une clé API
+              - page: Démarrage rapide avec Postman
+                url: /pages/guide/version-1/getting-started/quick-start-postman.html
+                title: Démarrage rapide avec Postman
+              - page: Bases de l'API
+                url: /pages/guide/version-1/getting-started/api-basics.html
+                title: Bases de l'API
+          - page: Intégration FHIR
+            url: /pages/guide/version-1/integration-fhir/introduction.html
+            title: Intégration FHIR
+            subfolderitems:
+              - page: Utilisation de Java
+                url: /pages/guide/version-1/integration-fhir/integration-java.html
+                title: Utilisation de Java
+              - page: Utilisation de C#
+                url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
+                title: Utilisation de C#
+              - page: Utilisation de PHP
+                url: /pages/guide/version-1/integration-fhir/integration-php.html
+                title: Utilisation de PHP
   - title: Commencer
     subfolderitems:
-      - page: Démarrage rapide
-        url: /pages/quick-start/quick-start.html
-        title: Démarrage rapide
       - page: Bases de l'API
         url: /pages/quick-start/api-basics.html
         title: Bases de l'API
-      - page: Guides de prise en main
-        url: /pages/documentation/starters/postman-starter.html
-        title: Guides de prise en main
-        subfolderitems:
-          - page: Utilisation de Postman
-            url: /pages/documentation/starters/postman-starter.html
-            title: Utilisation de Postman
-          - page: Utilisation de Java
-            url: /pages/documentation/starters/java-starter.html
-            title: Utilisation de Java
-          - page: Utilisation de PHP
-            url: /pages/documentation/starters/php-starter.html
-            title: Utilisation de PHP
-          - page: Utilisation de C#
-            url: /pages/documentation/starters/dotnet-starter.html
-            title: Utilisation de C#
       - page: Ressources FHIR
         url: /pages/documentation/resources/search-params.html
         title: Ressources FHIR
@@ -88,35 +101,3 @@ header:
         url: https://status.annuaire-sante.esante.gouv.fr
       - page: Questions sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
-  - title: Guides
-    subfolderitems:
-      - page: Version 1
-        url: /pages/guide/version-1/getting-started/get-api-key.html
-        title: Version 1
-        subfolderitems:
-          - page: Pour démarrer
-            url: /pages/guide/version-1/getting-started/get-api-key.html
-            title: Pour démarrer
-            subfolderitems:
-              - page: Obtenir une clé API
-                url: /pages/guide/version-1/getting-started/get-api-key.html
-                title: Obtenir une clé API
-              - page: Démarrage rapide avec Postman
-                url: /pages/guide/version-1/getting-started/quick-start-postman.html
-                title: Démarrage rapide avec Postman
-              - page: Bases de l'API
-                url: /pages/guide/version-1/getting-started/api-basics.html
-                title: Bases de l'API
-          - page: Intégration FHIR
-            url: /pages/guide/version-1/integration-fhir/introduction.html
-            title: Intégration FHIR
-            subfolderitems:
-              - page: Utilisation de Java
-                url: /pages/guide/version-1/integration-fhir/integration-java.html
-                title: Utilisation de Java
-              - page: Utilisation de C#
-                url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
-                title: Utilisation de C#
-              - page: Utilisation de PHP
-                url: /pages/guide/version-1/integration-fhir/integration-php.html
-                title: Utilisation de PHP
