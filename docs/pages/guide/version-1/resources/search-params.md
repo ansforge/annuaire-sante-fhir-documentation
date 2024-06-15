@@ -1,12 +1,11 @@
 ---
-layout: documentation
+layout: menu-version-1
 title: Paramètres de recherche
 subTitle: Ressources
 ---
 *Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm>*
 
 
-#### Dans cette page
 <div class="wysiwyg" markdown="1">
 - [Paramètres de recherche disponibles](#one-header)
 - [Paramètres de type texte](#two-header)

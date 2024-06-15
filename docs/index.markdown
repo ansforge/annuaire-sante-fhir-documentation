@@ -10,13 +10,13 @@ Voici la documentation complète pour faciliter l'utilisation de l'API. Elle com
 [Documentation complète](pages/hub.md){:class="btn  btn--style1"}
 </div>
 <div markdown="1">
-[Démarrage rapide](pages/quick-start/quick-start.html){:class="btn  btn--style1"}
+[Démarrage rapide](/pages/guide/version-1/getting-started/get-api-key.html){:class="btn  btn--style1"}
 </div>
 </div>
 
 ## Présentation
 
-L’API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. Cette API RESTful, basée sur la spécification HL7 FHIR, est conçue pour être: 
+L’API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. Cette API REST, basée sur la spécification HL7 FHIR, est conçue pour être: 
 <div class="wysiwyg"  markdown="1">
 - Simple d'utilisation
 - Rapide  

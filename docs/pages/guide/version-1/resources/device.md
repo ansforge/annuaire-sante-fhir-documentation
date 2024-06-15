@@ -5,7 +5,6 @@ subTitle: Ressources
 ---
 
 
-#### Dans cette page
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)

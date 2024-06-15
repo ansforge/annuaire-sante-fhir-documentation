@@ -4,14 +4,14 @@ title: Documentation
 ---
 
 <div>
-    Vous trouverez ci-dessous l'ensemble de la documentation nécessaire pour démarrer un nouveau projet en fonction de la technologie choisie. Les technologies disponibles sont : Java et PHP.
+    Vous trouverez ci-dessous l'ensemble de la documentation nécessaire pour démarrer un nouveau projet en fonction de la technologie choisie. Les langages disponibles sont : Java, C# et PHP.
 </div>
 <div class="mb-2">
     Des exemples de requêtes pour les différentes ressources mises à disposition sont également fournis.</div>
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Guides</h3>
+        <h3>Démarrage rapide</h3>
         <hr aria-hidden="true">
         <div>
             {% for item in site.data.menu.header[1].subfolderitems[2].subfolderitems %}

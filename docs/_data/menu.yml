@@ -41,7 +41,7 @@ header:
                 url: /pages/guide/version-1/resources/practitioner.html
                 title: Practitioner
               - page: PractitionerRole
-                url: /pages/guide/version-1/integration-fhir/practitioner-role.html
+                url: /pages/guide/version-1/resources/practitioner-role.html
                 title: PractitionerRole
               - page: Organization
                 url: /pages/guide/version-1/resources/organization.html
@@ -56,14 +56,14 @@ header:
                 url: /pages/guide/version-1/resources/search-params.html
                 title: SearchParameter
           - page: Techniques avancées
-            url: /pages/documentation/advanced/link.html
+            url: /pages/guide/version-1/advanced/link.html
             title: Techniques avancées
             subfolderitems:
               - page: Lier plusieurs ressources
-                url: /pages/documentation/advanced/link.html
+                url: /pages/guide/version-1/advanced/link.html
                 title: Lier plusieurs ressources
               - page: Stockage
-                url: /pages/documentation/advanced/storage.html
+                url: /pages/guide/version-1/advanced/storage.html
                 title: Stockage
   - title: Cas d'utilisation
     subfolderitems:
