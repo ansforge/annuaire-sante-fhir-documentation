@@ -4,11 +4,10 @@ title: Obtenir une clé API
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Prérequis](#one-header)
-- [Création d'un compte](#two-header)
-- [Création d'une application](#three-header)
-- [Tester l'API](#four-header)
-- [Aller plus loin](#five-header)
+- [Création d'un compte](#one-header)
+- [Création d'une application](#two-header)
+- [Tester l'API](#three-header)
+- [Aller plus loin](#four-header)
 </div>
 <br />
 
@@ -36,10 +35,8 @@ Ce guide explique comment obtenir une clé d'API et la configurer pour effectuer
 | Serveur d'accès au service | https://gateway.api.esante.gouv.fr/fhir |
 | URL d'accès au Démonstrateur API | https://portail.openfhir.annuaire.sante.fr |
 
-## <a id="one-header"></a>1) Pré-requis pour démarrer avec l'API
+## <a id="one-header"></a>2) Création d'un compte dans Gravitee
 Pour appeler l'API, il est nécessaire de disposer d'une clé d'API. Pour obtenir cette clé, vous devez vous rendre sur l’outil de gestion d’API de l'ANS : [GRAVITEE](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6){:target="_blank"}.
-
-## <a id="two-header"></a>2) Création d'un compte dans Gravitee
 La création d'un compte est obligatoire dans l'outil GRAVITEE.
 
 <div class="wysiwyg" markdown="1">
@@ -49,7 +46,7 @@ La création d'un compte est obligatoire dans l'outil GRAVITEE.
 </div>
 &nbsp;
 
-## <a id="three-header"></a>3) Création d'une application dans Gravitee
+## <a id="two-header"></a>3) Création d'une application dans Gravitee
 Cette étape consiste à créer une application dans GRAVITEE afin d'obtenir une clé API.
 
 <p align="center">
@@ -80,7 +77,7 @@ Pour créer une application, les étapes à réaliser sont :
   <img src="img/apim_creer_app_2.png" style="width:100%;">
 </p>
 
-## <a id="four-header"></a>4) Tester l'API
+## <a id="three-header"></a>4) Tester l'API
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 
 <div class="wysiwyg" markdown="1">
@@ -157,7 +154,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 &nbsp;
 
 
-## <a id="five-header"></a>Aller plus loin
+## <a id="four-header"></a>Aller plus loin
 
 
 #### Ressources internes 
