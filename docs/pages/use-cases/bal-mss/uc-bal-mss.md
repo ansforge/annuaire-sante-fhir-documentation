@@ -8,7 +8,6 @@ subTitle: Cas d'utilisation
 Cette partie de la spécification est en cours de construction.
 </p>
 
-#### Dans cette page
 <div class="wysiwyg" markdown="1">
 - [Rechercher les BAL des centres de santé](#cs-header)
 - [Rechercher les BAL des laboratoires](#lab-header)

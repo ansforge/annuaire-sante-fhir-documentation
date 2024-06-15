@@ -1,7 +1,7 @@
 ---
-layout: documentation
+layout: menu-version-1
 title: Liaison entre plusieurs ressources
-subTitle: Ressources
+subTitle: Techniques avancées
 ---
 
 <div class="wysiwyg" markdown="1">
