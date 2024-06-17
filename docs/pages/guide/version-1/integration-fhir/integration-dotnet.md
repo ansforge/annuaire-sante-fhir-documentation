@@ -5,7 +5,7 @@ title: Utilisation de C#
 
 Ce guide décrit comment intégrer l'API à un projet .Net Core.
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/quick-start/quick-start.html' | relative_url}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-dotnet.html' | relative_url}}).
 
 NOTE| Dans nos différents exemples, nous utilisons maven et la librairie développée par Firely Hl7.Fhir.R4. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
@@ -57,5 +57,5 @@ var result = client.Search<Device>();
 
 Vous retrouverez toute la documentation de ce client sur le site de la librairie Firely HL7 FHIR SDK in .NET :
 * [Site du SDK](https://fire.ly/products/firely-net-sdk/)
-* [Documentation](https://docs.fire.ly/projects/Firely-NET-SDK/index.html)
+* [Documentation](https://docs.fire.ly/projects/Firely-NET-SDK/en/latest/)
 

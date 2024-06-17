@@ -1,6 +1,7 @@
 ---
 layout: menu-version-1
 title: Obtenir une clé API
+subTitle: Démarrage rapide
 ---
 
 <div class="wysiwyg" markdown="1">
@@ -35,18 +36,17 @@ Pour créer une application, les étapes à réaliser sont :
 
 | ETAPES | DESCRIPTION |
 | --- | --- |
-| 1 |  Connectez-vous sur le portail Gravitee à l'adresse : [IDENTIFIEZ-VOUS](https://portal.api.esante.gouv.fr/user/login){:target="_blank"} |
-| 2 | Dans l'onglet "Applications", cliquer sur "CREER UNE APP" |
-| 3 | Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image |
-| 4 | Saisir le type (web, mobile, etc.) et le client_ID (facultatif) |
-| 5 | Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant" |
-| 6 | Cliquer sur "Créer l'application" pour terminer |
+| 1 | Dans l'onglet "Applications", cliquer sur "CREER UNE APP" |
+| 2 | Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image |
+| 3 | Saisir le type (web, mobile, etc.) et le client_ID (facultatif) |
+| 4 | Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant" |
+| 5 | Cliquer sur "Créer l'application" pour terminer |
 
 
 <div class="wysiwyg" markdown="1">
-* Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver toutes les API souscrites. En cliquant dans le tableau sur l'une des API, la clé API à utiliser s'affiche. Utiliser l'API KEY "**ESANTE-API-KEY**" et le jeton récupéré par GRAVITEE.
-</br>
-Effectuer des requêtes API en utilisant le démonstrateur API ou en utilisant des logiciels gratuits (ex: Postman) 
+Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver toutes les API souscrites. En cliquant dans le tableau sur l'une des API, la clé API à utiliser s'affiche. 
+* Utiliser l'API KEY "**ESANTE-API-KEY**" et le jeton récupéré par GRAVITEE.
+* Effectuer des requêtes API en utilisant le démonstrateur API ou en utilisant des logiciels gratuits (ex: Postman) 
 </div>
 &nbsp;
 
