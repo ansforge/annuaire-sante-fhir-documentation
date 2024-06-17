@@ -1,6 +1,7 @@
 ---
 layout: menu-version-1
 title: Démarrage rapide avec Postman
+subTitle: Démarrage rapide
 ---
 
 ### Récupérer la collection Postman
