@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu-version-1
 title: "Synchronisation complète des ressources"
 subTitle: Cas d'utilisation
 ---
@@ -52,7 +52,7 @@ Les données que nous allons chercher à récupérer sont :
 
 #### Initialisation du projet 
 
-Voir la section [Démarrage/Java]({{ '/pages/guide/version-1/starters/java-starter.html' | relative_url }})
+Voir la section [Démarrage/Java]({{ '/pages/guide/version-1/integration-fhir/integration-java.html' | relative_url }})
 
 &nbsp;
 

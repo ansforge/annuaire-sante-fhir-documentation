@@ -50,7 +50,7 @@ Les codes HTTP standard sont des codes de statut envoyés par un serveur en rép
 | 403 | Forbidden | La requêtes n'est pas autorisée |
 | 404 | Not found| La ressource n'est pas trouvée |
 | 500 | Internal Server Error|Une erreur inattendue est survenue |
-| 501 | Not Implemented |
+| 501 | Not Implemented | Le serveur ne prend pas en charge les fonctionnalités nécessaires pour réaliser la requête |
 | 503 | Service Unavailable|Le service est non disponible |
 
 

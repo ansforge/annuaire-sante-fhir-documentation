@@ -1,6 +1,7 @@
 ---
 layout: menu-version-1
 title: Utilisation de C#
+subTitle: Intégration FHIR
 ---
 
 Ce guide décrit comment intégrer l'API à un projet .Net Core.
