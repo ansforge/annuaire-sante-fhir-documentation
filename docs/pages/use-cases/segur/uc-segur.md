@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu-version-1
 title: "Extraction des acteurs des couloirs du Ségur du Numérique en Santé"
 subTitle: Cas d'utilisation
 ---
@@ -38,7 +38,7 @@ Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissemen
 <div class="tab-content" data-name="Algorithmie">
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
-2) Répeter l'opération sur toutes les pages (1)
+2) Répeter l'opération sur toutes les pages
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -122,7 +122,7 @@ Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...
 {% highlight bash %}
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un secteur d'activité parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA01&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA02 ...).
 2) Vérifier que pour chaque établissement, son type n'est pas présent dans la liste des catégories "médico-sociaux" (voir la liste dans le use case précédent). 
-3) Répeter l'opération sur toutes les pages (1)
+3) Répeter l'opération sur toutes les pages 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -230,7 +230,7 @@ Note : La liste des codes des établissements sanitaires (ex: SA25, etc...) se s
 1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un type SA25 ou SA29 (&type=SA25,SA29). Cet appel devra inclure les PractitionerRoles attachés (&_revinclude=PractitionerRole:organization)
 2) Pour chacun des PractitionerRole retourné, vérifier il y a au moins 1 role (champs code) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin) ou 21 (pharmacien)
 3) Pour chacun des PractitionerRole trouvé, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
-4) Répeter l'opération sur toutes les pages (1)
+4) Répeter l'opération sur toutes les pages 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -366,7 +366,7 @@ Note: la liste des codes des établissements sanitaires (ex: SA07, etc...) se si
 2) Pour chacun des PractitionerRole retournés, vérifier qu'il y a au moins 1 Role (champs role) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante" et un code associé à 10 (médecin)
 3) Pour chacun des PractitionerRole filtrés, vérifier qu'il y a au moins 1 Spécialité (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
-5) Répeter l'opération sur toutes les pages (1)
+5) Répeter l'opération sur toutes les pages 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -536,7 +536,7 @@ Nous pouvons finalement ne récupérer que les Organizations contenant des Pract
 3) Pour chacun des PractitionerRole filtrés, vérifier qu'il ne dispose pas des spécialités de radiologie (champs speciality) avec pour système "https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale" et un code associé SM28, SM44, SM45 ou SM55
 4) Pour chacun des PractitionerRole filtrés, vérifier qu'il est toujours en activité
 5) Pour chacun des PractitionerRole trouvés et filtrés, récupérer les Organization qui ont le même id que le champs organization du PractitionerRole
-6) Répeter l'opération sur toutes les pages (1)
+6) Répeter l'opération sur toutes les pages
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="curl">
@@ -764,5 +764,3 @@ Total filtered - 0
 <br />
 
 
-
-(1) Plus d'informations sur la pagination [ici]()

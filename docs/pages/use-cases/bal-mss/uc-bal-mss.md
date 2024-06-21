@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu-version-1
 title: "Extraction des BAL MSSanté par type de structure"
 subTitle: Cas d'utilisation
 ---

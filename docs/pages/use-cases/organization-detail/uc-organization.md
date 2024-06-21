@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu-version-1
 title: "Fiche de structure"
 subTitle: Cas d'utilisation
 ---

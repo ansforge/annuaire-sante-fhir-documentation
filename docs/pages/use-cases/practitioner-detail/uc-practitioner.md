@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu-version-1
 title: "Fiche du professionel de santé"
 subTitle: Cas d'utilisation
 ---

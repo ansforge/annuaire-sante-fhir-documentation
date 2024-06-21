@@ -4,13 +4,16 @@ header:
   - title: Guides
     subfolderitems:
       - page: Version 1
-        url: /pages/guide/version-1/getting-started/get-api-key.html
+        url: /pages/guide/version-1/getting-started/introduction.html
         title: Version 1
         subfolderitems:
           - page: Démarrage rapide
-            url: /pages/guide/version-1/getting-started/get-api-key.html
+            url: /pages/guide/version-1/getting-started/introduction.html
             title: Démarrage rapide
             subfolderitems:
+              - page: Introduction
+                url: /pages/guide/version-1/getting-started/introduction.html
+                title: Introduction
               - page: Obtenir une clé API
                 url: /pages/guide/version-1/getting-started/get-api-key.html
                 title: Obtenir une clé API
