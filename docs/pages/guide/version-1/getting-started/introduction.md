@@ -1,6 +1,6 @@
 ---
 layout: menu-version-1
-title: Documentation de l'API FHIR Annuaire Santé
+title: Introduction
 ---
 
 ### Introduction
@@ -14,13 +14,17 @@ Cette norme nous aide à être interopérable et à offrir des modèles de donn�
 
 ### Ressources FHIR
 Il existe aujourd'hui 5 ressources disponibles sur l'API FHIR Annuaire Santé:
+<div class="wysiwyg"  markdown="1">
 - Practitioner
 - PractitionerRole
 - Organization
 - HealthcareService
 - Device
+</div>
 
 ### Météo des services de l'Annuaire Santé
 
 Il est possible de consulter la page [Météo des services de l'Annuaire Santé](https://status.annuaire-sante.esante.gouv.fr/){:target="_blank"} afin de vérifier si l'API FHIR Annuaire Santé est opérationnelle ou non.
 Il est également possible de s'abonner pour être notifié lorsque le statut de l'API FHIR Annuaire Santé est mis à jour (situé en bas de l'écran)
+
+<img src="img/meteo-service-api.png" style="width:100%;">

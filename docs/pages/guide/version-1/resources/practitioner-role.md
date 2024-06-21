@@ -7,7 +7,8 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Recherche sur critères](#three-header)
+- [Critères de recherche (SearchParameter)](#three-header)
+- [Recherche sur critères](#four-header)
   - [Rechercher tout](#31-header)
   - [Rechercher par identifiant](#32-header)
   - [Rechercher par rôle](#33-header)
@@ -81,7 +82,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <br />
 
 
-## <a id="three-header"></a>3) Recherche d'exercice et d'activité du professionnel de santé sur critères
+## <a id="four-header"></a>3) Recherche d'exercice et d'activité du professionnel de santé sur critères
 
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
