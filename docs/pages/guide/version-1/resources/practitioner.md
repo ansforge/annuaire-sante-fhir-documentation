@@ -7,12 +7,12 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Recherche de structure sur critères](#three-header)
+- [Caractéristiques techniques](#three-header)
+- [Recherche de structure sur critères](#four-header)
   - [Rechercher tout](#31-header)
   - [Rechercher par identifiant](#32-header)
-  - [Rechercher par civilité](#33-header)
-  - [Rechercher par statut](#34-header)
-  - [Rechercher par date de mise à jour](#35-header)
+  - [Rechercher par statut](#33-header)
+  - [Rechercher par date de mise à jour](#34-header)
 </div>
 <br />
 
@@ -84,13 +84,29 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </table>
 <br />
 
+## <a id="three-header"></a>3) Practitioner - Paramètres de recherche
 
-## <a id="three-header"></a>3) Recherche d'un professinonel sur des critères spécifiques
+| Nom | Type | Description |
+| --- | --- | --- |
+| _id | token | ID de la ressource |
+| _lastUpdated | date | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée |
+| _since | date | |
+| _total | string | |
+| active | token | Recherche les ressources Practitioner actives |
+| as-sp-data-information-system | token | Recherche sur le système d'information |
+| as-sp-data-registration-authority | token | Recherche sur l'autorité d'enregistrement |
+| identifier| token | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
+| identifier-type| token | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
+| mailbox-mss| string | La Messagerie Sécurisées de Santé du Professionnel|
+| name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professinonels de santé|
+
+
+## <a id="four-header"></a>4) Recherche d'un professionnel sur des critères spécifiques
 
 Voici des exemples de requêtes sur la recherche de professionnels intervenant dans le système de santé.
 
 
-#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
 
@@ -175,7 +191,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="32-header"></a>3.2) Rechercher par identifiant (identifier)
+#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
 
@@ -262,96 +278,8 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="33-header"></a>3.3) Rechercher par civilité (name)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé ayant comme code civilité « MME ».
-
-**Requête :**
-
-`GET [base]/Practitioner?name=MME`
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=0102800000 name=MME
-  Practitioner found: id=0102800273 name=MME
-
-
-```
-
-<br />
-
-**Exemples de code :**
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?name=MME"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var nameSearchClause = Practitioner.NAME.matches().value("MME");
-
-var bundle = client.search()
-.forResource(Practitioner.class)
-.where(nameSearchClause)
-.returnBundle(Bundle.class).execute();
-
-for (var practitionerEntry : bundle.getEntry()) {
-// print Organization ids:
-var practitioner = (Practitioner) practitionerEntry.getResource();
-logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirstRep().getValue(), practitioner.getNameFirstRep().getNameAsSingleString());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner?name=MME');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitioners = $parser->parse((string) $response->getBody());
-foreach($practitioners->getEntry() as $entry){
-    /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
-    $practitioner = $entry->getResource();
-
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
-}
-
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
-
-var q = new SearchParams()
-  .Where("name=MME")
-  .LimitTo(50);
-var bundle = client.Search<Practitioner>(q);
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var practitioner = be.Resource as Practitioner;
-    var name = "";
-    foreach (var n in practitioner.Name[0].Prefix)
-    {
-        name = name + " " + n;
-    }
-    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
-}
-{% endhighlight %}
-</div>
-</div>
-<br />
-
-
-#### <a id="34-header"></a>3.4) Rechercher par statut (active)
+#### <a id="43-header"></a>4.3) Rechercher par statut (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
@@ -434,7 +362,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="35-header"></a>3.5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="44-header"></a>4.4) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
 
