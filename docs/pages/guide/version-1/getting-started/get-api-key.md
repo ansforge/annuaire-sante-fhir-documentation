@@ -28,7 +28,7 @@ La création d'un compte est obligatoire pour accéder à l'outil GRAVITEE.
 Une fois la création du compte réalisée, l'étape suivante consiste à créer une application dans GRAVITEE afin d'obtenir une clé API.
 
 <p align="center">
-  <img src="img/apim_creer_app.png" style="width:100%;">
+  <img src="img/apim-creer-app-1.png" style="width:100%;">
 </p>
 
 Pour créer une application, les étapes à réaliser sont :
@@ -44,12 +44,17 @@ Pour créer une application, les étapes à réaliser sont :
 
 <div class="wysiwyg" markdown="1">
 Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver toutes les API souscrites. En cliquant dans le tableau sur l'une des API, la clé API à utiliser s'affiche. 
+
+<p align="center">
+  <img src="img/apim-creer-app-2.png" style="width:100%;">
+</p>
+
 * Utiliser l'API KEY "**ESANTE-API-KEY**" et le jeton récupéré par GRAVITEE.
 * Effectuer des requêtes API en utilisant le démonstrateur API ou en utilisant des logiciels gratuits (ex: Postman) 
 </div>
 &nbsp;
 
-NOTE| Actuellement, il n'y a aucune limitation en termes d'applications enregistrées. Jusqu'à présent, aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou les quotas. Nous déterminerons ces paramètres après la fin de la version bêta de l'API FHIR Annuaire Santé (prévue pour fin 2024).
+NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enregistrées sur l'application Gravitee (aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou de quotas). Nous déterminerons ces limitations après la fin de la version bêta de l'API FHIR Annuaire Santé (prévue pour fin 2024).
 
 
 ## <a id="three-header"></a> Aller plus loin

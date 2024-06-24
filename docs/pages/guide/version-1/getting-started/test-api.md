@@ -6,7 +6,6 @@ subTitle: Démarrage rapide
 <div class="wysiwyg" markdown="1">
 - [Démarrer les tests API avec Postman](#one-header)
 - [Démarrer les tests API avec cURL](#two-header)
-- [Liens d'accès](#three-header)
 </div>
 <br />
 
@@ -23,10 +22,11 @@ Pour tester rapidement et facilement l'API FHIR Annuaire Santé, télécharger c
 ### Configuration de la clé d'API
 
 Une fois le projet importé dans votre espace Postman:
+<div class="wysiwyg" markdown="1">
 - dans le menu "Environnements": créer un environnement "Prod" et renseigner les variables nécessaires (ex: api_key et api_url)
 - dans le menu "Collection": choisir un dossier et lancer un appel 
 - attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran)
-
+</div>
 Veuillez trouver ci-dessous les variables utilisées dans le projet Postman: 
 
 |Variable|Description|Valeur|
@@ -39,9 +39,15 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 </p>
 
 ## <a id="two-header"></a>2) Démarrer les tests API avec cURL
+
+&nbsp;
+
 NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
+
+### Récuperer le Capability Statement FHIR
+
 
 <div class="wysiwyg" markdown="1">
 * **Test 1** : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) :
@@ -63,16 +69,36 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/meta
 ```json
 {
   "resourceType": "CapabilityStatement",
+  "id": "32qd281d-8a23-48f7-b936-60554f7088r8",
+  "name": "RestServer",
+  "status": "active",
+  "date": "2024-06-21T13:49:04.892+00:00",
+  "publisher": "Not provided",
+  "kind": "instance",
+  "software": {
+    "name": "Afas Fhir server",
+    "version": "V1-R4"
+  },
+  "implementation": {
+    "description": "Afas data",
+    "url": "https://{{api.url}}/fhir/v1"
+  },
   "fhirVersion": "4.0.1",
   "format": [ "application/fhir+xml", "xml", "application/fhir+json", "json" ],
   "rest": [ {
-    ...
-
+      "mode": "server",
+      "resource": [ {
+        "type": "Device",  
+                ...
 
 ```
 &nbsp;
 
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
+
+
+### Récuperer la ressource Practitioner
+
 
 <div class="wysiwyg" markdown="1">
 * <b>Test 2</b> : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
@@ -92,20 +118,30 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 ```json
 {
   "resourceType": "Bundle",
-  "entry": [ {
-    "fullUrl": "https://.../fhir/v1/Practitioner/pra-59",
-    "resource": {
-      "resourceType": "Practitioner",
-      "id": "pra-59",
-    }
+  "id": "42qd281d-8a23-48f7-b936-60554f7088r8",
+  "meta": {
+    "lastUpdated": "2024-06-21T15:19:26.205+00:00"
+  },
+  "type": "searchset",
+  "link": [ {
+    "relation": "self",
+    "url": "https://{{api_url}}/fhir/v1/Practitioner?_format=json&_pretty=true"
   }, {
-    "fullUrl": "https://.../fhir/v1/Practitioner/pra-57",
+    "relation": "next",
+    "url": "https://{{api_url}}/fhir/v1?_getpages=88b903e6-c0f1-4b36-a1db-2cde89e4fd9e&_pageId=660eb2b97bf92f0e6c8a2cdf_utyvdGWLgtp2Mvmva0tEOus0uphIlc4638ktEDhg-jetIGdYFSdDpjlaDeuOO_xzdniR6WI2Nstm84E5_d4zNqOV_1gGE6XCt7za9FJNCw4pGcBIhwa-PNoIHw9U5RU15I0TqFfyvVquK1pFYgBoguvWU6hAVIo18J9uq2b55n5RWIHJzBdRoi_DLkoDbROns3OlfWg%3D%3D&_format=json&_pretty=true&_bundletype=searchset"
+  } ],
+  "entry": [ {
+    "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner/003-3377506",
     "resource": {
       "resourceType": "Practitioner",
-      "id": "pra-57",
-      ...
-    }
-  }
+      "id": "003-3377506",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-04-04T14:01:29.167+00:00",
+        "source": "https://annuaire.sante.fr",
+        "profile": [ "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-practitioner" ]
+      },
+      "language": "fr",
   ...
   ]
 }
@@ -114,14 +150,3 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 ```
 
 &nbsp;
-
-## <a id="three-header"></a>3) Liens d'accès
-
-| NOM | LIEN URL |
-| --- | --- |
-| Serveur d'accès au service | https://gateway.api.esante.gouv.fr/fhir |
-| URL d'accès au Démonstrateur API | https://portail.openfhir.annuaire.sante.fr |
-
-<p align="center">
-  <img src="img/apim_creer_app_2.png" style="width:100%;">
-</p>

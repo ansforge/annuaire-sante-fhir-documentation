@@ -177,7 +177,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="32-header"></a>3.2) Rechercher par identifiant (identifier)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel de santé à partir de son identifiant.
+**Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
 
 **Requête :**
 
