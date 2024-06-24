@@ -11,33 +11,33 @@ Tous les accès se font via HTTPS.
 
 #### Environnement Production
 
-| VARIABLES | VALEUR |
+| Variables | Valeurs |
 | --- | --- |
-| [api-url] | https://gateway.api.esante.gouv.fr/fhir/v1 |
-| [ihm-url] | https://portail.openfhir.annuaire.sante.fr  |
-| [gravitee-url] | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
+| api-url | https://gateway.api.esante.gouv.fr/fhir/v1 |
+| ihm-url | https://portail.openfhir.annuaire.sante.fr  |
+| gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
 
 
 #### Environnement Bac à sable (en accès restreint)
 
-| VARIABLES | VALEUR |
+| Variables | Valeurs |
 | --- | --- |
-| [api-url] | https://gateway.preprod.api.esante.gouv.fr/fhir/v1 |
-| [ihm-url] | https://demo.portail.openfhir.annuaire.asipsante.fr   |
-| [gravitee-url] | https://portal.preprod.api.esante.gouv.fr |
+| api-url | https://gateway.preprod.api.esante.gouv.fr/fhir/v1 |
+| ihm-url | https://demo.portail.openfhir.annuaire.asipsante.fr   |
+| gravitee-url | https://portal.preprod.api.esante.gouv.fr |
 
  
 ### Points de terminaison (endpoints)
 
-| VARIABLES | Description     |
+| Variables | Valeurs     |
 | --- | --- |
-| [api-url]/Practitioner      | Pour les professionnels de santé |
-| [api-url]/PractitionerRole  | Pour les exercices pro et les situations d'exercice |
-| [api-url]/Organization      | Pour les structures |
-| [api-url]/HealthcareService | Pour les activités de soins et les équipements sociaux |
-| [api-url]/Device            | Pour les équipements matériels lourds |
-| [api-url]/metadata          | Pour le capability statement
-| [api-url]/health            | Pour le heathcare du service, accessible sans authentification |
+| {{api-url}}/metadata          | Pour le capability statement |
+| {{api-url}}/Practitioner      | Pour les professionnels de santé |
+| {{api-url}}/PractitionerRole  | Pour les exercices professionnels et les situations d'exercice |
+| {{api-url}}/Organization      | Pour les structures |
+| {{api-url}}/HealthcareService | Pour les activités de soins et les équipements sociaux |
+| {{api-url}}/Device            | Pour les équipements matériels lourds (EML) |
+| {{api-url}}/health            | Pour le heathcare du service, accessible sans authentification |
 
 ### Codes d’état HTTP (HTTP status codes)
 

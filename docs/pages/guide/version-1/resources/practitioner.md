@@ -85,9 +85,9 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 <br />
 
 
-## <a id="three-header"></a>3) Recherche de professionnel de santé sur critères
+## <a id="three-header"></a>3) Recherche d'un professinonel sur des critères spécifiques
 
-Voici des exemples de requêtes sur les professionnels de santé (PS).
+Voici des exemples de requêtes sur la recherche de professionnels intervenant dans le système de santé.
 
 
 #### <a id="31-header"></a>3.1) Rechercher tout (sans critère)

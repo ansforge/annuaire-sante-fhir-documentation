@@ -27,7 +27,7 @@ L’API Annuaire Santé permet au grand public d'interroger facilement et rapide
 
 ## A quoi sert l'API ?
 
-En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement de trouver un professionnel de santé ou une structure, filtrer, ordonner et paginer les résultats selon vos souhaits.
+En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement trouver un professionnel intervenant dans le système de santé ou une structure, filtrer, ordonner et paginer les résultats selon vos souhaits.
 
 ![](./assets/img/home-schema.png)
 
@@ -38,7 +38,7 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
 #### Pour les structures de santé
 
 <div class="wysiwyg"  markdown="1">
-* Récupérer l'identifiant national des professionnels de santé qu'elles emploient,
+* Récupérer l'identifiant national des professionnels intervenant dans le système de santé,
 * Vérifier l'identité (identifiant national, nom, prénom), les qualifications et la situation d’exercice d'un professionnel,
 * Faciliter la coordination ville-hôpital avec la mise en place d’un annuaire de correspondants.
 </div>

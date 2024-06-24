@@ -27,7 +27,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <div class="wysiwyg" markdown="1">
 * Données relatives à l'exercice professionnel : nom et prénom d'exercice, profession, civilité d'exercice, catégorie d'exercice, qualifications de spécialiste et disciplines et attributions particulières.
 * Données sur l'activité professionnelle : fonction ou rôle du professionnel dans la structure d'activité, genre d'activité, mode d'exercice, type d'activité libérale pour les activités concernées, statut hospitalier pour les activités concernées, données de contact du professionnel pour l'activité concernée, données relatives à la structure d'activité.
-* Données relatives à la carte de professionnel de santé : type de carte, numéro, période de validité.
+* Données relatives à la carte d'un' professionnel intervenant dans le système de santé : type de carte, numéro, période de validité.
 </div>
 <br />
 
@@ -82,7 +82,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <br />
 
 
-## <a id="four-header"></a>3) Recherche d'exercice et d'activité du professionnel de santé sur critères
+## <a id="four-header"></a>3) Recherche d'exercice et d'activité du professionnel sur des critères spécifiques
 
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 

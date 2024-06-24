@@ -37,9 +37,9 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 Voir la section [Démarrage/Java]({{ '/pages/guide/version-1/integration-fhir/integration-java.html' | relative_url }})
 
 
-#### Trouver un professionnel de santé avec son numéro RPPS
+#### Trouver un professionnel intervenant dans le système de santé avec son numéro RPPS
 
-Pour l'exemple, nous allons rechercher le PS ayant le numéro RPPS : 10000001111
+Prenons l'exemple d'un professionnel disposant d'un numéro RPPS : 10000001111
 
 Effectuer une recherche FHIR sur la ressource Practitioner avec le paramètre **identifier**. Cela va retourner un Bundle qui contiendra le résultat de recherche. Comme nous cherchons par numéro RPPS, s'il y a un résultat, il sera unique. 
 
