@@ -7,8 +7,7 @@ subTitle: Démarrage rapide
 <div class="wysiwyg" markdown="1">
 - [Création d'un compte dans Gravitee](#one-header)
 - [Création d'une application dans Gravitee](#two-header)
-- [Tester l'API](#three-header)
-- [Aller plus loin](#four-header)
+- [Aller plus loin](#three-header)
 </div>
 <br />
 
@@ -37,7 +36,7 @@ Pour créer une application, les étapes à réaliser sont :
 | ETAPES | DESCRIPTION |
 | --- | --- |
 | 1 | Dans l'onglet "Applications", cliquer sur "CREER UNE APP" |
-| 2 | Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image |
+| 2 | Renseigner le nom de l'application, une description, le domaine utilisé par l'application et une image. Le domaine de l'application n'est pas vérifié techniquement, même s'il doit être spécifié lors de l'enregistrement de l'application sur Gravitee. |
 | 3 | Saisir le type (web, mobile, etc.) et le client_ID (facultatif) |
 | 4 | Chercher l'API suivante: API Annuaire Santé en libre accès et cliquer sur "Souscrire" et "Suivant" |
 | 5 | Cliquer sur "Créer l'application" pour terminer |
@@ -50,96 +49,10 @@ Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver
 </div>
 &nbsp;
 
-**Les liens d'accès**
-
-| NOM | LIEN URL |
-| --- | --- |
-| Serveur d'accès au service | https://gateway.api.esante.gouv.fr/fhir |
-| URL d'accès au Démonstrateur API | https://portail.openfhir.annuaire.sante.fr |
-
-<p align="center">
-  <img src="img/apim_creer_app_2.png" style="width:100%;">
-</p>
-
-## <a id="three-header"></a>3) Tester l'API
-Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
-
-<div class="wysiwyg" markdown="1">
-* **Test 1** : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) :
-</div>
-&nbsp;
-
-TIPS| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
+NOTE| Actuellement, il n'y a aucune limitation en termes d'applications enregistrées. Jusqu'à présent, aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou les quotas. Nous déterminerons ces paramètres après la fin de la version bêta de l'API FHIR Annuaire Santé (prévue pour fin 2024).
 
 
-<div class="code-sample"><div class="tab-content" data-name="bash">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/metadata?_pretty=true&_format=json"
-{% endhighlight %}
-</div></div>
-<div class="wysiwyg" markdown="1">
-* Ci-dessous la réponse de l'API : 
-</div>
-&nbsp;
-
-```json
-{
-  "resourceType": "CapabilityStatement",
-  "fhirVersion": "4.0.1",
-  "format": [ "application/fhir+xml", "xml", "application/fhir+json", "json" ],
-  "rest": [ {
-    ...
-
-
-```
-&nbsp;
-
-NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
-
-<div class="wysiwyg" markdown="1">
-* <b>Test 2</b> : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
-</div>
-&nbsp;
-<div class="code-sample"><div class="tab-content" data-name="bash">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?_pretty=true&_format=json"
-{% endhighlight %}
-</div></div>
-
-<div class="wysiwyg" markdown="1">
-* Ci-dessous un exemple de réponse :
-</div>
-&nbsp;
-
-```json
-{
-  "resourceType": "Bundle",
-  "entry": [ {
-    "fullUrl": "https://.../fhir/v1/Practitioner/pra-59",
-    "resource": {
-      "resourceType": "Practitioner",
-      "id": "pra-59",
-    }
-  }, {
-    "fullUrl": "https://.../fhir/v1/Practitioner/pra-57",
-    "resource": {
-      "resourceType": "Practitioner",
-      "id": "pra-57",
-      ...
-    }
-  }
-  ...
-  ]
-}
-
-
-```
-
-&nbsp;
-
-
-## <a id="four-header"></a>Aller plus loin
-
+## <a id="three-header"></a> Aller plus loin
 
 #### Ressources internes 
 

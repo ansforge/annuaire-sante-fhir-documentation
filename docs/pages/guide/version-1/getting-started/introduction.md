@@ -1,6 +1,7 @@
 ---
 layout: menu-version-1
 title: Introduction
+subTitle: Démarrage rapide
 ---
 
 ### Introduction
@@ -20,11 +21,15 @@ Il existe aujourd'hui 5 ressources disponibles sur l'API FHIR Annuaire Santé:
 - Organization
 - HealthcareService
 - Device
+
 </div>
 
 ### Météo des services de l'Annuaire Santé
 
+<img src="img/meteo-service-api.png" style="width:100%;">
+
 Il est possible de consulter la page [Météo des services de l'Annuaire Santé](https://status.annuaire-sante.esante.gouv.fr/){:target="_blank"} afin de vérifier si l'API FHIR Annuaire Santé est opérationnelle ou non.
 Il est également possible de s'abonner pour être notifié lorsque le statut de l'API FHIR Annuaire Santé est mis à jour (situé en bas de l'écran)
 
-<img src="img/meteo-service-api.png" style="width:100%;">
+<img src="img/meteo-service-abonner.png" style="width:100%;">
+
