@@ -39,6 +39,8 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 </p>
 
 ## <a id="two-header"></a>2) Démarrer les tests API avec cURL
+NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
+
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 
 <div class="wysiwyg" markdown="1">
@@ -46,7 +48,6 @@ Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](ht
 </div>
 &nbsp;
 
-NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
 
 <div class="code-sample"><div class="tab-content" data-name="bash">
