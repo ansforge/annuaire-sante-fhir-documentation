@@ -7,8 +7,8 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Caractéristiques techniques](#three-header)
-- [Recherche de structure sur critères](#four-header)
+- [Paramètres de recherche](#three-header)
+- [Recherche d'un professionnel](#four-header)
   - [Rechercher tout](#31-header)
   - [Rechercher par identifiant](#32-header)
   - [Rechercher par statut](#33-header)
@@ -66,14 +66,6 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </tr>
 <tr>
 <td width="45%">
-<p><strong>Paramètres de recherche</strong></p>
-</td>
-<td width="54%">
-<p>_id, identifier, name, mailbox-mss, _lastUpdated, active, _total</p>
-</td>
-</tr>
-<tr>
-<td width="45%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
@@ -84,12 +76,12 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 </table>
 <br />
 
-## <a id="three-header"></a>3) Practitioner - Paramètres de recherche
+## <a id="three-header"></a>3) Paramètres de recherche
 
 | Nom | Type | Description |
 | --- | --- | --- |
 | _id | token | ID de la ressource |
-| _lastUpdated | date | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée |
+| _lastUpdated | date | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date) |
 | _since | date | |
 | _total | string | |
 | active | token | Recherche les ressources Practitioner actives |
@@ -98,7 +90,7 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 | identifier| token | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
 | identifier-type| token | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
 | mailbox-mss| string | La Messagerie Sécurisées de Santé du Professionnel|
-| name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professinonels de santé|
+| name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professionnels de santé|
 
 
 ## <a id="four-header"></a>4) Recherche d'un professionnel sur des critères spécifiques
@@ -365,6 +357,12 @@ foreach (var be in bundle.Entry)
 #### <a id="44-header"></a>4.4) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
+
+| Préfix | Valeurs |
+| --- | --- |
+| api-url | https://gateway.api.esante.gouv.fr/fhir/v1 |
+| ihm-url | https://portail.openfhir.annuaire.sante.fr  |
+| gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
 
 **Requête :**
 

@@ -1,4 +1,4 @@
-## Code source des examples
+## Code source des exemples
 
 Vous retrouverez le code source de ces exemples sur notre repository git:
 
