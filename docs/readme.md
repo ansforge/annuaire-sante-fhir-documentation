@@ -1,4 +1,4 @@
-Projet de documentation sur l'utilisation de l'API IRIS-DP. 
+Projet de documentation sur l'utilisation de l'API FHIR Annuaire Santé. 
 
 Ce projet a été pensé pour être distribué au travers de Github pages. Il utilise Jekyll qui est supporté par Github. 
 
@@ -16,18 +16,25 @@ Pour rédiger de la documentation, vous pouvez créer / modifier les fichier .md
 
 Répertoires: 
 
-* documentation: documentation générale ressource par ressource
-* quick-start: section regroupant la documentation de démarrage rapide
-* use-cases: section qui contient des tutoriaux complets basés sur des uses cases
+* _data: gère le menu principal et le menu latéral gauche
+documentation: documentation générale ressource par ressource
+* _includes: contient le footer, la navigation et les pages
+quick-start: section regroupant la documentation de démarrage rapide
+* _layout: contient le code qui permet de générer le menu latéral de gauche
+* _assets: contient le css, des images et du javascript
+* _pages: contient le répertoire changelog et le répertoire guide.
 
 # Menu 
 
-Le menu du haut est géré avec le fichier _data/menu.yml. Quand vous ajoutez une nouvelle partie, il faut la renseigner dans le menu.yml pour la voir apparaitre. 
+Le menu du haut est géré avec le fichier _data/menu.yml. Quand vous ajoutez une nouvelle partie, il faut la renseigner dans le menu.yml pour la voir apparaitre. Il faut bien faire attention aux indentations dans le fichier YAML.
 
 
 # Publication (déploiement)
 
 Pour mettre en ligne, publiez le projet sur un projet GitHub et dans la section "Settings > Pages", activez la fonctionnalité Github pages. 
-
 Dans la version gratuite de Github, vous devez mettre le projet public pour que cela fonctionne. 
 
+# Liens utiles
+
+Github Documentation API FHIR Annuaire Santé - ansforge.github.io/annuaire-sante-fhir-documentation/
+Code Source Github Documentation - https://github.com/ansforge/annuaire-sante-fhir-documentation
