@@ -6,6 +6,8 @@ subTitle: Démarrage rapide
 <div class="wysiwyg" markdown="1">
 - [Démarrer les tests API avec Postman](#one-header)
 - [Démarrer les tests API avec cURL](#two-header)
+- [Utiliser le Démonstrateur API FHIR Annuaire Santé](#three-header)
+
 </div>
 <br />
 
@@ -150,3 +152,15 @@ curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Prac
 ```
 
 &nbsp;
+
+## <a id="three-header"></a>3) Utiliser le Démonstrateur API FHIR Annuaire Santé
+
+Consulter le Démonstrateur API FHIR Annuaire Santé et utiliser la clé API pour vous connecter à cette plateforme.
+
+<p align="center">
+  <img src="img/portail-api-fhir.png" style="width:80%;">
+</p>
+
+NOTE| L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc). Pour y remédier, il faut  ajouter l’AC IGC Santé dans le navigateur pour qu’elle soit reconnue par la suite.
+
+Pour plus d'informations, consulter le site [IGC-Santé de l'ANS] (https://igc-sante.esante.gouv.fr/PC/)

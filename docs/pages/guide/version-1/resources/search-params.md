@@ -3,7 +3,7 @@ layout: menu-version-1
 title: Paramètres de recherche
 subTitle: Ressources
 ---
-*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.htm>*
+*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.html>*
 
 
 <div class="wysiwyg" markdown="1">
