@@ -369,7 +369,19 @@ foreach (var be in bundle.Entry)
 
 ## <a id="four-header"></a>4) Paramètres de type [date](https://www.hl7.org/fhir/search.html#date)
 
-La recherche par date supporte les préfixes: gt, lt, le, ge, eq. 
+La recherche par date supporte les préfixes suivants:
+
+| Préfix  | Nom               | Description                                                                         |
+| ---     | ---               | ---                                                                                 |
+| eq      | equal             | La valeur du paramètre dans la ressource est égale à la valeur saisie	              |
+| ne      | not equal         | La valeur du paramètre dans la ressource n'est pas égale à la valeur saisie	        |
+| gt      | greater           | La valeur du paramètre dans la ressource est supérieure à la valeur saisie	        |
+| lt      | less              | La valeur du paramètre dans la ressource est inférieure à la valeur saisie	        |
+| ge      | greater or equal  | La valeur du paramètre dans la ressource est supérieure ou égale à la valeur saisie	|
+| le      | less or equal     | La valeur du paramètre dans la ressource est inférieure ou égale à la valeur saisie |
+| sa      | starts after      | La valeur du paramètre dans la ressource démarre après la valeur saisie	            |
+| eb      | ends before       | La valeur du paramètre dans la ressource termine avant la valeur saisie	            |
+| ap      | approximately     | La valeur du paramètre dans la ressource est approximativement la même que la valeur fournie. Il est à noter que la valeur recommandée pour l'approximation est de 10% de la valeur indiquée |
 
 Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
