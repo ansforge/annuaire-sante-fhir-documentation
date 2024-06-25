@@ -105,9 +105,11 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Practitioner 
-GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner #inclure les practitionerRole qui référencent les practitioner (Practitioner + PractitionerRole)
+GET [base]/Practitioner
+#récupère l'ensemble des practitioners
 
+GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner 
+#inclure les practitionerRole qui référencent les practitioners (Practitioner + PractitionerRole)
 
 ```
 <br />
@@ -356,7 +358,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="44-header"></a>4.4) Rechercher par date de mise à jour (_lastUpdated)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
+En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
 
 | Préfix | Valeurs |
 | --- | --- |

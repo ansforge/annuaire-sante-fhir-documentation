@@ -15,13 +15,15 @@ Cette norme nous aide à être interopérable et à offrir des modèles de donn�
 
 ### Ressources FHIR
 Il existe aujourd'hui 5 ressources disponibles sur l'API FHIR Annuaire Santé:
-<div class="wysiwyg"  markdown="1">
-- Practitioner
-- PractitionerRole
-- Organization
-- HealthcareService
-- Device
-</div>
+
+| Ressources | Description |
+| --- | --- |
+| Practitioner | Décrit les données d’identification pérennes d’une personne physique, qui travaille en tant que professionnel (professionnel enregistré dans RPPS ou ADELI), personnel autorisé ou personnel d’établissement, dans les domaines sanitaire, médico-social et social. |
+| PractitionerRole |  Décrit l’exercice professionel et la situation d’exercice - contient les informations décrivant notamment la profession exercée, l’identité d’exercice d’un professionnel, le cadre de son exercice (civil, militaire, etc.) ainsi que les aractéristiques de l’exercice d’un professionnel pendant une période déterminée et dans une structure déterminée  |
+| Organization | Décrit les organismes du domaine sanitaire, médico-social et social |
+| HealthcareService | Décrit les équipements sociaux et activités sanitaires rattachées aux etablisemments FINESS |
+| Device | Décrit les équipements matériels lourds (‘EML’) mis en oeuvre au sein d’établissements. |
+
 &nbsp;
 
 ### Météo des services de l'Annuaire Santé

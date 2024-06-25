@@ -9,14 +9,14 @@ subTitle: Ressources
 - [Caractéristiques techniques](#two-header)
 - [Critères de recherche (SearchParameter)](#three-header)
 - [Recherche sur critères](#four-header)
-  - [Rechercher tout](#31-header)
-  - [Rechercher par identifiant](#32-header)
-  - [Rechercher par rôle](#33-header)
-    - [Recherche par profession et par catégorie professionnelle](#331-header)
-  - [Recherche par spécialité](#34-header)
-  - [Recherche par type de carte](#35-header)
-  - [Recherche par professionnel](#36-header)
-  - [Recherche par statut](#37-header)
+  - [Rechercher tout](#41-header)
+  - [Rechercher par identifiant](#42-header)
+  - [Rechercher par rôle](#43-header)
+    - [Recherche par profession et par catégorie professionnelle](#431-header)
+  - [Recherche par spécialité](#44-header)
+  - [Recherche par type de carte](#45-header)
+  - [Recherche par professionnel](#46-header)
+  - [Recherche par statut](#47-header)
 </div>
 <br />
 
@@ -82,11 +82,35 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 <br />
 
 
-## <a id="four-header"></a>3) Recherche d'exercice et d'activité du professionnel sur des critères spécifiques
+## <a id="three-header"></a>3) Paramètres de recherche
+
+| Nom | Type | Description |
+| --- | --- | --- |
+| _id | token | ID de la ressource |
+| _lastUpdated | date | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date) |
+| _since | date | |
+| _total | string | |
+| active | token | Recherche les ressources PractitionerRole actives |
+| as-sp-data-information-system | token | Recherche sur le système d'information |
+| as-sp-data-registration-authority | token | Recherche sur l'autorité d'enregistrement |
+| family | Recherche sur le nom d'exercice des professionnels intervenant dans le système de santé |
+| given | Recherche sur le prénom d'exercice des professionnels intervenant dans le système de santé |
+| identifier| token | Recherche sur l'identifiant du PractitionerRole |
+| mailbox-mss| string | La Messagerie Sécurisées de Santé (MSS) du Professionnel |
+| name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professionnels de santé|
+| number-smartcard | string | Recherche sur le numéro de carte des professionnels |
+| organization | reference | Recherche les exercices professionnels et les situation d'exercice rattachés à la structure sélectionnée |
+| practitioner | reference | Recherche les exercices professionnels et les situation d'exercice rattachés aux professionnels intervenant dans le système de santé |
+| role | token | Recherche sur la profession/ la catégorie professionnelle/ la fonction/ le genre d'activité/ le mode d'exercice ou la section tableau des pharmacien |
+| specialty | token | Recherche sur le savoir-faire ou le type de savoir-faire |
+| type-smartcard | token | Recherche sur le type de carte du professionnel  |
+
+
+## <a id="four-header"></a>4) Recherche d'exercice et d'activité du professionnel sur des critères spécifiques
 
 Voici des exemples de requêtes sur les exercices et les activités du professionnel de sante.
 
-#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice et exercices professionnels des PS.
 
@@ -169,7 +193,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="32-header"></a>3.2) Recherche par identifiant (_id)
+#### <a id="42-header"></a>4.2) Recherche par identifiant (_id)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource par son identifiant technique. 
 
@@ -233,7 +257,7 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 <br />
 
 
-#### <a id="33-header"></a>3.3) Recherche par rôle (role)
+#### <a id="43-header"></a>4.3) Recherche par rôle (role)
 
 La recherche par le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents référentiels disponibles : 
 
@@ -267,7 +291,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 </div>
 <br />
 
-##### <a id="331-header"></a>3.3.1) Recherche par profession et par catégorie professionnelle
+##### <a id="431-header"></a>4.3.1) Recherche par profession et par catégorie professionnelle
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
 
@@ -384,7 +408,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="34-header"></a>3.4) Recherche par spécialité (specialty)
+#### <a id="44-header"></a>4.4) Recherche par spécialité (specialty)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") ayant une spécialité ordinale "orthopédie dento-faciale" (code spécialité = "SCD01").
 
@@ -519,7 +543,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="35-header"></a>3.5) Recherche par type de carte (type-smartcard)
+#### <a id="45-header"></a>4.5) Recherche par type de carte (type-smartcard)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les cartes de type CPS.
 
@@ -604,7 +628,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="36-header"></a>3.6) Recherche par professionnel (practitioner)
+#### <a id="46-header"></a>4.6) Recherche par professionnel (practitioner)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
 
@@ -685,7 +709,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="37-header"></a>3.7) Recherche par statut
+#### <a id="47-header"></a>4.7) Recherche par statut
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
 
