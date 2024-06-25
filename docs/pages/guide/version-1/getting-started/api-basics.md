@@ -70,13 +70,15 @@ L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec le
 - ESANTE-API-KEY  
 </div>
 <br />
-
-{% highlight curl %}
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
+{% highlight bash %}
   curl -H "ESANTE-API-KEY: [api-key]" "[api-url]/metadata"  
 {% endhighlight %}
-
-```
+</div>
+</div>
 <br />
+
 
 
 #### Réponse de base -- Succès

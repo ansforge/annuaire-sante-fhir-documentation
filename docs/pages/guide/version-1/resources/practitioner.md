@@ -360,12 +360,6 @@ foreach (var be in bundle.Entry)
 
 En tant que client de l'API, je souhaite rechercher tous les professionnels de santé mis à jour depuis une certaine date.
 
-| Préfix | Valeurs |
-| --- | --- |
-| api-url | https://gateway.api.esante.gouv.fr/fhir/v1 |
-| ihm-url | https://portail.openfhir.annuaire.sante.fr  |
-| gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
-
 **Requête :**
 
 `GET [base]/Practitioner?_lastUpdated=ge2022-08-08`
