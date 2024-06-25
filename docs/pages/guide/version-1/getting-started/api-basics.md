@@ -71,14 +71,9 @@ L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec le
 </div>
 <br />
 
-```xml
--- Exemple :
-
-  curl 
-    -H "ESANTE-API-KEY: XXXX-XXXX-XXXX-XXXXX"  \
-    "[api-url]/metadata"  
-    
-    -- XXXX-XXXX-XXXX-XXXXX étant l'API KEY
+{% highlight curl %}
+  curl -H "ESANTE-API-KEY: [api-key]" "[api-url]/metadata"  
+{% endhighlight %}
 
 ```
 <br />
