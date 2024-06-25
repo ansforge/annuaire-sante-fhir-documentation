@@ -7,7 +7,7 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Caractéristiques techniques](#three-header)
+- [Paramètres de recherche](#three-header)
 - [Recherche de structure sur critères](#four-header)
   - [Rechercher tout](#41-header)
   - [Rechercher par date de mise à jour](#42-header)
