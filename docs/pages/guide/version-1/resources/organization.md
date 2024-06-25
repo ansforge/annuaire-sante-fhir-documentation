@@ -7,16 +7,17 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Recherche de structure sur critères](#three-header)
-  - [Rechercher tout](#31-header)
-  - [Rechercher par date de mise à jour](#32-header)
-  - [Rechercher par identifiant](#33-header)
-  - [Rechercher par numéro FINESS](#34-header)
-  - [Rechercher par type “GEOGRAPHICAL”/”LEGAL](#351-header)
-  - [Rechercher sur la nomenclature d’activités française de l’Insee](#352-header)
-  - [Rechercher par secteur d’activité](#353-header)
-  - [Rechercher par nom](#36-header)
-  - [Rechercher par code postal](#37-header)
+- [Caractéristiques techniques](#three-header)
+- [Recherche de structure sur critères](#four-header)
+  - [Rechercher tout](#41-header)
+  - [Rechercher par date de mise à jour](#42-header)
+  - [Rechercher par identifiant](#43-header)
+  - [Rechercher par numéro FINESS](#44-header)
+  - [Rechercher par type “GEOGRAPHICAL”/”LEGAL](#451-header)
+  - [Rechercher sur la nomenclature d’activités française de l’Insee](#452-header)
+  - [Rechercher par secteur d’activité](#453-header)
+  - [Rechercher par nom](#46-header)
+  - [Rechercher par code postal](#47-header)
 </div>
 <br />
 
@@ -63,14 +64,6 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tr>
 <tr>
 <td width="45%">
-<p><strong>Paramètres de recherche</strong></p>
-</td>
-<td width="54%">
-<p>_id, identifier, name, mailbox-mss, type, pharmacy-licence, partof, address, address-city, address-country, address-postalcode, _lastUpdated, active, _total</p>
-</td>
-</tr>
-<tr>
-<td width="45%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
@@ -80,12 +73,38 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tbody>
 </table>
 
+## <a id="three-header"></a>3) Paramètres de recherche
 
-## <a id="three-header"></a>3) Recherche de structure sur critères
+| Nom                               | Type      | Description                                               |
+| ---                               | ---       | ---                                                       |
+| _has                              | string    |                                                           |
+| _id                               | token     | Recherche sur l'ID de la ressource Organization           |
+| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap).|
+| _since                            | date      |                                                           |
+| _total                            | string    |                                                           |
+| active                            | token     | Recherche les ressources Organization actives             |
+| address                           | string    | Recherche sur (une partie) de l'adresse de la structure   |
+| address-city                      | string    | Recherche sur la commune spécifiée dans une adresse       |
+| address-country                   | string    | Recherche sur le pays spécifiée dans une adresse          |
+| address-postalcode                | string    | Recherche sur le code postal spécifié dans une adresse    |
+| address-state                     | string    | Recherche un état specifiée dans une adresse              |
+| address-use                       | string    | Recherche sur un code use spécifié dans adresse           |
+| as-sp-data-information-system     | token     | Recherche sur le système d'information                    |
+| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                 |
+| endpoint                          | reference | Endpoint technique fournissant des accès aux services exploités pour l'organisation |
+| identifier                        | token     | Recherche sur tous les identifiants des structures        |
+| identifier-type                   | token     | Recherche sur les types d'identifiers                     |
+| mailbox-mss                       | string    | Recherche sur les messageries sécurisées de santé (MSS) rattachées aux Organizations |
+| name                              | string    | Recherche sur la raison sociale des structures            |
+| partof                            | reference | Recherche tous les établissements géographiques rattachés à une même entité juridique |
+| pharmacy-licence                  | string    | Recherche sur le numéro de licence des officines          |
+| type                              | token     | Recherche sur le type de structure/ code APE/ catégorie juridique/ secteur d'activité/ catégorie d'établissement ou le code SPH de la structure |
+
+## <a id="four-header"></a>4) Recherche de structure sur critères
 
 Voici quelques exemples de requêtes sur les structures.
 
-#### <a id="31-header"></a>3.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
 
@@ -170,7 +189,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="32-header"></a>3.2) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="42-header"></a>4.2) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
 
@@ -255,7 +274,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="33-header"></a>3.3) Rechercher par identifiant (identifier)
+#### <a id="43-header"></a>4.3) Rechercher par identifiant (identifier)
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de l'un de ses identifiants.
 
 **Requête :**
@@ -337,7 +356,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="34-header"></a>3.4) Rechercher par numéro FINESS (identifier)
+#### <a id="44-header"></a>4.4) Rechercher par numéro FINESS (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une structure à partir de son numéro FINESS.
 
@@ -421,7 +440,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="35-header"></a>3.5) Recherches par types (type)
+#### <a id="45-header"></a>4.5) Recherches par types (type)
 
 Le champs type de la ressource Organization peut contenir différentes informations en fonction du système.
 
@@ -449,7 +468,7 @@ Lorsque vous souhaitez rechercher sur un type particulier, utilisez la combinais
 Ci-dessous, vous trouverez 3 exemples complets sur EJ/EG, Secteur d’activité et APE.
 
 
-##### <a id="351-header"></a>3.5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
+##### <a id="451-header"></a>4.5.1) Rechercher par type "GEOGRAPHICAL"/"LEGAL" 
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures de type géographique.
 
@@ -551,7 +570,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-##### <a id="352-header"></a>3.5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
+##### <a id="452-header"></a>4.5.2) Rechercher sur la nomenclature d'activités française de l'Insee (code APE)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures avec un code APE "**82.19Z**" qui correspond à "Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau"
 
@@ -646,7 +665,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="353-header"></a>3.5.3) Rechercher par secteur d'activité
+#### <a id="453-header"></a>4.5.3) Rechercher par secteur d'activité
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un secteur d'activité (SA29 par exemple, qui correspond à  "Laboratoires d'analyses et de biologie médicale").
 
@@ -741,7 +760,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="36-header"></a>6) Rechercher par nom (name)
+#### <a id="46-header"></a>4.6) Rechercher par nom (name)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite trouver une structure à partir de son nom.
 
@@ -826,7 +845,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="37-header"></a>7) Rechercher par code postal (address-postalcode)
+#### <a id="47-header"></a>4.7) Rechercher par code postal (address-postalcode)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
 
