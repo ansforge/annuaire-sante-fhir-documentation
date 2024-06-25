@@ -29,7 +29,9 @@ L’API Annuaire Santé permet au grand public d'interroger facilement et rapide
 
 En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement trouver un professionnel intervenant dans le système de santé ou une structure, filtrer, ordonner et paginer les résultats selon vos souhaits.
 
-![](./assets/img/home-schema.png)
+<p align="center">
+  <img src="./assets/img/home-schema.png" style="width:80%;">
+</p>
 
 ### Exemples de cas d'utilisation
 
