@@ -8,13 +8,14 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Recherche sur critères](#three-header)
-  - [Rechercher tout](#31-header)
-  - [Rechercher par date de mise à jour](#32-header)
-  - [Rechercher par numéro ARHGOS](#33-header)
-  - [Recherche par type](#34-header)
-  - [Recherche par identifiant](#35-header)
-  - [Recherche par statut](#36-header)
+- [Paramètres de recherche](#three-header)
+- [Recherche sur critères](#four-header)
+  - [Rechercher tout](#41-header)
+  - [Rechercher par date de mise à jour](#42-header)
+  - [Rechercher par numéro ARHGOS](#43-header)
+  - [Recherche par type](#44-header)
+  - [Recherche par identifiant](#45-header)
+  - [Recherche par statut](#46-header)
 </div>
 <br />
 
@@ -59,14 +60,6 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </tr>
 <tr>
 <td width="30%">
-<p><strong>Paramètres de recherche</strong></p>
-</td>
-<td width="54%">
-<p>_id, identifier, device-name, manufacturer, number-authorization-arhgos, status, type, _lastUpdated, organization, _total</p>
-</td>
-</tr>
-<tr>
-<td width="30%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
@@ -77,11 +70,30 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </table>
 <br />
 
-## <a id="three-header"></a>3) Recherche d'équipement matériel lourd (EML) sur critères
+## <a id="three-header"></a>3) Paramètres de recherche
+
+| Nom                               | Type      | Description                                                                       |
+| ---                               | ---       | ---                                                                               |
+| _id                               | token     | Recherche sur l'ID de la ressource HealthCare Service                             |
+| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée |
+| _since                            | date      |                                                                                   |
+| _total                            | string    |                                                                                   |
+| as-sp-data-information-system     | token     | Recherche sur le système d'information                                            |
+| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                                         |
+| device-name                       | string    | Le nom de l'équipement                                                            |
+| identifier                        | token     | Recherche sur l'identifiant de l'équipement matériel lourd                        |
+| manufacturer                      | string    | Recherche sur la marque des équipements matériels lourds                          |
+| model                             | string    | Recherche sur le modèle des équipements matériels lourds                          |
+| number-authorization-arhgos       | string    | Recherche sur le numéro d'autorisation ARHGOS                                     |
+| organization                      | reference | Recherche les équipements matériels lourds rattachés à la structure sélectionnée  |
+| status                            | token     | active, inactive,  entered-in-error, unknown                                      |
+| type                              | token     | Recherche sur le type de l'équipement matériel lourd                              |
+
+## <a id="four-header"></a>4) Recherche d'équipement matériel lourd (EML) sur critères
 
 Voici des exemples de requêtes sur les équipements matériels lourds.
 
-## <a id="31-header"></a>3.1) Rechercher tout (sans critère)
+## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
 
@@ -167,7 +179,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="32-header"></a>3.2) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="42-header"></a>4.2) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
 
@@ -262,7 +274,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="33-header"></a>3.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
+#### <a id="43-header"></a>4.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
@@ -354,7 +366,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="34-header"></a>3.4) Rechercher par type EML (type)
+#### <a id="44-header"></a>4.4) Rechercher par type EML (type)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
 
@@ -452,7 +464,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="35-header"></a>3.5) Rechercher par son identifiant (identifier)
+#### <a id="45-header"></a>4.5) Rechercher par son identifiant (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
 
@@ -541,7 +553,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="36-header"></a>3.6) Rechercher par statut (status)
+#### <a id="46-header"></a>4.6) Rechercher par statut (status)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les EML actifs.
 

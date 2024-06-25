@@ -383,6 +383,8 @@ La recherche par date supporte les préfixes suivants:
 | eb      | ends before       | La valeur du paramètre dans la ressource termine avant la valeur saisie	            |
 | ap      | approximately     | La valeur du paramètre dans la ressource est approximativement la même que la valeur fournie. Il est à noter que la valeur recommandée pour l'approximation est de 10% de la valeur indiquée |
 
+Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date)
+
 Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour, et par date complète.
 
 **Quelques exemples :** 

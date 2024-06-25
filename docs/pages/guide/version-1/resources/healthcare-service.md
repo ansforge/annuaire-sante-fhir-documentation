@@ -7,12 +7,13 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Description métier](#one-header)
 - [Caractéristiques techniques](#two-header)
-- [Recherche sur critères](#three-header)
-  - [Rechercher tout](#31-header)
-  - [Rechercher par identifiant](#32-header)
-  - [Rechercher par type/forme d'activité](#33-header)
-  - [Recherche par statut](#34-header)
-  - [Recherche par date de mise à jour](#35-header)
+- [Paramètres de recherche](#three-header)
+- [Recherche sur critères](#four-header)
+  - [Rechercher tout](#41-header)
+  - [Rechercher par identifiant](#42-header)
+  - [Rechercher par type/forme d'activité](#43-header)
+  - [Recherche par statut](#44-header)
+  - [Recherche par date de mise à jour](#45-header)
 </div>
 <br />
 
@@ -58,14 +59,6 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </tr>
 <tr>
 <td width="30%">
-<p><strong>Paramètres de recherche</strong></p>
-</td>
-<td width="54%">
-<p>_id, identifier, characteristic, service-category, service-type, active, _profile, organization, _lastUpdated, _total</p>
-</td>
-</tr>
-<tr>
-<td width="30%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
@@ -76,11 +69,31 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </table>
 <br />
 
-## <a id="three-header"></a>3) Recherche d'activité de soin et d'équipement social sur critères
+## <a id="three-header"></a>3) Paramètres de recherche
+
+| Nom                               | Type      | Description                                               |
+| ---                               | ---       | ---                                                       |
+| _has                              | string    |                                                           |
+| _id                               | token     | Recherche sur l'ID de la ressource HealthCare Service     |
+| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap).|
+| _profile| uri | Sélectionner le profil de la ressource Healthcare Service. Pour les activités de soins http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-healthcare-activity / ; Pour les équipements sociaux http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-social-equipment"  |
+| _since                            | date      |                                                           |
+| _total                            | string    |                                                           |
+| active                            | token     | Recherche les ressources Healthcare Service actives       |
+| as-sp-data-information-system     | token     | Recherche sur le système d'information                    |
+| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                 |
+| characteristic                    | token     | Recherche sur le type d'activité des équipements sociaux ou sur la forme d'activité des activités de soins   |
+| identifier                        | token     | Recherche sur l'identifiant des équipements sociaux ou des activités de soins        |
+| organization                      | reference | Recherche tous les équipements sociaux ou activités de soins rattachés à une structure|
+| service-category                  | token     | Recherche sur la modalité des activités de soins |
+| service-type                      | token     | Recherche sur la discipline des équipements sociaux ou sur l'activité sanitaire régulée des activité de soins |
+
+
+## <a id="four-header"></a>4) Recherche d'activité de soin et d'équipement social sur critères
 Voici des exemples de requêtes sur les activités de soin et les équipements sociaux.
 
 
-## <a id="31-header"></a>3.1) Rechercher tout (sans critère)
+## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des services de soin.
 
@@ -164,7 +177,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="32-header"></a>3.2) Rechercher par identifiant (identifier)
+#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
 
@@ -249,7 +262,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="33-header"></a>3.3) Rechercher par type/forme d'activité (characteristic)
+#### <a id="43-header"></a>4.3) Rechercher par type/forme d'activité (characteristic)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
@@ -356,7 +369,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="34-header"></a>3.4) Rechercher par statut (active)
+#### <a id="44-header"></a>4.4) Rechercher par statut (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les services de santé actifs.
 
@@ -447,7 +460,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="35-header"></a>3.5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="45-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
 
