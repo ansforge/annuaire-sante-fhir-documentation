@@ -161,9 +161,9 @@ Consulter le Démonstrateur API FHIR Annuaire Santé et utiliser la clé API pou
   <img src="img/portail-api-fhir.png" style="width:80%;">
 </p>
 
-NOTE| L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc). Pour y remédier, il faut  ajouter l’AC IGC Santé dans le navigateur pour qu’elle soit reconnue par la suite.
+NOTE| L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc). Pour y remédier, il faut  ajouter le certificat AC IGC Santé dans votre navigateur pour qu’il soit reconnu par la suite.![alt text](erreur-certificat.png)
 
-Pour plus d'informations, consulter le site [IGC-Santé de l'ANS] (https://igc-sante.esante.gouv.fr/PC/)
+Pour plus d'informations, consulter le site [IGC-Santé de l'ANS](https://igc-sante.esante.gouv.fr/PC/){:target="_blank"}
 
 <p align="center">
   <img src="img/erreur-certificat.png" style="width:80%;">

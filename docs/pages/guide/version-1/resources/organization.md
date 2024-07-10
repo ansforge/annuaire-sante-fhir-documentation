@@ -13,7 +13,7 @@ subTitle: Ressources
   - [Rechercher par date de mise à jour](#42-header)
   - [Rechercher par identifiant](#43-header)
   - [Rechercher par numéro FINESS](#44-header)
-  - [Rechercher par type “GEOGRAPHICAL”/”LEGAL](#451-header)
+  - [Rechercher par type GEOGRAPHICAL/LEGAL](#451-header)
   - [Rechercher sur la nomenclature d’activités française de l’Insee](#452-header)
   - [Rechercher par secteur d’activité](#453-header)
   - [Rechercher par nom](#46-header)

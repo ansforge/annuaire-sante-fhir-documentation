@@ -16,23 +16,15 @@ Tous les accès se font via HTTPS.
 | api-url | https://gateway.api.esante.gouv.fr/fhir/v1 |
 | ihm-url | https://portail.openfhir.annuaire.sante.fr  |
 | gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
-
-
-#### Environnement Bac à sable (en accès restreint)
-
-| Variables | Valeurs |
-| --- | --- |
-| api-url | https://gateway.preprod.api.esante.gouv.fr/fhir/v1 |
-| ihm-url | https://demo.portail.openfhir.annuaire.asipsante.fr   |
-| gravitee-url | https://portal.preprod.api.esante.gouv.fr |
-
  
+NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fictives. La seule API qui existe est celle de l'environnement de production avec les données publiques. Si vous créez votre propre environnement beta, merci de supprimer les données qui ont une durée de conservation supérieure à 30 jours.
+
 ### Points de terminaison (endpoints)
 
 | Variables | Valeurs     |
 | --- | --- |
 | [api-url]/metadata          | Pour le capability statement |
-| [api-url]/Practitioner      | Pour les professionnels de santé |
+| [api-url]/Practitioner      | Pour les professionnels intervenant dans le système de santé |
 | [api-url]/PractitionerRole  | Pour les exercices professionnels et les situations d'exercice |
 | [api-url]/Organization      | Pour les structures |
 | [api-url]/HealthcareService | Pour les activités de soins et les équipements sociaux |
@@ -44,16 +36,16 @@ Tous les accès se font via HTTPS.
 Toutes les réponses utilisent les codes HTTP Standard.
 Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste des codes HTTP les plus courants et leur signification
 
-| Status code | Type | Definition |
-| --- | --- | --- |
-| 200 | OK | Requête réussie |
-| 400 | Bad Request | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe |
-| 401 | Unauthorized | Impossible d'authentifier la requête |
-| 403 | Forbidden | La requêtes n'est pas autorisée |
-| 404 | Not found| La ressource n'est pas trouvée |
-| 500 | Internal Server Error|Une erreur inattendue est survenue |
-| 501 | Not Implemented | Le serveur ne prend pas en charge les fonctionnalités nécessaires pour réaliser la requête |
-| 503 | Service Unavailable|Le service est non disponible |
+| Status code | Type                  | Definition                                                                                  |
+| ---         | ---                   | ---                                                                                         |
+| 200         | OK                    | Requête réussie                                                                             |
+| 400         | Bad Request           | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe                          |
+| 401           Unauthorized          | Impossible d'authentifier la requête                                                        |
+| 403         | Forbidden             | La requêtes n'est pas autorisée                                                             |
+| 404         | Not found             | La ressource n'est pas trouvée                                                              |
+| 500         | Internal Server Error |Une erreur inattendue est survenue                                                           |
+| 501         | Not Implemented       | Le serveur ne prend pas en charge les fonctionnalités nécessaires pour réaliser la requête  |
+| 503         | Service Unavailable   |Le service est non disponible                                                                |
 
 
 ### Méthodes HTTP (HTTP VERBS)
