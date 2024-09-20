@@ -10,4 +10,4 @@ Le changelog  documente les modifications associées à une version de l’API F
 | Version API FHIR Annuaire Santé   | Version FHIR  | Version IG        | Date de lancement | Disponible jusqu'à    |
 | ---                               | ---           | ---               | ---               | ---                   |
 | 1 (Beta)                          | R4            | 0.1.0 - trial use | 5 septembre 2022  | TBD                   |
-| 2                                 | R4            | 1.0.X             | TBD               | TBD                   |
+| 2                                 | R4            | 1.1.0             | TBD               | TBD                   |
