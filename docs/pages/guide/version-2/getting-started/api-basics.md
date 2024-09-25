@@ -34,7 +34,7 @@ NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fic
 ### Codes d’état HTTP (HTTP status codes)
 
 Toutes les réponses utilisent les codes HTTP Standard.
-Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste des codes HTTP les plus courants et leur signification
+Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste non exhaustive des codes HTTP les plus courants et leur signification
 
 | Status code | Type                  | Definition                                                                                  |
 | ---         | ---                   | ---                                                                                         |
