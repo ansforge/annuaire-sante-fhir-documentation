@@ -101,6 +101,7 @@ Voici des exemples de requêtes sur les activités de soin et les équipements s
 
 ```sh
 GET [base]/HealthcareService
+#récupère l'ensemble des HealthcareServices (incluant les actives et les inactives)
 GET [base]/HealthcareService?_include=HealthcareService:organization #inclure les Organization qui sont référencées par les HealthcareService (HealthcareService + Organization)
 GET [base]/HealthcareService?_include=* #inclure toutes les ressources qui sont référencées par les HealthcareService 
 

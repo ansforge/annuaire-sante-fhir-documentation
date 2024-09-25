@@ -101,8 +101,9 @@ Voici des exemples de requêtes sur les équipements matériels lourds.
 
 ```sh
 GET [base]/Device
-GET [base]/Device?_include=Device:organization #inclure les Organization qui sont référencées par les Device (Device + Organization)
-GET [base]/Device?_include=* #inclure toutes les ressources qui sont référencées par les Device 
+#récupère l'ensemble des Devices (incluant les actifs et les inactifs)
+GET [base]/Device?_include=Device:organization #inclure les Organization qui sont référencées par les Devices (Device + Organization)
+GET [base]/Device?_include=* #inclure toutes les ressources qui sont référencées par les Devices 
 
 
 ```

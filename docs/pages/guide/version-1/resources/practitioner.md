@@ -100,13 +100,13 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 
 #### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels de santé.
+**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
 
 **Exemples de requêtes :**
 
 ```sh
 GET [base]/Practitioner
-#récupère l'ensemble des practitioners
+#récupère l'ensemble des practitioners (incluant les actifs et les inactifs)
 
 GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner 
 #inclure les practitionerRole qui référencent les practitioners (Practitioner + PractitionerRole)

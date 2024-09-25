@@ -112,6 +112,7 @@ Voici quelques exemples de requêtes sur les structures.
 
 ```sh
 GET [base]/Organization
+#récupère l'ensemble des Organizations (incluant les actives et les inactives)
 GET [base]/Organization?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
 GET [base]/Organization?_revinclude=Device:organization #inclure les Device qui référencent les Organization (Organization + Device)
 GET [base]/Organization?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)

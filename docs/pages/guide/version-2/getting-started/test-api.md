@@ -34,7 +34,7 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 |Variable|Description|Valeur|
 |---|---|---|
 |api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html))|Saisissez votre clé|
-|api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2|
+|api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2/1.x|
 
 <p align="center">
   <img src="img/postman-config.png" style="width:100%;">
@@ -46,7 +46,7 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 
 NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
 
-Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
+Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de simplicité.
 
 ### Récuperer le Capability Statement FHIR
 
@@ -58,9 +58,9 @@ Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](ht
 
 
 
-<div class="code-sample"><div class="tab-content" data-name="bash">
+<div class="code-sample"><div class="tab-content" data-name="Invite de commandes">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v2/1.x/metadata?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/metadata?_pretty=true&_format=json"
 {% endhighlight %}
 </div></div>
 <div class="wysiwyg" markdown="1">

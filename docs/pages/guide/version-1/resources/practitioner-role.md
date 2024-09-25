@@ -118,6 +118,8 @@ Voici des exemples de requêtes sur les exercices et les activités du professio
 
 ```sh
 GET [base]/PractitionerRole
+#récupère l'ensemble des PractitionersRoles (incluant les actifs et les inactifs)
+
 GET [base]/Organization?_revinclude=PractitionerRole:organization #inclure les Organization qui sont référencées par les PractitionerRole (PractitionerRole + Organization)
 GET [base]/Organization?_revinclude=PractitionerRole:practitioner #inclure les Practitioner qui sont référencés par les PractitionerRole (PractitionerRole + Practitioner)
 GET [base]/Organization?_revinclude=PractitionerRole:* #inclure toutes les ressources qui sont réféencées les PractitionerRole (PractitionerRole + Practitioner + Oraganization)
