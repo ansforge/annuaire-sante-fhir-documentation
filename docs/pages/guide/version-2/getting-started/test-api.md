@@ -33,7 +33,7 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 
 |Variable|Description|Valeur|
 |---|---|---|
-|api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html))|Saisissez votre clé|
+|api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html))|Saisissez votre clé|
 |api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2/1.x|
 
 <p align="center">
@@ -48,25 +48,22 @@ NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} p
 
 Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de simplicité.
 
-### Récuperer le Capability Statement FHIR
+### Récuperer le Capability Statement FHIR (Metadata)
 
 
 <div class="wysiwyg" markdown="1">
-* **Test 1** : lancez la commande suivante pour récupérer le CapabilityStatement FHIR (liste des fonctionnalités de l'API) :
+* **Test 1** : lancez la commande suivante pour récupérer le CapabilityStatement (liste des fonctionnalités de l'API) :
 </div>
 &nbsp;
 
-
-
 <div class="code-sample"><div class="tab-content" data-name="Invite de commandes">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/metadata?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/metadata"
 {% endhighlight %}
 </div></div>
 <div class="wysiwyg" markdown="1">
 * Ci-dessous la réponse de l'API : 
 </div>
-&nbsp;
 
 ```json
 {
@@ -168,3 +165,8 @@ Pour plus d'informations, consulter le site [IGC-Santé de l'ANS](https://igc-sa
 <p align="center">
   <img src="img/erreur-certificat.png" style="width:80%;">
 </p>
+
+
+### Taux de disponibilité
+
+Le taux de disponibilité qui doit être assuré par le titulaire du marché qui maintient et héberge nos SI est de 99,4% (24h/24 et 7j/7).

@@ -7,9 +7,9 @@ subTitle: Démarrage rapide
 
 ### URL d'accès (base url)
 
-Tous les accès se font via HTTPS.
-
 #### Environnement Production
+
+Tous les accès se font via HTTPS.
 
 | Variables | Valeurs |
 | --- | --- |
@@ -23,12 +23,12 @@ NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fic
 
 | Variables | Valeurs     |
 | --- | --- |
-| [api-url]/metadata          | Pour le capability statement |
-| [api-url]/Practitioner      | Pour les exercices professionnels des professionnels intervenant dans le système de santé |
-| [api-url]/PractitionerRole  | Pour les situations d'exercice des professionnels |
-| [api-url]/Organization      | Pour les structures (entités juridiques, entités géographiques) |
-| [api-url]/HealthcareService | Pour les activités de soins et les équipements sociaux |
-| [api-url]/Device            | Pour les équipements matériels lourds (EML) |
+| [api-url]/metadata          | Récupérer le capability statement |
+| [api-url]/Practitioner      | Récupérer les exercices professionnels des professionnels intervenant dans le système de santé |
+| [api-url]/PractitionerRole  | Récupérer les situations d'exercice des professionnels |
+| [api-url]/Organization      | Récupérer les structures (entités juridiques, entités géographiques) |
+| [api-url]/HealthcareService | Récupérer les activités de soins et les équipements sociaux |
+| [api-url]/Device            | Récupérer les équipements matériels lourds (EML) |
 <!-- | [api-url]/health            | Pour le healthcare du service API FHIR, accessible sans authentification | -->
 
 ### Codes d’état HTTP (HTTP status codes)
@@ -40,7 +40,7 @@ Les codes HTTP standard sont des codes de statut envoyés par un serveur en rép
 | ---         | ---                   | ---                                                                                         |
 | 200         | OK                    | Requête réussie                                                                             |
 | 400         | Bad Request           | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe                          |
-| 401           Unauthorized          | Impossible d'authentifier la requête                                                        |
+| 401         |  Unauthorized          | Impossible d'authentifier la requête                                                       |
 | 403         | Forbidden             | La requêtes n'est pas autorisée                                                             |
 | 404         | Not found             | La ressource n'est pas trouvée                                                              |
 | 500         | Internal Server Error |Une erreur inattendue est survenue                                                           |                                                         |
