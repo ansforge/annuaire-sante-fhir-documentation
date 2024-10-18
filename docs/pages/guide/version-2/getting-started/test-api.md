@@ -26,7 +26,15 @@ Pour tester rapidement et facilement l'API FHIR Annuaire Santé, télécharger c
 Une fois le projet importé dans votre espace Postman:
 <div class="wysiwyg" markdown="1">
 - dans le menu "Environnements": créer un environnement "Prod" et renseigner les variables nécessaires (ex: api_key et api_url)
+
+<p align="center">
+  <img src="img/postman-1.png" style="width:100%;">
+</p>
+
 - dans le menu "Collection": choisir un dossier et lancer un appel
+<p align="center">
+  <img src="img/postman-2.png" style="width:100%;">
+</p>
 - attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels
 </div>
 Veuillez trouver ci-dessous les variables utilisées dans le projet Postman: 
@@ -35,10 +43,6 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 |---|---|---|
 |api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html))|Saisissez votre clé|
 |api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2/1.x|
-
-<p align="center">
-  <img src="img/postman-config.png" style="width:100%;">
-</p>
 
 ## <a id="two-header"></a>2) Démarrer les tests API avec cURL
 
