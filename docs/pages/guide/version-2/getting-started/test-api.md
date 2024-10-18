@@ -35,7 +35,7 @@ Une fois le projet importé dans votre espace Postman:
 <p align="center">
   <img src="img/postman-2.png" style="width:100%;">
 </p>
-- attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels
+Attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels.
 </div>
 Veuillez trouver ci-dessous les variables utilisées dans le projet Postman: 
 
