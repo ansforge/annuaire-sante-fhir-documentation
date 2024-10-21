@@ -30,6 +30,11 @@ Une fois le projet importé dans votre espace Postman:
 <p align="center">
   <img src="img/postman-1.png" style="width:100%;">
 </p>
+- dans l'en-tête (Header) de votre appel, saisir le nom de la clé ESANTE-API-KEY et saisir dans la valeur {{api_key}} qui récupérera dynamiquement votre clé paramétré dans votre Postman 
+
+<p align="center">
+  <img src="img/postman-3.png" style="width:100%;">
+</p>
 
 - dans le menu "Collection": choisir un dossier et lancer un appel 
 
@@ -55,7 +60,7 @@ NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} p
 
 Pour ces premiers tests, nous utilisons cURL pour plus de simplicité. [cURL](https://curl.se/) étant un outil présent sur la plupart des plateformes windows 10+, macos, linux.
 
-### Récuperer le Capability Statement FHIR
+### Récuperer le Capability Statement FHIR (Metadata)
 
 
 <div class="wysiwyg" markdown="1">
@@ -108,16 +113,18 @@ NOTE| Le capability statement permet de connaitre les fonctionnalités disponibl
 
 ### Récuperer la ressource Practitioner
 
-
 <div class="wysiwyg" markdown="1">
 * <b>Test 2</b> : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
 </div>
-&nbsp;
-<div class="code-sample"><div class="tab-content" data-name="bash">
+
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{api_key }}" "{{api_url}}/fhir/Practitioner?_pretty=true&_format=json"
 {% endhighlight %}
-</div></div>
+</div>
+</div>
+
 
 <div class="wysiwyg" markdown="1">
 * Ci-dessous un exemple de réponse :
