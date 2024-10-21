@@ -62,5 +62,5 @@ plugins:
 ans:
   ihm_url: https://portail.openfhir.annuaire.sante.fr
   api_url: https://gateway.api.esante.gouv.fr
-  demo_key: XXXX-XXXX-XXXX-XXXXX
+  api_key: XXXX-XXXX-XXXX-XXXXX
 

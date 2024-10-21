@@ -46,7 +46,7 @@ Effectuer une recherche FHIR sur la ressource Practitioner avec le paramètre **
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=10000001111&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=10000001111&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -103,7 +103,7 @@ Nous faisons donc une requête sur la ressource PractitionerRole en précisant d
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -143,7 +143,7 @@ Cela se fait par le biais du paramètre **_include** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111&_include=PractitionerRole:organization&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111&_include=PractitionerRole:organization&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -205,7 +205,7 @@ Imaginons que vous cherchiez les fiches de 2 professionnels avec pour identifian
 Dans ce cas la première requête sera : 
 
 ```bash 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=10000001111,10000001112&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=10000001111,10000001112&_pretty=true&_format=json"
 ```
 
 Cette requête permet de demander tous les Practitioner ayant un identifier à 10000001111 ou 10000001112.
@@ -216,7 +216,7 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 
 
 ```bash 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111,003-131112&_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-131111,003-131112&_pretty=true&_format=json"
 
 
 ```

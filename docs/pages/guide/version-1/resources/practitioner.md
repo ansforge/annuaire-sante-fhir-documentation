@@ -133,7 +133,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -211,7 +211,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=0012807590%2C810000005479"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=0012807590%2C810000005479"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -300,7 +300,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -384,7 +384,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

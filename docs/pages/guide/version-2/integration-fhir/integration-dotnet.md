@@ -34,7 +34,7 @@ public class AuthorizationMessageHandler : HttpClientHandler
 {
     protected async override System.Threading.Tasks.Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        request.Headers.Add("ESANTE-API-KEY", "{{site.ans.demo_key }}");
+        request.Headers.Add("ESANTE-API-KEY", "{{site.ans.api_key }}");
         return await base.SendAsync(request, cancellationToken);
     }
 }

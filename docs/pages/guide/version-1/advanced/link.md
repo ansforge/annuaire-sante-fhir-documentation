@@ -24,7 +24,7 @@ Pour cela, nous devons utiliser l'inclusion **_include**.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?_include=PractitionerRole%3Apractitioner&_include=PractitionerRole%3Aorganization&_count=10"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?_include=PractitionerRole%3Apractitioner&_include=PractitionerRole%3Aorganization&_count=10"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -126,7 +126,7 @@ D'autre part, la liste des PractitionerRole (activités) qui contiendront les no
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Practitioner?identifier=349101808&_revinclude=PractitionerRole%3Apractitioner"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Practitioner?identifier=349101808&_revinclude=PractitionerRole%3Apractitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
@@ -153,7 +153,7 @@ Dans la réponse de la première requête 1), on retrouve le lien vers la struct
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?_id=001-01-519022"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Organization?_id=001-01-519022"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
@@ -177,7 +177,7 @@ L'ensemble des informations sont récupérables en une seule requête qui retour
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
@@ -212,7 +212,7 @@ Pour ce faire, il faut utiliser le paramètre '_include' comme suit :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
@@ -257,7 +257,7 @@ Pour ce faire, il faut réutiliser le paramètre **_include** comme suit :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/PractitionerRole?family:exact=ROBERT&given=CHRISTIAN&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
@@ -308,7 +308,7 @@ Pour ce faire, il faut interroger l'endpoint Organization avec le paramètre [**
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=010000347&_revinclude=Organization%3Apartof"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Organization?identifier=010000347&_revinclude=Organization%3Apartof"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="postman">
