@@ -30,8 +30,14 @@ Une fois le projet importé dans votre espace Postman:
 <p align="center">
   <img src="img/postman-1.png" style="width:100%;">
 </p>
+- dans l'en-tête (Header) de votre appel, saisir le nom de la clé ESANTE-API-KEY et saisir dans la valeur {{api_key}} qui récupérera dynamiquement votre clé paramétré dans votre Postman 
 
-- dans le menu "Collection": choisir un dossier et lancer un appel
+<p align="center">
+  <img src="img/postman-3.png" style="width:100%;">
+</p>
+
+- dans le menu "Collection": choisir un dossier et lancer un appel 
+
 <p align="center">
   <img src="img/postman-2.png" style="width:100%;">
 </p>
@@ -106,12 +112,15 @@ NOTE| Le capability statement permet de connaitre les fonctionnalités disponibl
 <div class="wysiwyg" markdown="1">
 * <b>Test 2</b> : vous pouvez lancer cette requête pour récupérer les ressources "Practitioner" :
 </div>
-&nbsp;
-<div class="code-sample"><div class="tab-content" data-name="bash">
+
+<div class="code-sample">
+<div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v2/1.x/Practitioner?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{api_key }}" "{{api_url}}/fhir/v2/1.x/Practitioner?_pretty=true&_format=json"
 {% endhighlight %}
-</div></div>
+</div>
+</div>
+
 
 <div class="wysiwyg" markdown="1">
 * Ci-dessous un exemple de réponse :
