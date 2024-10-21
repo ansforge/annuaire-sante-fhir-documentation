@@ -28,7 +28,7 @@ Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à
 <div class="wysiwyg" markdown="1">
 * Une API Key d'accès à l'API que vous pouvez récupérer en ligne à cette [adresse](https://portal.api.esante.gouv.fr/catalog/api/962f412b-e08e-4ee7-af41-2be08eeee7f6)
 * Java 11+
-* Un IDE (IntelliJ, Eclipse...)
+* Un IDE (IntelliJ, Visual Studio, Eclipse...)
 * Maven 3+
 </div>
 
@@ -49,7 +49,7 @@ Pour ce faire, nous allons effectuer une recherche sur la ressource Organization
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
   "{{site.ans.api_url}}/fhir/v1/Organization?identifier=010780914&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
@@ -110,7 +110,7 @@ Nous faisons donc une requête sur la ressource PractitionerRole en précisant d
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
   "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
@@ -151,7 +151,7 @@ Cela se fait par le biais du paramètre **_include** :
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
   "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-147&_include=PractitionerRole:practitioner&_pretty=true&_format=json"
 {% endhighlight %}
 </div>
@@ -212,7 +212,7 @@ Imaginons que vous cherchiez les fiches de 2 structures avec pour leurs identifi
 Dans ce cas la première requête sera : 
 
 ```json 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
   "{{site.ans.api_url}}/fhir/v1/Organization?identifier=060016219,030782866&_pretty=true&_format=json"
 
 
@@ -227,7 +227,7 @@ Ensuite, vous pourrez là encore effectuer une unique requête pour aller cherch
 
 
 ```json 
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" \
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
   "{{site.ans.api_url}}/fhir/v1/PractitionerRole?organization=001-01-1102727,001-01-1267408&_pretty=true&_format=json"
 
 

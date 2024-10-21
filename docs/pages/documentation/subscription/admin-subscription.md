@@ -33,7 +33,7 @@ L'attribut "channel" contient différents paramètres permettant de spécifier l
 <div class="code-sample">
     <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "Accept: application/json" -H "ESANTE-API-KEY: {{site.ans.demo_key }}" -X PUT -d '{"resourceType": "Subscription","criteria": "Device?_id=device1&status=active","channel": {"type": "rest-hook","endpoint": "https://my_server/hook/subscriptions","payload": "application/fhir+json"}}' {{site.ans.api_url}}/fhir/Subscription
+curl -H "Accept: application/json" -H "ESANTE-API-KEY: {{site.ans.api_key }}" -X PUT -d '{"resourceType": "Subscription","criteria": "Device?_id=device1&status=active","channel": {"type": "rest-hook","endpoint": "https://my_server/hook/subscriptions","payload": "application/fhir+json"}}' {{site.ans.api_url}}/fhir/Subscription
 {% endhighlight %}
     </div>
 </div>
@@ -47,7 +47,7 @@ Afin de vérifier si la/les Subscription ont bien été créés, il est possible
 <div class="code-sample">
     <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" {{site.ans.api_url}}/fhir/Subscription
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" {{site.ans.api_url}}/fhir/Subscription
 {% endhighlight %}
     </div>
 </div>
@@ -179,7 +179,7 @@ Ici nous mettons donc à jour la Device avec l'_id "device1" grâce à l'envoi d
 <div class="code-sample">
     <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "Accept: application/json" -H "ESANTE-API-KEY: {{site.ans.demo_key }}" -X PUT -d '{"resourceType": "Device","id": "device1","meta": {"versionId": "2","lastUpdated": "2022-10-03T15:51:01.810+02:00","profile": ["https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device"]},"identifier": [{"system": "http://samplesysyem","value": "1"}],"status": "active","manufacturer": "man1","deviceName": [{"name": "demo-ans"}],"modelNumber": "model11664805061717","type": {"coding": [{"system": "http://types/","code": "type1"},{"system": "http://part1/","code": "other1"}]},"owner": {"reference": "Organization/org1"},"location": {"reference": "Location/loc1"}}' {{site.ans.api_url}}/fhir/Device
+curl -H "Accept: application/json" -H "ESANTE-API-KEY: {{site.ans.api_key }}" -X PUT -d '{"resourceType": "Device","id": "device1","meta": {"versionId": "2","lastUpdated": "2022-10-03T15:51:01.810+02:00","profile": ["https://annuaire.sante.gouv.fr/fhir/StructureDefinition/AS-Device"]},"identifier": [{"system": "http://samplesysyem","value": "1"}],"status": "active","manufacturer": "man1","deviceName": [{"name": "demo-ans"}],"modelNumber": "model11664805061717","type": {"coding": [{"system": "http://types/","code": "type1"},{"system": "http://part1/","code": "other1"}]},"owner": {"reference": "Organization/org1"},"location": {"reference": "Location/loc1"}}' {{site.ans.api_url}}/fhir/Device
 {% endhighlight %}
     </div>
 </div>

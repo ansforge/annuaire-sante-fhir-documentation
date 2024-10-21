@@ -146,7 +146,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -221,7 +221,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole/005-5087586-6923328"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole/005-5087586-6923328"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -322,7 +322,7 @@ ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnel
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&role=E"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&role=E"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -438,7 +438,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&specialty=SCD01"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&specialty=SCD01"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -572,7 +572,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?type-smartcard=CPS"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?type-smartcard=CPS"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -655,7 +655,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-138020"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-138020"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -738,7 +738,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

@@ -24,13 +24,12 @@ Pour tester rapidement et facilement l'API FHIR Annuaire Santé, télécharger c
 ### Configuration de la clé d'API
 
 Une fois le projet importé dans votre espace Postman:
-<div class="wysiwyg" markdown="1">
 - dans le menu "Environnements": créer un environnement "Prod" et renseigner les variables nécessaires (ex: api_key et api_url)
 
 <p align="center">
   <img src="img/postman-1.png" style="width:100%;">
 </p>
-- dans l'en-tête (Header) de votre appel, saisir le nom de la clé ESANTE-API-KEY et saisir dans la valeur {{api_key}} qui récupérera dynamiquement votre clé paramétré dans votre Postman 
+- dans l'en-tête (Header) de votre appel, saisir le nom de la clé ESANTE-API-KEY et saisir dans la colonne "valeur" votre api_key de manière dynamique dans votre Postman 
 
 <p align="center">
   <img src="img/postman-3.png" style="width:100%;">
@@ -54,7 +53,7 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 
 &nbsp;
 
-NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.demo_key }} par votre clé d'API.
+NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.api_key }} par votre clé d'API.
 
 Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de simplicité.
 
@@ -68,7 +67,7 @@ Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de si
 
 <div class="code-sample"><div class="tab-content" data-name="Invite de commandes">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.demo_key }}" "{{site.ans.api_url}}/metadata"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/metadata"
 {% endhighlight %}
 </div></div>
 <div class="wysiwyg" markdown="1">
