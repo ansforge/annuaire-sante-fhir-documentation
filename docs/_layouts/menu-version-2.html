@@ -1,30 +1,55 @@
 ---
 layout: base
 ---
-<div id="sidebar-container" class="sidebar-expanded col-3 d-none d-md-block left-menu">
-    <ul class="navbar-nav nav-lvl-1">
-        {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
-        {% assign version_2_menu = guides_menu.subfolderitems | where: "title", "Version 2" | first %}
-
-        <!-- Titre de la version -->
-        <li class="nav-item common-nav-item">
-            <a href="{{ version_2_menu.url | relative_url }}">{{ version_2_menu.title }}</a>
-            <ul class="navbar-nav nav-lvl-2">
-                {% for item in version_2_menu.subfolderitems %}
+<div class="row no-gutters">
+    <div id="sidebar-container" class="sidebar-expanded col-3 d-none d-md-block left-menu">
+        <ul class="navbar-nav nav-lvl-1">
+            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
+            {% if guides_menu %}
+                {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
+                {% if version_2_menu %}
                     <li class="nav-item common-nav-item">
-                        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-                        {% if item.subfolderitems %}
-                            <ul class="navbar-nav nav-lvl-3">
-                                {% for subitem in item.subfolderitems %}
-                                    <li class="nav-item common-nav-item {% if subitem.url == page.url %}active{% endif %}">
-                                        <a href="{{ subitem.url | relative_url }}">{{ subitem.title }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+                        <a>{{ version_2_menu.page }}</a>
+                        <ul class="navbar-nav nav-lvl-1">
+                            {% for item in version_2_menu.subfolderitems %}
+                                <li class="nav-item common-nav-item">
+                                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                                    {% if item.subfolderitems %}
+                                        <ul class="navbar-nav nav-lvl-2">
+                                            {% for subitem in item.subfolderitems %}
+                                                <li class="nav-item common-nav-item {% if subitem.url == page.url %}active{% endif %}">
+                                                    <a href="{{ subitem.url | relative_url }}">{{ subitem.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                {% endfor %}
-            </ul>
-        </li>
-    </ul>
+                {% else %}
+                    <li>Erreur : Menu "Version 2" introuvable.</li>
+                {% endif %}
+            {% else %}
+                <li>Erreur : Menu principal "Guides" introuvable.</li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="col">
+        <main>
+            <div class="container container-content">
+                {%- if page.title -%}
+                    {%- if page.subTitle -%}
+                        <p class="sub-title">{{ page.subTitle }}</p>
+                    {%- endif -%}
+                    <h1 class="page-heading">{{ page.title }}</h1>
+                {%- endif -%}
+
+                <!-- Inclusion du contenu principal -->
+                {{ content }}
+
+                {% include next-resource.html %}
+            </div>
+        </main>
+    </div>
 </div>
