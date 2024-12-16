@@ -1,91 +1,101 @@
 header:
   - title: Accueil
     url: /
-
   - title: Guides
     subfolderitems:
-      - title: Version 1
+      - page: Version 1
         url: /pages/guide/version-1/getting-started/introduction.html
+        title: Version 1
         subfolderitems:
-          - title: Démarrage rapide
+          - page: Démarrage rapide
             url: /pages/guide/version-1/getting-started/introduction.html
+            title: Démarrage rapide
             subfolderitems:
-              - title: Introduction
+              - page: Introduction
                 url: /pages/guide/version-1/getting-started/introduction.html
-              - title: Obtenir une clé API
+                title: Introduction
+              - page: Obtenir une clé API
                 url: /pages/guide/version-1/getting-started/get-api-key.html
-              - title: Tester l'API
+                title: Obtenir une clé API
+              - page: Tester l'API
                 url: /pages/guide/version-1/getting-started/test-api.html
-              - title: Bases de l'API
+                title: Tester l'API
+              - page: Bases de l'API
                 url: /pages/guide/version-1/getting-started/api-basics.html
-          
-          - title: Intégration FHIR
+                title: Bases de l'API 
+          - page: Intégration FHIR
             url: /pages/guide/version-1/integration-fhir/introduction.html
+            title: Intégration FHIR
             subfolderitems:
-              - title: Utilisation de Java
+              - page: Utilisation de Java
                 url: /pages/guide/version-1/integration-fhir/integration-java.html
-              - title: Utilisation de C#
+                title: Utilisation de Java
+              - page: Utilisation de C#
                 url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
-              - title: Utilisation de PHP
+                title: Utilisation de C#
+              - page: Utilisation de PHP
                 url: /pages/guide/version-1/integration-fhir/integration-php.html
-
-          - title: Ressources
+                title: Utilisation de PHP
+          - page: Ressources
             url: /pages/guide/version-1/resources/practitioner.html
+            title: Ressources
             subfolderitems:
-              - title: Practitioner
+              - page: Practitioner
                 url: /pages/guide/version-1/resources/practitioner.html
-              - title: PractitionerRole
+                title: Practitioner
+              - page: PractitionerRole
                 url: /pages/guide/version-1/resources/practitioner-role.html
-              - title: Organization
+                title: PractitionerRole
+              - page: Organization
                 url: /pages/guide/version-1/resources/organization.html
-              - title: HealthcareService
+                title: Organization
+              - page: HealthcareService
                 url: /pages/guide/version-1/resources/healthcare-service.html
-              - title: Device
+                title: HealthcareService
+              - page: Device
                 url: /pages/guide/version-1/resources/device.html
-              - title: SearchParameter
+                title: Device
+              - page: SearchParameter
                 url: /pages/guide/version-1/resources/search-params.html
-
-          - title: Techniques avancées
+                title: SearchParameter
+          - page: Techniques avancées
             url: /pages/guide/version-1/advanced/link.html
+            title: Techniques avancées
             subfolderitems:
-              - title: Lier plusieurs ressources
+              - page: Lier plusieurs ressources
                 url: /pages/guide/version-1/advanced/link.html
-              - title: Stockage
+                title: Lier plusieurs ressources
+              - page: Stockage
                 url: /pages/guide/version-1/advanced/storage.html
-
-      - title: Version 2
-        url: /pages/guide/version-2/getting-started/introduction.html
-        subfolderitems:
-          - title: Introduction
-            url: /pages/guide/version-2/getting-started/introduction.html
-          - title: Techniques avancées
-            url: /pages/guide/version-2/advanced/link.html
-
+                title: Stockage
   - title: Cas d'utilisation
     subfolderitems:
-      - title: Synchronisation complète
+      - page: Synchronisation complète
         url: /pages/use-cases/full/uc-full.html
-      - title: Appels unitaires autour du professionnel (PP)
+        title: Synchronisation complète
+      - page: Appels unitaires autour du professionnel (PP)
         url: /pages/use-cases/practitioner-detail/uc-practitioner.html
-      - title: Appels unitaires autour de la structure (PM)
+        title: Appels unitaires autour du professionnel (PP)
+      - page: Appels unitaires autour de la structure (PM)
         url: /pages/use-cases/organization-detail/uc-organization.html
-      - title: Couloirs du Ségur du Numérique en Santé
+        title: Appels unitaires autour de la structure (PM)
+      - page: Couloirs du Ségur du Numérique en Santé
         url: /pages/use-cases/segur/uc-segur.html
-      - title: BAL MSSanté
+        title: Couloirs du Ségur du Numérique en Santé
+      - page: BAL MSSanté
         url: /pages/use-cases/bal-mss/uc-bal-mss.html
-
+        title: BAL MSSanté
   - title: Changelog
     url: /pages/changelog/changelog.html
-
   - title: Liens externes
     subfolderitems:
-      - title: Démonstrateur API
+      - page: Démonstrateur API
         url: https://portail.openfhir.annuaire.sante.fr
-      - title: Guide d'implémentation FHIR
+      - page: Guide d'implémentation FHIR
         url: https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0
-      - title: Code source de l'API
+      - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
-      - title: Météo des services de l'Annuaire Santé
+      - page: Météo des services de l'Annuaire Santé
         url: https://status.annuaire-sante.esante.gouv.fr
-      - title: Questions sur la documentation
+      - page: Questions sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
