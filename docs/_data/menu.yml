@@ -28,7 +28,7 @@ header:
                 url: /pages/guide/version-1/integration-fhir/integration-dotnet.html
               - title: Utilisation de PHP
                 url: /pages/guide/version-1/integration-fhir/integration-php.html
-          
+
           - title: Ressources
             url: /pages/guide/version-1/resources/practitioner.html
             subfolderitems:
@@ -44,7 +44,7 @@ header:
                 url: /pages/guide/version-1/resources/device.html
               - title: SearchParameter
                 url: /pages/guide/version-1/resources/search-params.html
-          
+
           - title: Techniques avancées
             url: /pages/guide/version-1/advanced/link.html
             subfolderitems:
@@ -52,7 +52,7 @@ header:
                 url: /pages/guide/version-1/advanced/link.html
               - title: Stockage
                 url: /pages/guide/version-1/advanced/storage.html
-      
+
       - title: Version 2
         url: /pages/guide/version-2/getting-started/introduction.html
         subfolderitems:
