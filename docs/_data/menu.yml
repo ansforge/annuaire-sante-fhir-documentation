@@ -69,7 +69,7 @@ header:
                 url: /pages/guide/version-1/advanced/storage.html
                 title: Stockage
       - page: Version 2
-        url: /pages/guide/version-1/getting-started/introduction.html
+        url: /pages/guide/version-2/getting-started/introduction.html
         title: Version 2
         subfolderitems:
           - page: Démarrage rapide

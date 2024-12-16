@@ -9,7 +9,7 @@ layout: base
                 {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
                 {% if version_2_menu %}
                     <li class="nav-item common-nav-item">
-                        <a>{{ version_2_menu.page }}</a>
+                        <a href="{{ version_2_menu.url | relative_url }}">{{ version_2_menu.title }}</a>
                         <ul class="navbar-nav nav-lvl-1">
                             {% for item in version_2_menu.subfolderitems %}
                                 <li class="nav-item common-nav-item">
@@ -45,10 +45,7 @@ layout: base
                     <h1 class="page-heading">{{ page.title }}</h1>
                 {%- endif -%}
 
-                <!-- Inclusion du contenu principal -->
                 {{ content }}
-
-                {% include next-resource.html %}
             </div>
         </main>
     </div>
