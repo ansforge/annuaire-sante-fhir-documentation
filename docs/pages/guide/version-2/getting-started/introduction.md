@@ -2,7 +2,6 @@
 layout: menu-version-1
 title: Introduction
 subTitle: Démarrage rapide
-version: v2
 ---
 
 ### Introduction
