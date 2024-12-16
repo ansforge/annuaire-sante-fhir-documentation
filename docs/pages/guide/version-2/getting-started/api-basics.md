@@ -1,5 +1,5 @@
 ---
-layout: menu-version-1
+layout: menu-version-2
 title: Bases de l'API
 subTitle: Démarrage rapide
 ---
