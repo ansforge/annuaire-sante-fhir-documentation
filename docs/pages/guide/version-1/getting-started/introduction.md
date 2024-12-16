@@ -1,5 +1,5 @@
 ---
-layout: menu-version-1
+layout: documentation
 title: Introduction
 subTitle: Démarrage rapide
 ---
