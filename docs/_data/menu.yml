@@ -78,36 +78,36 @@ header:
               - page: Stockage
                 url: /pages/guide/version-1/advanced/storage.html
                 title: Stockage
-      - page: Version 2
-        url: /pages/guide/version-2/getting-started/introduction.html
-        title: Version 2
-        next-url: /pages/guide/version-2/getting-started/get-api-key.html
-        next-title: Obtenir une clé API
-        subfolderitems:
-          - page: Démarrage rapide
-            url: /pages/guide/version-2/getting-started/introduction.html
-            title: Démarrage rapide
-            next-url: /pages/guide/version-2/getting-started/get-api-key.html
-            next-title: Obtenir une clé API
-            subfolderitems:
-              - page: Introduction
-                url: /pages/guide/version-2/getting-started/introduction.html
-                title: Introduction
-                next-url: /pages/guide/version-2/getting-started/get-api-key.html
-                next-title: Obtenir une clé API
-              - page: Obtenir une clé API
-                url: /pages/guide/version-2/getting-started/get-api-key.html
-                title: Obtenir une clé API
-                next-url: /pages/guide/version-2/getting-started/test-api.html
-                next-title: Tester l'API
-              - page: Tester l'API
-                url: /pages/guide/version-2/getting-started/test-api.html
-                title: Tester l'API
-                next-url: /pages/guide/version-2/getting-started/api-basics.html
-                next-title: Bases de l'API
-              - page: Bases de l'API
-                url: /pages/guide/version-2/getting-started/api-basics.html
-                title: Bases de l'API 
+      # - page: Version 2
+      #   url: /pages/guide/version-2/getting-started/introduction.html
+      #   title: Version 2
+      #   next-url: /pages/guide/version-2/getting-started/get-api-key.html
+      #   next-title: Obtenir une clé API
+      #   subfolderitems:
+      #     - page: Démarrage rapide
+      #       url: /pages/guide/version-2/getting-started/introduction.html
+      #       title: Démarrage rapide
+      #       next-url: /pages/guide/version-2/getting-started/get-api-key.html
+      #       next-title: Obtenir une clé API
+      #       subfolderitems:
+      #         - page: Introduction
+      #           url: /pages/guide/version-2/getting-started/introduction.html
+      #           title: Introduction
+      #           next-url: /pages/guide/version-2/getting-started/get-api-key.html
+      #           next-title: Obtenir une clé API
+      #         - page: Obtenir une clé API
+      #           url: /pages/guide/version-2/getting-started/get-api-key.html
+      #           title: Obtenir une clé API
+      #           next-url: /pages/guide/version-2/getting-started/test-api.html
+      #           next-title: Tester l'API
+      #         - page: Tester l'API
+      #           url: /pages/guide/version-2/getting-started/test-api.html
+      #           title: Tester l'API
+      #           next-url: /pages/guide/version-2/getting-started/api-basics.html
+      #           next-title: Bases de l'API
+      #         - page: Bases de l'API
+      #           url: /pages/guide/version-2/getting-started/api-basics.html
+      #           title: Bases de l'API 
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
