@@ -36,15 +36,15 @@ NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fic
 Toutes les réponses utilisent les codes HTTP Standard.
 Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste non exhaustive des codes HTTP les plus courants et leur signification
 
-| Status code | Type                  | Definition                                                                                  |
-| ---         | ---                   | ---                                                                                         |
-| 200         | OK                    | Requête réussie                                                                             |
-| 400         | Bad Request           | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe                          |
-| 401         |  Unauthorized          | Impossible d'authentifier la requête                                                       |
-| 403         | Forbidden             | La requêtes n'est pas autorisée                                                             |
-| 404         | Not found             | La ressource n'est pas trouvée                                                              |
-| 500         | Internal Server Error |Une erreur inattendue est survenue                                                           |                                                         |
 
+| Status code | Type                  | Definition  |
+| ---         | ---                   | ---         | 
+| 200         | OK                    | Requête réussie |
+| 400         | Bad request           | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe |
+| 401         | Unauthorized          | Impossible d'authentifier la requête |
+| 403         | Forbidden             | La requête n'est pas autorisée |
+| 404         | Not found             | La ressource n'est pas trouvée |
+| 500         | Internal Server Error | Une erreur inattendue est survenue |
 
 ### Méthodes HTTP (HTTP VERBS)
 
