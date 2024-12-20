@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Description métier](#one-header)
+- [Présentation de la ressource](#one-header)
 - [Caractéristiques techniques](#two-header)
 - [Paramètres de recherche](#three-header)
 - [Recherche d'un professionnel](#four-header)
@@ -17,22 +17,16 @@ subTitle: Ressources
 <br />
 
 
-## <a id="one-header"></a>1) Description métier de la ressource
+## <a id="one-header"></a>1) Présentation de la ressource Practitioner
 
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
 
 <div class="wysiwyg" markdown="1">
-* Données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
+* Données d'identification : identifiant RPPS (identifiant unique et pérenne de la personne dans le répertoire RPPS), civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
 * Données de contact : adresse de messagerie électronique (MSS).
 * Données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
 
 </div>
-<br />
-
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Note : Le nom et le prénom d'exercice du professionnel sont restitués au niveau de la ressource « PractitionerRole ».
-</p>
-<br />
 
 ## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
@@ -68,13 +62,9 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 <td width="45%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
-<td width="54%">
-<p>_count, _include, _revinclude</p>
-</td>
 </tr>
 </tbody>
 </table>
-<br />
 
 ## <a id="three-header"></a>3) Paramètres de recherche
 
@@ -85,8 +75,6 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 | _since | date | |
 | _total | string | |
 | active | token | Recherche les ressources Practitioner actives |
-| as-sp-data-information-system | token | Recherche sur le système d'information |
-| as-sp-data-registration-authority | token | Recherche sur l'autorité d'enregistrement |
 | identifier| token | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
 | identifier-type| token | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
 | mailbox-mss| string | La Messagerie Sécurisées de Santé du Professionnel|
