@@ -3,6 +3,9 @@ layout: menu-version-1
 title: "Synchronisation complète des ressources"
 subTitle: Cas d'utilisation
 ---
+<!-- <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la version 2 de l'API FHIR Annuaire Santé.
+</p> -->
 
 Au travers de ce cas d'utilisation, nous allons montrer comment synchroniser un système local avec les données de l'**Annuaire Santé**. 
 Les données que nous allons chercher à récupérer sont : 

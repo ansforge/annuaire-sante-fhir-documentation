@@ -3,9 +3,9 @@ layout: menu-version-1
 title: Obtenir une clé API
 subTitle: Démarrage rapide
 ---
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+<!-- <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la version 2 de l'API FHIR Annuaire Santé.
-</p>
+</p> -->
 
 <div class="wysiwyg" markdown="1">
 - [Création d'un compte dans Gravitee](#one-header)
