@@ -774,6 +774,3 @@ A noter que la réponse contient également une meta.tag valeur de SUBSETTED pou
 ```
 
 &nbsp;
-
-{% include_relative _source-ref.md %}
-
