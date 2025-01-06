@@ -41,7 +41,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l' [« exercice 
 </td>
 
 <td width="54%">
-<p>{{site.ans.api_url}}/fhir/v1/PractitionerRole</p>
+<p>{{site.ans.api_url}}/fhir/v2/PractitionerRole</p>
 </td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -165,7 +165,7 @@ logger.info("Practitioner Role found: id={} code={}", role.getIdElement().getIdP
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
@@ -221,7 +221,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole/005-5087586-6923328"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole/005-5087586-6923328"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">

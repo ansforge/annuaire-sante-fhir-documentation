@@ -9,10 +9,10 @@ subTitle: Ressources
 - [Caractéristiques techniques](#two-header)
 - [Paramètres de recherche](#three-header)
 - [Recherche d'un professionnel](#four-header)
-  - [Rechercher tout](#31-header)
-  - [Rechercher par identifiant](#32-header)
-  - [Rechercher par statut](#33-header)
-  - [Rechercher par date de mise à jour](#34-header)
+  - [Rechercher tout](#41-header)
+  - [Rechercher par identifiant](#42-header)
+  - [Rechercher par statut](#43-header)
+  - [Rechercher par date de mise à jour](#44-header)
 </div>
 <br />
 
@@ -22,11 +22,12 @@ subTitle: Ressources
 Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
 
 <div class="wysiwyg" markdown="1">
-* Données d'identification : identifiant RPPS (identifiant unique et pérenne de la personne dans le répertoire RPPS), civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
-* Données de contact : adresse de messagerie électronique (MSS).
-* Données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
-
+* Données d'identification : identifiant RPPS - identifiant unique et pérenne de la personne dans le répertoire RPPS -, civilité d'exercice, civilité, etc. 
+* Données de contact : Messageries Sécurisées de Santé (MSS), type de messagerie, etc.
+* Données relatives aux titres liés à l'exercice professionnel : diplôme, type de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
 </div>
+&nbsp;
+
 
 ## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
 
@@ -38,7 +39,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 </td>
 
 <td width="54%">
-<p>{{site.ans.api_url}}/fhir/v1/Practitioner</p>
+<p>{{site.ans.api_url}}/fhir/v2/Practitioner</p>
 </td>
 </tr>
 <tr>
@@ -62,23 +63,26 @@ Il s'agit d'une ressource qui regroupe  les données décrivant le [« professio
 <td width="45%">
 <p><strong>Paramètres de requête</strong></p>
 </td>
+<td width="54%">
+<p>_count, _include, _revinclude</p>
+</td>
 </tr>
 </tbody>
 </table>
 
 ## <a id="three-header"></a>3) Paramètres de recherche
 
-| Nom | Type | Description |
-| --- | --- | --- |
-| _id | token | ID de la ressource |
-| _lastUpdated | date | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date) |
-| _since | date | |
-| _total | string | |
-| active | token | Recherche les ressources Practitioner actives |
-| identifier| token | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
-| identifier-type| token | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
-| mailbox-mss| string | La Messagerie Sécurisées de Santé du Professionnel|
-| name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professionnels de santé|
+| Nom             | Type    | Description         |
+| ---             | ---     | ---                 |
+| _id             | token   | ID de la ressource  |
+| _lastUpdated    | date    | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date) |
+| _since          | date    |                     |
+| _total          | string  |                     |
+| active          | token   | Recherche les ressources Practitioner actives |
+| identifier      | token   | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
+| identifier-type | token   | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
+| mailbox-mss     | string  | La Messagerie Sécurisées de Santé du Professionnel|
+| name            | string  | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professionnels de santé|
 
 
 ## <a id="four-header"></a>4) Recherche d'un professionnel sur des critères spécifiques
@@ -121,7 +125,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -140,7 +144,7 @@ for (var practitionerEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner');
+$response = $client->request('GET', '/fhir/v2/Practitioner');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitioners = $parser->parse((string) $response->getBody());
 foreach($practitioners->getEntry() as $entry){
@@ -179,7 +183,9 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
+```sh
 `GET [base]/Practitioner?identifier=0012807590`
+```
 
 **Réponse (simplifiée) :** 
 
@@ -199,7 +205,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?identifier=0012807590%2C810000005479"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?identifier=0012807590%2C810000005479"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -223,7 +229,7 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner?identifier=0012807590%2C810000005479');
+$response = $client->request('GET', '/fhir/v2/Practitioner?identifier=0012807590%2C810000005479');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitioners = $parser->parse((string) $response->getBody());
 foreach($practitioners->getEntry() as $entry){
@@ -288,7 +294,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -312,7 +318,7 @@ logger.info("Practitioner found: name={} | active={}", practitioner.getNameFirst
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner?active=true');
+$response = $client->request('GET', '/fhir/v2/Practitioner?active=true');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitioners = $parser->parse((string) $response->getBody());
 foreach($practitioners->getEntry() as $entry){
@@ -372,7 +378,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -398,7 +404,7 @@ for (var practitionerEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02');
+$response = $client->request('GET', '/fhir/v2/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitioners = $parser->parse((string) $response->getBody());
 foreach($practitioners->getEntry() as $entry){
