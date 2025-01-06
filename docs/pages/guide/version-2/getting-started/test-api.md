@@ -49,9 +49,9 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 |api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html))|Saisissez votre clé|
 |api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2/1.x|
 
-## <a id="two-header"></a>2) Démarrer les tests API avec cURL
-
 &nbsp;
+
+## <a id="two-header"></a>2) Démarrer les tests API avec cURL
 
 NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.api_key }} par votre clé d'API.
 
@@ -63,7 +63,6 @@ Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de si
 <div class="wysiwyg" markdown="1">
 * **Test 1** : lancez la commande suivante pour récupérer le CapabilityStatement (liste des fonctionnalités de l'API) :
 </div>
-&nbsp;
 
 <div class="code-sample"><div class="tab-content" data-name="Invite de commandes">
 {% highlight bash %}
@@ -100,7 +99,6 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/metadata"
                 ...
 
 ```
-&nbsp;
 
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 

@@ -1,8 +1,12 @@
 ---
-layout: menu-version-1
+layout: menu-version-2
 title: Utilisation de Java
 subTitle: Intégration FHIR
 ---
+
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette page est en cours de construction.
+</p>
 
 Ce guide décrit comment intégrer l'API à un projet Java.
 
