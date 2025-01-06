@@ -1,18 +1,22 @@
 ---
-layout: menu-version-1
-title: Utilisation de PHP
+layout: menu-version-2
+title: Utilisation de Python
 subTitle: Intégration FHIR
 ---
 
-Ce guide décrit comment intégrer l'API à un projet PHP.
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette page est en cours de construction.
+</p>
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-php.html'}}).
+Ce guide décrit comment intégrer l'API à un projet Python.
+
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-2/getting-started/get-api-key.html'}}).
 
 NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dcarbone/php-fhir pour FHIR et Guzzle pour le REST. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
 ### Dépendances composer
 
-dcarbone/php-fhir permet de parser et typer les objets FHIR. Cela pourra être utilisé par exemple pour la complétion. 
+TODO
 
 
 

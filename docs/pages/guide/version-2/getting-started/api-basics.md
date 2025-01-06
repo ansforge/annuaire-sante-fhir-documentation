@@ -29,8 +29,6 @@ NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fic
 | [api-url]/Organization      | Récupérer les structures (entités juridiques, entités géographiques) |
 | [api-url]/HealthcareService | Récupérer les activités de soins et les équipements sociaux |
 | [api-url]/Device            | Récupérer les équipements matériels lourds (EML) |
-<!-- | [api-url]/health            | Pour le healthcare du service API FHIR, accessible sans authentification | -->
-
 ### Codes d’état HTTP (HTTP status codes)
 
 Toutes les réponses utilisent les codes HTTP Standard.

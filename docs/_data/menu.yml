@@ -34,7 +34,7 @@ header:
                 url: /pages/guide/version-1/getting-started/api-basics.html
                 title: Bases de l'API 
           - page: Intégration FHIR
-            url: /pages/guide/version-1/integration-fhir/introduction.html
+            url: /pages/guide/version-1/integration-fhir/integration-java.html
             title: Intégration FHIR
             subfolderitems:
               - page: Utilisation de Java
@@ -108,22 +108,35 @@ header:
       #         - page: Bases de l'API
       #           url: /pages/guide/version-2/getting-started/api-basics.html
       #           title: Bases de l'API 
+          # - page: Intégration FHIR
+          #   url: /pages/guide/version-2/integration-fhir/integration-java.html
+          #   title: Intégration FHIR
+          #   subfolderitems:
+          #     - page: Utilisation de Java
+          #       url: /pages/guide/version-2/integration-fhir/integration-java.html
+          #       title: Utilisation de Java
+          #     - page: Utilisation de C#
+          #       url: /pages/guide/version-2/integration-fhir/integration-dotnet.html
+          #       title: Utilisation de C#
+          #     - page: Utilisation de PHP
+          #       url: /pages/guide/version-2/integration-fhir/integration-php.html
+          #       title: Utilisation de PHP
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
-        url: /pages/use-cases/full/uc-full.html
+        url: /pages/guide/version-2/use-cases/full/uc-full.html
         title: Synchronisation complète
       - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/use-cases/practitioner-detail/uc-practitioner.html
+        url: /pages/guide/version-2/use-cases/practitioner-detail/uc-practitioner.html
         title: Appels unitaires autour du professionnel (PP)
       - page: Appels unitaires autour de la structure (PM)
-        url: /pages/use-cases/organization-detail/uc-organization.html
+        url: /pages/guide/version-2/use-cases/organization-detail/uc-organization.html
         title: Appels unitaires autour de la structure (PM)
       - page: Couloirs du Ségur du Numérique en Santé
-        url: /pages/use-cases/segur/uc-segur.html
+        url: /pages/guide/version-2/use-cases/segur/uc-segur.html
         title: Couloirs du Ségur du Numérique en Santé
       - page: BAL MSSanté
-        url: /pages/use-cases/bal-mss/uc-bal-mss.html
+        url: /pages/guide/version-2/use-cases/bal-mss/uc-bal-mss.html
         title: BAL MSSanté
   - title: Changelog
     url: /pages/changelog/changelog.html
@@ -132,7 +145,7 @@ header:
       - page: Démonstrateur API
         url: https://portail.openfhir.annuaire.sante.fr
       - page: Guide d'implémentation FHIR
-        url: https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0
+        url: https://interop.esante.gouv.fr/ig/fhir/annuaire/
       - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
       - page: Météo des services de l'Annuaire Santé
