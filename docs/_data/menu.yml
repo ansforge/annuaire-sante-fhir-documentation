@@ -124,19 +124,19 @@ header:
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
-        url: /pages/guide/version-2/use-cases/full/uc-full.html
+        url: /pages/guide/version-1/use-cases/full/uc-full.html
         title: Synchronisation complète
       - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/guide/version-2/use-cases/practitioner-detail/uc-practitioner.html
+        url: /pages/guide/version-1/use-cases/practitioner-detail/uc-practitioner.html
         title: Appels unitaires autour du professionnel (PP)
       - page: Appels unitaires autour de la structure (PM)
-        url: /pages/guide/version-2/use-cases/organization-detail/uc-organization.html
+        url: /pages/guide/version-1/use-cases/organization-detail/uc-organization.html
         title: Appels unitaires autour de la structure (PM)
       - page: Couloirs du Ségur du Numérique en Santé
-        url: /pages/guide/version-2/use-cases/segur/uc-segur.html
+        url: /pages/guide/version-1/use-cases/segur/uc-segur.html
         title: Couloirs du Ségur du Numérique en Santé
       - page: BAL MSSanté
-        url: /pages/guide/version-2/use-cases/bal-mss/uc-bal-mss.html
+        url: /pages/guide/version-1/use-cases/bal-mss/uc-bal-mss.html
         title: BAL MSSanté
   - title: Changelog
     url: /pages/changelog/changelog.html
