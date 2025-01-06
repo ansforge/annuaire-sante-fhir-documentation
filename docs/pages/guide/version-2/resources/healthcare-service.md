@@ -37,7 +37,7 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </td>
 
 <td width="54%">
-<p>{{site.ans.api_url}}/fhir/v1/HealthcareService</p>
+<p>{{site.ans.api_url}}/fhir/v2/HealthcareService</p>
 </td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -147,7 +147,7 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdElement().
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService');
+$response = $client->request('GET', '/fhir/v2/HealthcareService');
 /** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $healthcareServices = $parser->parse((string) $response->getBody());
 foreach($healthcareServices->getEntry() as $entry){
@@ -205,7 +205,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?identifier=52-52-49883"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?identifier=52-52-49883"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -229,7 +229,7 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdentifierFi
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService?identifier=52-52-49883');
+$response = $client->request('GET', '/fhir/v2/HealthcareService?identifier=52-52-49883');
 /** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $healthcareServices = $parser->parse((string) $response->getBody());
 foreach($healthcareServices->getEntry() as $entry){
@@ -302,8 +302,8 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07"
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -332,7 +332,7 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07');
+$response = $client->request('GET', '/fhir/v2/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07');
 /** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $healthcareServices = $parser->parse((string) $response->getBody());
 foreach($healthcareServices->getEntry() as $entry){
@@ -404,7 +404,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -428,7 +428,7 @@ logger.info("Healthcare Service found: id={} | status={}", healthcareService.get
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService?active=true');
+$response = $client->request('GET', '/fhir/v2/HealthcareService?active=true');
 /** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $healthcareServices = $parser->parse((string) $response->getBody());
 foreach($healthcareServices->getEntry() as $entry){
@@ -493,7 +493,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/HealthcareService?_lastUpdated=ge2022-08-18"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?_lastUpdated=ge2022-08-18"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -519,7 +519,7 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/HealthcareService?_lastUpdated=ge2022-08-18');
+$response = $client->request('GET', '/fhir/v2/HealthcareService?_lastUpdated=ge2022-08-18');
 /** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $healthcareServices = $parser->parse((string) $response->getBody());
 foreach($healthcareServices->getEntry() as $entry){

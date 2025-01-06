@@ -78,6 +78,23 @@ header:
               - page: Stockage
                 url: /pages/guide/version-1/advanced/storage.html
                 title: Stockage
+ - title: Cas d'utilisation
+    subfolderitems:
+      - page: Synchronisation complète
+        url: /pages/guide/version-1/use-case/full/uc-full.html
+        title: Synchronisation complète
+      - page: Appels unitaires autour du professionnel (PP)
+        url: /pages/guide/version-1/use-case/practitioner-detail/uc-practitioner.html
+        title: Appels unitaires autour du professionnel (PP)
+      - page: Appels unitaires autour de la structure (PM)
+        url: /pages/guide/version-1/use-case/organization-detail/uc-organization.html
+        title: Appels unitaires autour de la structure (PM)
+      - page: Couloirs du Ségur du Numérique en Santé
+        url: /pages/guide/version-1/use-case/segur/uc-segur.html
+        title: Couloirs du Ségur du Numérique en Santé
+      - page: BAL MSSanté
+        url: /pages/guide/version-1/use-case/bal-mss/uc-bal-mss.html
+        title: BAL MSSanté
       # - page: Version 2
       #   url: /pages/guide/version-2/getting-started/introduction.html
       #   title: Version 2
@@ -118,26 +135,31 @@ header:
           #     - page: Utilisation de C#
           #       url: /pages/guide/version-2/integration-fhir/integration-dotnet.html
           #       title: Utilisation de C#
-          #     - page: Utilisation de PHP
-          #       url: /pages/guide/version-2/integration-fhir/integration-php.html
-          #       title: Utilisation de PHP
-  - title: Cas d'utilisation
-    subfolderitems:
-      - page: Synchronisation complète
-        url: /pages/guide/version-1/use-cases/full/uc-full.html
-        title: Synchronisation complète
-      - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/guide/version-1/use-cases/practitioner-detail/uc-practitioner.html
-        title: Appels unitaires autour du professionnel (PP)
-      - page: Appels unitaires autour de la structure (PM)
-        url: /pages/guide/version-1/use-cases/organization-detail/uc-organization.html
-        title: Appels unitaires autour de la structure (PM)
-      - page: Couloirs du Ségur du Numérique en Santé
-        url: /pages/guide/version-1/use-cases/segur/uc-segur.html
-        title: Couloirs du Ségur du Numérique en Santé
-      - page: BAL MSSanté
-        url: /pages/guide/version-1/use-cases/bal-mss/uc-bal-mss.html
-        title: BAL MSSanté
+          #     - page: Utilisation de Python
+          #       url: /pages/guide/version-2/integration-fhir/integration-python.html
+          #       title: Utilisation de Python
+          # - page: Ressources
+          #   url: /pages/guide/version-2/resources/practitioner.html
+          #   title: Ressources
+          #   subfolderitems:
+          #     - page: Practitioner
+          #       url: /pages/guide/version-2/resources/practitioner.html
+          #       title: Practitioner
+          #     - page: PractitionerRole
+          #       url: /pages/guide/version-2/resources/practitioner-role.html
+          #       title: PractitionerRole
+          #     - page: Organization
+          #       url: /pages/guide/version-2/resources/organization.html
+          #       title: Organization
+          #     - page: HealthcareService
+          #       url: /pages/guide/version-2/resources/healthcare-service.html
+          #       title: HealthcareService
+          #     - page: Device
+          #       url: /pages/guide/version-2/resources/device.html
+          #       title: Device
+          #     - page: SearchParameter
+          #       url: /pages/guide/version-2/resources/search-params.html
+          #       title: SearchParameter
   - title: Changelog
     url: /pages/changelog/changelog.html
   - title: Liens externes

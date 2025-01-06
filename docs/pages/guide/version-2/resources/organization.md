@@ -42,7 +42,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </td>
 
 <td width="54%">
-<p>{{site.ans.api_url}}/fhir/v1/Organization</p>
+<p>{{site.ans.api_url}}/fhir/v2/Organization</p>
 </td>
 </tr>
 <tr>
@@ -145,7 +145,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" {{site.ans.api_url}}/fhir/v1/Organization
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" {{site.ans.api_url}}/fhir/v2/Organization
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -162,7 +162,7 @@ for(var organizationEntry : bundle.getEntry()){
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization');
+$response = $client->request('GET', '/fhir/v2/Organization');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -219,7 +219,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -244,7 +244,7 @@ for(var organizationEntry : bundle.getEntry()){
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04');
+$response = $client->request('GET', '/fhir/v2/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -300,7 +300,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=001604103000%2C01603998400%2C001604252500"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?identifier=001604103000%2C01603998400%2C001604252500"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -326,7 +326,7 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?identifier=001604103000%2C01603998400%2C001604252500');
+$response = $client->request('GET', '/fhir/v2/Organization?identifier=001604103000%2C01603998400%2C001604252500');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -383,7 +383,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -410,7 +410,7 @@ logger.info("Organization found: id={}", organization.getIdentifierFirstRep().ge
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735');
+$response = $client->request('GET', '/fhir/v2/Organization?identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C010000602%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000628%2Chttp%3A%2F%2Ffiness.sante.gouv.fr%7C010000735');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -506,8 +506,8 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY" 
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=GEOGRAPHICAL-ENTITY" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=GEOGRAPHICAL-ENTITY" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -535,7 +535,7 @@ logger.info("Organization found: name={} type={}", organization.getName(), organ
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY');
+$response = $client->request('GET', '/fhir/v2/Organization?type=http%3A%2F%2Finteropsante.org%2Ffhir%2FCodeSystem%2Ffr-v2-3307%7CGEOGRAPHICAL-ENTITY');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -602,7 +602,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -630,7 +630,7 @@ logger.info("Organization found: id={} type={}", organization.getName(), organiz
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z');
+$response = $client->request('GET', '/fhir/v2/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5%7C82.19Z');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -697,7 +697,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -725,7 +725,7 @@ for(var organizationEntry : bundle.getEntry()){
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29');
+$response = $client->request('GET', '/fhir/v2/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -788,7 +788,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=imagerie%2Ccentre"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?name%3Acontains=imagerie%2Ccentre"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -814,7 +814,7 @@ logger.info("Organization found: name={}", organization.getName());
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?name%3Acontains=imagerie%2Ccentre');
+$response = $client->request('GET', '/fhir/v2/Organization?name%3Acontains=imagerie%2Ccentre');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){
@@ -872,7 +872,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?address-postalcode%3Aexact=13290%2C13321"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?address-postalcode%3Aexact=13290%2C13321"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -898,7 +898,7 @@ for(var organizationEntry : bundle.getEntry()){
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Organization?address-postalcode%3Aexact=13290%2C13321');
+$response = $client->request('GET', '/fhir/v2/Organization?address-postalcode%3Aexact=13290%2C13321');
 /** @var  $organizations  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $organizations = $parser->parse((string) $response->getBody());
 foreach($organizations->getEntry() as $entry){

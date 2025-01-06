@@ -37,7 +37,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </td>
 
 <td width="54%">
-<p>{{site.ans.api_url}}/fhir/v1/Device</p>
+<p>{{site.ans.api_url}}/fhir/v2/Device</p>
 </td>
 </tr>
 <tr>
@@ -129,7 +129,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -148,7 +148,7 @@ logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device');
+$response = $client->request('GET', '/fhir/v2/Device');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
@@ -212,7 +212,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -237,7 +237,7 @@ for (var deviceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04');
+$response = $client->request('GET', '/fhir/v2/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
@@ -305,7 +305,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device?number-authorization-arhgos=93-93-67204"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?number-authorization-arhgos=93-93-67204"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -330,7 +330,7 @@ for (var deviceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device?number-authorization-arhgos=93-93-67204');
+$response = $client->request('GET', '/fhir/v2/Device?number-authorization-arhgos=93-93-67204');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
@@ -403,7 +403,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -429,7 +429,7 @@ for (var deviceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602');
+$response = $client->request('GET', '/fhir/v2/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
@@ -471,7 +471,7 @@ foreach (var be in bundle.Entry)
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?v1/identifier=32-31-1156%2C93-93-4364 #Critère de recherche sur l'identifiant
+GET [base]/Device?v2/identifier=32-31-1156%2C93-93-4364 #Critère de recherche sur l'identifiant
 
 
 ```
@@ -496,7 +496,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device?v1/identifier=32-31-1156%2C93-93-4364"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?v2/identifier=32-31-1156%2C93-93-4364"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -521,7 +521,7 @@ for (var deviceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device?identifier=32-31-1156%2C93-93-4364');
+$response = $client->request('GET', '/fhir/v2/Device?identifier=32-31-1156%2C93-93-4364');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
@@ -586,7 +586,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Device?status=active"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?status=active"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -611,7 +611,7 @@ for (var deviceEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Device?status=active');
+$response = $client->request('GET', '/fhir/v2/Device?status=active');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $devices = $parser->parse((string) $response->getBody());
 foreach($devices->getEntry() as $entry){
