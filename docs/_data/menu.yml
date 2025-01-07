@@ -78,7 +78,7 @@ header:
               - page: Stockage
                 url: /pages/guide/version-1/advanced/storage.html
                 title: Stockage
- - title: Cas d'utilisation
+  - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
         url: /pages/guide/version-1/use-case/full/uc-full.html
@@ -138,6 +138,28 @@ header:
           #     - page: Utilisation de Python
           #       url: /pages/guide/version-2/integration-fhir/integration-python.html
           #       title: Utilisation de Python
+          # - page: Ressources
+          #   url: /pages/guide/version-2/resources/practitioner.html
+          #   title: Ressources
+          #   subfolderitems:
+          #     - page: Practitioner
+          #       url: /pages/guide/version-2/resources/practitioner.html
+          #       title: Practitioner
+          #     - page: PractitionerRole
+          #       url: /pages/guide/version-2/resources/practitioner-role.html
+          #       title: PractitionerRole
+          #     - page: Organization
+          #       url: /pages/guide/version-2/resources/organization.html
+          #       title: Organization
+          #     - page: HealthcareService
+          #       url: /pages/guide/version-2/resources/healthcare-service.html
+          #       title: HealthcareService
+          #     - page: Device
+          #       url: /pages/guide/version-2/resources/device.html
+          #       title: Device
+          #     - page: SearchParameter
+          #       url: /pages/guide/version-2/resources/search-params.html
+          #       title: SearchParameter
           # - page: Ressources
           #   url: /pages/guide/version-2/resources/practitioner.html
           #   title: Ressources

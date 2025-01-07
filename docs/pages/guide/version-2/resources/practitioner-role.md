@@ -239,7 +239,7 @@ logger.info("Practitioner Role found: id={}", practitionerRole.getIdElement().ge
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole/005-5087586-6923328');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole/005-5087586-6923328');
 /** @var  $practitionerRole  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole */
 $practitionerRole = $parser->parse((string) $response->getBody());
 echo("Practitioner Role found: id=".$practitionerRole->getId()."\n");
@@ -322,7 +322,7 @@ ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnel
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&role=E"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?role=40&role=E"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -352,7 +352,7 @@ code.getCoding().stream().map(coding -> coding.getSystem() + ":" + coding.getCod
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole?role=40&role=E');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole?role=40&role=E');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
@@ -438,7 +438,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?role=40&specialty=SCD01"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?role=40&specialty=SCD01"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -476,7 +476,7 @@ for (var roleEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole?role=40&specialty=SCD01');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole?role=40&specialty=SCD01');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
@@ -572,7 +572,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?type-smartcard=CPS"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?type-smartcard=CPS"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -598,7 +598,7 @@ logger.info("Organization found: id={}", role.getIdElement().getIdPart());
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole?type-smartcard=CPS');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole?type-smartcard=CPS');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
@@ -655,7 +655,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?practitioner=003-138020"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?practitioner=003-138020"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -679,7 +679,7 @@ for (var roleEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole?practitioner=003-138020');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole?practitioner=003-138020');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
@@ -738,7 +738,7 @@ HTTP 200 OK
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/PractitionerRole?active=true"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?active=true"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -762,7 +762,7 @@ logger.info("Practitioner Role found: id={} active={}", role.getIdElement().getI
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/PractitionerRole?active=true');
+$response = $client->request('GET', '/fhir/v2/PractitionerRole?active=true');
 /** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitionerRoles = $parser->parse((string) $response->getBody());
 foreach($practitionerRoles->getEntry() as $entry){
