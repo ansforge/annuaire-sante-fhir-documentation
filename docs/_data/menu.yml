@@ -110,6 +110,11 @@ header:
       #         - page: Introduction
       #           url: /pages/guide/version-2/getting-started/introduction.html
       #           title: Introduction
+      #           next-url: /pages/guide/version-2/getting-started/nouveautes.html
+      #           next-title: Nouveautés
+      #         - page: Les nouveautés de cette API V2
+      #           url: /pages/guide/version-2/getting-started/nouveautes.html
+      #           title: Nouveautés
       #           next-url: /pages/guide/version-2/getting-started/get-api-key.html
       #           next-title: Obtenir une clé API
       #         - page: Obtenir une clé API
