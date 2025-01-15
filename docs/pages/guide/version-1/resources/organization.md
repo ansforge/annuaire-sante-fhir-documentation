@@ -116,12 +116,11 @@ Voici quelques exemples de requêtes sur les structures.
 ```sh
 GET [base]/Organization
 #récupère l'ensemble des Organizations (incluant les actives et les inactives)
-GET [base]/Organization?_include=Organization:partof #inclure les entités juridiques auxquelles sont rattachées les entités géographiques
+GET [base]/Organization?_include=Organization:partof #inclure les entités juridiques avec les informations auxquelles sont rattachées les entités géographiques
 GET [base]/Organization?_revinclude=Device:organization #inclure les Device qui référencent les Organization (Organization + Device)
 GET [base]/Organization?_revinclude=HealthcareService:organization #inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)
 GET [base]/Organization?_revinclude=PractitionerRole:organization #inclure les PractitionerRole qui référencent les Organization (Organization + PractitionerRole)
 GET [base]/Organization?_include=* #inclure toutes les ressources qui sont référencées par les Organization
-
 ```
 <br />
 
@@ -129,15 +128,23 @@ GET [base]/Organization?_include=* #inclure toutes les ressources qui sont réf�
 
 ```xml
 HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Organization found: id=org-399 name=Weber, Weber and Weber
-  Organization found: id=org-158 name=Schaefer-Schaefer
-  Organization found: id=org-151 name=OReilly, OReilly and OReilly
-  Organization found: id=org-393 name=Volkman-Volkman
-  Organization found: id=org-152 name=Luettgen, Luettgen and Luettgen
-  Organization found: id=org-394 name=Gulgowski, Gulgowski and Gulgowski
-  Organization found: id=org-153 name=Wilkinson Group
+resourceType: Bundle
+type: searchset
+total: 7
+
+Organizations trouvées :
+1. **ID**: org-399  
+   **Nom**: Weber, Weber and Weber  
+   **Dernière mise à jour**: 2023-01-15T08:30:00Z  
+2. **ID**: org-158  
+   **Nom**: Schaefer-Schaefer  
+   **Dernière mise à jour**: 2023-01-10T14:50:00Z  
+3. **ID**: org-151  
+   **Nom**: O'Reilly, O'Reilly and O'Reilly  
+   **Dernière mise à jour**: 2023-01-08T09:20:00Z  
+4. **ID**: org-393  
+   **Nom**: Volkman-Volkman  
+   **Dernière mise à jour**: 2023-01-02T16:40:00Z  
 
 
 ```

@@ -7,7 +7,7 @@ Le changelog  documente les modifications associées à une version de l’API F
 
 **Versions disponibles de l'API FHIR Annuaire Santé**
 
-| Version API FHIR Annuaire Santé   | Version FHIR  | Version IG        | Date de lancement | Disponible jusqu'à    |
-| ---                               | ---           | ---               | ---               | ---                   |
-| 1 (Beta)                          | R4            | <a href="https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0">0.1.0</a> - trial use | 5 septembre 2022  | TBD                   |
-| 2                                 | R4            | 1.1.0             | TBD               | TBD                   |
+| Version API Annuaire Santé   | Version FHIR  | Version IG | Date début | Disponible jusqu'à |
+| ---                          | ---           | ---        | ---        | ---                |
+| Version 1 (Beta)             | R4            | <a href="https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0">0.1.0</a> - trial use | 5 septembre 2022  | Décembre 2025                   |
+| Version2                                 | R4            | 1.1.0             | Mars 2025               | TBD                   |
