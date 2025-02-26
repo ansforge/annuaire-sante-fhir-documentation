@@ -13,7 +13,7 @@ Tous les accès se font via HTTPS.
 
 | Variables | Valeurs |
 | --- | --- |
-| api-url | https://gateway.api.esante.gouv.fr/fhir/v2/1.x |
+| api-url | https://gateway.api.esante.gouv.fr/fhir/v2 |
 | ihm-url | https://portail.openfhir.annuaire.sante.fr  |
 | gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
  

@@ -47,7 +47,7 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 |Variable|Description|Valeur|
 |---|---|---|
 |api_key|Clé d'API (Si vous n'avez pas de clé, veuillez suivre la procédure décrite [ici](/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html))|Saisissez votre clé|
-|api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2/1.x|
+|api_url|L’url d’accès à l’API	|https://gateway.api.esante.gouv.fr/fhir/v2|
 
 &nbsp;
 
@@ -75,30 +75,23 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/metadata"
 
 ```json
 {
-  "resourceType": "CapabilityStatement",
-  "id": "32qd281d-8a23-48f7-b936-60554f7088r8",
-  "name": "RestServer",
-  "status": "active",
-  "date": "2024-06-21T13:49:04.892+00:00",
-  "publisher": "Not provided",
-  "kind": "instance",
-  "software": {
-    "name": "Afas Fhir server",
-    "version": "V1-R4"
-  },
-  "implementation": {
-    "description": "Afas data",
-    "url": "https://{{api.url}}/fhir/v2"
-  },
-  "fhirVersion": "4.0.1",
-  "format": [ "application/fhir+xml", "xml", "application/fhir+json", "json" ],
-  "rest": [ {
-      "mode": "server",
-      "resource": [ {
-        "type": "Device",  
+    "resourceType": "CapabilityStatement",
+    "status": "active",
+    "fhirVersion": "4.0.1",
+    "format": [
+        "application/fhir+json",
+        "json"
+    ],
+    "rest": [
+        {
+            "resource": [
+                {
+                    "type": "Organization",
+                    "profile": "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-organization",
+                    "interaction": [
                 ...
-
 ```
+&nbsp;
 
 NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
@@ -113,7 +106,7 @@ NOTE| Le capability statement permet de connaitre les fonctionnalités disponibl
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{api_key }}" "{{api_url}}/fhir/v2/1.x/Practitioner?_pretty=true&_format=json"
+curl -H "ESANTE-API-KEY: {{api_key }}" "{{api_url}}/fhir/v2/Practitioner?_pretty=true&_format=json"
 {% endhighlight %}
 </div>
 </div>
@@ -126,36 +119,38 @@ curl -H "ESANTE-API-KEY: {{api_key }}" "{{api_url}}/fhir/v2/1.x/Practitioner?_pr
 
 ```json
 {
-  "resourceType": "Bundle",
-  "id": "42qd281d-8a23-48f7-b936-60554f7088r8",
-  "meta": {
-    "lastUpdated": "2024-06-21T15:19:26.205+00:00"
-  },
-  "type": "searchset",
-  "link": [ {
-    "relation": "self",
-    "url": "https://{{api_url}}/fhir/v1/Practitioner?_format=json&_pretty=true"
-  }, {
-    "relation": "next",
-    "url": "https://{{api_url}}/fhir/v1?_getpages=88b903e6-c0f1-4b36-a1db-2cde89e4fd9e&_pageId=660eb2b97bf92f0e6c8a2cdf_utyvdGWLgtp2Mvmva0tEOus0uphIlc4638ktEDhg-jetIGdYFSdDpjlaDeuOO_xzdniR6WI2Nstm84E5_d4zNqOV_1gGE6XCt7za9FJNCw4pGcBIhwa-PNoIHw9U5RU15I0TqFfyvVquK1pFYgBoguvWU6hAVIo18J9uq2b55n5RWIHJzBdRoi_DLkoDbROns3OlfWg%3D%3D&_format=json&_pretty=true&_bundletype=searchset"
-  } ],
-  "entry": [ {
-    "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner/003-3377506",
-    "resource": {
-      "resourceType": "Practitioner",
-      "id": "003-3377506",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2024-04-04T14:01:29.167+00:00",
-        "source": "https://annuaire.sante.fr",
-        "profile": [ "http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-practitioner" ]
-      },
-      "language": "fr",
-  ...
-  ]
-}
-
-
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "id": "207ab354-2ac9-4228-a2e5-86d4fd996cfe",
+    "total": 1811966,
+    "entry": [
+        {
+            "fullUrl": "https://gateway.preprod.api.esante.gouv.fr/fhir/v2/Practitioner/003-5818457-5939334",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "003-5818457-5939334",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2025-01-29T15:29:39.003+01:00",
+                    "source": "https://annuaire.sante.fr",
+                    "profile": [
+                        "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-practitioner",
+                        "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-dp-practitioner"
+                    ]
+                },
+                "language": "fr",
+                "identifier": [
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203",
+                                    "code": "IDNPS"
+                                }
+                            ]
+                        },
+                        ...
 ```
 
 &nbsp;
