@@ -5,7 +5,7 @@ subTitle: Nouvelle API V2
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Un aperçu des changeemnts sur l'API FHIR V2](#one-header)
+- [Un aperçu des changements sur l'API FHIR V2](#one-header)
 - [Est-ce-que les 2 versions sont disponibles ?](#two-header)
 - [Les nouveautés sur chaque ressource](#three-header)
 </div>
@@ -32,6 +32,16 @@ A noter que:
 
 &nbsp;
 
+## <a id="three-header"></a>3) Les nouveautés sur chaque ressource
+<div class="wysiwyg" markdown="1">
+Ci-dessous les nouveautés:
+- Revue sur le format de réponse du Capability Statement (metadata)
+- Ajout de l'attribut : profile: fr-canonical
+- Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
+- Renommage de l'attribut publication par "listeRouge
+- Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.)
+- Suppression de la ressource "Subscription"
+</div>
 ## <a id="three-header"></a>3) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
 Ci-dessous les nouveautés:
@@ -92,8 +102,10 @@ Ci-dessous les nouveautés:
 | type                  | Ajout de la catégorie Activité Santaire régulée                                      |
 | active                | Si la ressource est en false, les champs suivants seront présents: numéro d'autorisation ARHGOS |
 
+
 ### Changements sur Search Parameter (Paramètres de recherche)
 <div class="wysiwyg" markdown="1">
 - l'ajout du paramètre _elements qui sera disponible.
 - le paramètre _has n'a pas été pris en compte dans l'API FHIR V2
+</div>
 </div>
