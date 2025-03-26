@@ -8,18 +8,16 @@ subTitle: Nouvelle API V2
 - [Un aperçu des changements sur l'API FHIR V2](#one-header)
 - [Est-ce-que les 2 versions sont disponibles ?](#two-header)
 - [Les nouveautés sur chaque ressource](#three-header)
-</div>
+</div>git
 &nbsp;
 
 ## <a id="one-header"></a>1) Un aperçu des changements sur l'API FHIR V2
-<div class="wysiwyg" markdown="1">
-- L'API FHIR V2 a été mise à jour par rapport au nouveau guide d'implémentation rédigé par l'équipe interopérabilité de l'ANS. 
-- Les réponses JSON ainsi que le capability statement (metadata) sont différents.
-- Il y a eu un alignement avec les ressources FRCore
-- Le choix dans l'API FHIR V2 de réduire notre dépendance à HAPI en développant nos propres API. Désormais, nous utilisons HAPI uniquement pour la structuration des données.
-- L'API FHIR V1 mélangeait les deux concepts Practitioner et PractitionerRole. Une meilleure séparation a été faite dans l'API FHIR V2 entre les données liées à l'exercice professionnelle (Practitioner) et les activités du professionnel (PractitionerRole).
-- Séparation des profils génériques en profils publics et privés. A noter que la V2 ne fournit pour le moment que les profils publics.
-</div>
+
+<p align="center">
+  <img src="img/nouveautes.png" style="width:100%;">
+</p>
+
+
 &nbsp;
 
 ## <a id="two-header"></a>2) Est-ce-que les 2 versions de l'API FHIR sont toujours disponibles?
@@ -42,16 +40,8 @@ Ci-dessous les nouveautés:
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.)
 - Suppression de la ressource "Subscription"
 </div>
-## <a id="three-header"></a>3) Les nouveautés sur chaque ressource
-<div class="wysiwyg" markdown="1">
-Ci-dessous les nouveautés:
-- Revue sur le format de réponse du Capability Statement (metadata)
-- Ajout de l'attribut : profile: fr-canonical
-- Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
-- Renommage de l'attribut publication par "listeRouge
-- Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.)
-- Suppression de la ressource "Subscription"
-</div>
+
+&nbsp;
 
 ### Nouveautés sur Practitioner
 
@@ -104,8 +94,9 @@ Ci-dessous les nouveautés:
 
 
 ### Changements sur Search Parameter (Paramètres de recherche)
-<div class="wysiwyg" markdown="1">
-- l'ajout du paramètre _elements qui sera disponible.
-- le paramètre _has n'a pas été pris en compte dans l'API FHIR V2
-</div>
-</div>
+
+| Données               | Ressource Device                                                                     |
+| ---                   | ---                                                                                  |
+| _elements             | Le paramètre _elements est disponible sur l'API FHIR V2.                             |
+| _has                  | Le paramètre _has n'est plus disponible sur l'API FHIR V2                            |
+| subscription          | La ressource Subscription n'est plus disponible sur l'API FHIR V2                    |
