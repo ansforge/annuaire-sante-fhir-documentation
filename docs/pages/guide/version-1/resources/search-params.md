@@ -15,8 +15,6 @@ Cette documentation concerne la version 1 de l'API qui sera prochainement décom
 - [Paramètres de type texte](#two-header)
 - [Paramètres de type token](#three-header)
 - [Paramètres de type date](#four-header)
-- [Paramètres de type référence](#five-header)
-- [Paramètres de type uri](#six-header)
 - [Paramètres combinés](#seven-header)
   - [Paramètre ET](#71-header)
   - [Paramètre OU](#72-header)
@@ -485,19 +483,6 @@ foreach (var be in bundle.Entry)
 </div>
 </div>
 <br />
-  
-## <a id="five-header"></a>5) Paramètres de type référence  ([reference](https://www.hl7.org/fhir/search.html#reference))
-
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette partie de la spécification est en cours de construction.
-</p>
-
-
-## <a id="six-header"></a>6) Paramètres de type [uri](https://www.hl7.org/fhir/search.html#uri)
-
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette partie de la spécification est en cours de construction.
-</p>
 
 
 ## <a id="seven-header"></a>7) Paramètres combinés
