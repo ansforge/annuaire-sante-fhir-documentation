@@ -75,9 +75,6 @@ header:
               - page: Lier plusieurs ressources
                 url: /pages/guide/version-1/advanced/link.html
                 title: Lier plusieurs ressources
-              - page: Stockage
-                url: /pages/guide/version-1/advanced/storage.html
-                title: Stockage
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète

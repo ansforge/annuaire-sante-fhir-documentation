@@ -54,7 +54,7 @@ Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver
 </div>
 &nbsp;
 
-NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enregistrées sur l'application Gravitee (aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou de quotas). Nous déterminerons ces limitations après la fin de la version 1 de l'API FHIR Annuaire Santé.
+NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enregistrées sur l'application Gravitee (aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou de quotas). Nous déterminerons ces limitations après le décommissionnement de l'API FHIR Annuaire Santé V1.
 
 
 ## <a id="three-header"></a> Aller plus loin

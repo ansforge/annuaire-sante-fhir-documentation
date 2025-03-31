@@ -8,7 +8,7 @@ subTitle: Nouvelle API V2
 - [Un aperçu des changements sur l'API FHIR V2](#one-header)
 - [Est-ce-que les 2 versions sont disponibles ?](#two-header)
 - [Les nouveautés sur chaque ressource](#three-header)
-</div>git
+</div>
 &nbsp;
 
 ## <a id="one-header"></a>1) Un aperçu des changements sur l'API FHIR V2
@@ -95,8 +95,8 @@ Ci-dessous les nouveautés:
 
 ### Changements sur Search Parameter (Paramètres de recherche)
 
-| Données               | Ressource Device                                                                     |
-| ---                   | ---                                                                                  |
-| _elements             | Le paramètre _elements est disponible sur l'API FHIR V2.                             |
-| _has                  | Le paramètre _has n'est plus disponible sur l'API FHIR V2                            |
-| subscription          | La ressource Subscription n'est plus disponible sur l'API FHIR V2                    |
+| Données               | Statut sur l'API FHIR V2      |
+| ---                   | ---                           |
+| _elements             | Disponible                    |
+| _has                  | Indisponible                  |
+| subscription          | Indisponble                   |

@@ -365,7 +365,7 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels de s
 
 **Requête :**
 
-`GET [base]/Practitioner?_lastUpdated=ge2022-08-08`
+`GET [base]/Practitioner?_lastUpdated=ge2025-08-08`
 
 **Réponse (simplifiée) :** 
   
