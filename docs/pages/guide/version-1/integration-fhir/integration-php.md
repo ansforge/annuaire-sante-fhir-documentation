@@ -9,7 +9,7 @@ Cette documentation concerne la version 1 de l'API qui sera prochainement décom
 
 Ce guide décrit comment intégrer l'API à un projet PHP.
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-php.html'}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{'/pages/guide/version-1/getting-started/get-api-key.html'}}).
 
 NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dcarbone/php-fhir pour FHIR et Guzzle pour le REST. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 

@@ -41,7 +41,7 @@ Une fois le projet importé dans votre espace Postman:
   <img src="img/postman-2.png" style="width:100%;">
 </p>
 
-NOTE| Attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels.
+NOTE| Attention: vérifier bien que les variables d'environnements soient bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont utilisées dans les appels.
 
 Veuillez trouver ci-dessous les variables utilisées dans le projet Postman: 
 
@@ -57,6 +57,8 @@ Veuillez trouver ci-dessous les variables utilisées dans le projet Postman:
 NOTE| Pour la suite de l'exercice, vous devez remplacer {{site.ans.api_key }} par votre clé d'API.
 
 Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de simplicité.
+
+&nbsp;
 
 ### Récuperer le Capability Statement FHIR (Metadata)
 
@@ -164,7 +166,7 @@ Consulter le Démonstrateur API FHIR Annuaire Santé et utiliser la clé API pou
   <img src="img/portail-api-fhir.png" style="width:80%;">
 </p>
 
-NOTE| L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc). Pour y remédier, il faut  ajouter le certificat AC IGC Santé dans votre navigateur pour qu’il soit reconnu par la suite.![alt text](erreur-certificat.png)
+NOTE| L’erreur NET::ERR_CERT_AUTHORITY_INVALID est rencontrée car le certificat exposé sur le portail de démo de l’API FHIR est un certificat issu de l’IGC Santé de l’ANS, qui n’est pas une autorité de certification reconnue par les navigateurs du marché (a contrario des Thawte, DigiCert, etc). Pour y remédier, il faut  ajouter le certificat AC IGC Santé dans votre navigateur pour qu’il soit reconnu par la suite.
 
 Pour plus d'informations, consulter le site [IGC-Santé de l'ANS](https://igc-sante.esante.gouv.fr/PC/){:target="_blank"}
 

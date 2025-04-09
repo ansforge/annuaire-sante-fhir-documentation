@@ -6,7 +6,7 @@ subTitle: Intégration FHIR
 
 Ce guide décrit comment intégrer l'API à un projet Java.
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-java.html'}}).
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{'/pages/guide/version-2/getting-started/get-api-key.html'}}).
 
 NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
 
@@ -18,7 +18,7 @@ Pour utiliser les librairies Hapi, nous allons ajouter les dépendances suivante
 
 ```xml
 <properties>
-    <hapifhir_version>6.0.0</hapifhir_version>
+    <hapi.version>7.6.1</hapi.version>
 </properties>
 <dependencies>
     <dependency>
