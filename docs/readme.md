@@ -17,9 +17,7 @@ Pour rédiger de la documentation, vous pouvez créer / modifier les fichier .md
 Répertoires: 
 
 * _data: gère le menu principal et le menu latéral gauche
-documentation: documentation générale ressource par ressource
 * _includes: contient le footer, la navigation et les pages
-quick-start: section regroupant la documentation de démarrage rapide
 * _layout: contient le code qui permet de générer le menu latéral de gauche
 * _assets: contient le css, des images et du javascript
 * _pages: contient le répertoire changelog et le répertoire guide.

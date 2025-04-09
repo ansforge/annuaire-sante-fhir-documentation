@@ -4,10 +4,6 @@ title: Utilisation de C#
 subTitle: Intégration FHIR
 ---
 
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette page est en cours de construction.
-</p>
-
 Ce guide décrit comment intégrer l'API à un projet .Net Core.
 
 Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-dotnet.html'}}).
@@ -30,7 +26,7 @@ dotnet add package Hl7.Fhir.R4 --version 4.3.0
 
 Par rapport à l'utilisation de base du client Fhir, nous spécifions un HttpClientHandler afin d'ajouter l'API Key d'authentification. 
 
-Voici un exemple nominal: 
+Voici un exemple de cas nominal: 
 <div class="code-sample"><div class="tab-content" data-name="C#">
 {% highlight csharp %}
 // class to add the security token in the header:

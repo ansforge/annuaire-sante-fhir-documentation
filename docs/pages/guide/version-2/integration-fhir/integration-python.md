@@ -1,68 +1,53 @@
 ---
-layout: menu-version-2
-title: Utilisation de Python
+layout: menu-version-2 
+title: Utilisation de Python 
 subTitle: Intégration FHIR
 ---
+Ce guide décrit comment intégrer l'API FHIR à un projet Python.
 
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette page est en cours de construction.
-</p>
+Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-python.html'}}).
 
-Ce guide décrit comment intégrer l'API à un projet Python.
+NOTE| Dans nos différents exemples, nous utilisons pip et la librairie fhir.resources. FHIR reste une API HTTP JSON/XML qui pourra être appelée avec d'autres techniques.
 
-Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-2/getting-started/get-api-key.html'}}).
+### Dépendances Python
+Pour l'exemple, le projet est un projet Python utilisant pip pour la gestion des dépendances. Nous utilisons la librairie fhir.resources{:target="_blank"} qui permet entre autres de faire des appels FHIR.
 
-NOTE| Dans nos différents exemples, nous utilisons composer et la librairie dcarbone/php-fhir pour FHIR et Guzzle pour le REST. FHIR reste une API HTTP JSON/XML  qui pourra être appelée avec d'autres techniques.
+Pour utiliser les librairies fhir.resources, nous allons ajouter les dépendances suivantes dans le fichier requirements.txt :
 
-### Dépendances composer
+Copier
+fhir.resources==6.0.0
+requests==2.25.1
+ 
 
-TODO
+Configuration du client HTTP FHIR avec fhir.resources
+Par rapport à l'utilisation de base du client fhir.resources, nous spécifions un intercepteur afin d'ajouter l'API Key d'authentification.
 
+Voici un exemple nominal :
 
+<div class="code-sample"><div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import CapabilityStatement
+Configuration du client
+api_url = "{{site.ans.api_url}}/fhir"
+api_key = "{{site.ans.api_key}}"
 
-<div class="code-sample"><div class="tab-content" data-name="composer">
-{% highlight php %}
-{
-  "require": {
-    "dcarbone/php-fhir-generated": "v2.0.*",
-    "guzzlehttp/guzzle": "^7.0"
-  }
+headers = {
+"ESANTE-API-KEY": api_key,
+"Content-Type": "application/json"
 }
-{% endhighlight %}
 
-</div>
-</div>
+Fonction pour effectuer une requête FHIR
+def fetch_capability_statement():
+response = requests.get(f"{api_url}/metadata", headers=headers)
+if response.status_code == 200:
+return CapabilityStatement(**response.json())
+else:
+response.raise_for_status()
 
-
-### Configuration du client HTTP FHIR avec Guzzle
-
-Les requêtes sont des requêtes REST auxquelles nous précisons un header https. 
-
-Voici un exemple nominal : 
-
-
-<div class="code-sample"><div class="tab-content" data-name="PHP">
-
-{% highlight php %}
-<?php
-require_once '../vendor/autoload.php';
-use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParser;
-use DCarbone\PHPFHIRGenerated\R4\PHPFHIRResponseParserConfig;
-
-$config = new PHPFHIRResponseParserConfig([
-    'registerAutoloader' => true,
-    'sxeArgs' => LIBXML_COMPACT | LIBXML_NSCLEAN
-]);
-$parser = new PHPFHIRResponseParser($config);
-
-
-$header = ['ESANTE-API-KEY' => 'eb2e94fa-ffe6-491f-aa9d-073f6a5a2415'];
-$client = new GuzzleHttp\Client([
-    'base_uri' => 'https://gateway.api.esante.gouv.fr',
-    'timeout'  => 2.0,
-    'headers'  => $header]);
+Utilisation du client
+capability_statement = fetch_capability_statement()
+print(capability_statement)
 {% endhighlight %}
 
 </div></div>
+NOTE| La création du client est coûteuse, nous recommandons de conserver le client pour plusieurs appels.
 
-
+La documentation fhir.resources est très riche sur le fonctionnement de son client, vous pourrez trouver différents usages : Documentation Client fhir.resources{:target="_blank"}

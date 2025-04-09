@@ -21,7 +21,7 @@ subTitle: Nouvelle API V2
 &nbsp;
 
 ## <a id="two-header"></a>2) Est-ce-que les 2 versions de l'API FHIR sont toujours disponibles?
-Oui, vous pouvez appeler les deux versions de l'API FHIR. Une décommission de l'API FHIR V1 sera prévue pour T4-2025/T1-2026. Pour plus d'explications sur la manière d'interroger les deux versions de l'API, consulter le [lien suivant pour l'API FHIR V1](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html) et le [lien suivant pour l'API FHIR V2](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html).
+Oui, vous pouvez appeler les deux versions de l'API FHIR. Une décommission de l'API FHIR V1 sera prévue pour Fin 2025/Début 2026. Pour plus d'explications sur la manière d'interroger les deux versions de l'API, consulter le [lien suivant pour l'API FHIR V1](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html) ou le [lien suivant pour l'API FHIR V2](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html).
 <div class="wysiwyg" markdown="1">
 A noter que:
 - Le [démonstrateur API](https://portail.openfhir.annuaire.sante.fr/) utilisera par défaut la nouvelle version de l'API FHIR V2. 
@@ -32,7 +32,7 @@ A noter que:
 
 ## <a id="three-header"></a>3) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
-Ci-dessous les nouveautés:
+Quelles sont les nouveautés globalement sur cette nouvelle version :
 - Revue sur le format de réponse du Capability Statement (metadata)
 - Ajout de l'attribut : profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
@@ -40,7 +40,7 @@ Ci-dessous les nouveautés:
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.)
 - Suppression de la ressource "Subscription"
 </div>
-
+Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 &nbsp;
 
 ### Nouveautés sur Practitioner

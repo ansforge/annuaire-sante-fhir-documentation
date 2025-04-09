@@ -75,5 +75,5 @@ NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enreg
 <div class="wysiwyg" markdown="1">
 * [Site officiel de FHIR](https://www.hl7.org/fhir/){:target="_blank"}
 * [Librairie HAPI FHIR](https://hapifhir.io/){:target="_blank"}
-* [Guide d'implémentation FHIR - Annuaire Santé](https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0/){:target="_blank"}
+* [Guide d'implémentation FHIR - Annuaire Santé](https://interop.esante.gouv.fr/ig/fhir/annuaire){:target="_blank"}
 </div>

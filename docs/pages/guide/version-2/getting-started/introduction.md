@@ -6,7 +6,7 @@ subTitle: Démarrage rapide
 
 ### Introduction
 
-Ce site dédié à l'API FHIR Annuaire Santé est une documentation essentielle pour tous les acteurs (industriels, établissements de santé, etc.) souhaitant intégrer des fonctionnalités dans leur système d'informations.
+Ce site dédié à l'API FHIR Annuaire Santé est une documentation essentielle pour tous les acteurs (industriels, établissements de santé, etc.) souhaitant mettre en place un système d'information basé sur l'API FHIR de l'Annuaire Santé.
 
 ### Modèle de données FHIR
 

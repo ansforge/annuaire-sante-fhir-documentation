@@ -16,7 +16,7 @@ subTitle: Démarrage rapide
 
 ### Récupérer la collection Postman
 
-Pour tester rapidement et facilement l'API FHIR Annuaire Santé, télécharger cette collection Postman contenant des exemples d'appels FHIR.
+Pour tester l'API FHIR Annuaire Santé, télécharger cette collection Postman contenant des exemples d'appels FHIR.
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/28492200-99205672-d1f6-4f89-bd0d-53cd36767dcd?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D28492200-99205672-d1f6-4f89-bd0d-53cd36767dcd%26entityType%3Dcollection%26workspaceId%3D2ea80e73-7982-4059-90f6-9aecb1d67325#?env%5BPROD%20-%20API%20FHIR%20V2%5D=W3sia2V5IjoiYXBpX3VybCIsInZhbHVlIjoiaHR0cHM6Ly9nYXRld2F5LmFwaS5lc2FudGUuZ291di5mci9maGlyL3YyIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2dhdGV3YXkuYXBpLmVzYW50ZS5nb3V2LmZyL2ZoaXIvdjIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6Imh0dHBzOi8vZ2F0ZXdheS5hcGkuZXNhbnRlLmdvdXYuZnIvZmhpci92MiIsInNlc3Npb25JbmRleCI6MH0seyJrZXkiOiJhcGlfa2V5IiwidmFsdWUiOiJYWFhYLVhYWC1YWFgtWFhYWCIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiWFhYWC1YWFgtWFhYLVhYWFgiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IlhYWFgtWFhYLVhYWC1YWFhYIiwic2Vzc2lvbkluZGV4IjoxfV0=)
 
@@ -40,8 +40,9 @@ Une fois le projet importé dans votre espace Postman:
 <p align="center">
   <img src="img/postman-2.png" style="width:100%;">
 </p>
-Attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels.
-</div>
+
+NOTE| Attention: vérifier bien que les variables d'environnements sont bien sélectionnées (situé en haut à droite de l'écran) et que les variables sont bien utilisées dans les appels.
+
 Veuillez trouver ci-dessous les variables utilisées dans le projet Postman: 
 
 |Variable|Description|Valeur|
@@ -93,7 +94,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/metadata"
 ```
 &nbsp;
 
-NOTE| Le capability statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
+NOTE| Le Capability Statement permet de connaitre les fonctionnalités disponibles sur le serveur FHIR (paramètres, ressources...).
 
 
 ### Récuperer la ressource Practitioner

@@ -3,7 +3,7 @@ layout: home
 title: Bienvenue sur la documentation de l'API FHIR Annuaire Santé en libre accès
 ---
 
-Voici la documentation complète pour faciliter l'utilisation de l'API. Elle comprend des guides de prise en main rapide, des guides pour les développeurs, des démonstrations, des exemples d'implémentation, des guides de bonnes pratiques, des bibliothèques de référence, ainsi que des exemples de code. Cette documentation est conçue pour vous aider à maîtriser rapidement et efficacement l'API.
+Voici la documentation complète pour faciliter l'utilisation de l'API. Elle comprend un guide de prise en main rapide de l'API pour les développeurs avec des démonstrations et des exemples d'implémentations. Cette documentation est conçue pour vous aider à maîtriser rapidement et efficacement l'API.
 
 <div style="display: flex; justify-content: space-around;" class="m-5">
 <div markdown="1">
@@ -16,19 +16,17 @@ Voici la documentation complète pour faciliter l'utilisation de l'API. Elle com
 
 ## Présentation
 
-L’API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. Cette API REST, basée sur la spécification HL7 FHIR, est conçue pour être: 
-<div class="wysiwyg"  markdown="1">
-- Simple d'utilisation
-- Rapide  
-- Toujours à jour
-- Compatible FHIR
-</div>
+L’API Annuaire Santé permet au grand public d'interroger facilement et rapidement les données en libre accès de l’Annuaire Santé. Cette API REST, basée sur la spécification HL7 FHIR, est conçue pour être simple d'utilisation, rapide et compatible par rapport au standard FHIR. 
 <br />
 
 ## A quoi sert l'API ?
 
-En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez facilement trouver un professionnel intervenant dans le système de santé ou une structure, filtrer, ordonner et paginer les résultats selon vos souhaits.
-
+En intégrant l'API Annuaire Santé dans votre système d'information, vous pouvez réaliser les recherches suivantes:
+<div class="wysiwyg"  markdown="1">
+- Rechercher un professionnel intervenant dans le système de santé
+- Rechercher une structure 
+- Filtrer, ordonner et paginer les résultats selon vos souhaits.
+</div>
 <p align="center">
   <img src="./assets/img/home-schema.png" style="width:80%;">
 </p>

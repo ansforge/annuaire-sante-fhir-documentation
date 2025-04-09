@@ -4,10 +4,6 @@ title: Utilisation de Java
 subTitle: Intégration FHIR
 ---
 
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette page est en cours de construction.
-</p>
-
 Ce guide décrit comment intégrer l'API à un projet Java.
 
 Si vous n'avez pas de clé d'API, veuillez suivre la procédure décrite [ici]({{ '/pages/guide/version-1/integration-fhir/integration-java.html'}}).
@@ -16,7 +12,7 @@ NOTE| Dans nos différents exemples, nous utilisons maven et la librairie Hapi. 
 
 ### Dépendances maven
 
-Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/){:target="_blank"} qui permet entre autres de faire des appels FHIR.
+Pour l'exemple, le projet est un projet java maven. Nous utilisons la librairie [Java Hapi](https://hapifhir.io/){:target="_blank"} qui permet de structurer les données.
 
 Pour utiliser les librairies Hapi, nous allons ajouter les dépendances suivantes dans le fichier pom.xml : 
 
@@ -61,7 +57,7 @@ Pour utiliser les librairies Hapi, nous allons ajouter les dépendances suivante
 
 Par rapport à l'utilisation de base du client HAPI, nous spécifions un Intercepeur afin d'ajouter l'API Key d'authentification. 
 
-Voici un exemple nominal: 
+Voici un exemple de cas nominal: 
 <div class="code-sample"><div class="tab-content" data-name="java">
 {% highlight java %}
 // register the interceptor only one time:

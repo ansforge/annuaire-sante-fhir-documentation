@@ -11,11 +11,11 @@ subTitle: Démarrage rapide
 
 Tous les accès se font via HTTPS.
 
-| Variables | Valeurs |
-| --- | --- |
-| api-url | https://gateway.api.esante.gouv.fr/fhir/v2 |
-| ihm-url | https://portail.openfhir.annuaire.sante.fr  |
-| gravitee-url | https://portal.api.esante.gouv.fr (pour obtenir une API KEY) |
+| Variables     | Valeurs                                                       |
+| ---           | ---                                                           |
+| api-url       | https://gateway.api.esante.gouv.fr/fhir/v2                    |
+| ihm-url       | https://portail.openfhir.annuaire.sante.fr                    |
+| gravitee-url  | https://portal.api.esante.gouv.fr (pour obtenir une API KEY)  |
  
 NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fictives. La seule API qui existe est celle de l'environnement de production avec les données publiques. Si vous créez votre propre environnement beta, merci de supprimer les données qui ont une durée de conservation supérieure à 30 jours.
 
@@ -29,9 +29,10 @@ NOTE| Il n'existe pas d'environement bac à sable de l'API avec des données fic
 | [api-url]/Organization      | Récupérer les structures (entités juridiques, entités géographiques) |
 | [api-url]/HealthcareService | Récupérer les activités de soins et les équipements sociaux |
 | [api-url]/Device            | Récupérer les équipements matériels lourds (EML) |
+
 ### Codes d’état HTTP (HTTP status codes)
 
-Toutes les réponses utilisent les codes HTTP Standard.
+Toutes les réponses utilisent les codes HTTP standard.
 Les codes HTTP standard sont des codes de statut envoyés par un serveur en réponse à une demande HTTP. Voici une liste non exhaustive des codes HTTP les plus courants et leur signification
 
 
@@ -51,6 +52,7 @@ L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec le
 - GET : lecture de données simple  (Regex Posix : \/fhir\/(v[0-9]{0,2}\/)?[a-zA-Z]{0,30} )
 - POST : lecture de données au format POST  (Regex Posix : \/fhir\/(v[0-9]{0,2}\/)?[a-zA-Z]{0,30}\/_search )
 </div>
+Les méthodes PUT et DELETE sont interdites.
 <br />
 
 ### En-têtes (headers)
@@ -77,7 +79,7 @@ Si la recherche est un succès, le serveur répond :
 <div class="wysiwyg"  markdown="1">
 - Un header avec un code 200 OK HTTP
 - Un body contenant une ressource [Bundle](https://www.hl7.org/fhir/R4/bundle.html) dont le type = searchset.
-Le bundle encapsule 0 à n ressources Location corespondant aux critères de recherche plus les ressources incluses correspondant aux critères de recherche.
+Le bundle encapsule 0 à n ressources Location corespondant aux critères de recherche + les ressources incluses correspondant aux critères de recherche.
 Le service développé renvoie les 200 premiers résultats et indique le total trouvé dans une balise `total`. Dans le cas où il n'y a pas de résultat le service renvoie `total`: 0.
 - La recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n correspondances.
 </div>
@@ -100,7 +102,7 @@ Si la recherche échoue, le serveur doit répondre :
   "issue": [ {
     "severity": "error",
     "code": "processing",
-    "diagnostics": "HAPI-0302: Unknown resource type 'Practitixner' - Server knows how to handle: [Practitioner, PractitionerRole, Device, Organization, HealthcareService]"
+    "diagnostics": "HAPI-0302: Unknown resource type 'PractitiXXXner' - Server knows how to handle: [Practitioner, PractitionerRole, Device, Organization, HealthcareService]"
   } ]
 }
 
