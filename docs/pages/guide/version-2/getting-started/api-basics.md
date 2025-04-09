@@ -7,8 +7,6 @@ subTitle: Démarrage rapide
 
 ### URL d'accès (base url)
 
-#### Environnement Production
-
 Tous les accès se font via HTTPS.
 
 | Variables     | Valeurs                                                       |
@@ -59,7 +57,6 @@ Les méthodes PUT et DELETE sont interdites.
 <div class="wysiwyg"  markdown="1">
 - ESANTE-API-KEY  
 </div>
-<br />
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -80,18 +77,18 @@ Si la recherche est un succès, le serveur répond :
 - Un header avec un code 200 OK HTTP
 - Un body contenant une ressource [Bundle](https://www.hl7.org/fhir/R4/bundle.html) dont le type = searchset.
 Le bundle encapsule 0 à n ressources Location corespondant aux critères de recherche + les ressources incluses correspondant aux critères de recherche.
-Le service développé renvoie les 200 premiers résultats et indique le total trouvé dans une balise `total`. Dans le cas où il n'y a pas de résultat le service renvoie `total`: 0.
-- La recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n correspondances.
+Le service développé renvoie les 50 premiers résultats. Dans le cas où il n'y a pas de résultat le service renvoie `total`: 0.
+- La recherche est un succès à partir du moment où la requête peut être exécutée. Il peut il y avoir 0 à n résultats.
 </div>
 &nbsp;
-Plus d'informations sur la [spécification FHIR HTTP] (https://www.hl7.org/fhir/R4/http.html)
+Plus d'informations sur la [documentation](https://www.hl7.org/fhir/R4/http.html).
 
 #### Réponse de base -- Echec
 
 Si la recherche échoue, le serveur doit répondre :
 <div class="wysiwyg"  markdown="1">
 - Un header avec un un code erreur (HTTP 4XX ou 5XX)
-- Un body contenant une ressource [OperationOutcome](https://www.hl7.org/fhir/R4/operationoutcome.html>) qui donne les détails sur la raison de l'échec
+- Un body contenant une ressource [OperationOutcome](https://www.hl7.org/fhir/R4/operationoutcome.html) qui donne les détails sur la raison de l'échec
 - L'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
 </div>
 

@@ -54,7 +54,7 @@ Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver
 </div>
 &nbsp;
 
-NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enregistrées sur l'application Gravitee (aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou de quotas). Nous déterminerons ces limitations après le décommissionnement de l'API FHIR Annuaire Santé V1.
+NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enregistrées sur l'application Gravitee (aucune restriction sur le débit, le nombre de souscriptions, le nombre d'appels ou de quotas). Nous déterminerons ces limitations après le décommissionnement de l'API FHIR V1 Annuaire Santé.
 
 
 ## <a id="three-header"></a> Aller plus loin
@@ -63,9 +63,7 @@ NOTE| Actuellement, il n'existe aucune limitation en termes d'applications enreg
 
 <div class="wysiwyg" markdown="1">
 * Démarrage par langage: [JAVA]({{ '/pages/guide/version-2/integration-fhir/integration-java.html' | relative_url }}), [C#]({{ '/pages/guide/version-2/integration-fhir/integration-dotnet.html' | relative_url }})
-* [Accéder aux ressources]({{ '/pages/hub' | relative_url }})
-* [Cas d'utilisation de synchronisation]({{ '/pages/use-cases/full/uc-full' | relative_url }})
-* [Cas d'utilisation d'appels unitaires]({{ '/pages/use-cases/practitioner-detail/uc-practitioner' | relative_url }})
+
 </div>
 
 &nbsp;

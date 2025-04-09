@@ -14,13 +14,13 @@ FHIR est un standard d'interopérabilité conçu pour l’échange de données d
 En pleine croissance, il est de plus en plus utilisé en France et son usage est poussé par l’Union Européenne.
 L’API FHIR Annuaire Santé est une API RESTFul qui a pour objectif de respecter le standard d’interopérabilité FHIR afin d’exposer toutes les données en libre accès de l’Annuaire Santé.
 
-### Ressources FHIR
+### Qu'est ce qu'une ressource FHIR ?
 Une ressource est un ensemble de données qui représente un concept spécifique dans le domaine de la santé. Chaque ressource est un objet structuré qui encapsule des informations définies pour un domaine précis (Exemple: un professionnel de santé, un médecin, un diagnostic, une ordonnance).
 
 L’API FHIR contient près de 161 ressources, mais nous utilisons 5 ressources dans l’API FHIR Annuaire Santé.
 
 
-### Ressources FHIR
+### Ressources API FHIR Annuaire Santé
 Les 5 ressources disponibles sur l'API FHIR Annuaire Santé sont les suivantes:
 
 | Ressources        | Description  |
@@ -31,7 +31,6 @@ Les 5 ressources disponibles sur l'API FHIR Annuaire Santé sont les suivantes:
 | HealthcareService | Décrit les équipements sociaux et activités de soins rattachées aux établissements FINESS |
 | Device            | Décrit les Equipements Matériels Lourds (EML) mis en oeuvre au sein d’établissements. |
 
-&nbsp;
 
 ### Météo des services de l'Annuaire Santé
 
