@@ -12,9 +12,7 @@ subTitle: Ressources
   - [Rechercher tout](#41-header)
   - [Rechercher par identifiant](#42-header)
   - [Rechercher par rôle](#43-header)
-  - [Recherche par profession et par catégorie professionnelle](#431-header)
-  - [Recherche par professionnel](#44-header)
-  - [Recherche par statut](#45-header)
+  - [Recherche par statut](#44-header)
 </div>
 <br />
 
@@ -174,9 +172,9 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="42-header"></a>4.2) Recherche par identifiant (_id)
+#### <a id="42-header"></a>4.2) Recherche par identifiant technique (_id)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource par son identifiant technique. 
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource PractitionerRole par son identifiant technique. 
 
 **Requête :**
 
@@ -266,224 +264,15 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 </div>
 <br />
 
-##### <a id="431-header"></a>4.3.1) Recherche par profession et par catégorie professionnelle
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les chirurgiens-dentistes (code profession= "40") en formation (code catégorie = "E").
+#### <a id="44-header"></a>4.4) Recherche par statut
 
-**Requête :**
-
-`GET [base]/PractitionerRole?role=40&role=E`
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=005-480000-6510001 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:L
-  Practitioner Role found: id=005-490000-6510000 codes=https://mos.esante.gouv.fr/NOS/TRE_R21-Fonction/FHIR/TRE-R21-Fonction:FON-47|https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15- 
-ProfessionSante:40|https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle:E|https://mos.esante.gouv.fr/NOS/TRE_R22-GenreActivite/FHIR/TRE-R22-GenreActivite:GENR02|https://mos.esante.gouv.fr/NOS/TRE_R23-ModeExercice/FHIR/TRE-R23-ModeExercice:
-
-
-
-```
-<br />
-
-**Exemples de code :**
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?role=40&role=E"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var firstCodeClause = PractitionerRole.ROLE.exactly().code("40");
-var secondCodeClause = PractitionerRole.ROLE.exactly().code("E");
-
-var bundle = client.search()
-.forResource(PractitionerRole.class)
-.where(firstCodeClause)
-.and(secondCodeClause)
-.returnBundle(Bundle.class).execute();
-
-for (var roleEntry : bundle.getEntry()) {
-// print PractitionerRole data:
-var role = (PractitionerRole) roleEntry.getResource();
-var roleCodes = role.getCode().stream().map(code ->
-code.getCoding().stream().map(coding -> coding.getSystem() + ":" + coding.getCode()).collect(Collectors.joining("|"))
-).collect(Collectors.joining(" - "));
-
-    logger.info("Practitioner Role found: id={} codes={}", role.getIdElement().getIdPart(), roleCodes);
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/PractitionerRole?role=40&role=E');
-/** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitionerRoles = $parser->parse((string) $response->getBody());
-foreach($practitionerRoles->getEntry() as $entry){
-    /** @var  $practitionerRole  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole */
-    $practitionerRole = $entry->getResource();
-
-    $codes = '';
-    $index = 0;
-    foreach ($practitionerRole->getCode() as $cc){
-        /** @var $cc \DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCodeableConcept */
-        foreach ($cc->getCoding() as $c) {
-            if($index++>0){
-                $codes .= '|';
-            }
-            $codes .= $c->getSystem().":".$c->getCode();
-        }
-    }
-    echo("Practitioner Role found: id=".$practitionerRole->getId()." codes=".$codes."\n");
-}
-
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
-
-var q = new SearchParams()
-  .Where("role=40").Add("role","E")
-  .LimitTo(50);
-
-var bundle = client.Search<PractitionerRole>(q);
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var practitionerRole = be.Resource as PractitionerRole;
-
-    var roleCodes = "";
-    foreach(var c in practitionerRole.Code)
-    {
-        var codings = "";
-        foreach(var code in c.Coding)
-        {
-            codings = codings + code.System + ":" + code.Code + "|";
-        }
-        roleCodes = roleCodes + " - " + codings;
-    }
-
-    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} code={roleCodes}");
-}
-{% endhighlight %}
-</div>
-
-</div>
-<br />
-
-#### <a id="45-header"></a>4.5) Recherche par professionnel (practitioner)
-
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercice et exercices professionnels d'un PS en partant de son identifiant technique ( = "003-138020" dans l'exemple ).
-
-**Requête :**
-
-`GET [base]/PractitionerRole?practitioner=003-138020`
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
-
-
-```
-<br />
-
-**Exemples de code :**
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?practitioner=003-138020"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var pratictionerSearchClause = PractitionerRole.PRACTITIONER.hasId("003-138020");
-
-var bundle = client.search()
-        .forResource(PractitionerRole.class)
-        .where(pratictionerSearchClause)
-        .returnBundle(Bundle.class).execute();
-
-for (var roleEntry : bundle.getEntry()) {
-    // print PractitionerRole data:
-    var role = (PractitionerRole) roleEntry.getResource();
-    logger.info("Practitioner Role found: id={} practitioner={}", role.getIdElement().getIdPart(), role.getPractitioner().getReference());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/PractitionerRole?practitioner=003-138020');
-/** @var  $practitionerRoles  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitionerRoles = $parser->parse((string) $response->getBody());
-foreach($practitionerRoles->getEntry() as $entry){
-    /** @var  $practitionerRole  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitionerRole */
-    $practitionerRole = $entry->getResource();
-
-    echo("Practitioner Role found: id=".$practitionerRole->getId()." practitioner=". $practitionerRole->getPractitioner()->getReference() ."\n");
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
-var q = new SearchParams()
-  .Where("practitioner=003-138020")
-  .LimitTo(50);
-var bundle = client.Search<PractitionerRole>(q);
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var practitionerRole = be.Resource as PractitionerRole;
-    Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value} practitioner={practitionerRole.Practitioner.Reference}");
-}
-{% endhighlight %}
-</div>
-
-</div>
-<br />
-
-
-#### <a id="46-header"></a>4.6) Recherche par statut
-
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les ressources actives.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercices/activités actives
 
 **Requête :**
 
 `GET [base]/PractitionerRole??active=true`
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=prr-prarole-946 active=true
-  Practitioner Role found: id=prr-prarole-256 active=true
-  Practitioner Role found: id=prr-prarole-899 active=true
-
-
-```
-<br />
 
 **Exemples de code :**
 
