@@ -19,12 +19,12 @@ subTitle: Ressources
 
 ## <a id="one-header"></a>1) Présentation de la ressource Practitioner
 
-Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
+Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b). Les informations disponibles sont :
 
 <div class="wysiwyg" markdown="1">
 * Données d'identification : identifiant RPPS - identifiant unique et pérenne de la personne dans le répertoire RPPS -, civilité d'exercice, civilité, etc. 
 * Données de contact : Messageries Sécurisées de Santé (MSS), type de messagerie, etc.
-* Données relatives aux titres liés à l'exercice professionnel : diplôme, type de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
+* Données relatives aux titres liés à l'exercice professionnel : diplôme, type de diplôme, attestation, certificat ou autre titres et autorisation d'exercice.
 </div>
 &nbsp;
 
@@ -98,24 +98,10 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 
 ```sh
 GET [base]/Practitioner
-#récupère l'ensemble des practitioners (incluant les actifs et les inactifs)
+#récupère l'ensemble des exercices professionnels (incluant les actifs et les inactifs)
 
 GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner 
-#inclure les practitionerRole qui référencent les practitioners (Practitioner + PractitionerRole)
-
-```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=003-137722 name=M
-  Practitioner found: id=003-138668 name=M
-  Practitioner found: id=003-138612 name=M
-
+#récupère l'ensemble des exercices professionnels ainsi que les activités liées (Practitioner + PractitionerRole actifs et inactifs)
 
 ```
 <br />
@@ -142,17 +128,35 @@ for (var practitionerEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Practitioner');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitioners = $parser->parse((string) $response->getBody());
-foreach($practitioners->getEntry() as $entry){
-    /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
-    $practitioner = $entry->getResource();
+<div class="tab-content" data-name="python">
+{% highlight python %}
+import requests
+from fhir.resources.fhirtypes import Bundle, Practitioner
 
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
+# Configuration du client
+api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
+api_key = "{{site.ans.api_key}}"
+
+headers = {
+    "ESANTE-API-KEY": api_key,
+    "Content-Type": "application/json"
 }
+
+# Fonction pour effectuer une requête FHIR
+def fetch_practitioners():
+    response = requests.get(api_url, headers=headers)
+    if response.status_code == 200:
+        bundle = Bundle(**response.json())
+        for entry in bundle.entry:
+            practitioner = entry.resource
+            if isinstance(practitioner, Practitioner):
+                name = practitioner.name[0].text if practitioner.name else "Unknown"
+                print(f"Practitioner found: id={practitioner.id} name={name}")
+    else:
+        response.raise_for_status()
+
+# Utilisation du client
+fetch_practitioners()
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="C#">
@@ -173,32 +177,20 @@ foreach (var be in bundle.Entry)
 }
 {% endhighlight %}
 </div>
+
 </div>
 <br />
 
 
 #### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
+**Contexte :** En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
 
 **Requête :**
 
 ```sh
 `GET [base]/Practitioner?identifier=0012807590`
 ```
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Practitioner found: id=0012807590 name=MME
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -227,17 +219,36 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirst
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Practitioner?identifier=0012807590%2C810000005479');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitioners = $parser->parse((string) $response->getBody());
-foreach($practitioners->getEntry() as $entry){
-    /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
-    $practitioner = $entry->getResource();
+<div class="tab-content" data-name="python">
+{% highlight python %}
+import requests
+from fhir.resources.fhirtypes import Bundle, Practitioner
 
-    echo("Practitioner found: id=".$practitioner->getId()." name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()."\n");
+# Configuration du client
+api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
+api_key = "{{site.ans.api_key}}"
+identifiers = "0012807590,810000005479"
+
+headers = {
+    "ESANTE-API-KEY": api_key,
+    "Content-Type": "application/json"
 }
+
+# Fonction pour effectuer une requête FHIR avec des identifiants spécifiques
+def fetch_practitioners_by_identifier():
+    response = requests.get(f"{api_url}?identifier={identifiers}", headers=headers)
+    if response.status_code == 200:
+        bundle = Bundle(**response.json())
+        for entry in bundle.entry:
+            practitioner = entry.resource
+            if isinstance(practitioner, Practitioner):
+                name = practitioner.name[0].text if practitioner.name else "Unknown"
+                print(f"Practitioner found: id={practitioner.id} name={name}")
+    else:
+        response.raise_for_status()
+
+# Utilisation du client
+fetch_practitioners_by_identifier()
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="C#">
@@ -266,7 +277,6 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-
 #### <a id="43-header"></a>4.3) Rechercher par statut (active)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
@@ -275,18 +285,6 @@ foreach (var be in bundle.Entry)
 
 `GET [base]/Practitioner?active=true`
 
-**Réponse (simplifiée) :** 
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: name=M | active=true
-  Practitioner found: name=MME | active=true
-  Practitioner found: name=M | active=true
-
-
-```
 <br />
 
 **Exemples de code :**
@@ -358,19 +356,6 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels de s
 
 `GET [base]/Practitioner?_lastUpdated=ge2022-08-08`
 
-**Réponse (simplifiée) :** 
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-
-
-```
 <br />
 
 **Exemples de code :**
@@ -402,17 +387,36 @@ for (var practitionerEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Practitioner?_lastUpdated=ge2022-08-08T06%3A47%3A02');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitioners = $parser->parse((string) $response->getBody());
-foreach($practitioners->getEntry() as $entry){
-    /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
-    $practitioner = $entry->getResource();
+<div class="tab-content" data-name="python">
+{% highlight python %}
+import requests
+from fhir.resources.fhirtypes import Bundle, Practitioner
 
-    echo("Practitioner found: id=".$practitioner->getId()." | lastUpdate=".$practitioner->getMeta()->getLastUpdated()."\n");
+# Configuration du client
+api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
+api_key = "{{site.ans.api_key}}"
+last_updated = "ge2022-08-08T06:47:02"
+
+headers = {
+    "ESANTE-API-KEY": api_key,
+    "Content-Type": "application/json"
 }
+
+# Fonction pour effectuer une requête FHIR avec une date de mise à jour
+def fetch_practitioners_by_last_updated():
+    response = requests.get(f"{api_url}?_lastUpdated={last_updated}", headers=headers)
+    if response.status_code == 200:
+        bundle = Bundle(**response.json())
+        for entry in bundle.entry:
+            practitioner = entry.resource
+            if isinstance(practitioner, Practitioner):
+                last_update = practitioner.meta.lastUpdated if practitioner.meta else "Unknown"
+                print(f"Practitioner found: id={practitioner.id} | lastUpdate={last_update}")
+    else:
+        response.raise_for_status()
+
+# Utilisation du client
+fetch_practitioners_by_last_updated()
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="C#">
