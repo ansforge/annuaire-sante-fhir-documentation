@@ -27,7 +27,7 @@ Voici un exemple nominal :
 
 <div class="code-sample"><div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import CapabilityStatement
 
-Configuration du client
+## Configuration du client
 
 api_url = "{{site.ans.api_url}}/fhir"
 api_key = "{{site.ans.api_key}}"
@@ -37,7 +37,8 @@ headers = {
 "Content-Type": "application/json"
 }
 
-### Fonction pour effectuer une requête FHIR
+## Fonction pour effectuer une requête FHIR
+
 def fetch_capability_statement():
 response = requests.get(f"{api_url}/metadata", headers=headers)
 if response.status_code == 200:
@@ -46,6 +47,7 @@ else:
 response.raise_for_status()
 
 ## Utilisation du client
+
 capability_statement = fetch_capability_statement()
 print(capability_statement)
 {% endhighlight %}
