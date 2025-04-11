@@ -71,7 +71,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 </tbody>
 </table>
 
-## <a id="three-header"></a>3) Paramètres de recherche
+## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
 
 | Nom                           | Type    | Description         |
 | ---                           | ---     | ---                 |

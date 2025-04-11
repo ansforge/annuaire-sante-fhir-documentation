@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Description métier](#one-header)
+- [Présentation de la ressource](#one-header)
 - [Caractéristiques techniques](#two-header)
 - [Paramètres de recherche](#three-header)
 - [Recherche sur critères](#four-header)
@@ -19,11 +19,13 @@ subTitle: Ressources
 <br />
 
 
-## <a id="one-header"></a>1) Description métier de la ressource
+## <a id="one-header"></a>1) Présentation de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS portant sur les « [équipements matériels lourds](https://mos.esante.gouv.fr/5.html#_1a21e9b8-d686-41ff-806d-38572f961ec6) :
 <div class="wysiwyg" markdown="1">
-* numéro d'autorisation ARGHOS, période de validité, marque, numéro de série, code EML 
+* numéro d'autorisation ARGHOS, 
+* période d'autorisation
+* marque, numéro de série, statut du matériel
 </div>
 <br />
 

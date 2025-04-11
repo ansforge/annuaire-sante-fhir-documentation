@@ -78,7 +78,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation
 <br />
 
 
-## <a id="three-header"></a>3) Paramètres de recherche
+## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
 
 | Nom                               | Type  | Description                 |
 | ---                               | ---   | ---                         |
