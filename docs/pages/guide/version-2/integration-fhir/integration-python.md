@@ -34,7 +34,7 @@ api_key = "{{site.ans.api_key}}"
 
 headers = {
 "ESANTE-API-KEY": api_key,
-"Content-Type": "application/json"
+"Content-Type": "application/json"  
 }
 
 ## Fonction pour effectuer une requête FHIR
