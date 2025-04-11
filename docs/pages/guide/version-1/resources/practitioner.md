@@ -22,12 +22,12 @@ Cette documentation concerne la version 1 de l'API qui sera prochainement décom
 
 ## <a id="one-header"></a>1) Description métier de la ressource
 
-Il s'agit d'une ressource qui regroupe  les données décrivant le [« professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b) :
+Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b). Les informations disponibles sont :
 
 <div class="wysiwyg" markdown="1">
 * Données d'identification : numéro RPPS (identifiant unique et pérenne de la personne dans le répertoire), numéro ADELI, civilité ou tout autre identifiant permettant, le cas échéant, d'assurer la transition des systèmes vers une identification par le numéro RPPS  
 * Données de contact : adresse de messagerie électronique (MSS).
-* Données relatives aux titres liés à l'exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d'exercice.
+* Données relatives aux titres liés à l’exercice professionnel : intitulé de diplôme, attestation, certificat ou autre titre et autorisation d’exercice.
 
 </div>
 <br />
@@ -91,7 +91,7 @@ Note : Le nom et le prénom d'exercice du professionnel sont restitués au nivea
 | as-sp-data-information-system | token | Recherche sur le système d'information |
 | as-sp-data-registration-authority | token | Recherche sur l'autorité d'enregistrement |
 | identifier| token | Recherche sur tous les identifiants des professionnels intervenant dans le système de santé|
-| identifier-type| token | Recherche sur les types d'identifiants (ADELI, RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
+| identifier-type| token | Recherche sur les types d'identifiants (RPPS, IDNPS - IDentifiant National du Professionnel intervenant dans le système de Santé |
 | mailbox-mss| string | La Messagerie Sécurisées de Santé du Professionnel|
 | name | string | Une recherche définie par le serveur qui peut correspondre à n'importe quel champ de HumanName, ici sur le préfix correspondant à la civilité des professionnels de santé|
 
@@ -103,7 +103,7 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 
 #### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
+**Contexte:** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
 
 **Exemples de requêtes :**
 
@@ -113,20 +113,6 @@ GET [base]/Practitioner
 
 GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner 
 #inclure les practitionerRole qui référencent les practitioners (Practitioner + PractitionerRole)
-
-```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=003-137722 name=M
-  Practitioner found: id=003-138668 name=M
-  Practitioner found: id=003-138612 name=M
-
 
 ```
 <br />
@@ -155,7 +141,7 @@ for (var practitionerEntry : bundle.getEntry()) {
 </div>
 <div class="tab-content" data-name="PHP">
 {% highlight php %}
-$response = $client->request('GET', '/fhir/v1/Practitioner');
+$response = $client->request('GET', '/fhir/v1/Practitioner?identifier=0012807590%2C810000005479');
 /** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
 $practitioners = $parser->parse((string) $response->getBody());
 foreach($practitioners->getEntry() as $entry){
@@ -367,19 +353,6 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels de s
 
 `GET [base]/Practitioner?_lastUpdated=ge2025-08-08`
 
-**Réponse (simplifiée) :** 
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: id=003-852396 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-869607 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139099 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-  Practitioner found: id=003-139084 | lastUpdate=Fri Sep 02 17:34:54 CEST 2022
-
-
-```
 <br />
 
 **Exemples de code :**
