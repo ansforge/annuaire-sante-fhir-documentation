@@ -11,6 +11,7 @@ subTitle: Ressources
 - [Recherche d'un professionnel](#four-header)
   - [Rechercher tout](#41-header)
   - [Rechercher par identifiant](#42-header)
+  - [Rechercher par prénom et nom d'exercice](#43-header)
   - [Rechercher par statut](#44-header)
   - [Rechercher par date de mise à jour](#45-header)
 </div>
@@ -109,11 +110,15 @@ GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
+
+# Configuration du client
+var client = FhirTestUtils.createClient();
 var bundle = client.search().forResource(Practitioner.class).returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-// print Organization ids:
+
+#  print les IDs Organizations:
 var practitioner = (Practitioner) practitionerEntry.getResource();
 logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
@@ -147,11 +152,15 @@ response.raise_for_status()
 fetch_practitioners()
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
+
+# Configuration du client
+var client = FhirTestUtils.CreateClient();
 var bundle = client.Search<Practitioner>();
 foreach (var be in bundle.Entry)
 {
-// print ids:
+
+# Print les IDs:
 var practitioner = be.Resource as Practitioner;
 var name = "";
 foreach (var n in practitioner.Name[0].Prefix) {
@@ -178,7 +187,10 @@ En tant que client de l'API, je souhaite vérifier l'identité d'un professionne
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?identifier=0012807590%2C810000005479" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?identifier=0012807590%2C810000005479" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
+
+# Configuration du client
+var client = FhirTestUtils.createClient();
 var identifierParams = Practitioner.IDENTIFIER.exactly().codes("0012807590", "810000005479");
 
 var bundle = client.search()
@@ -187,7 +199,8 @@ var bundle = client.search()
 .returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-// print Organization ids:
+
+# Print les IDs Organization:
 var practitioner = (Practitioner) practitionerEntry.getResource();
 logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirstRep().getValue(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
@@ -225,14 +238,17 @@ response.raise_for_status()
 fetch_practitioners_by_identifier()
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
+
+# Configuration du client
+var client = FhirTestUtils.CreateClient();
 var q = new SearchParams()
 .Where("identifier=0012807590,810000005479")
 .LimitTo(50);
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-// print ids:
+# Print les IDs:
 var practitioner = be.Resource as Practitioner;
 var name = "";
 foreach (var n in practitioner.Name[0].Prefix)
@@ -245,7 +261,7 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 </div> </div> <br />
 
-#### <a id="43-header"></a>4.4) Rechercher par prénom et nom d'exercice
+#### <a id="43-header"></a>4.3) Rechercher par prénom et nom d'exercice
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher tous les professionnels par rapport au prénom et nom d'exercice .
@@ -259,22 +275,29 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels par 
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?name\:family=MASI&name\:given=BRUNO" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
-// create the name search parameters:
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?name\:family=MASI&name\:given=BRUNO" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
+
+# Configuration du client
+
+var client = FhirTestUtils.createClient();
+
+# Configurer le paramètre de recherche:
 var familyNameParam = Practitioner.NAME.exactly().family("MASI");
 var givenNameParam = Practitioner.NAME.exactly().given("BRUNO");
 
 var bundle = client.search()
-.forResource(Practitioner.class)
-.where(familyNameParam)
-.and(givenNameParam)
-.returnBundle(Bundle.class).execute();
+        .forResource(Practitioner.class)
+        .where(familyNameParam)
+        .and(givenNameParam)
+        .returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-// cast entry :
-var practitioner = (Practitioner) practitionerEntry.getResource();
-// print name and id :
-logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
+
+# Convertir l'entrée
+    var practitioner = (Practitioner) practitionerEntry.getResource();
+
+# Enregistrer le message d'information
+    logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
 {% endhighlight %}
 
@@ -308,7 +331,10 @@ response.raise_for_status()
 fetch_practitioners_by_name()
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
+
+# Configuration du client 
+var client = FhirTestUtils.CreateClient();
 var q = new SearchParams()
 .Where("name:family=MASI")
 .And("name:given=BRUNO")
@@ -316,7 +342,8 @@ var q = new SearchParams()
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-// print ids:
+
+# Enregistrer les IDs
 var practitioner = be.Resource as Practitioner;
 var name = practitioner.Name[0].Given.FirstOrDefault() + " " + practitioner.Name[0].Family;
 Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
@@ -327,7 +354,7 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 <br />
 
-#### <a id="43-header"></a>4.4) Rechercher par statut (active)
+#### <a id="44-header"></a>4.4) Rechercher par statut (active)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
@@ -341,79 +368,74 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels de s
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?name\:family=MASI&name\:given=BRUNO" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
-// create the name search parameters:
-var familyNameParam = Practitioner.NAME.exactly().family("MASI");
-var givenNameParam = Practitioner.NAME.exactly().given("BRUNO");
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Practitioner?active=true" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
+
+# Configuration du client
+var client = FhirTestUtils.createClient();
+var activeSearchClause = Practitioner.ACTIVE.exactly().code("true");
 
 var bundle = client.search()
 .forResource(Practitioner.class)
-.where(familyNameParam)
-.and(givenNameParam)
+.where(activeSearchClause)
 .returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-// cast entry :
+
+# Enregistrer les IDs Organization
 var practitioner = (Practitioner) practitionerEntry.getResource();
-// print name and id :
-logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
+logger.info("Practitioner found: name={} | active={}", practitioner.getNameFirstRep().getNameAsSingleString(), practitioner.getActive());
 }
 {% endhighlight %}
 
 </div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, Practitioner
 
 # Configuration du client
-
-api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
+api_url = "{{site.ans.api_url}}/fhir/v1/Practitioner"
 api_key = "{{site.ans.api_key}}"
-family_name = "MASI"
-given_name = "BRUNO"
 
 headers = {
 "ESANTE-API-KEY": api_key,
 "Content-Type": "application/json"
 }
 
-# Fonction pour effectuer une requête FHIR avec un prénom et un nom d'exercice
-
-def fetch_practitioners_by_name():
-response = requests.get(f"{api_url}?name:family={family_name}&name:given={given_name}", headers=headers)
+# Fonction pour effectuer une requête FHIR pour les professionnels actifs
+def fetch_active_practitioners():
+response = requests.get(f"{api_url}?active=true", headers=headers)
 if response.status_code == 200:
 bundle = Bundle(**response.json())
 for entry in bundle.entry:
 practitioner = entry.resource
 if isinstance(practitioner, Practitioner):
 name = practitioner.name[0].text if practitioner.name else "Unknown"
-print(f"Practitioner found: id={practitioner.id} name={name}")
+active_status = practitioner.active
+print(f"Practitioner found: name={name} | active={active_status}")
 else:
 response.raise_for_status()
 
 # Utilisation du client
-
-fetch_practitioners_by_name()
+fetch_active_practitioners()
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
+
+# Configuration du client
+var client = FhirTestUtils.CreateClient();
 var q = new SearchParams()
-.Where("name:family=MASI")
-.And("name:given=BRUNO")
+.Where("active=true")
 .LimitTo(50);
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-// print ids:
+
+# Enregistrer les IDs
 var practitioner = be.Resource as Practitioner;
-var name = practitioner.Name[0].Given.FirstOrDefault() + " " + practitioner.Name[0].Family;
-Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | active={practitioner.Active.Value}");
 }
 {% endhighlight %}
 
 </div> </div> <br />
 
-<br />
-
-
-#### <a id="44-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="45-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
 
 En tant que client de l'API, je souhaite rechercher tous les exercices professionnels mis à jour depuis une certaine date.
 
@@ -435,10 +457,11 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Pr
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
-// create the client:
+
+# Configuration du client
 var client = FhirTestUtils.createClient();
 
-// create the date search parameter :
+# Enregistrement des paramètres de recherche Date
 var dateParam = new DateClientParam("_lastUpdated");
 
 var bundle = client.search()
@@ -447,9 +470,10 @@ var bundle = client.search()
         .returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-    // cast entry :
+# Convertir les entrées
     var practitioner = (Practitioner) practitionerEntry.getResource();
-    // print update date & id :
+
+#  Print les dates de mises à jour et ID
     logger.info("Practitioner found: id={} | lastUpdate={}", practitioner.getIdElement().getIdPart(), practitioner.getMeta().getLastUpdated());
 }
 {% endhighlight %}
@@ -488,7 +512,8 @@ fetch_practitioners_by_last_updated()
 </div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
-// create the client:
+
+# Configuration du client
 var client = FhirTestUtils.CreateClient();
 
 var q = new SearchParams()
@@ -497,7 +522,8 @@ var q = new SearchParams()
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-    // print ids:
+
+# Print les IDs
     var practitioner = be.Resource as Practitioner;
     Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | lastUpdate={practitioner.Meta.LastUpdated}");
 }
