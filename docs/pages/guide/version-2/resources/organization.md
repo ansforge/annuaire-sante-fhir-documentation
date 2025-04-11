@@ -14,7 +14,7 @@ subTitle: Ressources
   - [Rechercher par identifiant structure](#43-header)
   - [Rechercher par date de mise à jour](#44-header)
   - [Rechercher par type](#45-header)
-  - [Rechercher par code postal](#47-header)
+  - [Rechercher par code postal](#46-header)
 </div>
 <br />
 
@@ -24,8 +24,7 @@ subTitle: Ressources
 Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
 * numéros SIREN/ SIRET ou FINESS, type de structure (géographique ou juridique), activité , secteur d'activité santé, catégorie juridique, modalités de participation au service public hospitalier (SPH), 
-* raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique y compris MSS, téléphone, fax), 
-* pour les structures géographiques, le numéros FINESS de la strcuture juridique de rattachement.
+* raison sociale, enseigne commerciale, coordonnées (adresse postale, adresses de messagerie électronique, téléphones), 
 </div>
 <br />
 
@@ -70,31 +69,24 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tbody>
 </table>
 
-## <a id="three-header"></a>3) Paramètres de recherche
+## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
 
 | Nom                               | Type      | Description                                               |
 | ---                               | ---       | ---                                                       |
-| _has                              | string    |                                                           |
-| _id                               | token     | Recherche sur l'ID de la ressource Organization           |
-| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap).|
-| _since                            | date      |                                                           |
-| _total                            | string    |                                                           |
-| active                            | token     | Recherche les ressources Organization actives             |
-| address                           | string    | Recherche sur (une partie) de l'adresse de la structure   |
-| address-city                      | string    | Recherche sur la commune spécifiée dans une adresse       |
-| address-country                   | string    | Recherche sur le pays spécifiée dans une adresse          |
-| address-postalcode                | string    | Recherche sur le code postal spécifié dans une adresse    |
-| address-state                     | string    | Recherche un état specifiée dans une adresse              |
-| address-use                       | string    | Recherche sur un code use spécifié dans adresse           |
-| as-sp-data-information-system     | token     | Recherche sur le système d'information                    |
-| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                 |
-| endpoint                          | reference | Endpoint technique fournissant des accès aux services exploités pour l'organisation |
-| identifier                        | token     | Recherche sur tous les identifiants des structures        |
-| identifier-type                   | token     | Recherche sur les types d'identifiers                     |
-| mailbox-mss                       | string    | Recherche sur les messageries sécurisées de santé (MSS) rattachées aux Organizations |
+| _id                               | token     | Recherche sur l'ID technique de la ressource Organization |
+| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap)|
+| active                            | token     | Recherche selon le statut de l'organisation     |
+| address                           | string    | Recherche sur le champ adresse de l'organisation   |
+| address-city                      | string    | Recherche sur la commune de l'organisation       |
+| address-postalcode                | string    | Recherche sur le code postal de l'organisation    |
+| data-information-system           | token     | Recherche sur le système d'information      |
+| data-registration-authority       | token     | Recherche sur l'autorité d'enregistrement   |
+| identifier                        | token     | Recherche sur l'identifiant de la structure       |
+| identifier-type                   | token     | Recherche sur le type d'identifiant de la structure |
+| mailbox-mss                       | string    | Recherche sur les messageries sécurisées de santé (MSS) rattachées aux organisations |
 | name                              | string    | Recherche sur la raison sociale des structures            |
 | partof                            | reference | Recherche tous les établissements géographiques rattachés à une même entité juridique |
-| pharmacy-licence                  | string    | Recherche sur le numéro de licence des officines          |
+| pharmacy-licence                  | string    | Recherche sur le numéro de licence des pharmacies officines |
 | type                              | token     | Recherche sur le type de structure/ code APE/ catégorie juridique/ secteur d'activité/ catégorie d'établissement ou le code SPH de la structure |
 
 ## <a id="four-header"></a>4) Recherche de structure sur critères
@@ -110,22 +102,22 @@ En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
 
 ```sh
 GET [base]/Organization
-#récupère l'ensemble des structures (incluant les actives et les inactives)
+# récupère l'ensemble des structures (incluant les actives et les inactives)
 
 GET [base]/Organization?_include=Organization:partof 
-#inclure les entités juridiques auxquelles sont rattachées les entités géographiques
+# récupère les entités géographiques ainsi que leurs entités juridiques associées
 
 GET [base]/Organization?_revinclude=Device:organization 
-#inclure les Device qui référencent les Organization (Organization + Device)
+# récupère les entités ainsi que leurs équipements matériels lourds associés
 
 GET [base]/Organization?_revinclude=HealthcareService:organization 
-#inclure les HealthcareService qui référencent les Organization (Organization + HealthcareService)
+# récupère les entités ainsi que leurs activités de soins associés
 
 GET [base]/Organization?_revinclude=PractitionerRole:organization 
-#inclure les PractitionerRole qui référencent les Organization (Organization + PractitionerRole)
+# récupère les entités ainsi que toutes les activités des professionnels associées
 
 GET [base]/Organization?_include=* 
-#inclure toutes les ressources qui sont référencées par les Organization
+# inclure toutes les ressources qui sont référencées par les Organization (Device, PractitionerRole, HealthCareService)
 ```
 <br />
 
@@ -139,11 +131,12 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" {{site.ans.api_url}}/fhir/v2/Org
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
-// create the client:
+
+// Création du client
 var client = FhirTestUtils.createClient();
 var bundle = client.search().forResource(Organization.class).returnBundle(Bundle.class).execute();
 for(var organizationEntry : bundle.getEntry()){
-    // print Organization ids:
+    // print les IDs des organisations
     var organization = (Organization) organizationEntry.getResource();
     logger.info("Organization found: id={} name={}", organization.getIdElement().getIdPart(), organization.getName());
 }
@@ -151,13 +144,13 @@ for(var organizationEntry : bundle.getEntry()){
 </div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
-// create the client:
+// Création du client
 var client = FhirTestUtils.CreateClient();
 
 var bundle = client.Search<Organization>();
 foreach (var be in bundle.Entry)
 {
-    // print ids:
+    // print les IDs:
     var organization = be.Resource as Organization;
     Console.WriteLine($"Organization found: id={organization.IdElement.Value} name={organization.Name}");
 }
@@ -175,7 +168,7 @@ En tant que client de l'API, je souhaite trouver une structure à partir de sa r
 **Requête :**
 
 ```sh
-`GET [base]/Organization?name%3Acontains=imagerie%2Ccentre`
+GET [base]/Organization?name%3Acontains=imagerie%2Ccentre
 ```
 
 <br />
@@ -190,10 +183,10 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Or
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
-// create the client:
+// Création du client
 var client = FhirTestUtils.createClient();
 
-// create the name search parameter :
+// Création du Search Parameter name
 var nameSearchClause = Organization.NAME.contains().values("imagerie", "centre");
 
 var bundle = client.search()
@@ -202,8 +195,10 @@ var bundle = client.search()
 .returnBundle(Bundle.class).execute();
 
 for(var organizationEntry : bundle.getEntry()){
-// cast entry :
+
+// Convertir l'entrée
 var organization = (Organization) organizationEntry.getResource();
+
 // print data :
 logger.info("Organization found: name={}", organization.getName());
 }
@@ -211,7 +206,8 @@ logger.info("Organization found: name={}", organization.getName());
 </div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
-// create the client:
+
+// Création du client
 var client = FhirTestUtils.CreateClient();
 
 var q = new SearchParams()
@@ -220,7 +216,7 @@ var q = new SearchParams()
 var bundle = client.Search<Organization>(q);
 foreach (var be in bundle.Entry)
 {
-    // print ids:
+// Print IDs
     var organization = be.Resource as Organization;
     Console.WriteLine($"Organization found: name={organization.Name}");
 }
@@ -241,7 +237,7 @@ En tant que client de l'API, je souhaite rechercher une structure à partir de s
 GET [base]/Organization?identifier=001604103000
 # récupérer une structure dont l'identifiant est 001604103000
 
-GET [base]/Organization?as-sp-data-information-system=FINESS
+GET [base]/Organization?as-sp-data-information-system=FINESS&identifier=001604103000
 # récupérer une structure qui proviennent du référentiel FINESS. Les trois valeurs disponibles sont RPPS, FINESS et CG.
 
 
@@ -382,12 +378,11 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 - Renseigner le code système concerné
 - Renseigner le code fonctionnel de la valeur souhaité
 </div>
-
+</br>
 
 **Exemples de requêtes :**
 
 ```sh
-
 GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C101
 # récupère les organisations qui appartiennent à la catégorie d'établissement 101 - Centre Hospitalier Régional (C.H.R.)
 
@@ -398,11 +393,9 @@ GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-Se
 # récupère les organisations qui font partie du secteur d'activité SA02
 
 ```
+</br>
 
-
-
-
-#### <a id="47-header"></a>4.6) Rechercher par code postal et ville (address-postalcode et address-city)
+#### <a id="46-header"></a>4.6) Rechercher par code postal et ville (address-postalcode et address-city)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
@@ -418,7 +411,6 @@ GET [base]//Organization?address-postalcode=75016&address-city=PARIS
 **Exemples de code:**
 
 <div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?address-postalcode=75016&address-city=PARIS" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
-
 // create the client: 
 var client = FhirTestUtils.createClient();
 
