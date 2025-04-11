@@ -109,79 +109,59 @@ GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner
 
 **Exemples de code :**
 
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
 var bundle = client.search().forResource(Practitioner.class).returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-    // print Organization ids:
-    var practitioner = (Practitioner) practitionerEntry.getResource();
-    logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
+// print Organization ids:
+var practitioner = (Practitioner) practitionerEntry.getResource();
+logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
 {% endhighlight %}
-</div>
-<div class="tab-content" data-name="python">
-{% highlight python %}
-import requests
-from fhir.resources.fhirtypes import Bundle, Practitioner
+
+</div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, Practitioner
 
 # Configuration du client
 api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
 api_key = "{{site.ans.api_key}}"
 
 headers = {
-    "ESANTE-API-KEY": api_key,
-    "Content-Type": "application/json"
+"ESANTE-API-KEY": api_key,
+"Content-Type": "application/json"
 }
 
 # Fonction pour effectuer une requête FHIR
 def fetch_practitioners():
-    response = requests.get(api_url, headers=headers)
-    if response.status_code == 200:
-        bundle = Bundle(**response.json())
-        for entry in bundle.entry:
-            practitioner = entry.resource
-            if isinstance(practitioner, Practitioner):
-                name = practitioner.name[0].text if practitioner.name else "Unknown"
-                print(f"Practitioner found: id={practitioner.id} name={name}")
-    else:
-        response.raise_for_status()
+response = requests.get(api_url, headers=headers)
+if response.status_code == 200:
+bundle = Bundle(**response.json())
+for entry in bundle.entry:
+practitioner = entry.resource
+if isinstance(practitioner, Practitioner):
+name = practitioner.name[0].text if practitioner.name else "Unknown"
+print(f"Practitioner found: id={practitioner.id} name={name}")
+else:
+response.raise_for_status()
 
 # Utilisation du client
 fetch_practitioners()
 {% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
 
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
 var bundle = client.Search<Practitioner>();
 foreach (var be in bundle.Entry)
 {
-    // print ids:
-    var practitioner = be.Resource as Practitioner;
-    var name = "";
-    foreach (var n in practitioner.Name[0].Prefix) {
-        name = name + " " + n;
-    }
-    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+// print ids:
+var practitioner = be.Resource as Practitioner;
+var name = "";
+foreach (var n in practitioner.Name[0].Prefix) {
+name = name + " " + n;
+}
+Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
 }
 {% endhighlight %}
-</div>
 
-</div>
-<br />
-
+</div> </div> <br />
 
 #### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
 
@@ -198,17 +178,7 @@ En tant que client de l'API, je souhaite vérifier l'identité d'un professionne
 
 **Exemples de code :**
 
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?identifier=0012807590%2C810000005479"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?identifier=0012807590%2C810000005479" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
 var identifierParams = Practitioner.IDENTIFIER.exactly().codes("0012807590", "810000005479");
 
 var bundle = client.search()
@@ -222,63 +192,58 @@ var practitioner = (Practitioner) practitionerEntry.getResource();
 logger.info("Practitioner found: id={} name={}", practitioner.getIdentifierFirstRep().getValue(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
 {% endhighlight %}
-</div>
-<div class="tab-content" data-name="python">
-{% highlight python %}
-import requests
-from fhir.resources.fhirtypes import Bundle, Practitioner
+
+</div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, Practitioner
 
 # Configuration du client
+
 api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
 api_key = "{{site.ans.api_key}}"
 identifiers = "0012807590,810000005479"
 
 headers = {
-    "ESANTE-API-KEY": api_key,
-    "Content-Type": "application/json"
+"ESANTE-API-KEY": api_key,
+"Content-Type": "application/json"
 }
 
 # Fonction pour effectuer une requête FHIR avec des identifiants spécifiques
+
 def fetch_practitioners_by_identifier():
-    response = requests.get(f"{api_url}?identifier={identifiers}", headers=headers)
-    if response.status_code == 200:
-        bundle = Bundle(**response.json())
-        for entry in bundle.entry:
-            practitioner = entry.resource
-            if isinstance(practitioner, Practitioner):
-                name = practitioner.name[0].text if practitioner.name else "Unknown"
-                print(f"Practitioner found: id={practitioner.id} name={name}")
-    else:
-        response.raise_for_status()
+response = requests.get(f"{api_url}?identifier={identifiers}", headers=headers)
+if response.status_code == 200:
+bundle = Bundle(**response.json())
+for entry in bundle.entry:
+practitioner = entry.resource
+if isinstance(practitioner, Practitioner):
+name = practitioner.name[0].text if practitioner.name else "Unknown"
+print(f"Practitioner found: id={practitioner.id} name={name}")
+else:
+response.raise_for_status()
 
 # Utilisation du client
+
 fetch_practitioners_by_identifier()
 {% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
 
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
 var q = new SearchParams()
-  .Where("identifier=0012807590,810000005479")
-  .LimitTo(50);
+.Where("identifier=0012807590,810000005479")
+.LimitTo(50);
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-    // print ids:
-    var practitioner = be.Resource as Practitioner;
-    var name = "";
-    foreach (var n in practitioner.Name[0].Prefix)
-    {
-        name = name + " " + n;
-    }
-    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
+// print ids:
+var practitioner = be.Resource as Practitioner;
+var name = "";
+foreach (var n in practitioner.Name[0].Prefix)
+{
+name = name + " " + n;
+}
+Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
 }
 {% endhighlight %}
-</div>
-</div>
-<br />
+
+</div> </div> <br />
 
 #### <a id="43-header"></a>4.4) Rechercher par prénom et nom d'exercice
 
@@ -292,21 +257,7 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels par 
 # Récupère l'ensemble des Practitioners dont le nom d'exercice est MASI et le prénom d'exercice est Bruno
 ```
 
-<br />
-
-#### <a id="43-header"></a>4.4) Rechercher par statut (active)
-
-**Récit utilisateur :** 
-En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
-
-**Requête :**
-
-```sh
-`GET [base]/Practitioner?active=true`
-# récupère l'ensemble des Practitioners qui ont un exercice professionnel actif
-```
-
-Exemples de code :
+**Exemples de code :**
 
 <div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?name\:family=MASI&name\:given=BRUNO" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
 // create the name search parameters:
@@ -328,7 +279,8 @@ logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().get
 {% endhighlight %}
 
 </div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, Practitioner
-Configuration du client
+
+# Configuration du client
 api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
 api_key = "{{site.ans.api_key}}"
 family_name = "MASI"
@@ -339,7 +291,7 @@ headers = {
 "Content-Type": "application/json"
 }
 
-Fonction pour effectuer une requête FHIR avec un prénom et un nom d'exercice
+# Fonction pour effectuer une requête FHIR avec un prénom et un nom d'exercice
 def fetch_practitioners_by_name():
 response = requests.get(f"{api_url}?name:family={family_name}&name:given={given_name}", headers=headers)
 if response.status_code == 200:
@@ -352,7 +304,7 @@ print(f"Practitioner found: id={practitioner.id} name={name}")
 else:
 response.raise_for_status()
 
-Utilisation du client
+# Utilisation du client
 fetch_practitioners_by_name()
 {% endhighlight %}
 
@@ -375,64 +327,89 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 <br />
 
+#### <a id="43-header"></a>4.4) Rechercher par statut (active)
+
+**Récit utilisateur :** 
+En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
+
+**Requête :**
+
+```sh
+`GET [base]/Practitioner?active=true`
+# récupère l'ensemble des Practitioners qui ont un exercice professionnel actif
+```
+
 **Exemples de code :**
 
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?active=true"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var activeSearchClause = Practitioner.ACTIVE.exactly().code("true");
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner?name\:family=MASI&name\:given=BRUNO" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} // create the client: var client = FhirTestUtils.createClient();
+// create the name search parameters:
+var familyNameParam = Practitioner.NAME.exactly().family("MASI");
+var givenNameParam = Practitioner.NAME.exactly().given("BRUNO");
 
 var bundle = client.search()
 .forResource(Practitioner.class)
-.where(activeSearchClause)
+.where(familyNameParam)
+.and(givenNameParam)
 .returnBundle(Bundle.class).execute();
 
 for (var practitionerEntry : bundle.getEntry()) {
-// print Organization ids:
+// cast entry :
 var practitioner = (Practitioner) practitionerEntry.getResource();
-logger.info("Practitioner found: name={} | active={}", practitioner.getNameFirstRep().getNameAsSingleString(), practitioner.getActive());
+// print name and id :
+logger.info("Practitioner found: id={} name={}", practitioner.getIdElement().getIdPart(), practitioner.getNameFirstRep().getNameAsSingleString());
 }
 {% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Practitioner?active=true');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$practitioners = $parser->parse((string) $response->getBody());
-foreach($practitioners->getEntry() as $entry){
-    /** @var  $practitioner  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRPractitioner */
-    $practitioner = $entry->getResource();
 
-    echo("Practitioner found: name=".$practitioner->getName()[0]->getPrefix()[0]->getValue()." | active=". $practitioner->getActive(). "\n");
+</div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, Practitioner
+
+# Configuration du client
+
+api_url = "{{site.ans.api_url}}/fhir/v2/Practitioner"
+api_key = "{{site.ans.api_key}}"
+family_name = "MASI"
+given_name = "BRUNO"
+
+headers = {
+"ESANTE-API-KEY": api_key,
+"Content-Type": "application/json"
 }
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-// create the client:
-var client = FhirTestUtils.CreateClient();
 
+# Fonction pour effectuer une requête FHIR avec un prénom et un nom d'exercice
+
+def fetch_practitioners_by_name():
+response = requests.get(f"{api_url}?name:family={family_name}&name:given={given_name}", headers=headers)
+if response.status_code == 200:
+bundle = Bundle(**response.json())
+for entry in bundle.entry:
+practitioner = entry.resource
+if isinstance(practitioner, Practitioner):
+name = practitioner.name[0].text if practitioner.name else "Unknown"
+print(f"Practitioner found: id={practitioner.id} name={name}")
+else:
+response.raise_for_status()
+
+# Utilisation du client
+
+fetch_practitioners_by_name()
+{% endhighlight %}
+
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
 var q = new SearchParams()
-  .Where("active=true")
-  .LimitTo(50);
+.Where("name:family=MASI")
+.And("name:given=BRUNO")
+.LimitTo(50);
 var bundle = client.Search<Practitioner>(q);
 foreach (var be in bundle.Entry)
 {
-    // print ids:
-    var practitioner = be.Resource as Practitioner;
-    Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | active={practitioner.Active.Value}");
+// print ids:
+var practitioner = be.Resource as Practitioner;
+var name = practitioner.Name[0].Given.FirstOrDefault() + " " + practitioner.Name[0].Family;
+Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={name}");
 }
 {% endhighlight %}
-</div>
-</div>
+
+</div> </div> <br />
+
 <br />
 
 
