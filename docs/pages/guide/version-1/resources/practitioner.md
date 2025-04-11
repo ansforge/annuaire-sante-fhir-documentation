@@ -103,7 +103,8 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 
 #### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Contexte:** En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
+**Contexte:** 
+En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
 
 **Exemples de requêtes :**
 
@@ -270,19 +271,6 @@ foreach (var be in bundle.Entry)
 
 `GET [base]/Practitioner?active=true`
 
-**Réponse (simplifiée) :** 
-  
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner found: name=M | active=true
-  Practitioner found: name=MME | active=true
-  Practitioner found: name=M | active=true
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -352,8 +340,6 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels de s
 **Requête :**
 
 `GET [base]/Practitioner?_lastUpdated=ge2025-08-08`
-
-<br />
 
 **Exemples de code :**
 
