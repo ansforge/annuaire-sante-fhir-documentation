@@ -11,9 +11,8 @@ subTitle: Ressources
 - [Recherche sur critères](#four-header)
   - [Rechercher tout](#41-header)
   - [Rechercher par date de mise à jour](#42-header)
-  - [Rechercher par numéro ARHGOS](#43-header)
+  - [Rechercher par identifiant](#43-header)
   - [Recherche par type](#44-header)
-  - [Recherche par identifiant](#45-header)
   - [Recherche par statut](#46-header)
 </div>
 <br />
@@ -73,22 +72,18 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 
 ## <a id="three-header"></a>3) Paramètres de recherche
 
-| Nom                               | Type      | Description                                                                       |
-| ---                               | ---       | ---                                                                               |
-| _id                               | token     | Recherche sur l'ID de la ressource HealthCare Service                             |
-| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée |
-| _since                            | date      |                                                                                   |
-| _total                            | string    |                                                                                   |
-| as-sp-data-information-system     | token     | Recherche sur le système d'information                                            |
-| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                                         |
-| device-name                       | string    | Le nom de l'équipement                                                            |
-| identifier                        | token     | Recherche sur l'identifiant de l'équipement matériel lourd                        |
-| manufacturer                      | string    | Recherche sur la marque des équipements matériels lourds                          |
-| model                             | string    | Recherche sur le modèle des équipements matériels lourds                          |
-| number-authorization-arhgos       | string    | Recherche sur le numéro d'autorisation ARHGOS                                     |
-| organization                      | reference | Recherche les équipements matériels lourds rattachés à la structure sélectionnée  |
-| status                            | token     | active, inactive,  entered-in-error, unknown                                      |
-| type                              | token     | Recherche sur le type de l'équipement matériel lourd                              |
+| Nom                           | Type      | Description                                       |
+| ---                           | ---       | ---                                               |
+| _id                           | token     | Rechercher sur l'ID technique de la ressource     |
+| _lastUpdated                  | date      | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date)  |
+| data-information-system       | token     | Recherche sur le système d'informations  |
+| data-registration-authority   | token     | Recherche sur l'autorité d'enregistrement |
+| identifier                    | token     | Recherche sur le numéro ARHGOS de l'équipement matériel lourd |
+| manufacturer                  | string    | Recherche sur la marque de l'équipement matériel lourd |
+| model                         | string    | Recherche sur le modèle de l'équipement matériel lourd |
+| organization                  | reference | Référence l'ID technique de l'organisation associée à l'équipement |
+| status                        | token     | Recherche sur le statut de l'équipement : active, inactive,  entered-in-error, unknown|
+| type                          | token     | Recherche sur le type d'équipement matériel lourd |
 
 ## <a id="four-header"></a>4) Recherche d'équipement matériel lourd (EML) sur critères
 
@@ -96,32 +91,22 @@ Voici des exemples de requêtes sur les équipements matériels lourds.
 
 ## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des EML.
+**Récit utilisateur :** 
+En tant que client de l'API, je souhaite récupérer l'ensemble des équipements matériels lourds (EML).
 
 **Exemples de requêtes :**
 
 ```sh
 GET [base]/Device
-#récupère l'ensemble des Devices (incluant les actifs et les inactifs)
-GET [base]/Device?_include=Device:organization #inclure les Organization qui sont référencées par les Devices (Device + Organization)
-GET [base]/Device?_include=* #inclure toutes les ressources qui sont référencées par les Devices 
+# récupère l'ensemble des équipements matériels lourds (incluant les actifs et les inactifs)
 
+GET [base]/Device?_include=Device:organization 
+# inclure les Organization qui sont référencées par les Devices (Device + Organization)
 
+GET [base]/Device?_include=* 
+# inclure toutes les ressources qui sont référencées par les Devices (idem que la précédente requête)
 ```
-<br />
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=002-3405564 AuthorizationARHGOS=76-91-1096
-  Device found: id=002-3405565 AuthorizationARHGOS=44-21-35510
-  Device found: id=002-3405566 AuthorizationARHGOS=44-21-50847
-
-
-```
 
 <br />
 
@@ -148,20 +133,6 @@ logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    $extArhgos = getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS", $device->getExtension());
-    echo("Device found: id=".$device->getId()." AuthorizationARHGOS=".$extArhgos->getValueString()."\n");
-}
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 var client = FhirTestUtils.CreateClient();
@@ -183,30 +154,15 @@ foreach (var be in bundle.Entry)
 
 #### <a id="42-header"></a>4.2) Rechercher par date de mise à jour (_lastUpdated)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les EML mise à jour depuis une certaine date.
+**Récit utilisateur :** 
+*En tant que client de l'API, je souhaite rechercher tous les équipements mis à jour depuis une date donnée.
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?_lastUpdated=ge2022-08-07 #Les Device ayant été mis à jour depuis le 07/08/2022 inclus
-
-
+GET [base]/Device?_lastUpdated=ge2022-08-07 
+# Récupère tous les Practitioners mis à jour à partir du 07 août 2022 (inclus) jusqu'à aujourd'hui
 ```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=002-3401015 AuthorizationARHGOS=32-31-1156
-  Device found: id=002-3122325 AuthorizationARHGOS=93-93-4364
-  Device found: id=002-3122046 AuthorizationARHGOS=93-93-67204
-
-
-```
-
 <br />
 
 **Exemples de code :**
@@ -237,20 +193,6 @@ for (var deviceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    $extArhgos = getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS", $device->getExtension());
-    echo("Device found: id=".$device->getId()." AuthorizationARHGOS=".$extArhgos->getValueString()."\n");
-}
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 
@@ -276,28 +218,18 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="43-header"></a>4.3) Rechercher un matériel par son numéro ARHGOS (number-authorization-arhgos)
+#### <a id="43-header"></a>4.3) Rechercher un matériel par rapport à un identifiant (_id, identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?number-authorization-arhgos=93-93-67204 #Les device ayant le numéro ARHGOS = 93-93-67204
+GET [base]/Device?identifier=93-93-67204
+# Rechercher les équipements en fonction de son numéro ARHGOS 93-93-67204
 
-
-```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-    Device found: id=002-3122046 type=05602
-
+GET [base]/Device?_id=002-4247117
+# Rechercher les équipements en fonction de l'ID technique de la ressource
 
 ```
 <br />
@@ -327,19 +259,6 @@ for (var deviceEntry : bundle.getEntry()) {
     // print Organization ids:
     var device = (Device) deviceEntry.getResource();
     logger.info("Device found: id={} type={}", device.getIdElement().getIdPart(), device.getType().getCodingFirstRep().getCode());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device?number-authorization-arhgos=93-93-67204');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    echo("Device found: id=".$device->getId()." type=".$device->getType()->getCoding()[0]->getCode()."\n");
 }
 {% endhighlight %}
 </div>
@@ -379,25 +298,11 @@ Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602 #Critère de recherche sur le type EML
+GET [base]/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602 
+# Rechercher les équipements en fonction du type d'équipement. L'exemple pris est de rechercher les scanographes - code 05602.
 
 
 ```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Device found: id=002-3405555 | type=05602
-  Device found: id=002-3405559 | type=05602
-  Device found: id=002-3405562 | type=05602
-
-  
-```
-
 <br />
 
 **Exemples de code :**
@@ -429,20 +334,6 @@ for (var deviceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    echo("Device found: id=".$device->getId()." type=".$device->getType()->getCoding()[0]->getCode()."\n");
-}
-
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 // create the client:
@@ -465,33 +356,6 @@ foreach (var be in bundle.Entry)
 
 <br />
 
-
-#### <a id="45-header"></a>4.5) Rechercher par son identifiant (identifier)
-
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son identifiant.
-
-**Exemples de requêtes :**
-
-```sh
-GET [base]/Device?v2/identifier=32-31-1156%2C93-93-4364 #Critère de recherche sur l'identifiant
-
-
-```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-    Device found: id=32-31-1156
-
-  
-```
-
-<br />
   
 **Exemples de code :**
 
@@ -521,19 +385,6 @@ for (var deviceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device?identifier=32-31-1156%2C93-93-4364');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    echo("Device found: id=".$device->getId()."\n");
-}
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 // create the client:
@@ -557,28 +408,16 @@ foreach (var be in bundle.Entry)
 
 #### <a id="46-header"></a>4.6) Rechercher par statut (status)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les EML actifs.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les équipements en fonction de leur statut.
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?status=active #actif
-GET [base]/Device?status=inactive #inactif
+GET [base]/Device?status=active 
+# Rechercher les équipement dont le statut est actif
 
-
-```
-<br />
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-    Device found: id=device-147 | status=Active
-    Device found: id=device-389 | status=Active
-    Device found: id=device-146 | status=Active
-
+GET [base]/Device?status=inactive
+# Rechercher les équipement dont le statut est inactif
 
 ```
 <br />
@@ -608,19 +447,6 @@ for (var deviceEntry : bundle.getEntry()) {
     // print Device data
     var device = (Device) deviceEntry.getResource();
     logger.info("Device found: id={} | status={}", device.getIdElement().getIdPart(), device.getStatus().getDisplay());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/Device?status=active');
-/** @var  $devices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$devices = $parser->parse((string) $response->getBody());
-foreach($devices->getEntry() as $entry){
-    /** @var  $device  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRDevice */
-    $device = $entry->getResource();
-
-    echo("Device found: id=".$device->getId()." | status=".$device->getStatus()->getValue()."\n");
 }
 {% endhighlight %}
 </div>

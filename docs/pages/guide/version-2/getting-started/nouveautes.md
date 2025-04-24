@@ -7,7 +7,7 @@ subTitle: Nouvelle API V2
 <div class="wysiwyg" markdown="1">
 - [Un aperçu des changements sur l'API FHIR V2](#one-header)
 - [Est-ce-que les 2 versions sont disponibles ?](#two-header)
-- [Les nouveautés sur chaque ressource](#three-header)
+- [Les nouveautés sur chaque ressource](#four-header)
 </div>
 &nbsp;
 
@@ -30,7 +30,26 @@ A noter que:
 
 &nbsp;
 
-## <a id="three-header"></a>3) Les nouveautés sur chaque ressource
+## <a id="three-header"></a>3) Existe-il un risque sur la migration entre la V1 et la V2?
+La migration entre l'API FHIR V1 et V2 est relativement simple avec une URL de l'API. La documentation de prise en main explique
+<div class="wysiwyg" markdown="1">
+- Si vous souhaitez continuer l’API FHIR V1, l’url reste inchangée :  https://gateway.api.esante.gouv.fr/fhir (ou https://gateway.api.esante.gouv.fr/fhir/v1)
+- Si vous souhaitez utiliser l’url de l’API FHIR V2 : l’url sera:  https://gateway.api.esante.gouv.fr/fhir/v2
+</div>
+Une alerte pour les consommateurs qui souhaitent utiliser l'API FHIR V2 :
+<div class="wysiwyg" markdown="1">
+- Les ID techniques des ressources seront identiques pour les ressources Organization, HealthcareService et Device
+- A l'inverse, un changement est apporté sur les ressources Practitioner et PractitionerRole entre la V1 et la V2 : la correspondance des ID techniques entre la V1 et la V2 sur ces 2 ressources ne seront pas identiques (suite à une modélisation trop différente dans le guide d’implémentation) 
+</div>
+
+Nous avons pu aussi constater que certains consommateurs peuvent conserver les ID techniques dans leurs requêtes :
+<div class="wysiwyg" markdown="1">
+-	Si ces consommateurs stockent ces ID techniques, il peut y avoir ce risque entre la V1 et la V2. Il est recommandé d'utiliser les identifiants métiers (ex: identifier) sur les ressources. 
+-	A noter qu’Il n'y avait pas d'identifiant métier sur le PractitionerRole dans l’API FHIR V1. Dans l’API FHIR V2, l’attribut identifier (identifiant métier) a été ajouté sur la ressource PractitionerRole.
+</div>
+
+
+## <a id="four-header"></a>3) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
 Quelles sont les nouveautés globalement sur cette nouvelle version :
 - Revue sur le format de réponse du Capability Statement (metadata)

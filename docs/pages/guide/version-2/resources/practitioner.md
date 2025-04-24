@@ -176,7 +176,7 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 </div> </div> <br />
 
-#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
+#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier ou _id)
 
 **Contexte :** 
 En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
@@ -184,9 +184,11 @@ En tant que client de l'API, je souhaite vérifier l'identité d'un professionne
 **Requête :**
 
 ```sh
-`GET [base]/Practitioner?identifier=10001234567`
+GET [base]/Practitioner?identifier=10001234567
 # récupère le Practitioner par rapport à l'identifiant RPPS du professionnel
 
+GET [base]/Practitioner?_id=003-32783-88722
+# récupère le Practitioner par rapport à son identifiant technique
 ```
 
 **Exemples de code :**

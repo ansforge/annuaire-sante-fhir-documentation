@@ -5,7 +5,7 @@ subTitle: Ressources
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Description métier](#one-header)
+- [Présentation de la ressource](#one-header)
 - [Caractéristiques techniques](#two-header)
 - [Paramètres de recherche](#three-header)
 - [Recherche sur critères](#four-header)
@@ -17,7 +17,7 @@ subTitle: Ressources
 </div>
 <br />
 
-## <a id="one-header"></a>1) Description métier de la ressource
+## <a id="one-header"></a>1) Présentation de la ressource
 
 Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soin](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
