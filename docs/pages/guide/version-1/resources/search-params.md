@@ -4,7 +4,7 @@ title: Paramètres de recherche
 subTitle: Ressources
 ---
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la [version 2 de l'API FHIR Annuaire Santé](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/introduction.html).
+Cette documentation se rapporte à l'API FHIR V1, qui sera bientôt dépréciée. Nous vous encourageons à passer à l'API FHIR V2 de l'Annuaire Santé.
 </p>
 
 *Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.html>*

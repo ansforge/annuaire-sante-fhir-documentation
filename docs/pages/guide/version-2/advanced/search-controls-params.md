@@ -5,15 +5,11 @@ subTitle: Ressources
 ---
 
 <div class="wysiwyg" markdown="1">
-
-[Modificateurs des résultats de recherche](#0-header)
 - [Paramètre _count](#1-header)
 - [Paramètre _total](#2-header)
 - [Paramètre _include](#3-header)
 - [Paramètre _revinclude](#4-header)
 - [Paramètre _elements](#5-header)
-
-
 </div>
 <br />
 
@@ -23,20 +19,20 @@ subTitle: Ressources
 Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
 
-### <a id="1-header"></a>1) Paramètre ["_count"](https://www.hl7.org/fhir/search.html#count) 
+### <a id="1-header"></a>1) Paramètre [_count](https://www.hl7.org/fhir/search.html#count) 
 
 Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
 
 **Requête:**
 
 ```sh
-`GET [base]/Device?_count=10`
+GET [base]/Device?_count=10
 ```
 
 &nbsp;
 
 
-### <a id="2-header"></a>2) Paramètre ["_total"](https://www.hl7.org/fhir/search.html#total) 
+### <a id="2-header"></a>2) Paramètre [_total](https://www.hl7.org/fhir/search.html#total) 
 
 Ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche. Ce paramètre peut prendre 3 valeurs :
 <div class="wysiwyg" markdown="1">
@@ -56,7 +52,7 @@ GET [base]/Device?_total=none
 <p>Par défaut, l'affichage (ou non) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».</p>
 
-### <a id="3-header"></a>3) Paramètre ["include"](https://www.hl7.org/fhir/search.html#_include) 
+### <a id="3-header"></a>3) Paramètre [include](https://www.hl7.org/fhir/search.html#_include) 
 
 Le paramètre **_include** permet d’afficher dans le résultat les ressources mères liées à la ressource fille. Les ressources mères sont récupérées à partir de la ressource fille. 
 
@@ -68,7 +64,7 @@ GET [base]/PractitionerRole?_include=PractitionerRole:organization
 # Récupère les PractitionerRole ainsi que les organisations liées à ces PractitionerRole
 ``` 
 
-#### <a id="4-header"></a>4) Paramètre ["revinclude"](https://www.hl7.org/fhir/search.html#_revinclude) 
+#### <a id="4-header"></a>4) Paramètre [revinclude](https://www.hl7.org/fhir/search.html#_revinclude) 
 
 Le paramètre **_revinclude** permet d’afficher dans le résultat les ressources filles liées à la ressource mère. Les ressources filles sont récupérées à partir de la ressource mère. 
 
@@ -81,7 +77,7 @@ GET [base]/Organization?_revinclude=Organization:partof
 ```
 
 
-### <a id="5-header"></a>5) Paramètre ["_elements"](https://hl7.org/fhir/search.html#_elements) 
+### <a id="5-header"></a>5) Paramètre [_elements](https://hl7.org/fhir/search.html#_elements) 
 
 Le paramètre **_elements** permet de préciser la liste d’attributs qui doit être retournée avec la ressource.  
 
