@@ -92,98 +92,98 @@ header:
       - page: BAL MSSanté
         url: /pages/guide/version-1/use-case/bal-mss/uc-bal-mss.html
         title: BAL MSSanté
-      # - page: Version 2
-      #   url: /pages/guide/version-2/getting-started/introduction.html
-      #   title: Version 2
-      #   next-url: /pages/guide/version-2/getting-started/get-api-key.html
-      #   next-title: Obtenir une clé API
-      #   subfolderitems:
-      #     - page: Démarrage rapide
-      #       url: /pages/guide/version-2/getting-started/introduction.html
-      #       title: Démarrage rapide
-      #       next-url: /pages/guide/version-2/getting-started/get-api-key.html
-      #       next-title: Obtenir une clé API
-      #       subfolderitems:
-      #         - page: Introduction
-      #           url: /pages/guide/version-2/getting-started/introduction.html
-      #           title: Introduction
-      #           next-url: /pages/guide/version-2/getting-started/nouveautes.html
-      #           next-title: Nouveautés
-      #         - page: Les nouveautés de cette API V2
-      #           url: /pages/guide/version-2/getting-started/nouveautes.html
-      #           title: Nouveautés
-      #           next-url: /pages/guide/version-2/getting-started/get-api-key.html
-      #           next-title: Obtenir une clé API
-      #         - page: Obtenir une clé API
-      #           url: /pages/guide/version-2/getting-started/get-api-key.html
-      #           title: Obtenir une clé API
-      #           next-url: /pages/guide/version-2/getting-started/test-api.html
-      #           next-title: Tester l'API
-      #         - page: Tester l'API
-      #           url: /pages/guide/version-2/getting-started/test-api.html
-      #           title: Tester l'API
-      #           next-url: /pages/guide/version-2/getting-started/api-basics.html
-      #           next-title: Bases de l'API
-      #         - page: Bases de l'API
-      #           url: /pages/guide/version-2/getting-started/api-basics.html
-      #           title: Bases de l'API 
-          # - page: Intégration FHIR
-          #   url: /pages/guide/version-2/integration-fhir/integration-java.html
-          #   title: Intégration FHIR
-          #   subfolderitems:
-          #     - page: Utilisation de Java
-          #       url: /pages/guide/version-2/integration-fhir/integration-java.html
-          #       title: Utilisation de Java
-          #     - page: Utilisation de C#
-          #       url: /pages/guide/version-2/integration-fhir/integration-dotnet.html
-          #       title: Utilisation de C#
-          #     - page: Utilisation de Python
-          #       url: /pages/guide/version-2/integration-fhir/integration-python.html
-          #       title: Utilisation de Python
-          # - page: Ressources
-          #   url: /pages/guide/version-2/resources/practitioner.html
-          #   title: Ressources
-          #   subfolderitems:
-          #     - page: Practitioner
-          #       url: /pages/guide/version-2/resources/practitioner.html
-          #       title: Practitioner
-          #     - page: PractitionerRole
-          #       url: /pages/guide/version-2/resources/practitioner-role.html
-          #       title: PractitionerRole
-          #     - page: Organization
-          #       url: /pages/guide/version-2/resources/organization.html
-          #       title: Organization
-          #     - page: HealthcareService
-          #       url: /pages/guide/version-2/resources/healthcare-service.html
-          #       title: HealthcareService
-          #     - page: Device
-          #       url: /pages/guide/version-2/resources/device.html
-          #       title: Device
-          #     - page: SearchParameter
-          #       url: /pages/guide/version-2/resources/search-params.html
-          #       title: SearchParameter
-          # - page: Ressources
-          #   url: /pages/guide/version-2/resources/practitioner.html
-          #   title: Ressources
-          #   subfolderitems:
-          #     - page: Practitioner
-          #       url: /pages/guide/version-2/resources/practitioner.html
-          #       title: Practitioner
-          #     - page: PractitionerRole
-          #       url: /pages/guide/version-2/resources/practitioner-role.html
-          #       title: PractitionerRole
-          #     - page: Organization
-          #       url: /pages/guide/version-2/resources/organization.html
-          #       title: Organization
-          #     - page: HealthcareService
-          #       url: /pages/guide/version-2/resources/healthcare-service.html
-          #       title: HealthcareService
-          #     - page: Device
-          #       url: /pages/guide/version-2/resources/device.html
-          #       title: Device
-          #     - page: SearchParameter
-          #       url: /pages/guide/version-2/resources/search-params.html
-          #       title: SearchParameter
+      - page: Version 2
+        url: /pages/guide/version-2/getting-started/introduction.html
+        title: Version 2
+        next-url: /pages/guide/version-2/getting-started/get-api-key.html
+        next-title: Obtenir une clé API
+        subfolderitems:
+          - page: Démarrage rapide
+            url: /pages/guide/version-2/getting-started/introduction.html
+            title: Démarrage rapide
+            next-url: /pages/guide/version-2/getting-started/get-api-key.html
+            next-title: Obtenir une clé API
+            subfolderitems:
+              - page: Introduction
+                url: /pages/guide/version-2/getting-started/introduction.html
+                title: Introduction
+                next-url: /pages/guide/version-2/getting-started/nouveautes.html
+                next-title: Nouveautés
+              - page: Les nouveautés de cette API V2
+                url: /pages/guide/version-2/getting-started/nouveautes.html
+                title: Nouveautés
+                next-url: /pages/guide/version-2/getting-started/get-api-key.html
+                next-title: Obtenir une clé API
+              - page: Obtenir une clé API
+                url: /pages/guide/version-2/getting-started/get-api-key.html
+                title: Obtenir une clé API
+                next-url: /pages/guide/version-2/getting-started/test-api.html
+                next-title: Tester l'API
+              - page: Tester l'API
+                url: /pages/guide/version-2/getting-started/test-api.html
+                title: Tester l'API
+                next-url: /pages/guide/version-2/getting-started/api-basics.html
+                next-title: Bases de l'API
+              - page: Bases de l'API
+                url: /pages/guide/version-2/getting-started/api-basics.html
+                title: Bases de l'API 
+          - page: Intégration FHIR
+            url: /pages/guide/version-2/integration-fhir/integration-java.html
+            title: Intégration FHIR
+            subfolderitems:
+              - page: Utilisation de Java
+                url: /pages/guide/version-2/integration-fhir/integration-java.html
+                title: Utilisation de Java
+              - page: Utilisation de C#
+                url: /pages/guide/version-2/integration-fhir/integration-dotnet.html
+                title: Utilisation de C#
+              - page: Utilisation de Python
+                url: /pages/guide/version-2/integration-fhir/integration-python.html
+                title: Utilisation de Python
+          - page: Ressources
+            url: /pages/guide/version-2/resources/practitioner.html
+            title: Ressources
+            subfolderitems:
+              - page: Practitioner
+                url: /pages/guide/version-2/resources/practitioner.html
+                title: Practitioner
+              - page: PractitionerRole
+                url: /pages/guide/version-2/resources/practitioner-role.html
+                title: PractitionerRole
+              - page: Organization
+                url: /pages/guide/version-2/resources/organization.html
+                title: Organization
+              - page: HealthcareService
+                url: /pages/guide/version-2/resources/healthcare-service.html
+                title: HealthcareService
+              - page: Device
+                url: /pages/guide/version-2/resources/device.html
+                title: Device
+              - page: SearchParameter
+                url: /pages/guide/version-2/resources/search-params.html
+                title: SearchParameter
+          - page: Ressources
+            url: /pages/guide/version-2/resources/practitioner.html
+            title: Ressources
+            subfolderitems:
+              - page: Practitioner
+                url: /pages/guide/version-2/resources/practitioner.html
+                title: Practitioner
+              - page: PractitionerRole
+                url: /pages/guide/version-2/resources/practitioner-role.html
+                title: PractitionerRole
+              - page: Organization
+                url: /pages/guide/version-2/resources/organization.html
+                title: Organization
+              - page: HealthcareService
+                url: /pages/guide/version-2/resources/healthcare-service.html
+                title: HealthcareService
+              - page: Device
+                url: /pages/guide/version-2/resources/device.html
+                title: Device
+              - page: SearchParameter
+                url: /pages/guide/version-2/resources/search-params.html
+                title: SearchParameter
   - title: Changelog
     url: /pages/changelog/changelog.html
   - title: Liens externes
