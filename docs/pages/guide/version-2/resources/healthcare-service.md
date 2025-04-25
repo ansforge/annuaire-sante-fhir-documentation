@@ -19,11 +19,11 @@ subTitle: Ressources
 
 ## <a id="one-header"></a>1) Présentation de la ressource
 
-Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soin](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
+Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soins](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
 <div class="wysiwyg" markdown="1">
-* HealthcareService-SocialEquipment pour les équipements sociaux : date d'autorisation, date de première installation, code de discipline d'équipement, clientèle prise en charge, type d'activité.
-* HealthcareService-HealthCareActivity pour les activités de soin : type et code d'activité de soin, numéro d'autorisation ARGHOS, prériode de validité d'autorisation, indicateur de suppression sur implantation, code de modalité, code de forme.
+* HealthcareService-SocialEquipment pour les équipements sociaux : identifiant ARHGOS, date d'autoriXXXXXXXXXXXXXXXXXXXXX
+* HealthcareService-HealthCareActivity pour les activités de soin : identifiant ARHGOS, date d'autorisation, période d'autorisation, active, modalité, forme, type
 </div>
 <br />
 
