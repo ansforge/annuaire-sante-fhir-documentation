@@ -168,12 +168,15 @@ header:
                 url: /pages/guide/version-2/resources/search-params.html
                 title: SearchParameter
           - page: Techniques avancées
-            url: /pages/guide/version-1/advanced/link.html
+            url: /pages/guide/version-2/advanced/search-params.html
             title: Techniques avancées
             subfolderitems:
-              - page: Lier plusieurs ressources
-                url: /pages/guide/version-1/advanced/link.html
-                title: Lier plusieurs ressources
+              - page: Search Parameters
+                url: /pages/guide/version-2/advanced/search-params.html
+                title: Search Parameters
+              - page: Search Control Parameters
+                url: /pages/guide/version-2/advanced/search-controls-params.html
+                title: Search Control Parameters
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
