@@ -22,7 +22,7 @@ subTitle: Ressources
 Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soins](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
 <div class="wysiwyg" markdown="1">
-* HealthcareService-SocialEquipment pour les équipements sociaux : identifiant ARHGOS, date d'autoriXXXXXXXXXXXXXXXXXXXXX
+* HealthcareService-SocialEquipment pour les équipements sociaux : identifiant ARHGOS, date d'autorisation, date de première installation, active, référence à l'organisation, type d'équipement social, clientèle
 * HealthcareService-HealthCareActivity pour les activités de soin : identifiant ARHGOS, date d'autorisation, période d'autorisation, active, modalité, forme, type
 </div>
 <br />
@@ -62,7 +62,7 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
-<p>_count, _include, _revinclude</p>
+<p>_count, _include</p>
 </td>
 </tr>
 </tbody>
@@ -93,35 +93,34 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 Voici des exemples de requêtes sur les activités de soin et les équipements sociaux.
 
 
-## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
+## <a id="41-header"></a>4.1) Rechercher tout
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des services de soin.
+**Récit utilisateur :** 
+En tant que client de l'API, je souhaite récupérer l'ensemble des activités de soins et les équipements sociaux. On utilise ici le _profile pour récupérer exclusivement les activités de soins ou les équipements sociaux.
 
 **Exemples de requêtes :**
 
 ```sh
 GET [base]/HealthcareService
-#récupère l'ensemble des HealthcareServices (incluant les actives et les inactives)
-GET [base]/HealthcareService?_include=HealthcareService:organization #inclure les Organization qui sont référencées par les HealthcareService (HealthcareService + Organization)
-GET [base]/HealthcareService?_include=* #inclure toutes les ressources qui sont référencées par les HealthcareService 
+#récupère l'ensemble des HealthcareServices - activités de soins et équipements sociaux (actives et inactives)
+
+GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%2Ffhir%2Fannuaire%2FStructureDefinition%2Fas-dp-healthcareservice-social-equipment
+# récupère l'ensemble des équipements sociaux (actives et inactives)
+
+GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%2Ffhir%2Fannuaire%2FStructureDefinition%2Fas-dp-healthcareservice-healthcare-activity
+# récupère l'ensemble des équipements sociaux (actives et inactives)
+
+
+GET [base]/HealthcareService?_include=HealthcareService:organization 
+# inclure les Organization qui sont référencées par les HealthcareService (HealthcareService + Organization)
+
+GET [base]/HealthcareService?_include=* 
+# inclure toutes les ressources qui sont référencées par les HealthcareService 
 
 
 ```
 <br />
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=52-52-49883
-  Healthcare Service found: id=53-53-64147
-  Healthcare Service found: id=76-91-59118
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -145,19 +144,6 @@ logger.info("Healthcare Service found: id={}", healthcareService.getIdElement().
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/HealthcareService');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
-
-    echo("Healthcare Service found: id=".$healthcareService->getId()."\n");
-}
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 // create the client:
@@ -178,27 +164,20 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier)
+#### <a id="42-header"></a>4.2) Rechercher par identifiant (_id ou identifier)
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
 
 **Requête :**
 
+```sh
 `GET [base]/HealthcareService?identifier=52-52-49883`
+# récupère le HealthcareService en fonction de son identifiant métier
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Healthcare Service found: id=52-52-49883
-
+`GET [base]/HealthcareService?_id=004-1014485-03
+# récupère le HealthcareService en fonction de son identifiant technique
 
 ```
-
-<br />
 
 **Exemples de code :**
 
@@ -224,19 +203,6 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 // print HealthcareService data:
 var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
 logger.info("Healthcare Service found: id={}", healthcareService.getIdentifierFirstRep().getValue());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/HealthcareService?identifier=52-52-49883');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
-
-    echo("Healthcare Service found: id=".$healthcareService->getId()."\n");
 }
 {% endhighlight %}
 </div>
@@ -284,18 +250,6 @@ GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FN
 ```
 <br />
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=04-04-62678 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
-  Healthcare Service found: id=53-53-50060 | characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite|07
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -330,21 +284,7 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 }
 {% endhighlight %}
 </div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
 
-    $characteristic = $healthcareService->getCharacteristic()[0]->getCoding()[0]->getSystem() . '|' . $healthcareService->getCharacteristic()[0]->getCoding()[0]->getCode();
-    echo("Healthcare Service found: id=".$healthcareService->getId()." | characteristic=". $characteristic ."\n");
-}
-
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="C#">
 {% highlight csharp %}
 // create the client:
@@ -384,20 +324,6 @@ GET [base]/HealthcareService?active=false #inactif
 ```
 <br />
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Healthcare Service found: id=hcs-hcs-413 | status=true
-  Healthcare Service found: id=hcs-hcs-655 | status=true
-  Healthcare Service found: id=hcs-hcs-897 | status=true
-  Healthcare Service found: id=hcs-hcs-412 | status=true
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -423,19 +349,6 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 // print HealthcareService data:
 var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
 logger.info("Healthcare Service found: id={} | status={}", healthcareService.getIdElement().getIdPart(), healthcareService.getActive());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/HealthcareService?active=true');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
-
-    echo("Healthcare Service found: id=".$healthcareService->getId()." | status=". $healthcareService->getActive() ."\n");
 }
 {% endhighlight %}
 </div>
@@ -474,19 +387,6 @@ GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 #Les HealthcareService ay
 ```
 <br />
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  HealthcarService found: id=004-1014038 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-  HealthcarService found: id=004-1014044 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-  HealthcarService found: id=004-1014050 lastUpdate=Tue Sep 06 03:21:02 CEST 2022
-
-
-```
-<br />
 
 **Exemples de code :**
 
@@ -514,18 +414,6 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
     var healthcareService = (HealthcareService) healthcareServiceEntry.getResource();
     // print update date & id :
     logger.info("HealthcarService found: id={} lastUpdate={}", healthcareService.getIdElement().getIdPart(), healthcareService.getMeta().getLastUpdated());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="PHP">
-{% highlight php %}
-$response = $client->request('GET', '/fhir/v2/HealthcareService?_lastUpdated=ge2022-08-18');
-/** @var  $healthcareServices  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRBundle*/
-$healthcareServices = $parser->parse((string) $response->getBody());
-foreach($healthcareServices->getEntry() as $entry){
-    /** @var  $healthcareService  \DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRHealthcareService */
-    $healthcareService = $entry->getResource();
-    echo("Healthcare Service found: id=".$healthcareService->getId()." lastUpdate=". $healthcareService->getMeta()->getLastUpdated() ."\n");
 }
 {% endhighlight %}
 </div>
