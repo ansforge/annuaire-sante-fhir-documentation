@@ -15,12 +15,6 @@ subTitle: Ressources
 - [Paramètres combinés](#seven-header)
   - [Paramètre ET](#71-header)
   - [Paramètre OU](#72-header)
-- [Paramètres des résultats](#eight-header)
-  - [Paramètre _count](#81-header)
-  - [Paramètre _total](#82-header)
-  - [Paramètre _include](#83-header)
-  - [Paramètre _revinclude](#84-header)
-  - [Paramètre _elements](#85-header)
 
 </div>
 <br />
@@ -43,7 +37,6 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 **Requête :**
 
 `GET [base]/Organization?name=Renard`
-
 
 **Exemples de code :**  
 
@@ -156,7 +149,6 @@ foreach (var be in bundle.Entry)
 
 `GET [base]/Organization?name%3Aexact=Gautier%20EURL`
 
-
 **Exemples de code :**
 
 <div class="code-sample">
@@ -215,7 +207,6 @@ Le serveur supporte la recherche par code, par système ou par les deux.
 **Requête :**
 
 `GET [base]/Organization?identifier=org-org-148`
-
 
 **Exemples de code :**
 
@@ -365,7 +356,6 @@ Ce cumul se fait de manière inclusive ou alternative.
 **Requête :**
 
 `GET [base]/Organization?name%3Acontains=Renard&name%3Acontains=et`
-
 
 
 **Exemples de code:**
@@ -592,6 +582,3 @@ A noter que la réponse contient également une meta.tag valeur de SUBSETTED pou
 ```
 
 &nbsp;
-
-{% include_relative _source-ref.md %}
-
