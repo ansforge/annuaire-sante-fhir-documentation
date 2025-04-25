@@ -47,7 +47,7 @@ Ce paramètre indique le nombre total d'éléments (ressources) qui corresponden
 
 ```sh
 GET [base]/Device?_total=none
-
+# Récupère les Device sans avoir le total affiché
 ```
 <p>Par défaut, l'affichage (ou non) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».</p>
@@ -63,6 +63,7 @@ Le paramètre **_include** permet d’afficher dans le résultat les ressources 
 GET [base]/PractitionerRole?_include=PractitionerRole:organization
 # Récupère les PractitionerRole ainsi que les organisations liées à ces PractitionerRole
 ``` 
+&nbsp;
 
 #### <a id="4-header"></a>4) Paramètre [revinclude](https://www.hl7.org/fhir/search.html#_revinclude) 
 
@@ -75,7 +76,7 @@ Le paramètre **_revinclude** permet d’afficher dans le résultat les ressourc
 GET [base]/Organization?_revinclude=Organization:partof
 # Récupère les Entités géographiques (EG) et les Entités Juridiques (EJ) de rattachement
 ```
-
+&nbsp;
 
 ### <a id="5-header"></a>5) Paramètre [_elements](https://hl7.org/fhir/search.html#_elements) 
 
@@ -90,7 +91,6 @@ GET [base]/Practitioner?identifier=10001766673&_elements=name
 
 GET [base]/PractitionerRole?_elements=telecom
 # Récupère l'ensemble des PractitionerRole et n'affiche que les informations liées à l'attribut telecom (BAL MSS)
-
 ```
 A noter que la réponse contient également une meta.tag valeur de SUBSETTED pour indiquer que tous les attributs de la ressource ne sont pas inclus.
 

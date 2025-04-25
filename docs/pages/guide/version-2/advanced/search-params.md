@@ -25,8 +25,9 @@ Pour afficher les paramètres de recherche pris en charge par l'API, vous pouvez
 
 **Requête :**
 
-`GET [base]/metadata`
-
+```sh
+GET [base]/metadata
+```
 
 ## <a id="two-header"></a>2) Paramètres de type texte ([string](https://www.hl7.org/fhir/search.html#string))
 
@@ -36,7 +37,9 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 
 **Requête :**
 
+```sh
 `GET [base]/Organization?name=Renard`
+```
 
 **Exemples de code :**  
 
