@@ -225,18 +225,6 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Pr
 
 ```
 
-<br />
-
-#### Trouver le nom, le prénom, la civilité (ou le genre), l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-3) pour accéder à l'exemple.
-
-<br />
-
-#### Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitien en partant de son nom et son prénom d'exercice
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-5) pour accéder à l'exemple.
-
-<br />
-
 
 
 
