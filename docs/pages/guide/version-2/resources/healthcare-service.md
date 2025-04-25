@@ -108,7 +108,7 @@ GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%
 # récupère l'ensemble des équipements sociaux (actives et inactives)
 
 GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%2Ffhir%2Fannuaire%2FStructureDefinition%2Fas-dp-healthcareservice-healthcare-activity
-# récupère l'ensemble des équipements sociaux (actives et inactives)
+# récupère l'ensemble des activités de sooins (actives et inactives)
 
 
 GET [base]/HealthcareService?_include=HealthcareService:organization 
@@ -243,10 +243,10 @@ foreach (var be in bundle.Entry)
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07 #TRE-R276-FormeActivite
-GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11 #TRE-R209-TypeActivite
-
-
+GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07 
+# Rechercher les HealthcareService selon la forme d'activité chirurgie ambulatoire (code: 07)
+GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11 
+# Rechercher les HealthcareService selon le type d'hébergement complet ou internat (code: 11)
 ```
 <br />
 
@@ -312,14 +312,16 @@ foreach (var be in bundle.Entry)
 
 #### <a id="44-header"></a>4.4) Rechercher par statut (active)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les services de santé actifs.
+**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les activités de soins ou les équipements sociaux selon le statut Active
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/HealthcareService?active=true #actif
-GET [base]/HealthcareService?active=false #inactif
+GET [base]/HealthcareService?active=true 
+# Recherche les HealthcareService qui sont actifs
 
+GET [base]/HealthcareService?active=false 
+# Recherche les HealthcareService qui sont inactifs
 
 ```
 <br />

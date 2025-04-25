@@ -3,9 +3,6 @@ layout: menu-version-2
 title: Paramètres de recherche
 subTitle: Ressources
 ---
-<!-- <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la version 2 de l'API FHIR Annuaire Santé.
-</p> -->
 
 *Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.html>*
 
