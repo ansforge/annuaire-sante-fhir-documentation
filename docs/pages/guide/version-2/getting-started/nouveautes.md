@@ -48,14 +48,14 @@ Nous avons pu aussi constater que certains consommateurs peuvent conserver les I
 
 &nbsp;
 
-## <a id="four-header"></a>3) Les nouveautés sur chaque ressource
+## <a id="four-header"></a>4) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
 Quelles sont les nouveautés globalement sur cette nouvelle version :
 - Revue sur le format de réponse du Capability Statement (metadata)
 - Ajout de l'attribut : profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
 - Renommage de l'attribut publication par "listeRouge
-- Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.)
+- Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
 - Suppression de la ressource "Subscription"
 </div>
 Nous allons voir en détail les nouveautés au niveau de chaque ressource:

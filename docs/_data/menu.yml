@@ -94,7 +94,7 @@ header:
                 next-title: Nouveautés
               - page: Les nouveautés de cette API V2
                 url: /pages/guide/version-2/getting-started/nouveautes.html
-                title: Nouveautés
+                title: Nouveautés de l'API
                 next-url: /pages/guide/version-2/getting-started/get-api-key.html
                 next-title: Obtenir une clé API
               - page: Obtenir une clé API

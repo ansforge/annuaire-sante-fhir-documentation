@@ -7,10 +7,6 @@ subTitle: Cas d'utilisation
 Cette documentation se rapporte à l'API FHIR V1, qui sera bientôt dépréciée. Nous vous encourageons à passer à l'API FHIR V2 de l'Annuaire Santé.
 </p>
 
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette partie de la spécification est en cours de construction.
-</p>
-
 Dans ce cas d'utilisation, nous allons aborder la récupération d'éléments à la demande. Nous allons faire une application annuaire qui permet de trouver des structures (organization). 
 
 
@@ -236,12 +232,6 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" \
 
 
 ```
-<br />
-
-#### Trouver l’ensemble des EG d’un EJ
-
-Cliquez [ici](../../../pages/documentation/advanced/link.html#link-head-4) pour accéder à l'exemple.
-<br />
 
 
 
