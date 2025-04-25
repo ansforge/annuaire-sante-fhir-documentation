@@ -142,31 +142,6 @@ header:
               - page: Device
                 url: /pages/guide/version-2/resources/device.html
                 title: Device
-              - page: SearchParameter
-                url: /pages/guide/version-2/resources/search-params.html
-                title: SearchParameter
-          - page: Ressources
-            url: /pages/guide/version-2/resources/practitioner.html
-            title: Ressources
-            subfolderitems:
-              - page: Practitioner
-                url: /pages/guide/version-2/resources/practitioner.html
-                title: Practitioner
-              - page: PractitionerRole
-                url: /pages/guide/version-2/resources/practitioner-role.html
-                title: PractitionerRole
-              - page: Organization
-                url: /pages/guide/version-2/resources/organization.html
-                title: Organization
-              - page: HealthcareService
-                url: /pages/guide/version-2/resources/healthcare-service.html
-                title: HealthcareService
-              - page: Device
-                url: /pages/guide/version-2/resources/device.html
-                title: Device
-              - page: SearchParameter
-                url: /pages/guide/version-2/resources/search-params.html
-                title: SearchParameter
           - page: Techniques avancées
             url: /pages/guide/version-2/advanced/search-params.html
             title: Techniques avancées
