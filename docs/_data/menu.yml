@@ -167,6 +167,13 @@ header:
               - page: SearchParameter
                 url: /pages/guide/version-2/resources/search-params.html
                 title: SearchParameter
+          - page: Techniques avancées
+            url: /pages/guide/version-1/advanced/link.html
+            title: Techniques avancées
+            subfolderitems:
+              - page: Lier plusieurs ressources
+                url: /pages/guide/version-1/advanced/link.html
+                title: Lier plusieurs ressources
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
