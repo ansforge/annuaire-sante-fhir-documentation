@@ -3,14 +3,14 @@ layout: menu-version-1
 title: Liaison entre plusieurs ressources
 subTitle: Techniques avancées
 ---
-<!-- <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la version 2 de l'API FHIR Annuaire Santé.
-</p> -->
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Cette documentation concerne la version 1 de l'API qui sera prochainement décommissionnée. Nous vous invitons à migrer vers la [version 2 de l'API FHIR Annuaire Santé](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/introduction.html).
+</p>
 
 <div class="wysiwyg" markdown="1">
 - [Trouver l'Organization et le Practitioner d'un PractitionerRole](#one-header)
-- [Trouver le nom/prénom d'exercice, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS](#link-head-3)
-- [Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice](#link-head-5)
+- [Trouver le nom/prénom d'exercice, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant RPPS](#link-head-3)
+- [Trouver l'identifiant RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice](#link-head-5)
 - [Trouver l'ensemble des EG d'un EJ](#link-head-4)
 </div>
 <br />
@@ -120,10 +120,10 @@ foreach($practitionerRoles->getEntry() as $entry){
 </div>
 <br />
 
-##  <a id="link-head-3"></a>2) Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant ADELI/RPPS
+##  <a id="link-head-3"></a>2) Trouver le nom, le prénom, la civilité, l'adresse postale et les adresses MSS d'un Practitioner en partant de son identifiant RPPS
 1) Le nom, le prénom, la civilité et les adresses MSS sont récupérables en une seule requête qui retournera plusieurs objets. 
 
-D'une part, le Practitioner sur lequel nous allons pouvoir récupérer le numéro adeli/rpps ainsi que le genre et les mailboxmss. 
+D'une part, le Practitioner sur lequel nous allons pouvoir récupérer le numéro rpps ainsi que le genre et les mailboxmss. 
 
 D'autre part, la liste des PractitionerRole (activités) qui contiendront les noms, les prénoms d'exercice du professionel de santé pour l'activité.
 <div class="code-sample">
@@ -172,7 +172,7 @@ Le résultat retourné est un Bundle contenant l'Organization.
 </div>
 <br />
 
-##  <a id="link-head-5"></a>3) Trouver l'identifiant ADELI/RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice
+##  <a id="link-head-5"></a>3) Trouver l'identifiant RPPS, les BAL MSS, les activités ainsi que les structures d'exercice d'un Practitioner en partant de son nom/prénom d'exercice
 
 L'ensemble des informations sont récupérables en une seule requête qui retournera plusieurs objets. 
 
@@ -225,7 +225,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Pract
 <br/>
 Le résultat retourné est un Bundle contenant l'ensemble des PractitionerRole et des Practitioner associés.
 
-Les Practitioner retournés contienderont les données relatives au professionel à savoir : le numéro RPPS ou ADELI, la civilité, les diplômes et les BAL MSS. 
+Les Practitioner retournés contienderont les données relatives au professionel à savoir : le numéro RPPS, la civilité, les diplômes et les BAL MSS. 
 
 ```json
 Les PractitionerRole :

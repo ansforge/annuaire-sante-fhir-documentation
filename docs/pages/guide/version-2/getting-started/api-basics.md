@@ -54,9 +54,10 @@ Les méthodes PUT et DELETE sont interdites.
 <br />
 
 ### En-têtes (headers)
-<div class="wysiwyg"  markdown="1">
-- ESANTE-API-KEY  
-</div>
+Ajouter dans les headers la clé ESANTE-API-KEY  
+<img src="img/api-basics-headers.png" style="width:80%;">
+
+
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
@@ -93,7 +94,6 @@ Si la recherche échoue, le serveur doit répondre :
 </div>
 
 ```json
-{
 {
   "resourceType": "OperationOutcome",
   "issue": [ {
