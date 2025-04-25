@@ -15,27 +15,72 @@ title: Documentation
         <h3>Démarrage rapide</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[2].subfolderitems %}
-                <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-            {% endfor %}
+            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
+            {% if guides_menu %}
+                {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
+                {% if version_2_menu %}
+                    {% assign quickstart_menu = version_2_menu.subfolderitems | where: "page", "Démarrage rapide" | first %}
+                    {% if quickstart_menu %}
+                        {% for item in quickstart_menu.subfolderitems %}
+                            <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
+                        {% endfor %}
+                    {% else %}
+                        <div>Erreur : Menu "Démarrage rapide" introuvable.</div>
+                    {% endif %}
+                {% else %}
+                    <div>Erreur : Menu "Version 2" introuvable.</div>
+                {% endif %}
+            {% else %}
+                <div>Erreur : Menu principal "Guides" introuvable.</div>
+            {% endif %}
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
         <h3>Ressources FHIR</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[3].subfolderitems %}
-                <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-            {% endfor %}
+            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
+            {% if guides_menu %}
+                {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
+                {% if version_2_menu %}
+                    {% assign resources_menu = version_2_menu.subfolderitems | where: "page", "Ressources" | first %}
+                    {% if resources_menu %}
+                        {% for item in resources_menu.subfolderitems %}
+                            <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
+                        {% endfor %}
+                    {% else %}
+                        <div>Erreur : Menu "Ressources" introuvable.</div>
+                    {% endif %}
+                {% else %}
+                    <div>Erreur : Menu "Version 2" introuvable.</div>
+                {% endif %}
+            {% else %}
+                <div>Erreur : Menu principal "Guides" introuvable.</div>
+            {% endif %}
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
         <h3>Techniques avancées</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[1].subfolderitems[4].subfolderitems %}
-                <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-            {% endfor %}
+            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
+            {% if guides_menu %}
+                {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
+                {% if version_2_menu %}
+                    {% assign advanced_menu = version_2_menu.subfolderitems | where: "page", "Techniques avancées" | first %}
+                    {% if advanced_menu %}
+                        {% for item in advanced_menu.subfolderitems %}
+                            <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
+                        {% endfor %}
+                    {% else %}
+                        <div>Erreur : Menu "Techniques avancées" introuvable.</div>
+                    {% endif %}
+                {% else %}
+                    <div>Erreur : Menu "Version 2" introuvable.</div>
+                {% endif %}
+            {% else %}
+                <div>Erreur : Menu principal "Guides" introuvable.</div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -45,34 +90,13 @@ title: Documentation
         <h3>Cas d'utilisation</h3>
         <hr aria-hidden="true">
         <div>
-            {% for item in site.data.menu.header[2].subfolderitems %}
-                <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="border rounded col p-2 m-1">
-        <h3>Version 2</h3>
-        <hr aria-hidden="true">
-        <div>
-            {% assign guides_menu = site.data.menu.header | where: "title", "Guides" | first %}
-            {% if guides_menu %}
-                {% assign version_2_menu = guides_menu.subfolderitems | where: "page", "Version 2" | first %}
-                {% if version_2_menu %}
-                    {% for item in version_2_menu.subfolderitems %}
-                        <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
-                        {% if item.subfolderitems %}
-                            <ul>
-                                {% for subitem in item.subfolderitems %}
-                                    <li><a href="{{ subitem.url | relative_url }}">{{ subitem.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <div>Erreur : Menu "Version 2" introuvable.</div>
-                {% endif %}
+            {% assign use_cases_menu = site.data.menu.header | where: "title", "Cas d'utilisation" | first %}
+            {% if use_cases_menu %}
+                {% for item in use_cases_menu.subfolderitems %}
+                    <div><a href="{{ item.url | relative_url }}">{{ item.title }}</a></div>
+                {% endfor %}
             {% else %}
-                <div>Erreur : Menu principal "Guides" introuvable.</div>
+                <div>Erreur : Menu "Cas d'utilisation" introuvable.</div>
             {% endif %}
         </div>
     </div>
