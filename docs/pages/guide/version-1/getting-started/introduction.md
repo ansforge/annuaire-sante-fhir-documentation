@@ -5,7 +5,7 @@ subTitle: Démarrage rapide
 ---
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation se rapporte à l'API FHIR V1, qui sera bientôt dépréciée. Nous vous encourageons à passer à l'API FHIR V2 de l'Annuaire Santé.
+L'API FHIR V1 est dépréciée et sera prochainement décommissionnée. Nous vous encourageons à passer sur la version 2 de l'API FHIR.
 </p>
 
 ### Introduction
@@ -26,7 +26,7 @@ Il existe aujourd'hui 5 ressources disponibles sur l'API FHIR Annuaire Santé:
 | PractitionerRole |  Décrit l’exercice professionel et la situation d’exercice - contient les informations décrivant notamment la profession exercée, l’identité d’exercice d’un professionnel, le cadre de son exercice (civil, militaire, etc.) ainsi que les aractéristiques de l’exercice d’un professionnel pendant une période déterminée et dans une structure déterminée  |
 | Organization | Décrit les organismes du domaine sanitaire, médico-social et social |
 | HealthcareService | Décrit les équipements sociaux et activités sanitaires rattachées aux etablisemments FINESS |
-| Device | Décrit les équipements matériels lourds (‘EML’) mis en oeuvre au sein d’établissements. |
+| Device | Décrit les équipements matériels lourds ('EML') mis en oeuvre au sein d’établissements. |
 
 &nbsp;
 

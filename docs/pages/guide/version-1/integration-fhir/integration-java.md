@@ -4,7 +4,7 @@ title: Utilisation de Java
 subTitle: Intégration FHIR
 ---
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Cette documentation se rapporte à l'API FHIR V1, qui sera bientôt dépréciée. Nous vous encourageons à passer à l'API FHIR V2 de l'Annuaire Santé.
+L'API FHIR V1 est dépréciée et sera prochainement décommissionnée. Nous vous encourageons à passer sur la version 2 de l'API FHIR.
 </p>
 
 Ce guide décrit comment intégrer l'API à un projet Java.
