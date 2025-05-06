@@ -15,6 +15,8 @@ subTitle: Ressources
   - [Rechercher par date de mise à jour](#44-header)
   - [Rechercher par type](#45-header)
   - [Rechercher par code postal](#46-header)
+  - [Rechercher par source d'informations](#47-header)
+
 </div>
 <br />
 
@@ -136,7 +138,7 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" {{site.ans.api_url}}/fhir/v2/Org
 var client = FhirTestUtils.createClient();
 var bundle = client.search().forResource(Organization.class).returnBundle(Bundle.class).execute();
 for(var organizationEntry : bundle.getEntry()){
-    // print les IDs des organisations
+// print les IDs des organisations
     var organization = (Organization) organizationEntry.getResource();
     logger.info("Organization found: id={} name={}", organization.getIdElement().getIdPart(), organization.getName());
 }
@@ -403,7 +405,7 @@ En tant que client de l'API, je souhaite rechercher les structures d'un départe
 **Requête :**
 
 ```sh
-GET [base]//Organization?address-postalcode=75016&address-city=PARIS
+GET [base]/Organization?address-postalcode=75016&address-city=PARIS
 # récupère les organisations qui sont dans la commune de Paris et qui ont un code postal 75016
 ```
 <br />
@@ -486,5 +488,21 @@ Console.WriteLine($"Organization found: name={organization.Name} | zipCode={orga
 {% endhighlight %}
 
 </div> </div> <br />
+
+#### <a id="47-header"></a>4.7) Rechercher par source d'informations
+
+**Récit utilisateur :** 
+En tant que client de l'API, je souhaite rechercher les structures par rapport à la source d'informations de la donnée
+
+**Requête :**
+
+```sh
+GET [base]/Organization?data-information-system=RPPS
+# récupère les organisations qui proviennent de la source d'information RPPS
+
+GET [base]/Organization?data-information-system=FINESS
+# récupère les organisations qui proviennent de la source d'information FINESS
+```
+<br />
 
 {% include_relative _source-ref.md %}

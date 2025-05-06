@@ -54,10 +54,11 @@ Quelles sont les nouveautés globalement sur cette nouvelle version :
 - Revue sur le format de réponse du Capability Statement (metadata)
 - Ajout de l'attribut : profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
-- Renommage de l'attribut publication par "listeRouge
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
+- Modification de plusieurs TRE
 - Suppression de la ressource "Subscription"
 </div>
+&nbsp;
 Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 &nbsp;
 
@@ -65,13 +66,13 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 
 | Données       | Ressource Practitioner                                                         |   
 | ---           | ---                                                                            |
-| resource      | Ajout dans le profile le profile: fr-canonical                                 |
+| active        | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant du professionnel (Identifiant national, RPPS) et le champ active  |
+| cps           | Ajout des informations liées aux cartes CPx du Professionnel                   |
 | identifier    | Ajout systématique de l'identifiant national (IDNPS)                           |
 | name          | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex:MME) et le suffixe (ex:DR).)|
 | qualification | Ajout des informations sur la catégorie professionnelle, la profession, la fonction, les savoir-faire et les types de savoir-faire.   |
+| resource      | Ajout dans le profile le profile: fr-canonical                                 |
 | telecom       | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
-| cps           | Ajout des informations liées aux cartes CPx du Professionnel                   |
-| active        | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant du professionnel (Identifiant national, RPPS) et le champ active  |
 
 
 ### Nouveautés sur PractitionerRole
@@ -117,4 +118,3 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | ---                   | ---                           |
 | _elements             | Disponible                    |
 | _has                  | Indisponible                  |
-| subscription          | Indisponble                   |
