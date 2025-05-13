@@ -149,9 +149,9 @@ header:
               - page: Search Parameters
                 url: /pages/guide/version-2/advanced/search-params.html
                 title: Search Parameters
-              - page: Search Control Parameters
-                url: /pages/guide/version-2/advanced/search-controls-params.html
-                title: Search Control Parameters
+              - page: Search Results Parameters
+                url: /pages/guide/version-2/advanced/modifying-search-results.html
+                title: Search Results Parameters
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète

@@ -3,6 +3,7 @@ layout: menu-version-2
 title: Modificateurs des résultats de recherche
 subTitle: Ressources
 ---
+*Lien vers la spécification FHIR : <https://hl7.org/FHIR/search.html#modifyingresults>*
 
 <div class="wysiwyg" markdown="1">
 - [Paramètre _count](#1-header)
@@ -14,19 +15,21 @@ subTitle: Ressources
 <br />
 
   
-## <a id="0-header"></a>Modificateurs des résultats de la recherche
+## Modificateurs des résultats de la recherche
 
-Il s'agit d'un ensemble de paramètres permettant de gérer les résultats retournés par une recherche. 
+Les modificateurs des résultats de recherche (ou Modifying Search Results) correspondent à des paramètres permettant de modifier les résultats affichés par une recherche. 
+
 Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
 
 ### <a id="1-header"></a>1) Paramètre [_count](https://www.hl7.org/fhir/search.html#count) 
 
-Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. Par exemple, _count=10 renvoie un maximum de 10 ressources. La valeur par défaut est 50.
+Il permet de contrôler le nombre maximal de ressources retournées sur une page lorsqu'une réponse de l'API est paginée. La réponse renvoie par défaut 50 éléments (ressources).
 
 **Requête:**
 
 ```sh
 GET [base]/Device?_count=10
+# Renvoie uniquement 10 équipements matériels lourds
 ```
 
 &nbsp;
@@ -34,12 +37,15 @@ GET [base]/Device?_count=10
 
 ### <a id="2-header"></a>2) Paramètre [_total](https://www.hl7.org/fhir/search.html#total) 
 
-Ce paramètre indique le nombre total d'éléments (ressources) qui correspondent aux critères de recherche. Ce paramètre peut prendre 3 valeurs :
+Ce paramètre indique le nombre total d'éléments qui correspondent aux critères de recherche. Ce paramètre peut prendre 3 valeurs :
 <div class="wysiwyg" markdown="1">
 - none : le total n'est pas affiché
 - estimate : le total affiché est une estimation
 - accurate : le total affiché est précis
 </div>
+
+NOTE| Le fait d'intégrer le paramètre _total dans la requête peut prendre du temps de traitement.
+
 
 &nbsp;
 

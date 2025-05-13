@@ -380,7 +380,8 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 - Renseigner le code système concerné
 - Renseigner le code fonctionnel de la valeur souhaité
 </div>
-</br>
+
+<br />
 
 **Exemples de requêtes :**
 
@@ -395,7 +396,7 @@ GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-Se
 # récupère les organisations qui font partie du secteur d'activité SA02
 
 ```
-</br>
+<br />
 
 #### <a id="46-header"></a>4.6) Rechercher par code postal et ville (address-postalcode et address-city)
 
@@ -504,5 +505,20 @@ GET [base]/Organization?data-information-system=FINESS
 # récupère les organisations qui proviennent de la source d'information FINESS
 ```
 <br />
+
+#### <a id="48-header"></a>4.8) Rechercher par source d'informations
+
+**Récit utilisateur :** 
+En tant que client de l'API, je souhaite rechercher les structures par rapport à la raison sociale
+
+**Requête :**
+
+```sh
+GET [base]/Organization?name:contains=MIGNOT
+# récupère les organisations dont la raison sociale contient la valeur MIGNOT
+
+GET [base]/Organization?name:contains=ANDRE&name:contains=MIGNOT
+# récupère les organisations dont la raison sociale contient la valeur ANDRE et la valeur MIGNOT
+```
 
 {% include_relative _source-ref.md %}
