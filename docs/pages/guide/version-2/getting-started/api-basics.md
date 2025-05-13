@@ -91,6 +91,8 @@ Si la recherche échoue, le serveur doit répondre :
 - Un header avec un un code erreur (HTTP 4XX ou 5XX)
 - Un body contenant une ressource [OperationOutcome](https://www.hl7.org/fhir/R4/operationoutcome.html) qui donne les détails sur la raison de l'échec
 - L'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
+- La réponse échoue car la réponse a dépassé le timeout de 30 secondes.
+
 </div>
 
 ```json
