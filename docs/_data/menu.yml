@@ -146,15 +146,22 @@ header:
             url: /pages/guide/version-2/advanced/search-params.html
             title: Techniques avancées
             subfolderitems:
-              - page: 
-                url: /pages/guide/version-2/advanced/data-synchronization.html
-                title: Comment synchroniser les données ?
               - page: Search Parameters
                 url: /pages/guide/version-2/advanced/search-params.html
                 title: Search Parameters
               - page: Search Results Parameters
                 url: /pages/guide/version-2/advanced/modifying-search-results.html
                 title: Search Results Parameters
+          - page: Cas d'utilisation
+            url: /pages/guide/version-2/use-case/data-synchronization.html
+            title: Cas d'utilisation
+            subfolderitems:
+              - page: Appels Full
+                url: /pages/guide/version-2/advanced/full-call.html
+                title: Appels Full
+              - page: Appels Delta
+                url: /pages/guide/version-2/advanced/delta-call.html
+                title: Appels Delta
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète

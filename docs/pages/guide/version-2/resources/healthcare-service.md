@@ -232,7 +232,7 @@ foreach (var be in bundle.Entry)
 
 En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
-**Remarque** : Les codes d'activité sont disponibles dans les référenciels suivants des NOS :
+**Remarque** : Les codes d'activité sont disponibles dans les référentiels suivants des NOS :
 <div class="wysiwyg" markdown="1">
 - [TRE-R276-FormeActivite](https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite)
 - [TRE-R209-TypeActivite](https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite)
