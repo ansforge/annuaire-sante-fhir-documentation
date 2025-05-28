@@ -34,11 +34,11 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
 
 ### Exemples de cas d'utilisation
 
-<div class="row justify-content-center">
-    <div class="border rounded col-md-4 p-2 m-1">
-        <h3 class="text-center">Pour les structures de santé</h3>
+<div class="row">
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les structures de santé</h3>
         <hr aria-hidden="true">
-        <div class="wysiwyg" markdown="1">
+        <div>
             <ul>
                 <li>Récupérer l'identifiant national des professionnels intervenant dans le système de santé</li>
                 <li>Vérifier l'identité (identifiant national, nom, prénom), les qualifications et la situation d’exercice d'un professionnel</li>
@@ -46,22 +46,22 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
             </ul>
         </div>
     </div>
-    <div class="border rounded col-md-4 p-2 m-1">
-        <h3 class="text-center">Pour les porteurs de projets nationaux et régionaux</h3>
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les porteurs de projets nationaux et régionaux</h3>
         <hr aria-hidden="true">
-        <div class="wysiwyg" markdown="1">
+        <div>
             <ul>
                 <li>Spécifier des règles métier en fonctions des données d'identification (qualifications...)</li>
                 <li>Consulter les activités d'un professionnel (comme l’adresse d'exercice) à partir de son identifiant national (par exemple lorsque le professionnel se connecte au service avec sa CPS ou sa e-CPS)</li>
             </ul>
         </div>
     </div>
-    <div class="border rounded col-md-4 p-2 m-1">
-        <h3 class="text-center">Pour les industriels et éditeurs</h3>
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les industriels et éditeurs</h3>
         <hr aria-hidden="true">
-        <div class="wysiwyg" markdown="1">
+        <div>
             <ul>
-                <li>Mettre en œuvre des mécanismes de synchronisation avec un annuaire local</li>
+               <li>Mettre en œuvre des mécanismes de synchronisation avec un annuaire local</li>
                 <li>Récupérer l'identifiant national pour gérer les accès au système d'information</li>
                 <li>Utiliser les identifiants nationaux pour alimenter les métadonnées d’un document structuré</li>
                 <li>Vérifier les numéros RPPS dans les documents <a href="https://github.com/ansforge/TestContenuCDA">#CDA</a></li>
@@ -69,6 +69,7 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
         </div>
     </div>
 </div>
+
 
 &nbsp;
 
