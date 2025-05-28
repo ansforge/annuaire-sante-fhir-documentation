@@ -34,9 +34,9 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
 
 ### Exemples de cas d'utilisation
 
-<div class="row">
-    <div class="border rounded col p-2 m-1">
-        <h3>Pour les structures de santé</h3>
+<div class="row justify-content-center">
+    <div class="border rounded col-md-4 p-2 m-1">
+        <h3 class="text-center">Pour les structures de santé</h3>
         <hr aria-hidden="true">
         <div class="wysiwyg" markdown="1">
             <ul>
@@ -46,8 +46,8 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
-        <h3>Pour les porteurs de projets nationaux et régionaux</h3>
+    <div class="border rounded col-md-4 p-2 m-1">
+        <h3 class="text-center">Pour les porteurs de projets nationaux et régionaux</h3>
         <hr aria-hidden="true">
         <div class="wysiwyg" markdown="1">
             <ul>
@@ -56,8 +56,8 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
-        <h3>Pour les industriels et éditeurs</h3>
+    <div class="border rounded col-md-4 p-2 m-1">
+        <h3 class="text-center">Pour les industriels et éditeurs</h3>
         <hr aria-hidden="true">
         <div class="wysiwyg" markdown="1">
             <ul>
@@ -69,9 +69,6 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
         </div>
     </div>
 </div>
-
-
-
 
 &nbsp;
 

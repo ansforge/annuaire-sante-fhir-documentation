@@ -14,6 +14,8 @@ subTitle: Ressources
   - [Rechercher par prénom et nom d'exercice](#43-header)
   - [Rechercher par statut](#44-header)
   - [Rechercher par date de mise à jour](#45-header)
+  - [Rechercher par profession](#46-header)
+
 </div>
 <br />
 
@@ -538,4 +540,18 @@ foreach (var be in bundle.Entry)
 
 
 {% include_relative _source-ref.md %}
+
+#### <a id="46-header"></a>4.6) Rechercher par profession
+En tant que client de l'API, je souhaite rechercher tous les professionnels dont la profession est Pharmacien
+
+**Requête :**
+
+```sh
+GET [base]/Practitioner?qualification-code=21
+# Récupère tous les professionnels dont la profession est pharmacien (code 21)
+
+GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_G15-ProfessionSante%2FFHIR%2FTRE-G15-ProfessionSante%7C21
+# Récupère tous les professionnels dont la profession est pharmacien en indiquant la TRE (Table de REférence)
+```
+<br />
 
