@@ -146,6 +146,9 @@ header:
             url: /pages/guide/version-2/advanced/search-params.html
             title: Techniques avancées
             subfolderitems:
+              - page: 
+                url: /pages/guide/version-2/advanced/data-synchronization.html
+                title: Comment synchroniser les données ?
               - page: Search Parameters
                 url: /pages/guide/version-2/advanced/search-params.html
                 title: Search Parameters

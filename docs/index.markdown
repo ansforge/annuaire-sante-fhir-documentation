@@ -31,64 +31,45 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
   <img src="./assets/img/home-schema.png" style="width:80%;">
 </p>
 
-<div class="row">
-    <div class="border rounded col p-2 m-1">
-        <h3>Appel FULL</h3>
-        <hr aria-hidden="true">
-        <div>
-            Récupérer l’ensemble des données en libre accès provenant de l’Annuaire Santé
-        </div>
-    </div>
-    <div class="border rounded col p-2 m-1">
-        <h3>Appel Delta</h3>
-        <hr aria-hidden="true">
-        <div>
-            Faciliter la mise à jour de la base de données client via des rafraichissements deltas depuis une date souhaitée.
-        </div>
-    </div>
-    <div class="border rounded col p-2 m-1">
-        <h3>Appel unitaire</h3>
-        <hr aria-hidden="true">
-        <div>
-            Obtenir les informations détaillées d’un professionnel ou d’une structure. Possibilité de récupérer les données selon des critères spécifiques choisis par l’utilisateur (par profession, par département, etc.)
-        </div>
-    </div>
-</div>
 
 ### Exemples de cas d'utilisation
 
-<div class="row"><div class="col-sm" markdown="1">
-
-#### Pour les structures de santé
-
-<div class="wysiwyg"  markdown="1">
-* Récupérer l'identifiant national des professionnels intervenant dans le système de santé,
-* Vérifier l'identité (identifiant national, nom, prénom), les qualifications et la situation d’exercice d'un professionnel,
-* Faciliter la coordination ville-hôpital avec la mise en place d’un annuaire de correspondants.
+<div class="row">
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les structures de santé</h3>
+        <hr aria-hidden="true">
+        <div class="wysiwyg" markdown="1">
+            <ul>
+                <li>Récupérer l'identifiant national des professionnels intervenant dans le système de santé</li>
+                <li>Vérifier l'identité (identifiant national, nom, prénom), les qualifications et la situation d’exercice d'un professionnel</li>
+                <li>Faciliter la coordination ville-hôpital avec la mise en place d’un annuaire de correspondants</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les porteurs de projets nationaux et régionaux</h3>
+        <hr aria-hidden="true">
+        <div class="wysiwyg" markdown="1">
+            <ul>
+                <li>Spécifier des règles métier en fonctions des données d'identification (qualifications...)</li>
+                <li>Consulter les activités d'un professionnel (comme l’adresse d'exercice) à partir de son identifiant national (par exemple lorsque le professionnel se connecte au service avec sa CPS ou sa e-CPS)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Pour les industriels et éditeurs</h3>
+        <hr aria-hidden="true">
+        <div class="wysiwyg" markdown="1">
+            <ul>
+                <li>Mettre en œuvre des mécanismes de synchronisation avec un annuaire local</li>
+                <li>Récupérer l'identifiant national pour gérer les accès au système d'information</li>
+                <li>Utiliser les identifiants nationaux pour alimenter les métadonnées d’un document structuré</li>
+                <li>Vérifier les numéros RPPS dans les documents <a href="https://github.com/ansforge/TestContenuCDA">#CDA</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-</div><div class="col-sm" markdown="1">
-
-#### Pour les porteurs de projets nationaux et régionaux
-
-<div class="wysiwyg" markdown="1">
-* Spécifier des règles métier en fonctions des données d'identification (qualifications...),
-* Consulter les activités d'un professionnel (comme l’adresse d'exercice) à partir de son identifiant national (par exemple lorsque le professionnel se connecte au service avec sa CPS ou sa e-CPS).
-</div>
-
-</div><div class="col-sm" markdown="1">
-
-#### Pour les industriels et éditeurs
-
-<div class="wysiwyg" markdown="1">
-* Mettre en œuvre des mécanismes de synchronisation avec un annuaire local,
-* Récupérer l'identifiant national pour gérer les accès au système d'information,
-* Utiliser les identifiants nationaux pour alimenter les métadonnées d’un document structuré.
-* Vérifier les numéros RPPS dans les documents [#CDA](https://github.com/ansforge/TestContenuCDA)
-</div>
-
-
-</div></div>
 
 
 
