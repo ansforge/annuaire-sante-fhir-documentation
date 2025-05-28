@@ -157,10 +157,10 @@ header:
             title: Cas d'utilisation
             subfolderitems:
               - page: Appels Full
-                url: /pages/guide/version-2/advanced/full-call.html
+                url: /pages/guide/version-2/use-case/full-call.html
                 title: Appels Full
               - page: Appels Delta
-                url: /pages/guide/version-2/advanced/delta-call.html
+                url: /pages/guide/version-2/use-case/delta-call.html
                 title: Appels Delta
   - title: Cas d'utilisation
     subfolderitems:
