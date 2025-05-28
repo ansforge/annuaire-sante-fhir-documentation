@@ -98,7 +98,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation
 
 #### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice des professionnels
+En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice des professionnels
 
 **Requêtes :**
 
@@ -175,7 +175,7 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 
 #### <a id="42-header"></a>4.2) Recherche par identifiant technique (_id)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher une ressource PractitionerRole par son identifiant technique. 
+En tant que client de l'API, je souhaite rechercher une ressource PractitionerRole par son identifiant technique. 
 
 **Requête :**
 
@@ -276,7 +276,7 @@ GET [base]/PractitionerRole?mailbox-mss:contains=apycript.org
 **Requête :**
 
 ```sh
-GET [base]/PractitionerRole??active=true
+GET [base]/PractitionerRole?active=true
 ```
 
 **Exemples de code :**

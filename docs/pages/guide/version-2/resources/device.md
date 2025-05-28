@@ -91,7 +91,6 @@ Voici des exemples de requêtes sur les équipements matériels lourds.
 
 ## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** 
 En tant que client de l'API, je souhaite récupérer l'ensemble des équipements matériels lourds (EML).
 
 **Exemples de requêtes :**
@@ -154,7 +153,6 @@ foreach (var be in bundle.Entry)
 
 #### <a id="42-header"></a>4.2) Rechercher par date de mise à jour (_lastUpdated)
 
-**Récit utilisateur :** 
 *En tant que client de l'API, je souhaite rechercher tous les équipements mis à jour depuis une date donnée.
 
 **Exemples de requêtes :**
@@ -220,7 +218,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="43-header"></a>4.3) Rechercher un matériel par rapport à un identifiant (_id, identifier)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
+En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
 **Exemples de requêtes :**
 
@@ -289,7 +287,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="44-header"></a>4.4) Rechercher par type EML (type)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
+En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
 
 **Remarque :**
 
@@ -299,9 +297,7 @@ Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R
 
 ```sh
 GET [base]/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602 
-# Rechercher les équipements en fonction du type d'équipement. L'exemple pris est de rechercher les scanographes - code 05602.
-
-
+# Rechercher les équipements en fonction du type d'équipement. L'exemple pris est de rechercher les scanographes dont le code métier est 05602.
 ```
 <br />
 
@@ -408,7 +404,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="46-header"></a>4.6) Rechercher par statut (status)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les équipements en fonction de leur statut.
+En tant que client de l'API, je souhaite rechercher les équipements en fonction de leur statut.
 
 **Exemples de requêtes :**
 

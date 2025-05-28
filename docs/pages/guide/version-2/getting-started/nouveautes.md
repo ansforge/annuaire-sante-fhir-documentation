@@ -55,7 +55,8 @@ Quelles sont les nouveautés globalement sur cette nouvelle version :
 - Ajout de l'attribut : profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
-- Modification de plusieurs TRE
+- Modification de plusieurs codes systèmes
+- Modification de plusieurs JDV
 - Suppression de la ressource "Subscription"
 </div>
 &nbsp;

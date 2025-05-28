@@ -48,7 +48,7 @@ Les recherchers de type texte peuvent s'effectuer sur les différentes ressource
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name=Renard"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?name=Renard"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -111,7 +111,7 @@ GET [base]/Organization?name%3Aexact=MIGNOT
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=MIGNOT"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?name%3Acontains=MIGNOT"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -170,7 +170,7 @@ Le serveur supporte la recherche par code, par système ou par les deux.
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?identifier=org-org-148"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?identifier=org-org-148"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -258,7 +258,7 @@ Plusiseurs "précisions" sont supportées : yyyy par année, yyyy-MM-dd par jour
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04" 
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04" 
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -322,7 +322,7 @@ GET [base]/Organization?name:contains=ANDRE&name:contains=MIGNOT
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H# "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=ANDRE&name%3Acontains=MIGNOT"
+curl -H# "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?name%3Acontains=ANDRE&name%3Acontains=MIGNOT"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -382,7 +382,7 @@ GET [base]/Organization?name%3Acontains=ANDRE%2CMIGNOT
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?name%3Acontains=ANDRE%2CMIGNOT"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?name%3Acontains=ANDRE%2CMIGNOT"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
