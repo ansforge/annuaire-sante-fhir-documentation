@@ -95,7 +95,6 @@ Voici des exemples de requêtes sur les activités de soin et les équipements s
 
 ## <a id="41-header"></a>4.1) Rechercher tout
 
-**Récit utilisateur :** 
 En tant que client de l'API, je souhaite récupérer l'ensemble des activités de soins et les équipements sociaux. On utilise ici le _profile pour récupérer exclusivement les activités de soins ou les équipements sociaux.
 
 **Exemples de requêtes :**
@@ -166,7 +165,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="42-header"></a>4.2) Rechercher par identifiant (_id ou identifier)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
+En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
 
 **Requête :**
 
@@ -231,7 +230,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="43-header"></a>4.3) Rechercher par type/forme d'activité (characteristic)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
+En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
 **Remarque** : Les codes d'activité sont disponibles dans les référenciels suivants des NOS :
 <div class="wysiwyg" markdown="1">
@@ -312,7 +311,7 @@ foreach (var be in bundle.Entry)
 
 #### <a id="44-header"></a>4.4) Rechercher par statut (active)
 
-**Récit utilisateur :** En tant que client de l'API, je souhaite rechercher les activités de soins ou les équipements sociaux selon le statut Active
+En tant que client de l'API, je souhaite rechercher les activités de soins ou les équipements sociaux selon le statut Active
 
 **Exemples de requêtes :**
 
@@ -378,14 +377,13 @@ foreach (var be in bundle.Entry)
 
 #### <a id="45-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
 
-**Récit utilisateur** : En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
+En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 #Les HealthcareService ayant été mis à jour depuis le 18/08/2022 inclus
-
-
+GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 
+# Rechercher les HealthcareService qui ont été mis à jour depuis le 18/08/2022 inclus
 ```
 <br />
 

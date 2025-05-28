@@ -97,7 +97,6 @@ Voici des exemples de requêtes sur la recherche de professionnels intervenant d
 
 #### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
 
-**Récit utilisateur :** 
 En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
 
 **Exemples de requêtes :**
@@ -178,7 +177,6 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 #### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier ou _id)
 
-**Contexte :** 
 En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
 
 **Requête :**
@@ -269,7 +267,6 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 #### <a id="43-header"></a>4.3) Rechercher par prénom et nom d'exercice
 
-**Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher tous les professionnels par rapport au prénom et nom d'exercice .
 
 **Requête :**
@@ -362,7 +359,6 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 #### <a id="44-header"></a>4.4) Rechercher par statut (active)
 
-**Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
 **Requête :**

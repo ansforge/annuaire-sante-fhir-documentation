@@ -121,17 +121,7 @@ var practitionerRoles = practitionerRoleBundle.getEntry().stream().map(pre -> pr
 
 Le point important ici est de mettre la clause where sur le paramètre **practitioner** en spécifiant l'id du Practitioner précédemment trouvé. 
 
-Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à ce Practitioner : 
-
-```xml
-Exercices:
-    Exercice 005-71111:
-    Noms/Prénoms d'exercice :[JEAN] MARTIN
-    Spécialités : SM26 S 
-    ...
-
-
-```
+Cela va retourner un résultat de recherche avec tous les PractitionerRole liés à ce Practitioner.
 
 &nbsp;
 

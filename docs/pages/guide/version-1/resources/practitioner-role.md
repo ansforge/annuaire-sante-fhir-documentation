@@ -639,17 +639,8 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [base]/PractitionerRole?practitioner=003-138020`
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=005-109896 practitioner=Practitioner/003-138020
-
-
+```sh
+GET [base]/PractitionerRole?practitioner=003-138020`
 ```
 <br />
 
@@ -720,19 +711,8 @@ foreach (var be in bundle.Entry)
 
 **Requête :**
 
-`GET [base]/PractitionerRole??active=true`
-
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  Practitioner Role found: id=prr-prarole-946 active=true
-  Practitioner Role found: id=prr-prarole-256 active=true
-  Practitioner Role found: id=prr-prarole-899 active=true
-
-
+```sh
+GET [base]/PractitionerRole?active=true
 ```
 <br />
 
