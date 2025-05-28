@@ -31,6 +31,30 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
   <img src="./assets/img/home-schema.png" style="width:80%;">
 </p>
 
+<div class="row">
+    <div class="border rounded col p-2 m-1">
+        <h3>Appel FULL</h3>
+        <hr aria-hidden="true">
+        <div>
+            Récupérer l’ensemble des données en libre accès provenant de l’Annuaire Santé
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Appel Delta</h3>
+        <hr aria-hidden="true">
+        <div>
+            Faciliter la mise à jour de la base de données client via des rafraichissements deltas depuis une date souhaitée.
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Appel unitaire</h3>
+        <hr aria-hidden="true">
+        <div>
+            Obtenir les informations détaillées d’un professionnel ou d’une structure. Possibilité de récupérer les données selon des critères spécifiques choisis par l’utilisateur (par profession, par département, etc.)
+        </div>
+    </div>
+</div>
+
 ### Exemples de cas d'utilisation
 
 <div class="row"><div class="col-sm" markdown="1">
