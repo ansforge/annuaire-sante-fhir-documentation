@@ -5,12 +5,12 @@ subTitle: Cas d'utilisation
 ---
 
 <div class="wysiwyg" markdown="1">
-- [Appels Full - Synchronisation complète](#one-header)*
-- [Appels Full - Récupérer les professionnels et les lieux d'exercices](#two-header)
 - [Appels Full - Synchronisation complète](#one-header)
+- [Comment lier deux ressources ?](#two-header)
+- [Comment récupérer les professionnels et leurs lieux d'exercices ?](#three-header)
 
 </div>
-
+<br />
 
 ### Introduction
 
@@ -50,7 +50,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
 <br />
 
 
-## <a id="one-header"></a>1)Appels Full - Synchronisation complète
+### <a id="one-header"></a>1) Appels Full - Synchronisation complète
 
 Nous allons montrer comment réaliser un appel FULL d'une ressource pour synchroniser votre système local avec les données de l'**Annuaire Santé**. 
 
@@ -67,7 +67,6 @@ GET [base]/Practitioner?qualification-code=10&active=true
 
 GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_G15-ProfessionSante%2FFHIR%2FTRE-G15-ProfessionSante%7C10
 # récupère l'ensemble des professionnels actifs et inactifs dont la profession est médecin (code 10).
-
 ```
 <br />
 
@@ -117,12 +116,161 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
     ]
 }
 ```
+<br />
 
-## <a id="two-header"></a>1)Appels Full - Lier deux ressources
+### <a id="two-header"></a>2) Comment lier deux ressources ?
 
-Nous allons montrer comment réaliser un appel FULL en faisant une liaison entre deux ressources.
+Nous allons montrer comment réaliser un appel FULL en faisant une liaison entre deux ressources. Ci-dessous un schéma sur la modélisation entre les différentes ressources :
 
 <img src="img/modelisation.png" style="width:100%;">
 
+<br />
+Pour réaliser la liaison entre deux ressources, vous devez utiliser les modificateurs de résultats de recherche _include ou_revinclude. Le standard FHIR propose par exemple le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
 
-## <a id="three-header"></a>1)Appels Full - Récupérer les professionnels et les lieux d'exercices
+Le tableau suivant indique le type de modificateurs de résultat de recherche que vous pouvez utiliser sur chaque ressource :
+
+| Ressource         | Paramètres  | Description                       |
+| ---               | ---         | ---                               |
+| Practitioner      | _revinclude | PractitionerRole:practitioner     |
+| PractitionerRole  | _include    | PractitionerRole:practitioner     |
+| PractitionerRole  | _include    | PractitionerRole:organization     |
+| Organization      | _include    | Organization::partof              |
+| Organization      | _revinclude | Device:organization               |
+| Organization      | _revinclude | HealthcareService:organization    |
+| Organization      | _revinclude | PractitionerRole:organization     |
+| Organization      | _include    | Device:organization               |
+| Device            | _include    | Device:organization               |
+| HealthcareService | _include    | HealthcareService:organization    |
+
+Ainsi il est possible de lier:
+<div class="wysiwyg" markdown="1">
+- A partir du Practitioner : lier avec le Practitioner
+- A partir du PractitionerRole: lier avec le Practitioner ou avec l'Organization
+- A partir de l'Organization : lier avec le PractitionerRole, le Device ou le HealthCareService
+- A partir du Device: lier avec l'Organization
+- A partir du HealthCareService : lier avec l'Organization
+</div>
+
+<br />
+Cas d'exemple: pour visualiser les exercices professionnels d'un professionnel et ses activités, il faut lancer le type d'appel suivant :
+
+```sh
+GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner
+# récupère les exercices du professionnels et inclure leurs activités liées
+```
+<br />
+
+<!-- 
+### <a id="three-header"></a>3) Comment récupérer les professionnels et leurs lieux d'exercices ?
+
+
+
+#### Récupération des éléments liés : "Organization" et "Practitioner"
+
+Si cette requête fonctionne, alors la réponse sera un bundle de type fhir qui contiendra à la fois les PractitionerRole comme précédement 
+ainsi que les Practitioner et les Organization liés aux Practitioner de la précédente requête : 
+
+```json
+{
+  "resourceType": "Bundle",
+  "total": 1401,
+  "entry": [
+    {
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/PractitionerRole/prarole-6922",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "prarole-6922",
+        "practitioner": {
+          "reference": "Practitioner/pra-6922"
+        },
+        "organization": {
+          "reference": "Organization/org-6922"
+        },
+        ...
+      }
+    },
+    {
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/Practitioner/pra-6922",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pra-6922",
+        ...
+      }
+    },
+    {
+      "fullUrl": "{{site.ans.api_url}}/fhir/v1/Organization/org-6922",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-6922",
+        ...
+      }
+    }
+    ...
+  ]
+}
+
+
+```
+
+
+
+En java+Hapi, cela va se traduire par:
+
+```java
+var client = createClient();
+var fhirBundle = (Bundle) client.search().forResource(PractitionerRole.class)
+        // we want to filter on the specialty:
+        .where(PractitionerRole.SPECIALTY.exactly().codes("SM02"))
+        .include(PractitionerRole.INCLUDE_PRACTITIONER.asNonRecursive())
+        .include(PractitionerRole.INCLUDE_ORGANIZATION.asNonRecursive())
+        .count(10)
+        .execute();
+do {
+    var bundleContent = fhirBundle.getEntry();
+    // Store all resources:
+    var practitionerRoles = bundleContent.stream().map(Bundle.BundleEntryComponent::getResource).filter(e -> "PractitionerRole".equals(e.fhirType())).map(PractitionerRole.class::cast).collect(Collectors.toList());
+    var practitioners = bundleContent.stream().map(Bundle.BundleEntryComponent::getResource).filter(e -> "Practitioner".equals(e.fhirType())).map(Practitioner.class::cast).collect(Collectors.toList());
+    var organizations = bundleContent.stream().map(Bundle.BundleEntryComponent::getResource).filter(e -> "Organization".equals(e.fhirType())).map(Organization.class::cast).collect(Collectors.toList());
+
+    storageService.storePractitionerRole(practitionerRoles);
+    storageService.storePractitioner(practitioners);
+    storageService.storeOrganization(organizations);
+
+    // load the next page:
+    fhirBundle = client.loadPage().byUrl(fhirBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+}while (fhirBundle.getLink("next") != null);
+```
+
+
+
+## Complément
+
+#### L'exemple du filtre par département 
+
+Parfois, vous souhaiterez faire des filtres sur des données qui ne sont pas présentes dans la ressource PractitionerRole. 
+
+Dans ce cas, il ne sera pas possible de faire le cas d'utilisation.
+
+Imaginons par exemple que vous souhaitez faire la même recherche mais uniquement sur les Practitioner qui ont au moins un PractitionerRole rattaché à une Organization dans le département 28. 
+
+Dans ce cas, vous allez devoir faire la requête en plusieurs étapes.
+
+<div class="wysiwyg" markdown="1">
+1. Premièrement, il faut faire la requête sur la ressource qui contient le paramètre souhaité. Dans notre cas, c'est Organization. Vous pouvez avec cette requête récupérer les PractitionerRole associés grâce à la fonction "_revinclude".
+2. Ensuite, afin de trouver les Practitioner associés à vos PractitionerRoles, vous avez plusiseurs possibilités. Dans cet exemple, nous allons parcourir nos PractitionerRoles et faire une requête par référence.
+</div>
+
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+ -->
+

@@ -10,7 +10,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Appel Full</h3>
+        <h3>Appels Full</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -19,7 +19,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
-        <h3>Appel Delta</h3>
+        <h3>Appels Delta</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -28,7 +28,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
-        <h3>Appel unitaire</h3>
+        <h3>Appels unitaires</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -51,7 +51,9 @@ GET [base]/Practitioner?qualification-code=10&_lastUpdated=ge2025-05-27
 # récupère l'ensemble des professionnels dont la profession est médecin qui ont été mis à jour entre le 27 mai 2025 et aujourd'hui.
 ```
 
-Note| Cet appel delta vous permettra de remonter l'ensemble des professions qui ont été mis à joru entre la date définie et aujourd'hui. Vous pourrez ainsi constater des ressources qui vont voir des changements de statut "active = false"
+Cet appel delta vous permettra de remonter l'ensemble des professions qui ont été mis à jour entre la date définie et aujourd'hui. Vous pourrez ainsi constater des ressources qui vont voir des changements de statut "active = false"
+
+Note| Les appels delta ne peuvent pas excéder plus de 30 jours. Le serveur ne garde pas les mises à jour réalisées au-delà de 30 jours.
 
 Si ce type d'appel est lancé, l'appel delta remontera près de 9903 entrées qui ont été mises à jour depuis le 27 mai 2025. Le code retourné contiendra dans la première pagination les 50 premiers éléments :
 
@@ -101,17 +103,6 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
 
 
 <!-- #### Récupération des éléments liés : "Organization" et "Practitioner"
-
-Désormais, nous allons modifier le code afin de récupérer également les Practitioner associés ainsi que les Organization. 
-
-Pour ce faire, le standard FHIR propose le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
-
-
-
-La requête de recherche que nous souhaitons effectuer en FHIR est du type: https://server.ans.fr/fhir/PractitionerRole?specialty=SM02&_include=PractionerRole:organization&_include=PractionerRole:practitioner.
-
-Vous pouvez par exemple la lancer avec un client curl : `curl -H "Accept: application/json" -H "ESANTE-API-KEY: XXXX-XXXX-XXXX"  https://server.ans.fr/fhir/PractitionerRole?specialty=SM02&_include=PractionerRole:organization&_include=PractionerRole:practitioner`
-
 
 Si cette requête fonctionne, alors la réponse sera un bundle de type fhir qui contiendra à la fois les PractitionerRole comme précédement 
 ainsi que les Practitioner et les Organization liés aux Practitioner de la précédente requête : 
@@ -189,9 +180,6 @@ do {
 }while (fhirBundle.getLink("next") != null);
 ```
 
-&nbsp;
-
-Note| Avec cette technique, vous pouvez recevoir un élément Organization plusieurs fois au fil des pages. En effet, vous recevrez la liste  des Organization référéncés par les éléments de la page courante. 
 
 
 ## Complément
