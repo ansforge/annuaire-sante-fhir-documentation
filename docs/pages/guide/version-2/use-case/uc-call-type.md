@@ -1,6 +1,6 @@
 ---
 layout: menu-version-2
-title: "Appels Full - Synchronisation complète"
+title: "Les différents types d'appels"
 subTitle: Cas d'utilisation
 ---
 
@@ -72,8 +72,9 @@ GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNO
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
-
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner" {% endhighlight %} </div> 
+<div class="tab-content" data-name="java"> 
+{% highlight java %} 
 // Créer un contexte FHIR pour la version R4
 var contexteFhir = FhirContext.forR4();
 // Créer un client RESTful générique pour le serveur FHIR
@@ -87,9 +88,11 @@ var bundleFhir = (Bundle) clientFhir.search().forResource(PractitionerRole.class
         .count(10)
         // Exécuter la requête
         .execute();
+
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, PractitionerRole
+</div> <div class="tab-content" data-name="python"> {% highlight python %}
+import requests from fhir.resources.fhirtypes import Bundle, PractitionerRole
 
 from fhirclient import client
 import fhirclient.r4.models.bundle as bundle
@@ -113,11 +116,7 @@ search = search.limitTo(10)
 bundle_fhir = search.perform_resources(client_fhir.server)
 {% endhighlight %}
 
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
-using Hl7.Fhir.Rest;
-using Hl7.Fhir.Model;
-using System;
-
+</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
 // Créer un client FHIR pour la version R4
 var clientFhir = new FhirClient("https://gateway.api.esante.gouv.fr/fhir/v2/");
 clientFhir.PreferredFormat = ResourceFormat.Json;
@@ -131,8 +130,7 @@ var query = new Uri(requete[0], UriKind.Relative);
 var bundleFhir = clientFhir.Search<Bundle>(query, pageSize: 10);
 {% endhighlight %}
 
-</div> </div> <br />
-
+</div> </div> 
 
 Si ce type d'appel est lancé, le code retourné contiendra dans la première pagination les 10 premiers éléments: 
 
@@ -238,6 +236,7 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
     ]
 }
 ```
+<br />
 
 ### <a id="three-header"></a>3) Comment lier deux ressources ?
 
@@ -292,13 +291,13 @@ Nous vous conseillons de réaliser deux types de requêtes :
 - Une première requête sur la ressource qui contient le paramètre souhaité. Dans notre cas, c'est Organization. Vous pouvez avec cette requête récupérer les PractitionerRole associés à chaque organisation grâce à la fonction "_revinclude". Le _revinclude vous remontera tous les id techniques des PractitionerRole
 - Une deuxième requête pour trouver les Practitioner associés aux PractitionerRole. Vous avez plusieurs possibilités : récupérer les Practitioner et les PractitionerRole et faire une requête par rapport à l'ID technique des PractitionerRole
 </div>
-
+ <br />
 
 ```sh
 GET [base]/Organization?_revinclude=PractitionerRole:organization
 # Exemple avec la première requête pour récupérer les organisations et remonter les activités associées.
 ```
-
+ <br />
 La requête _has permettrait également de faire ce type de requête mais n'est pour le moment pas implémenté dans l'API FHIR V2.
 
 ```sh
