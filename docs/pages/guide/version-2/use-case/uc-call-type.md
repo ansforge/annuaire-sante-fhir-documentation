@@ -87,6 +87,7 @@ var bundleFhir = (Bundle) clientFhir.search().forResource(PractitionerRole.class
         .count(10)
         // Exécuter la requête
         .execute();
+{% endhighlight %}
 
 </div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import Bundle, PractitionerRole
 
@@ -110,6 +111,7 @@ search = search.limitTo(10)
 
 # Exécuter la recherche
 bundle_fhir = search.perform_resources(client_fhir.server)
+{% endhighlight %}
 
 </div> <div class="tab-content" data-name="C#"> {% highlight csharp %} // create the client: var client = FhirTestUtils.CreateClient();
 using Hl7.Fhir.Rest;
