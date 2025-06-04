@@ -7,13 +7,12 @@ L'API FHIR Annuaire Santé est le nouveau service permettant au grand public de 
 
 ## A propos des endpoints de l'API
 Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
-> - Practitioner : https://gateway.api.esante.gouv.fr/fhir/v1/Practitioner
-> - PractitionerRole : https://gateway.api.esante.gouv.fr/fhir/v1/PractitionerRole
-> - Organization : https://gateway.api.esante.gouv.fr/fhir/v1/Organization
-> - Healthcareservice : https://gateway.api.esante.gouv.fr/fhir/v1/HealthcareService
-> - Device : https://gateway.api.esante.gouv.fr/fhir/v1/Device 
-> - CapabilityStatement :  https://gateway.api.esante.gouv.fr/fhir/v1/metadata
-> - Healthcheck : https://gateway.api.esante.gouv.fr/fhir/v1/health
+> - Practitioner : https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner
+> - PractitionerRole : https://gateway.api.esante.gouv.fr/fhir/v2/PractitionerRole
+> - Organization : https://gateway.api.esante.gouv.fr/fhir/v2/Organization
+> - Healthcareservice : https://gateway.api.esante.gouv.fr/fhir/v2/HealthcareService
+> - Device : https://gateway.api.esante.gouv.fr/fhir/v2/Device 
+> - CapabilityStatement :  https://gateway.api.esante.gouv.fr/fhir/v2/metadata
 
 ## Modèle de données FHIR
 Le projet utilise le standard FHIR sur la version R4.
