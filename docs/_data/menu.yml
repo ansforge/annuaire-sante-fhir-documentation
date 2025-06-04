@@ -183,15 +183,9 @@ header:
                 title: Couloirs du Ségur du Numérique en Santé
   - title: Cas d'utilisation
     subfolderitems:
-      - page: Synchronisation complète
-        url: /pages/guide/version-1/use-case/full/uc-full.html
-        title: Synchronisation complète
-      - page: Appels unitaires autour du professionnel (PP)
-        url: /pages/guide/version-1/use-case/practitioner-detail/uc-practitioner.html
-        title: Appels unitaires autour du professionnel (PP)
-      - page: Appels unitaires autour de la structure (PM)
-        url: /pages/guide/version-1/use-case/organization-detail/uc-organization.html
-        title: Appels unitaires autour de la structure (PM)
+      - page: Type d'appels
+        url: /pages/guide/version-2/use-case/uc-call-type.html
+        title: Type d'appels
       - page: Couloirs du Ségur du Numérique en Santé
         url: /pages/guide/version-1/use-case/segur/uc-segur.html
         title: Couloirs du Ségur du Numérique en Santé
