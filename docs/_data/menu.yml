@@ -75,6 +75,25 @@ header:
               - page: Lier plusieurs ressources
                 url: /pages/guide/version-1/advanced/link.html
                 title: Lier plusieurs ressources
+          - page: Cas d'utilisations
+            url: /pages/guide/version-1/use-case/full/uc-full.html
+            title: Cas d'utilisations
+            subfolderitems:
+              - page: Synchronisation complète
+                url: /pages/guide/version-1/use-case/full/uc-full.html
+                title: Synchronisation complète
+              - page: Appels unitaires autour du professionnel (PP)
+                url: /pages/guide/version-1/use-case/practitioner-detail/uc-practitioner.html
+                title: Appels unitaires autour du professionnel (PP)
+              - page: Appels unitaires autour de la structure (PM)
+                url: /pages/guide/version-1/use-case/organization-detail/uc-organization.html
+                title: Appels unitaires autour de la structure (PM)
+              - page: Couloirs du Ségur du Numérique en Santé
+                url: /pages/guide/version-1/use-case/segur/uc-segur.html
+                title: Couloirs du Ségur du Numérique en Santé
+              - page: BAL MSSanté
+                url: /pages/guide/version-1/use-case/bal-mss/uc-bal-mss.html
+                title: BAL MSSanté
       - page: Version 2
         url: /pages/guide/version-2/getting-started/introduction.html
         title: Version 2
@@ -153,15 +172,15 @@ header:
                 url: /pages/guide/version-2/advanced/modifying-search-results.html
                 title: Search Results Parameters
           - page: Cas d'utilisation
-            url: /pages/guide/version-2/use-case/data-synchronization.html
+            url: /pages/guide/version-2/use-case/uc-call-type.html
             title: Cas d'utilisation
             subfolderitems:
-              - page: Appels Full
-                url: /pages/guide/version-2/use-case/full-call.html
-                title: Appels Full
-              - page: Appels Delta
-                url: /pages/guide/version-2/use-case/delta-call.html
-                title: Appels Delta
+              - page: Type d'appels
+                url: /pages/guide/version-2/use-case/uc-call-type.html
+                title: Type d'appels
+              - page: Couloirs du Ségur du Numérique en Santé
+                url: /pages/guide/version-2/use-case/uc-segur.html
+                title: Couloirs du Ségur du Numérique en Santé
   - title: Cas d'utilisation
     subfolderitems:
       - page: Synchronisation complète
