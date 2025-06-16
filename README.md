@@ -6,11 +6,11 @@
 L'API FHIR Annuaire Santé est le nouveau service permettant au grand public de consulter les données en accès libre de l'Annuaire Santé au format JSON, structurées selon le standard d’interopérabilité FHIR [(Fast Healthcare Interoperability Resources)](https://www.hl7.org/fhir/), développé et maintenu par l’Agence du Numérique en Santé ([ANS](https://esante.gouv.fr/)).
 
 ## A propos des endpoints de l'API
-Il s'agit d'une API RESTfull, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
+Il s'agit d'une API RESTful, basée sur la spécification HL7 FHIR, qui expose les services suivants : 
 > - Practitioner : https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner
 > - PractitionerRole : https://gateway.api.esante.gouv.fr/fhir/v2/PractitionerRole
 > - Organization : https://gateway.api.esante.gouv.fr/fhir/v2/Organization
-> - Healthcareservice : https://gateway.api.esante.gouv.fr/fhir/v2/HealthcareService
+> - HealthcareService : https://gateway.api.esante.gouv.fr/fhir/v2/HealthcareService
 > - Device : https://gateway.api.esante.gouv.fr/fhir/v2/Device 
 > - CapabilityStatement :  https://gateway.api.esante.gouv.fr/fhir/v2/metadata
 
