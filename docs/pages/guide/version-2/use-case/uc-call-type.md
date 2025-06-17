@@ -49,7 +49,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
 </div>
 <br />
 
-### <a id="one-header"></a>1) Appels Full - Synchronisation complète
+### <a id="one-header"></a>1. Appels Full - Synchronisation complète
 
 Nous allons montrer comment réaliser un appel FULL d'une ressource pour synchroniser votre système local avec les données de l'**Annuaire Santé**. 
 
@@ -178,7 +178,7 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
 ```
 <br />
 
-### <a id="two-header"></a>2) Appels Delta - Mise à jour des données
+### <a id="two-header"></a>2. Appels Delta - Mise à jour des données
 
 Nous allons montrer comment réaliser un appel delta d'une ressource pour réaliser la mise à jour des données de l'Annuaire Santé.
 
@@ -238,7 +238,7 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
 ```
 <br />
 
-### <a id="three-header"></a>3) Comment lier deux ressources ?
+### <a id="three-header"></a>3. Comment lier deux ressources ?
 
 Nous allons montrer comment réaliser un appel FULL en faisant une liaison entre deux ressources. Ci-dessous un schéma sur la modélisation entre les différentes ressources :
 
@@ -281,7 +281,7 @@ GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner
 
 
  
-### <a id="four-header"></a>4) Comment récupérer les professionnels et leurs lieux d'exercices ?
+### <a id="four-header"></a>4. Comment récupérer les professionnels et leurs lieux d'exercices ?
 
 Imaginons par exemple que vous souhaitez réaliser une recherche sur les Practitioner qui ont au moins un PractitionerRole rattaché à une Organization dans le département 78. 
 

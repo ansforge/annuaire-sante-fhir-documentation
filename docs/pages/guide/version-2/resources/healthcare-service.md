@@ -17,7 +17,7 @@ subTitle: Ressources
 </div>
 <br />
 
-## <a id="one-header"></a>1) Présentation de la ressource
+## <a id="one-header"></a>1. Présentation de la ressource
 
 Il s'agit d'une ressource divisée en deux profils pour décrire les « [activités de soins](https://mos.esante.gouv.fr/5.html#_2f0d6658-e0f7-4486-a646-424b09f01f76) » et les « [équipements sociaux](https://mos.esante.gouv.fr/5.html#_def51d8f-2eb8-47f8-9c30-b03709096666) » :
 
@@ -27,7 +27,7 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </div>
 <br />
 
-## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2. Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -69,7 +69,7 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 </table>
 <br />
 
-## <a id="three-header"></a>3) Paramètres de recherche
+## <a id="three-header"></a>3. Paramètres de recherche
 
 | Nom                               | Type      | Description                                               |
 | ---                               | ---       | ---                                                       |
@@ -89,11 +89,11 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 | service-type                      | token     | Recherche sur la discipline des équipements sociaux ou sur l'activité sanitaire régulée des activité de soins |
 
 
-## <a id="four-header"></a>4) Recherche d'activité de soin et d'équipement social sur critères
+## <a id="four-header"></a>4. Recherche d'activité de soin et d'équipement social sur critères
 Voici des exemples de requêtes sur les activités de soin et les équipements sociaux.
 
 
-## <a id="41-header"></a>4.1) Rechercher tout
+## <a id="41-header"></a>4.1 Rechercher tout
 
 En tant que client de l'API, je souhaite récupérer l'ensemble des activités de soins et les équipements sociaux. On utilise ici le _profile pour récupérer exclusivement les activités de soins ou les équipements sociaux.
 
@@ -163,7 +163,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="42-header"></a>4.2) Rechercher par identifiant (_id ou identifier)
+#### <a id="42-header"></a>4.2 Rechercher par identifiant (_id ou identifier)
 
 En tant que client de l'API, je souhaite rechercher un service à partir de son identifiant.
 
@@ -228,7 +228,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="43-header"></a>4.3) Rechercher par type/forme d'activité (characteristic)
+#### <a id="43-header"></a>4.3 Rechercher par type/forme d'activité (characteristic)
 
 En tant que client de l'API, je souhaite rechercher toutes les activités de soin ayant comme forme la Chirurgie ambulatoire (code 07).
 
@@ -309,7 +309,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="44-header"></a>4.4) Rechercher par statut (active)
+#### <a id="44-header"></a>4.4 Rechercher par statut (active)
 
 En tant que client de l'API, je souhaite rechercher les activités de soins ou les équipements sociaux selon le statut Active
 
@@ -375,7 +375,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="45-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="45-header"></a>4.5 Rechercher par date de mise à jour (_lastUpdated)
 
 En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
 

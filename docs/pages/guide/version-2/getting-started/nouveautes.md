@@ -14,10 +14,66 @@ subTitle: Nouvelle API V2
 
 ## <a id="one-header"></a>1) Un aperçu des changements sur l'API FHIR V2
 
-<p align="center">
-  <img src="img/nouveautes.png" style="width:100%;">
-</p>
-
+<div class="row">
+    <div class="border rounded col p-2 m-1">
+        <h3>Mise à jour de l'API FHIR V2</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+                <li>L'API FHIR a été actualisée en cohérence avec le nouveau guide d'implémentation rédigé par l'équipe interopérabilité de l'ANS</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Changement dans les réponses JSON et le Capability Statement</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+                <li>Les réponses JSON et le Capability Statement (metadata) ont été mises à jour</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Alignement avec les ressources FRCore</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+               <li>L'API est désormais alignée avec les ressources FRCore</li>
+            </ul>
+        </div>
+    </div>
+</div>
+&nbsp;
+<div class="row">
+    <div class="border rounded col p-2 m-1">
+        <h3>Réduction de la dépendance avec la solution HAPI</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+                <li>La nouvelle API FHIR réduit la dépendance à HAPI en développant des API propres à l'ANS. L'utilisation d'HAPI est </li>
+                <li>L'utilisation d'HAPI est est utilisé uniquement pour la structure des données</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Séparation des concepts Practitioner et PractitionerRole</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+                <li>Cette nouvelle API sépare les données liés à l'exercice professionnel (Practitioner) des données liées à l'activité du professionnel (PractitionerRole)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border rounded col p-2 m-1">
+        <h3>Séparation des profils génériques</h3>
+        <hr aria-hidden="true">
+        <div>
+            <ul>
+               <li>Les profils génériques sont désormais divisés en profils publics et privés. Pour l'instant, cette nouvelle API publie uniquement les données publiques.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 &nbsp;
 

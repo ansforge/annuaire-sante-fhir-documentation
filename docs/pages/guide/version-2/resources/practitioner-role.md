@@ -12,12 +12,12 @@ subTitle: Ressources
   - [Rechercher tout](#41-header)
   - [Rechercher par identifiant](#42-header)
   - [Rechercher par rôle](#43-header)
-  - [Recherche par statut](#44-header)
+  - [Rechercher par statut](#44-header)
 </div>
 <br />
 
 
-## <a id="one-header"></a>1) Présentation de la ressource PractitionerRole
+## <a id="one-header"></a>1. Présentation de la ressource PractitionerRole
 
 Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation d'exercice »](https://mos.esante.gouv.fr/2.html#_86e1685b-9e1d-47fb-bb66-d23ca0eb9679) (ou activité) du professionnel :
 <div class="wysiwyg" markdown="1">
@@ -27,7 +27,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation
 </div>
 <br />
 
-## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2. Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -78,7 +78,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation
 <br />
 
 
-## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
+## <a id="three-header"></a>3. Paramètres de recherche (Search Parameter)
 
 | Nom                               | Type  | Description                 |
 | ---                               | ---   | ---                         |
@@ -94,9 +94,9 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« situation
 | role                              | token     | Recherche sur la fonction, le genre d'activité, le mode d'exercice ou la section Tableau des Pharmaciens |
 
 
-## <a id="four-header"></a>4) Recherche d'une situation d'exercice
+## <a id="four-header"></a>4. Recherche d'une situation d'exercice
 
-#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1 Rechercher tout (sans critère)
 
 En tant que client de l'API, je souhaite récupérer l'ensemble des données correspondant aux situations d'exercice des professionnels
 
@@ -173,7 +173,7 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 
 </div> </div> <br />
 
-#### <a id="42-header"></a>4.2) Recherche par identifiant technique (_id)
+#### <a id="42-header"></a>4.2 Recherche par identifiant technique (_id)
 
 En tant que client de l'API, je souhaite rechercher une ressource PractitionerRole par son identifiant technique. 
 
@@ -230,7 +230,7 @@ Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value
 </div> </div> <br />
 
 
-#### <a id="43-header"></a>4.3) Recherche par rôle (role)
+#### <a id="43-header"></a>4.3 Recherche par rôle (role)
 
 Le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents codes systèmes disponibles : 
 
@@ -258,7 +258,7 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 ```sh
 
 GET [base]/PractitionerRole?role=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R85-RolePriseCharge%2FFHIR%2FTRE-R85-RolePriseCharge%7C318
-# récupère dans la TRE Role Prise Charge le code 318 correspondant à la fonction Auxiliaire de vie sociale"
+# récupère dans la TRE Role Prise Charge le code 318 correspondant à la fonction "Auxiliaire de vie sociale"
 
 GET [base]/PractitionerRole?role=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R06-SectionTableauCNOP%2FFHIR%2FTRE-R06-SectionTableauCNOP%7CA
 # récupère dans la TRE SectionTableauCNOP le code A correspondant au Pharmacien titulaire d'officine "
@@ -269,7 +269,7 @@ GET [base]/PractitionerRole?mailbox-mss:contains=apycript.org
 ```
 <br />
 
-#### <a id="44-header"></a>4.4) Recherche par statut
+#### <a id="44-header"></a>4.4 Recherche par statut
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercices/activités actives
 
