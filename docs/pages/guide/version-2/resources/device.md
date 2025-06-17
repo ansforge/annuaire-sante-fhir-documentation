@@ -13,12 +13,12 @@ subTitle: Ressources
   - [Rechercher par date de mise à jour](#42-header)
   - [Rechercher par identifiant](#43-header)
   - [Recherche par type](#44-header)
-  - [Recherche par statut](#46-header)
+  - [Recherche par statut](#45-header)
 </div>
 <br />
 
 
-## <a id="one-header"></a>1) Présentation de la ressource
+## <a id="one-header"></a>1. Présentation de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS portant sur les « [équipements matériels lourds](https://mos.esante.gouv.fr/5.html#_1a21e9b8-d686-41ff-806d-38572f961ec6) :
 <div class="wysiwyg" markdown="1">
@@ -28,7 +28,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </div>
 <br />
 
-## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2. Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -70,7 +70,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 </table>
 <br />
 
-## <a id="three-header"></a>3) Paramètres de recherche
+## <a id="three-header"></a>3. Paramètres de recherche
 
 | Nom                           | Type      | Description                                       |
 | ---                           | ---       | ---                                               |
@@ -85,11 +85,11 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 | status                        | token     | Recherche sur le statut de l'équipement : active, inactive,  entered-in-error, unknown|
 | type                          | token     | Recherche sur le type d'équipement matériel lourd |
 
-## <a id="four-header"></a>4) Recherche d'équipement matériel lourd (EML) sur critères
+## <a id="four-header"></a>4. Recherche d'équipement matériel lourd (EML) sur critères
 
 Voici des exemples de requêtes sur les équipements matériels lourds.
 
-## <a id="41-header"></a>4.1) Rechercher tout (sans critère)
+## <a id="41-header"></a>4.1 Rechercher tout (sans critère)
 
 En tant que client de l'API, je souhaite récupérer l'ensemble des équipements matériels lourds (EML).
 
@@ -151,7 +151,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="42-header"></a>4.2) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="42-header"></a>4.2 Rechercher par date de mise à jour (_lastUpdated)
 
 *En tant que client de l'API, je souhaite rechercher tous les équipements mis à jour depuis une date donnée.
 
@@ -216,7 +216,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="43-header"></a>4.3) Rechercher un matériel par rapport à un identifiant (_id, identifier)
+#### <a id="43-header"></a>4.3 Rechercher un matériel par rapport à un identifiant (_id, identifier)
 
 En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
 
@@ -285,7 +285,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="44-header"></a>4.4) Rechercher par type EML (type)
+#### <a id="44-header"></a>4.4 Rechercher par type d'équipement matériel lourd (type)
 
 En tant que client de l'API, je souhaite rechercher tous les EML de type "Scanographe à utilisation médicale".
 
@@ -402,7 +402,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="46-header"></a>4.6) Rechercher par statut (status)
+#### <a id="45-header"></a>4.5 Rechercher par statut (status)
 
 En tant que client de l'API, je souhaite rechercher les équipements en fonction de leur statut.
 

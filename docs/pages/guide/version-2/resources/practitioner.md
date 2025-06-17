@@ -20,7 +20,7 @@ subTitle: Ressources
 <br />
 
 
-## <a id="one-header"></a>1) Présentation de la ressource Practitioner
+## <a id="one-header"></a>1. Présentation de la ressource Practitioner
 
 Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice professionnel »](https://mos.esante.gouv.fr/2.html#_9d79ff39-6b00-4aa6-ac03-7afb4a8aad2b). Les informations disponibles sont :
 
@@ -32,7 +32,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 &nbsp;
 
 
-## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2. Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -73,7 +73,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 </tbody>
 </table>
 
-## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
+## <a id="three-header"></a>3. Paramètres de recherche (Search Parameter)
 
 | Nom                           | Type    | Description         |
 | ---                           | ---     | ---                 |
@@ -92,12 +92,12 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 | qualification-code            | token   | Recherche sur le code des éléments suivants: diplôme, exercice professionnel, savoir-faire et type de savoir-faire |
 
 
-## <a id="four-header"></a>4) Recherche d'un professionnel sur des critères spécifiques
+## <a id="four-header"></a>4. Recherche d'un professionnel sur des critères spécifiques
 
 Voici des exemples de requêtes sur la recherche de professionnels intervenant dans le système de santé.
 
 
-#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1 Rechercher tout (sans critère)
 
 En tant que client de l'API, je souhaite récupérer l'ensemble des professionnels intervenant dans le système de santé. 
 
@@ -177,7 +177,7 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 </div> </div> <br />
 
-#### <a id="42-header"></a>4.2) Rechercher par identifiant (identifier ou _id)
+#### <a id="42-header"></a>4.2 Rechercher par identifiant (identifier ou _id)
 
 En tant que client de l'API, je souhaite vérifier l'identité d'un professionnel à partir de son identifiant.
 
@@ -267,14 +267,14 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 </div> </div> <br />
 
-#### <a id="43-header"></a>4.3) Rechercher par prénom et nom d'exercice
+#### <a id="43-header"></a>4.3. Rechercher par prénom et nom d'exercice
 
 En tant que client de l'API, je souhaite rechercher tous les professionnels par rapport au prénom et nom d'exercice .
 
 **Requête :**
 
 ```sh
-`GET [base]/Practitioner?name:family=MASI&name:given=BRUNO
+GET [base]/Practitioner?name:family=MASI&name:given=BRUNO
 # Récupère l'ensemble des Practitioners dont le nom d'exercice est MASI et le prénom d'exercice est Bruno
 ```
 
@@ -359,14 +359,14 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} name={
 
 <br />
 
-#### <a id="44-header"></a>4.4) Rechercher par statut (active)
+#### <a id="44-header"></a>4.4 Rechercher par statut (active)
 
 En tant que client de l'API, je souhaite rechercher tous les professionnels de santé actifs.
 
 **Requête :**
 
 ```sh
-`GET [base]/Practitioner?active=true`
+GET [base]/Practitioner?active=true
 # récupère l'ensemble des Practitioners qui ont un exercice professionnel actif
 ```
 
@@ -439,13 +439,13 @@ Console.WriteLine($"Practitioner found: id={practitioner.IdElement.Value} | acti
 
 </div> </div> <br />
 
-#### <a id="45-header"></a>4.5) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="45-header"></a>4.5 Rechercher par date de mise à jour (_lastUpdated)
 
 En tant que client de l'API, je souhaite rechercher tous les exercices professionnels mis à jour depuis une certaine date.
 
 **Requête :**
 ```sh
-`GET [base]/Practitioner?_lastUpdated=ge2024-08-30`
+GET [base]/Practitioner?_lastUpdated=ge2024-08-30
 # Récupère tous les Practitioners mis à jour à partir du 30 août 2024 (inclus) jusqu'à aujourd'hui
 
 ```
@@ -541,7 +541,7 @@ foreach (var be in bundle.Entry)
 
 {% include_relative _source-ref.md %}
 
-#### <a id="46-header"></a>4.6) Rechercher par profession
+#### <a id="46-header"></a>4.6 Rechercher par profession
 En tant que client de l'API, je souhaite rechercher tous les professionnels dont la profession est Pharmacien
 
 **Requête :**

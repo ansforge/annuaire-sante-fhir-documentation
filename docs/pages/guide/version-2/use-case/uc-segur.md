@@ -21,96 +21,162 @@ Les établissements de santé peuvent être accompagnés par les acteurs région
 
 Nous allons vous détailler ci-dessous comment interroger l'API pour identifier les acteurs présents dans chaque couloir : [segurnumerique.sante-idf.fr](https://segurnumerique.sante-idf.fr/segur-et-services-socles/les-couloirs/).
 
-### 1. Le couloir Médico-Social
+### <a id="one-header"></a>1. Le couloir Médico-Social
 
 En tant que client de l'API, je souhaite rechercher l'ensemble des établissements médico-sociaux. Pour cela, il faut interroger la ressource Organization en fonction des deux critères suivants:
 <div class="wysiwyg" markdown="1">
  * l'identifier doit contenir le code système https://finess.esante.gouv.fr
- * l'établissement doit appartenait aux catégories d'établissements suivantes : 159, 166, 172, 175, 176, 177, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 198, 202, 207, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 500, 501, 502, 165, 178, 180, 197, 209, 213, 354, 460, 462, 608
+ * l'établissement doit appartenait aux catégories d'établissements suivantes : 159, 165, 166, 172, 175, 176, 177, 178, 180, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 197, 198, 202, 207, 209, 213, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 354, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 460, 462, 500, 501, 502, 608
 </div>
 
-Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213
+```sh
+GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213
+# récupère les organisations qui ont un code système finess.esante.gouv.fr et qui les catégories d'établissements 159,165,166,172,175,176,178,180,182,183,186,188,189,190,192,194,195,196,197,198,202,207,209 et 213
+```
 
-
-
-
-![Schéma montrant les champs de filtre](img/focus-json-couloir-medi-soc.png){:style="max-width:670px"}
+NOTE| Nous avons constaté que l'appel peut échouer en prenant en compte l'ensemble des catégories d'établissements. Nous vous invitons à diviser vos appels pour vous assurer de la bonne récupération des organisations. 
 
 Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
 
 
 
 <div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un identifier finess (&identifier=http://finess.sante.gouv.fr%7C) et qui ont une catégorie parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C159&type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C166 ...).
-2) Répeter l'opération sur toutes les pages
-{% endhighlight %}
-</div>
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" -X POST {{site.ans.api_url}}/fhir/Organization/_search -d 'type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C165%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C166%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C172%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C175%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C176%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C177%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C178%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C180%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C182%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C183%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C186%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C188%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C189%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C190%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C192%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C194%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C195%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C196%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C197%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C198%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C202%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C207%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C209%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C213%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C221%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C236%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C238%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C241%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C246%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C247%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C249%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C252%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C253%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C255%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C286%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C295%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C344%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C354%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C370%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C377%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C378%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C379%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C381%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C382%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C390%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C395%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C396%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C402%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C411%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C418%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C427%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C437%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C440%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C441%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C445%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C446%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C448%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C449%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C453%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C460%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C462%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C500%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C501%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C502%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C608&identifier=http%3A%2F%2Ffiness.sante.gouv.fr%7C'
+curl -H "ESANTE-API-KEY: d5aa2278-61af-43c1-8167-feb7c695d1e1" -X POST https://gateway.api.esante.gouv.fr/fhir/v2/Organization/_search -d 'type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213&identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C'
       
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
-var client = createClient();
+// Créer un client FHIR
+var clientFhir = createClient();
 
-// construct category search clause
-var codes = Arrays.asList("159","165","166","172","175","176","177", "178","180","182","183","186","188","189","190","192","194","195","196","197","198","202","207","209","213","221","236","238","241","246","247","249","252","253","255","286","295","344","354","370","377","378","379","381","382","390","395","396","402","411","418","427","437","440","441","445","446","448","449","453","460","462","500","501","502","608");
-var activityClause = Organization.TYPE.exactly()
-        .systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement", codes);
+// Construire la clause de recherche pour les catégories d'établissements
+var codesCategories = Arrays.asList("159", "165", "166", "172", "175", "176", "177", "178", "180", "182", "183", "186", "188", "189", "190", "192", "194", "195", "196", "197", "198", "202", "207", "209", "213", "221", "236", "238", "241", "246", "247", "249", "252", "253", "255", "286", "295", "344", "354", "370", "377", "378", "379", "381", "382", "390", "395", "396", "402", "411", "418", "427", "437", "440", "441", "445", "446", "448", "449", "453", "460", "462", "500", "501", "502", "608");
+var clauseActivite = Organization.TYPE.exactly()
+        .systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement", codesCategories);
 
-// construct identifier search clause
-var identifierClause = Organization.IDENTIFIER.hasSystemWithAnyCode("http://finess.sante.gouv.fr");
+// Construire la clause de recherche pour les identifiants
+var clauseIdentifiant = Organization.IDENTIFIER.hasSystemWithAnyCode("https://finess.esante.gouv.fr");
 
-// create and execute request
-var bundle = client
+// Créer et exécuter la requête
+var bundle = clientFhir
         .search()
         .forResource(Organization.class)
-        .where(activityClause)
-        .and(identifierClause)
+        .where(clauseActivite)
+        .and(clauseIdentifiant)
         .returnBundle(Bundle.class)
         .execute();
 
-var hasNext = true;
-var finessOrganizations = new LinkedList<>();
+var aPageSuivante = true;
+var organisationsFiness = new LinkedList<>();
 
-// for each page
+// Pour chaque page
 do {
-    logger.info("Total result {}", bundle.getTotal());
+    logger.info("Nombre total de résultats {}", bundle.getTotal());
 
-    // extract data from bundle
-    finessOrganizations.add(bundle.getEntry());
+    // Extraire les données du bundle
+    organisationsFiness.addAll(bundle.getEntry());
 
     if (bundle.getLink("next") != null) {
-        // get the next page
-        bundle = client
+        // Obtenir la page suivante
+        bundle = clientFhir
                 .loadPage()
                 .byUrl(bundle.getLink("next").getUrl())
                 .andReturnBundle(Bundle.class)
                 .execute();
     } else {
-        hasNext = false;
+        aPageSuivante = false;
     }
-} while(hasNext);
+} while (aPageSuivante);
+
 {% endhighlight %}
 </div>
 
 </div>
 
-Le résultat retourné est un Bundle contenant la première page de résultat. Il contient aussi le nombre total d'éléments retournés par la requête qui peuvent être récupérés sur les pages suivantes.
+Vous trouverez ainsi des réponses JSON de ce type avec le système https://finess.esante.gouv.fr et le coding avec la catégorie d'établissement (dans l'exemple ci-dessous le code catégorie d'établissement est 182)  :
+
+```sh
+                "identifier": [
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203",
+                                    "code": "IDNST"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.250.1.71.4.2.2",
+                        "value": "1770816478"
+                    },
+                    {
+                        "use": "official",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203",
+                                    "code": "FINEG"
+                                }
+                            ]
+                        },
+                        "system": "https://finess.esante.gouv.fr",
+                        "value": "770816478"
+                    }
+                ],
+                "active": true,
+                "type": [
+                    {
+                        "extension": [
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-organization-types",
+                                "valueCode": "organizationType"
+                            }
+                        ],
+                        "coding": [
+                            {
+                                "system": "https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-3307",
+                                "code": "GEOGRAPHICAL-ENTITY"
+                            }
+                        ]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-organization-types",
+                                "valueCode": "secteurActiviteRASS"
+                            }
+                        ],
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+                                "code": "SA16"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement",
+                                "code": "182"
+                            }
+                        ]
+                    },
+
+```
 
 
+### <a id="two-header"></a>2. Le couloir Hôpital
 
 
-
-### 2. Le couloir Hôpital
 
 En tant que client de l'API, je souhaite rechercher l'ensemble des établissements sanitaires. Pour s'assurer que l'établissement ne correspond pas à un établissement médico-social:
 <div class="wysiwyg" markdown="1">
 - l'appel doit être réalisé en filtrant sur le code système de la [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/) 
+- Vérifier que chaque structure ne fasse pas partie des catégories d'établissements "médico-sociaux" (voir la liste des catégories d'établisssements dans le cas d'utilisation précédent). 
 - l'appel doit être réalisé sur les secteurs d'activités : 
 </div>
 
@@ -125,31 +191,21 @@ En tant que client de l'API, je souhaite rechercher l'ensemble des établissemen
 | SA34  | Centre de dialyse                                 |
 | SA36  | Centre anti-cancer                                |
 
-**Requête :**
+**Requêtes :**
 ```sh
-`GET [base]/Practitioner?_lastUpdated=ge2024-08-30`
-# Récupère tous les Practitioners mis à jour à partir du 30 août 2024 (inclus) jusqu'à aujourd'hui
-
+GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA01%2CSA02%2CSA03%2CSA04%2CSA30%2CSA34%2CSA36
+# Récupère toutes les organisations qui sont dans les secteurs d'activités suivants : SA01, SA02, SA03, SA04, SA30, SA34, SA36
 ```
 
 
-![Schéma montrant les champs de filtre](img/focus-json-couloir-hopitaux.png){:style="max-width:670px"}
 
-
-Note : La liste des codes des établissements sanitaires (ex: SA01, SA02, etc...) se situe dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 <div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %}
-1) Faire un appel sur le endpoint Organization en filtrant sur les Organization qui ont un secteur d'activité parmi la liste ci-dessus (&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA01&type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/%7CSA02 ...).
-2) Vérifier que pour chaque établissement, son type n'est pas présent dans la liste des catégories "médico-sociaux" (voir la liste dans le use case précédent). 
-3) Répeter l'opération sur toutes les pages 
-{% endhighlight %}
-</div>
+
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1?_getpages=b109ca26-32eb-416f-8c8a-fee6c6597bb9&_pageId=lZg9MO8QrAVQZoT5uxjWir7vNAEr7AGfqD_nysfrz5wl53MhYmudRGTxjJfwUVMYuYOdvQq4OASgzZbCGJjhb7EH19BN-GH2uG5r5q9ZT680D729MuB8AQowHOP0m-nlaq5JQ3eWKdOAc4z6ZlPQSKRIa2LDXto2BFdF4cEs2TVtK1uJsLVSBVq6JJElmJv5vrd0wkQaaf9H5HNBJG_W1g4gIxbflOSdm8MMyIAvA_Jm6tKvrcC9kFA5Rqn0_FawrKQJbmA2hi0ZbTJaZmaNHJSRA05shFi4vQMBSL0jqs1vo3bZCgFquO5qHyghvwrqmanzRhMjWzSGwanYS4jdpuScMd-btLsRIobeF9bNhGS3bcAVcS3a6SuUkya1H-nfd5XP957ZzPFP-hPsjHuSk4oXbbxYirHZFaKHMrdM3dmXbOdHzPsbgxA9-6RhJgwtlXzOuBToLIQ9VPQrL5F1Z0VeDkpHN50pG445m9Y6zL-YmKruLhsEvfnW0f3PgDKnIUZsFQNMmTetD7vRMlfxiPBws5J7d0HJB1WFG-Qk0n6q6hW4PStx9lsvmSS5Ggkg5At7ko005tiVj50SjbvTz9Bgj-4MfVHpmzY5og8avqHwci6Vo4iE57W4QaGuEQFKkFp2aDF6kBpY8SmKAbYGS08NjjiXqHSpsaj0PxGaS5NMX0vf69eQSd1X8HVQtFlbZubcKQs-F3wrZwp4J9a_Tfhd913wZB5wDHA1C226GfnhFQ5jx2BilMUjw-sVDb-_RmWsDYPG&_bundletype=searchset"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2?_getpages=b109ca26-32eb-416f-8c8a-fee6c6597bb9&_pageId=lZg9MO8QrAVQZoT5uxjWir7vNAEr7AGfqD_nysfrz5wl53MhYmudRGTxjJfwUVMYuYOdvQq4OASgzZbCGJjhb7EH19BN-GH2uG5r5q9ZT680D729MuB8AQowHOP0m-nlaq5JQ3eWKdOAc4z6ZlPQSKRIa2LDXto2BFdF4cEs2TVtK1uJsLVSBVq6JJElmJv5vrd0wkQaaf9H5HNBJG_W1g4gIxbflOSdm8MMyIAvA_Jm6tKvrcC9kFA5Rqn0_FawrKQJbmA2hi0ZbTJaZmaNHJSRA05shFi4vQMBSL0jqs1vo3bZCgFquO5qHyghvwrqmanzRhMjWzSGwanYS4jdpuScMd-btLsRIobeF9bNhGS3bcAVcS3a6SuUkya1H-nfd5XP957ZzPFP-hPsjHuSk4oXbbxYirHZFaKHMrdM3dmXbOdHzPsbgxA9-6RhJgwtlXzOuBToLIQ9VPQrL5F1Z0VeDkpHN50pG445m9Y6zL-YmKruLhsEvfnW0f3PgDKnIUZsFQNMmTetD7vRMlfxiPBws5J7d0HJB1WFG-Qk0n6q6hW4PStx9lsvmSS5Ggkg5At7ko005tiVj50SjbvTz9Bgj-4MfVHpmzY5og8avqHwci6Vo4iE57W4QaGuEQFKkFp2aDF6kBpY8SmKAbYGS08NjjiXqHSpsaj0PxGaS5NMX0vf69eQSd1X8HVQtFlbZubcKQs-F3wrZwp4J9a_Tfhd913wZB5wDHA1C226GfnhFQ5jx2BilMUjw-sVDb-_RmWsDYPG&_bundletype=searchset"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -345,14 +401,6 @@ logger.info("Total filtered - {}", goodElements.size());
 
 </div>
 
-L'exécution de l'exemple de code peut donner un résultat équivalent :
-
-```bash
-Organization has 14 roles
-Organization has 0 roles
-Total global - 4312
-Total filtered - 523
-```
 <br />
 
 
@@ -516,12 +564,6 @@ logger.info("Total radiology  - {}", goodElements.size());
 
 L'exécution de l'exemple de code peut donner un résultat équivalent :
 
-```bash
-Progress treated 466000  / 466040 / 445524 role(s)
-Progress treated 466040  / 466040 / 445562 role(s)
-Total global - 466040
-Total filtered - 0
-```
 
 <br />
 
@@ -684,14 +726,6 @@ logger.info("Total radiology  - {}", goodElements.size());
 
 </div>
 
-L'exécution de l'exemple de code peut donner un résultat équivalent :
-
-```bash
-Progress treated 472050  / 472077 / 454524 role(s)
-Progress treated 472077  / 472077 / 454561 role(s)
-Total global - 466040
-Total filtered - 0
-```
 
 <br />
 
@@ -779,16 +813,6 @@ logger.info("Total organization - {}", goodElements.size());
 
 </div>
 
-L'exécution de l'exemple de code peut donner un résultat équivalent :
-
-```bash
-Progress treated 472050  / 472077 / 454524 role(s)
-Progress treated 472077  / 472077 / 454561 role(s)
-Total global - 466040
-Total filtered - 0
-
-
-```
 <br />
 
 

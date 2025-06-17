@@ -21,7 +21,7 @@ subTitle: Ressources
 <br />
 
 
-## <a id="one-header"></a>1) Présentation de la ressource
+## <a id="one-header"></a>1. Présentation de la ressource
 
 Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure »](https://mos.esante.gouv.fr/4.html#_f6152a96-2f8f-4f69-89f5-18f024d4b4d8) :
 <div class="wysiwyg" markdown="1">
@@ -30,7 +30,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </div>
 <br />
 
-## <a id="two-header"></a>2) Caractéristiques techniques de la ressource
+## <a id="two-header"></a>2. Caractéristiques techniques de la ressource
 
 <table width="25%">
 <tbody>
@@ -71,7 +71,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 </tbody>
 </table>
 
-## <a id="three-header"></a>3) Paramètres de recherche (Search Parameter)
+## <a id="three-header"></a>3. Paramètres de recherche (Search Parameter)
 
 | Nom                               | Type      | Description                                               |
 | ---                               | ---       | ---                                                       |
@@ -91,11 +91,11 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 | pharmacy-licence                  | string    | Recherche sur le numéro de licence des pharmacies officines |
 | type                              | token     | Recherche sur le type de structure/ code APE/ catégorie juridique/ secteur d'activité/ catégorie d'établissement ou le code SPH de la structure |
 
-## <a id="four-header"></a>4) Recherche de structure sur critères
+## <a id="four-header"></a>4. Recherche de structure sur critères
 
 Voici quelques exemples de requêtes sur les structures.
 
-#### <a id="41-header"></a>4.1) Rechercher tout (sans critère)
+#### <a id="41-header"></a>4.1 Rechercher tout (sans critère)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite récupérer l'ensemble des structures.
@@ -162,7 +162,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="42-header"></a>4.2) Rechercher par raison sociale (name)
+#### <a id="42-header"></a>4.2 Rechercher par raison sociale (name)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite trouver une structure à partir de sa raison sociale.
@@ -228,7 +228,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="43-header"></a>4.3) Rechercher par identifiant structure (identifier)
+#### <a id="43-header"></a>4.3 Rechercher par identifiant structure (identifier)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher une structure à partir de son identifiant structure
@@ -238,10 +238,6 @@ En tant que client de l'API, je souhaite rechercher une structure à partir de s
 ```sh
 GET [base]/Organization?identifier=001604103000
 # récupérer une structure dont l'identifiant est 001604103000
-
-GET [base]/Organization?as-sp-data-information-system=FINESS&identifier=001604103000
-# récupérer une structure qui proviennent du référentiel FINESS. Les trois valeurs disponibles sont RPPS, FINESS et CG.
-
 
 ```
 
@@ -298,7 +294,7 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="44-header"></a>4.4) Rechercher par date de mise à jour (_lastUpdated)
+#### <a id="44-header"></a>4.4 Rechercher par date de mise à jour (_lastUpdated)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher toutes les structures mises à jour depuis une certaine date.
@@ -362,7 +358,7 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-#### <a id="45-header"></a>4.5) Rechercher par type (type)
+#### <a id="45-header"></a>4.5 Rechercher par type (type)
 
 Le champs "Type" de la ressource Organization peut contenir des informations différentes en fonction du code système renseigné. Le type permet de rechercher sur le secteur d'activité, la catégorie d'établissement, le type d'organisation (entité géographique, entité juridique), etc.
 
@@ -390,7 +386,10 @@ GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-Ca
 # récupère les organisations qui appartiennent à la catégorie d'établissement 101 - Centre Hospitalier Régional (C.H.R.)
 
 GET [base]/Organization?type=GEOGRAPHICAL-ENTITY
-# récupère les organisations qui sont uniquement des entités géographiques. Les deux types possibles sont GEOGRAPHICAL-ENTITY et LEGAL-ENTITY
+# récupère les organisations qui sont uniquement des entités géographiques.
+
+GET [base]/Organization?type=LEGAL-ENTITY
+# récupère les organisations qui sont uniquement des entités légales.
 
 GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA02
 # récupère les organisations qui font partie du secteur d'activité SA02
@@ -398,16 +397,19 @@ GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-Se
 ```
 <br />
 
-#### <a id="46-header"></a>4.6) Rechercher par code postal et ville (address-postalcode et address-city)
+#### <a id="46-header"></a>4.6 Rechercher par code postal et ville (address-postalcode et address-city)
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher les structures d'un département (code postal).
 
-**Requête :**
+**Requêtes :**
 
 ```sh
 GET [base]/Organization?address-postalcode=75016&address-city=PARIS
 # récupère les organisations qui sont dans la commune de Paris et qui ont un code postal 75016
+
+GET [base]/Organization?address-postalcode=78
+# récupère les organisations qui sont dans le département des Yvelines (78)
 ```
 <br />
 
@@ -490,7 +492,7 @@ Console.WriteLine($"Organization found: name={organization.Name} | zipCode={orga
 
 </div> </div> <br />
 
-#### <a id="47-header"></a>4.7) Rechercher par source d'informations
+#### <a id="47-header"></a>4.7 Rechercher par source d'informations
 
 **Récit utilisateur :** 
 En tant que client de l'API, je souhaite rechercher les structures par rapport à la source d'informations de la donnée
@@ -506,19 +508,5 @@ GET [base]/Organization?data-information-system=FINESS
 ```
 <br />
 
-#### <a id="48-header"></a>4.8) Rechercher par source d'informations
-
-**Récit utilisateur :** 
-En tant que client de l'API, je souhaite rechercher les structures par rapport à la raison sociale
-
-**Requête :**
-
-```sh
-GET [base]/Organization?name:contains=MIGNOT
-# récupère les organisations dont la raison sociale contient la valeur MIGNOT
-
-GET [base]/Organization?name:contains=ANDRE&name:contains=MIGNOT
-# récupère les organisations dont la raison sociale contient la valeur ANDRE et la valeur MIGNOT
-```
 
 {% include_relative _source-ref.md %}
