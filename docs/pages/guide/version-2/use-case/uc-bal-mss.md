@@ -57,6 +57,7 @@ GET [base]/Practitioner?mailbox-mss:contains=%40
 GET [base]/Practitioner?mailbox-mss:contains=@medecin.mssante.fr
 # récupère les professionnels qu disposent d'une BAL MSS contenant "@medecin.mssante.fr"
 ```
+<br />
 
 #### <a id="12-header"></a>1.2 Interroger la ressource PractitionerRole
 
@@ -71,6 +72,7 @@ GET [base]/PractitionerRole?mailbox-mss:contains=%40
 GET [base]/PractitionerRole?mailbox-mss:contains=@medecin.mssante.fr
 # récupère les activités des professionnels qu disposent d'une BAL MSS contenant "@medecin.mssante.fr"
 ```
+<br />
 
 #### <a id="13-header"></a>1.3 Interroger la ressource Organization
 
@@ -93,14 +95,14 @@ GET [base]/Organization?mailbox-mss:contains=@ch-dax.mssante.fr
 <br />
 
 
-<!-- ## <a id="two-header"></a>2. Zoom sur les BAL selon le secteur d'activité
+ ## <a id="two-header"></a>2. Zoom sur les BAL selon le secteur d'activité
 
-#### <a id="21-header"></a>2.1 Centres de santé (type=SA05)
+#### <a id="21-header"></a>2.1 Centres de santé (type=SA05) 
 
-Pour récupérer les BAL sur les centres de Santé sur la ressource Organization, il faut appliquer les deux critères suivants:
+Pour récupérer les BAL sur les Centres de Santé, il faut interroger la ressource "Organization" et appliquer les deux critères suivants:
 <div class="wysiwyg" markdown="1">
 - Filter sur les organisations appartenant au secteur d'activité SA05 correspondant aux Centres de Santé
-- Inclure uniquement les organisations qui disposent au moins d'une BAL MSS
+- Inclure uniquement les organisations qui disposent au moins d'une BAL MSS (mailbox-mss:contains=%40)
 </div>
 <br />
 
@@ -115,31 +117,111 @@ GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-Se
 Le résultat retourné est un Bundle contenant la première page de résultat. Ci-dessous un exemple de code qui peut donner un résultat équivalent :
 <br/>
 
-
- * Schéma montrant les champs mailbox et son type : 
- * Schéma montrant les champs n°finess, raison sociale et département : 
-
+```sh
+...
+          "type": [
+                    {
+                        "extension": [
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-organization-types",
+                                "valueCode": "organizationType"
+                            }
+                        ],
+                        "coding": [
+                            {
+                                "system": "https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-3307",
+                                "code": "GEOGRAPHICAL-ENTITY"
+                            }
+                        ]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-organization-types",
+                                "valueCode": "secteurActiviteRASS"
+                            }
+                        ],
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+                                "code": "SA05"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement",
+                                "code": "124"
+                            }
+                        ]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-organization-types",
+                                "valueCode": "activiteINSEE"
+                            }
+                        ],
+                        "coding": [
+                            {
+                                "system": "https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5",
+                                "code": "86.23Z"
+                            }
+                        ]
+                    }
+                ],
+                "name": "CENTRE DE SANTE DARWING",
+                "telecom": [
+                    {
+                        "extension": [
+                            {
+                                "url": "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-contact-point-email-type",
+                                "valueCoding": {
+                                    "system": "https://mos.esante.gouv.fr/NOS/TRE_R256-TypeMessagerie/FHIR/TRE-R256-TypeMessagerie",
+                                    "code": "MSSANTE"
+                                }
+                            },
+                            {
+                                "url": "https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-ext-mailbox-mss-metadata",
+                                "extension": [
+                                    {
+                                        "url": "type",
+                                        "valueCodeableConcept": {
+                                            "coding": [
+                                                {
+                                                    "system": "https://mos.esante.gouv.fr/NOS/TRE_R257-TypeBAL/FHIR/TRE-R257-TypeBAL",
+                                                    "code": "ORG"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "url": "description",
+                                        "valueString": "Darwin Secrétariat "
+                                    },
+                                    {
+                                        "url": "digitization",
+                                        "valueBoolean": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "system": "email",
+                        "value": "secretariat.darwin@hopitaldarwin.mssante.fr"
+                    }
+                ],
+```
 <br />
 
 Pour récupérer les BAL MSS Personnelles des professionnels ayant une activité dans une de ces structures, il faut interroger la ressource PractitionerRole.
 <div class="wysiwyg" markdown="1">
-- Dans un premier appel : filter sur les structures appartenant au secteur d'activité SA05 (correspondant aux Centres de Santé). Inclure également les PractitionerRole liés aux Organizations en utilisant le _revinclude
-- Dans un second appel : pour chacun des ID techniques des PractitionerRole récupérés dans le premier appel, réaliser un second appel pour appeler les ID techniques du Practitionet et faire un _revinclude pour récupérer le Practitioner
+- Dans un premier appel : filtrer sur les structures appartenant au secteur d'activité SA05 (correspondant aux Centres de Santé). Inclure également les PractitionerRole liés aux Organizations en utilisant le _revinclude
+- Dans un second appel : pour chacun des ID techniques des PractitionerRole récupérés dans le premier appel, réaliser un second appel pour appeler les ID techniques du Practitioner et faire un _revinclude pour récupérer le Practitioner
 </div> 
-
 <br />
 
 <div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %} 
-1) Faire un appel sur l'endpoint Organization en filtrant sur les Organization de type SA05 (&type=SA05). Cet appel devra inclure les PractitionerRoles rattachés (&_revinclude=PractitionerRole:organization)
-2) Pour chacun des PractitionerRole récupérés précédemment, récupérer le Practitioner ayant le même id que le champs practitioner du PractitionerRole (Practitioner?_id=003-xxxxxx)
-3) Pour chacun des Practitioner récupérés, vérifier qu'il dispose bien de bal mss (mailbox-mss:contains=%40)
-4) Répéter l'opération sur toutes les pages (1)
-{% endhighlight %}
-</div>
-
-
 <div class="tab-content" data-name="curl">
 {% highlight bash %} 
 curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&_revinclude=PractitionerRole:organization" 
@@ -164,7 +246,7 @@ L’exécution de l’exemple de code peut donner un résultat équivalent :
 
 <br />
 
-## <a id="lab-header"></a>2) Laboratoires
+<!-- ## <a id="lab-header"></a>2) Laboratoires
 Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
 
 Afin de récupérer les établissements de biologie , nous devons interroger l’endpoint Organization :
