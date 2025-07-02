@@ -15,6 +15,7 @@ subTitle: Ressources
   - [Rechercher par statut](#44-header)
   - [Rechercher par date de mise à jour](#45-header)
   - [Rechercher par profession](#46-header)
+  - [Rechercher par spécialité](#47-header)
 
 </div>
 <br />
@@ -555,3 +556,13 @@ GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNO
 ```
 <br />
 
+#### <a id="47-header"></a>4.7 Rechercher par spécialité
+En tant que client de l'API, je souhaite rechercher tous les professionnels dont la spécialité est Pneumologie (SM41)
+
+**Requête :**
+
+```sh
+GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R38-SpecialiteOrdinale%2FFHIR%2FTRE-R38-SpecialiteOrdinale%7CSM41
+# Récupère tous les professionnels dont la spécialité est Pneumologie (SM41)
+```
+<br />
