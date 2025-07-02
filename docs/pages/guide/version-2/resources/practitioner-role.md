@@ -10,9 +10,10 @@ subTitle: Ressources
 - [Paramètres de recherche](#three-header)
 - [Recherche d'une situation d'exercice](#four-header)
   - [Rechercher tout](#41-header)
-  - [Rechercher par identifiant](#42-header)
-  - [Rechercher par rôle](#43-header)
-  - [Rechercher par statut](#44-header)
+  - [Rechercher par identifiant technique](#42-header)
+  - [Rechercher par identifiant de l'activité](#43-header)
+  - [Rechercher par rôle](#44-header)
+  - [Rechercher par statut](#45-header)
 </div>
 <br />
 
@@ -179,11 +180,15 @@ En tant que client de l'API, je souhaite rechercher une ressource PractitionerRo
 
 **Requête :**
 
-`GET [base]/PractitionerRole/005-5087586-6923328`
+```sh
+GET [base]/PractitionerRole?_id=005-69329-7187020`
+```
+<br />
+
 
 **Exemples de code :**
 
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole/005-5087586-6923328" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
+<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/PractitionerRole?_id=005-5087586-6923328" {% endhighlight %} </div> <div class="tab-content" data-name="java"> {% highlight java %} 
 
 // Création du client 
 var client = FhirTestUtils.createClient();
@@ -198,7 +203,7 @@ logger.info("Practitioner Role found: id={}", practitionerRole.getIdElement().ge
 </div> <div class="tab-content" data-name="python"> {% highlight python %} import requests from fhir.resources.fhirtypes import PractitionerRole
 
 # Configuration du client
-api_url = "{{site.ans.api_url}}/fhir/v2/PractitionerRole/005-5087586-6923328"
+api_url = "{{site.ans.api_url}}/fhir/v2/PractitionerRole?_id=005-5087586-6923328"
 api_key = "{{site.ans.api_key}}"
 
 headers = {
@@ -223,14 +228,25 @@ fetch_practitioner_role_by_id()
 
 // Création du client 
 var client = FhirTestUtils.CreateClient();
-var practitionerRole = client.Read<PractitionerRole>("PractitionerRole/005-5087586-6923328");
+var practitionerRole = client.Read<PractitionerRole>("PractitionerRole?_id=005-5087586-6923328");
 Console.WriteLine($"PractitionerRole found: id={practitionerRole.IdElement.Value}");
 {% endhighlight %}
 
 </div> </div> <br />
 
 
-#### <a id="43-header"></a>4.3 Recherche par rôle (role)
+#### <a id="43-header"></a>4.3 Recherche par identifiant de l'activité (identifier)
+
+En tant que client de l'API, je souhaite rechercher une ressource PractitionerRole par l'identifiant de son activité. 
+
+**Requête :**
+
+```sh
+GET [base]/PractitionerRole?identifier=1013186038
+```
+<br />
+
+#### <a id="44-header"></a>4.4 Recherche par rôle (role)
 
 Le paramètre "role" permet de rechercher les PractitionerRole selon différents référentiels. Voici les différents codes systèmes disponibles : 
 
@@ -269,7 +285,7 @@ GET [base]/PractitionerRole?mailbox-mss:contains=apycript.org
 ```
 <br />
 
-#### <a id="44-header"></a>4.4 Recherche par statut
+#### <a id="45-header"></a>4.5 Recherche par statut
 
 **Récit utilisateur :** En tant que client de l'API, je souhaite rechercher toutes les situations d'exercices/activités actives
 
