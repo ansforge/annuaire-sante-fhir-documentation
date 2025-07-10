@@ -19,7 +19,7 @@ Nous vous informons qu'à partir de Dec.2025/Janv.2026 les appels à l'API FHIR 
 
 **Notes de livraison**
 
-Cette section contiendra les mises à jours, nouveautés et correctifs de l'API FHIR Version 1.
+Cette section contiendra les mises à jours, nouveautés et correctifs de l'API FHIR Version 2.
 
 | Notes de livraisons       | Date de publication  |
 | ---                       | ---                  |

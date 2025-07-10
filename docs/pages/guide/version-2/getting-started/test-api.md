@@ -69,7 +69,7 @@ Pour ces premiers tests, nous utilisons [cURL](https://curl.se/) pour plus de si
 
 <div class="code-sample"><div class="tab-content" data-name="Invite de commandes">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/metadata"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/metadata"
 {% endhighlight %}
 </div></div>
 <div class="wysiwyg" markdown="1">
