@@ -9,11 +9,7 @@ subTitle: Cas d'utilisation
     - [Interroger la ressource Practitioner](#11-header)
     - [Interroger la ressource PractitionerRole](#12-header)
     - [Interroger la ressource Organization](#13-header)
-- [Zoom sur les BAL selon le secteur d'activité](#2-header)
-    - [BAL des centres de santé](#21-header)
-    - [BAL des laboratoires](#22-header)
-    - [BAL des officines](#23-header)
-    - [Rechercher les BAL des EPHAD](#24-header)
+- [Zoom sur les BAL selon la structure](#2-header)
 </div>
 <br />
 
@@ -97,8 +93,6 @@ GET [base]/Organization?mailbox-mss:contains=@ch-dax.mssante.fr
 
  ## <a id="two-header"></a>2. Zoom sur les BAL selon le secteur d'activité
 
-#### <a id="21-header"></a>2.1 Centres de santé (type=SA05) 
-
 Pour récupérer les BAL sur les Centres de Santé, il faut interroger la ressource "Organization" et appliquer les deux critères suivants:
 <div class="wysiwyg" markdown="1">
 - Filter sur les organisations appartenant au secteur d'activité SA05 correspondant aux Centres de Santé
@@ -106,11 +100,24 @@ Pour récupérer les BAL sur les Centres de Santé, il faut interroger la ressou
 </div>
 <br />
 
+Ci-dessous un tableau contenant les différents secteurs d'activités liés à chaque structure :
+
+| Structures                | Secteurs d'activités      |
+| ---                       | ---                       |
+| Centres de santé          | SA05                      |
+| Laboratoires              | SA25, SA29                |
+| Pharmacies d'officines    | SA33, SA38, SA39, SA65    |
+| EPHAD                     | SA17                      |
+
+
 **Requêtes :**
 
 ```sh
 GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40
-# récupère les organisations qui ont un secteur d'activité SA05 et qui disposent au moins d'une BAL MSS
+# récupère les centres de santé (SA05) et qui disposent au moins d'une BAL MSS
+
+GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA25%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29&mailbox-mss:contains=%40
+# récupère les laboratoires (SA25, SA29) et qui disposent au moins d'une BAL MSS
 ```
 <br />
 
@@ -118,8 +125,8 @@ Le résultat retourné est un Bundle contenant la première page de résultat. C
 <br/>
 
 ```sh
-...
-          "type": [
+        ...
+                "type": [
                     {
                         "extension": [
                             {
@@ -171,7 +178,7 @@ Le résultat retourné est un Bundle contenant la première page de résultat. C
                         ]
                     }
                 ],
-                "name": "CENTRE DE SANTE DARWING",
+                "name": "CENTRE DE SANTE DR HOUSE",
                 "telecom": [
                     {
                         "extension": [
@@ -198,7 +205,7 @@ Le résultat retourné est un Bundle contenant la première page de résultat. C
                                     },
                                     {
                                         "url": "description",
-                                        "valueString": "Darwin Secrétariat "
+                                        "valueString": "DR HOUSE Secrétariat "
                                     },
                                     {
                                         "url": "digitization",
@@ -208,9 +215,10 @@ Le résultat retourné est un Bundle contenant la première page de résultat. C
                             }
                         ],
                         "system": "email",
-                        "value": "secretariat.darwin@hopitaldarwin.mssante.fr"
+                        "value": "secretariat.drhouse@aura.mssante.fr"
                     }
-                ],
+                ]
+        ...
 ```
 <br />
 
@@ -230,133 +238,3 @@ curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Or
 </div>
 <br />
 
-L’exécution de l’exemple de code peut donner un résultat équivalent :
-<br />
-
-<div class="wysiwyg" markdown="1">
- * Schéma montrant le champs practitioner du PractitionerRole : 
-<img src="focus_postman_irisdp_bal_mss_per_centre_de_sante_1.png" alt="practitioner-ref">
-</div>
-
-<div class="wysiwyg" markdown="1">
- * Schéma montrant les champs BAL MSS, Type de BAL et Identifiant personne : 
-<img src="focus_postman_irisdp_bal_mss_per_centre_de_sante_2.png" alt="mailbox, mailbox-type, id-practitioner">
-</div>
-
-
-<br />
-
-<!-- ## <a id="lab-header"></a>2) Laboratoires
-Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
-
-Afin de récupérer les établissements de biologie , nous devons interroger l’endpoint Organization :
-<div class="wysiwyg" markdown="1">
-* En filtrant sur le système et les types d’établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA25, SA29
-</div>
-<div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
-  * de type SA25, SA29
-  * et ayant au moins un mailbox 
- {% endhighlight %}
-</div>
-<div class="tab-content" data-name="curl">
-{% highlight bash %} 
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA25%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29&mailbox-mss:contains=%40" 
-{% endhighlight %}
-</div>
-</div>
-
- <br />
-
-## <a id="ph-header"></a>3) Officines
-Le process d'extraction des BAL est similaire à celui appliqué précédemment pour les centres de santé.
-
-Afin de récupérer les officines de pharmacie, nous devons interroger l’endpoint Organization :
-<div class="wysiwyg" markdown="1">
-* En filtrant sur le système et les types d’établissements : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39
-</div>
-<div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
-  * de type SA33, SA38, SA39, SA65
-  * et ayant au moins un mailbox 
- {% endhighlight %}
-</div>
-<div class="tab-content" data-name="curl">
-{% highlight bash %} 
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organizationt?ype=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39&mailbox-mss:contains=%40" 
-{% endhighlight %}
-</div>
-</div>
-
- <br />
-
-## <a id="ep-header"></a>4) EPHAD
-
-#### 4.1) Liste des EPHAD
-Afin de récupérer la liste des EPHAD, nous devons interroger l’endpoint Organization :
-<div class="wysiwyg" markdown="1">
-* En filtrant sur le système et le type d’établissement : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA17
-* En incluant les entités juridiques de rattachement : Organization.partof
-</div>
-<div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organizations dont le secteur d'activité est SA17.  Cet appel devra inclure les établissements pères dits juridiques auxquels sont rattachés les établissements géographiques (&_include=Organization:partof):
-{% endhighlight %}
-</div>
-
-<div class="tab-content" data-name="curl">
-{% highlight bash %} 
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organizationt?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA17&_include=Organization:partof" 
-{% endhighlight %}
-</div>
-</div>
-L’exécution de l’exemple de code peut donner un résultat équivalent :
-<br />
-
-<div class="wysiwyg" markdown="1">
- * Schéma montrant les champs FINESS EG et Type d'établissement (géographique ou juridique) : 
-<img src="focus_postman_irisdp_liste_ephad_1.png" alt="Schéma montrant les champs FINESS EG et Type d'établissement (géographique ou juridique)">
-</div>
-<br/>
-<div class="wysiwyg" markdown="1">
- * Schéma montrant les champs Raison sociale, Code postal (département/région) et Id technique de l'entité juridique de rattachement : 
-<img src="focus_postman_irisdp_liste_ephad_2.png" alt="Schéma montrant Raison sociale + Code postal (département/région) + Id technique de l'entité juridique de rattachement">
-</div>
-<br/>
-<div class="wysiwyg" markdown="1">
- * Schéma montrant les champs Organization.partof (lien vers l'entité juridique) et FINESS EJ : 
-<img src="focus_postman_irisdp_liste_ephad_3.png" alt="Schéma montrant Organization.partof + FINESS EJ">
-</div>
-<br />
-
-#### 4.2) Liste des BAL rattachées
-##### 4.2.1) BAL ORG
- Afin d'extraire les BAL MSSanté organisationnelles , il faut interroger l’endpoint Organization.
-
-Nous appliquerons deux filtres à la requête afin d’obtenir le résultat attendu :
-<div class="wysiwyg" markdown="1">
- * le type d'Organization : SA17 (secteur d'activité) 
- * Et en n'incluant que les Organizations ayant au moins d'une BAL MSS
-</div>
-<br/>
-<div class="code-sample">
-<div class="tab-content" data-name="Algorithmie">
-{% highlight bash %} 
-Faire un appel sur l'endpoint Organization en filtrant sur les Organizations :
-  * de type SA17 (type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite)
-  * et ayant au moins un mailbox (mailbox-mss:contains=%40 )
- {% endhighlight %}
-</div>
-<div class="tab-content" data-name="curl">
-{% highlight bash %} 
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v1/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA17&mailbox-mss:contains=%40" 
-{% endhighlight %}
-</div>
-</div>
-
- -->

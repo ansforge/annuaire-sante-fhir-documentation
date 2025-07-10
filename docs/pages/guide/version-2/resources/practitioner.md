@@ -16,6 +16,7 @@ subTitle: Ressources
   - [Rechercher par date de mise à jour](#45-header)
   - [Rechercher par profession](#46-header)
   - [Rechercher par spécialité](#47-header)
+  - [Rechercher par catégorie professionnelle](#48-header)
 
 </div>
 <br />
@@ -540,7 +541,6 @@ foreach (var be in bundle.Entry)
 <br />
 
 
-{% include_relative _source-ref.md %}
 
 #### <a id="46-header"></a>4.6 Rechercher par profession
 En tant que client de l'API, je souhaite rechercher tous les professionnels dont la profession est Pharmacien
@@ -566,3 +566,16 @@ GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNO
 # Récupère tous les professionnels dont la spécialité est Pneumologie (SM41)
 ```
 <br />
+
+#### <a id="48-header"></a>4.8 Rechercher par catégorie professionnelle
+En tant que client de l'API, je souhaite rechercher tous les professionnels selon la catégorie professionnelle. Pour plus d'informations, consulter le 
+[lien suivant](https://interop.esante.gouv.fr/ig/nos/1.5.0/ValueSet-JDV-J89-CategorieProfessionnelle-RASS.html){:target="_blank"}.
+
+**Requête :**
+```sh
+GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R38-SpecialiteOrdinale%2FFHIR%2FTRE-R38-SpecialiteOrdinale%7CSM41
+# Récupère tous les professionnels dont la spécialité est Pneumologie (SM41)
+```
+<br />
+
+{% include_relative _source-ref.md %}

@@ -40,7 +40,9 @@ Les codes HTTP standard sont des codes de statut envoyés par un serveur en rép
 | 400         | Bad request           | La requête est mal formatée. Vérifiez les paramètres ou la syntaxe |
 | 401         | Unauthorized          | Impossible d'authentifier la requête |
 | 403         | Forbidden             | La requête n'est pas autorisée |
-| 404         | Not found             | La ressource n'est pas trouvée |
+| 404         | Not found             | La ressource n'existe pas |
+| 410         | Gone                  | La ressource n'est plus accessible |
+| 412         | Precondition Failed   | Echec de la précondition |
 | 500         | Internal Server Error | Une erreur inattendue est survenue |
 
 ### Méthodes HTTP (HTTP VERBS)
@@ -61,7 +63,7 @@ Ajouter dans les headers la clé ESANTE-API-KEY
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-  curl -H "ESANTE-API-KEY: [api-key]" "[api-url]/metadata"  
+  curl -H "ESANTE-API-KEY: [api-key]" "[api-url]/fhir/metadata"  
 {% endhighlight %}
 </div>
 </div>
@@ -92,9 +94,8 @@ Si la recherche échoue, le serveur doit répondre :
 - Un body contenant une ressource [OperationOutcome](https://www.hl7.org/fhir/R4/operationoutcome.html) qui donne les détails sur la raison de l'échec
 - L'échec d'une recherche est la non-possibilité d'exécuter la requête, ce qui est différent d'aucune correspondance à la recherche.
 - La réponse échoue car la réponse a dépassé le timeout de 30 secondes.
-
 </div>
-
+Il existe des OperationOutcome qui peuvent survenir dans le cas d'une suppression d'une ressource (DELETE) mais cette situation n'est pas appliquée sur notre cas.
 ```json
 {
   "resourceType": "OperationOutcome",
