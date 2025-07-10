@@ -573,8 +573,8 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels selo
 
 **Requête :**
 ```sh
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R38-SpecialiteOrdinale%2FFHIR%2FTRE-R38-SpecialiteOrdinale%7CSM41
-# Récupère tous les professionnels dont la spécialité est Pneumologie (SM41)
+GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R09-CategorieProfessionnelle%2FFHIR%2FTRE-R09-CategorieProfessionnelle%7CC
+# Récupère tous les professionnels dont la catégorie professionnelle est Civil (code: C)
 ```
 <br />
 
