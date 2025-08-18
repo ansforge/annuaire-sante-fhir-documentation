@@ -73,10 +73,9 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 
 | Nom                               | Type      | Description                                               |
 | ---                               | ---       | ---                                                       |
-| _has                              | string    |                                                           |
 | _id                               | token     | Recherche sur l'ID de la ressource HealthCare Service     |
-| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap).|
-| _profile| uri | Sélectionner le profil de la ressource Healthcare Service. Pour les activités de soins http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-healthcare-activity / ; Pour les équipements sociaux http://interop.esante.gouv.fr/ig/fhir/annuaire-donnee-publique/StructureDefinition/as-healthcareservice-social-equipment"  |
+| _lastUpdated                      | date      | Renvoie uniquement les ressources selon la date de mises à jour et le "modifier" utilisé (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://www.hl7.org/fhir/R4/search.html#date)  |
+| _profile                          | uri       | Sélectionner le profil de la ressource Healthcare Service |
 | _since                            | date      |                                                           |
 | _total                            | string    |                                                           |
 | active                            | token     | Recherche les ressources Healthcare Service actives       |

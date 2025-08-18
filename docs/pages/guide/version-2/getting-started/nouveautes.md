@@ -15,7 +15,7 @@ subTitle: Nouvelle API V2
 ## <a id="one-header"></a>1) Un aperçu des changements sur l'API FHIR V2
 
 <div class="row">
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Mise à jour de l'API FHIR V2</h3>
         <hr aria-hidden="true">
         <div>
@@ -24,7 +24,7 @@ subTitle: Nouvelle API V2
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Changement dans les réponses JSON et le Capability Statement</h3>
         <hr aria-hidden="true">
         <div>
@@ -33,7 +33,7 @@ subTitle: Nouvelle API V2
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Alignement avec les ressources FRCore</h3>
         <hr aria-hidden="true">
         <div>
@@ -45,7 +45,7 @@ subTitle: Nouvelle API V2
 </div>
 &nbsp;
 <div class="row">
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Réduction de la dépendance avec la solution HAPI</h3>
         <hr aria-hidden="true">
         <div>
@@ -55,7 +55,7 @@ subTitle: Nouvelle API V2
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Séparation des concepts Practitioner et PractitionerRole</h3>
         <hr aria-hidden="true">
         <div>
@@ -64,7 +64,7 @@ subTitle: Nouvelle API V2
             </ul>
         </div>
     </div>
-    <div class="border rounded col p-2 m-1">
+    <div class="card-title-container">
         <h3>Séparation des profils génériques</h3>
         <hr aria-hidden="true">
         <div>
@@ -106,7 +106,7 @@ Nous avons pu aussi constater que certains consommateurs peuvent conserver les I
 
 ## <a id="four-header"></a>4) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
-Quelles sont les nouveautés globalement sur cette nouvelle version :
+Quelles sont les nouveautés globalement sur cette nouvelle version publiée :
 - Revue sur le format de réponse du Capability Statement (metadata)
 - Ajout de l'attribut : profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
@@ -121,15 +121,16 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 
 ### Nouveautés sur Practitioner
 
-| Données       | Ressource Practitioner                                                         |   
-| ---           | ---                                                                            |
-| active        | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant du professionnel (Identifiant national, RPPS) et le champ active  |
-| cps           | Ajout des informations liées aux cartes CPx du Professionnel                   |
-| identifier    | Ajout systématique de l'identifiant national (IDNPS)                           |
-| name          | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex:MME) et le suffixe (ex:DR).)|
-| qualification | Ajout des informations sur la catégorie professionnelle, la profession, la fonction, les savoir-faire et les types de savoir-faire.   |
-| resource      | Ajout dans le profile le profile: fr-canonical                                 |
-| telecom       | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
+| Données           | Ressource Practitioner                                                         |   
+| ---               | ---                                                                            |
+| active            | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant du professionnel (Identifiant national, RPPS) et le champ active  |
+| cps               | Ajout des informations liées aux cartes CPx du Professionnel. Possibilité d'avoir plusieurs cartes CPx     |
+| identifier        | Ajout systématique de l'identifiant national (IDNPS)                           |
+| identifier-type   | Mise à jour du code système du type d'identifiant national de la personne physique :  https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203  |
+| name              | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex:MME) et le suffixe (ex:DR).)|
+| qualification     | Ajout des informations sur la catégorie professionnelle, la profession, la fonction, les savoir-faire et les types de savoir-faire.   |
+| resource          | Ajout dans le profile le profile: fr-canonical                                 |
+| telecom           | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
 
 
 ### Nouveautés sur PractitionerRole
@@ -148,9 +149,11 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 
 | Données        | Ressource Organization                                                               |    
 | ---            | ---                                                                                  |
+| identifier     | Mise à jour du code système pour filtrer sur les structures FINESS : https://finess.esante.gouv.fr  |
+| identifier     | Mise à jour du code système pour filtrer sur les structures RPPSRang : https://rpps.esante.gouv.fr  |
 | reference      | Ajout de la référence à l'Organization                                               |
-| telecom       | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.). Amélioration sur l'affectation des BAL MSS sur les sites. |
-| _line          | Ajout du champ district                                                              |
+| telecom        | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.). Amélioration sur l'affectation des BAL MSS sur les sites. |
+| address        | Mise à jour du Jeu de Valeur https://mos.esante.gouv.fr/NOS/JDV_J256-Pays/FHIR/JDV-J256-Pays |
 | active         | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant de la structure (finess, rpps rang, etc.), name (raison sociale) et active  |
 
 
@@ -165,13 +168,33 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 
 | Données               | Ressource Device                                                                     |
 | ---                   | ---                                                                                  |
-| type                  | Ajout de la catégorie Activité Santaire régulée                                      |
+| type                  | Ajout de la catégorie Activité Santaire régulée avec un binding sur la JDV : https://mos.esante.gouv.fr/NOS/JDV_J133-ActiviteSanitaireRegulee-RASS/FHIR/JDV-J133-ActiviteSanitaireRegulee-RASS     |
 | active                | Si la ressource est en false, les champs suivants seront présents: numéro d'autorisation ARHGOS |
 
 
-### Changements sur Search Parameter (Paramètres de recherche)
+### Liste des Search Parameters communs
 
-| Données               | Statut sur l'API FHIR V2      |
+| Paramètres            | Statut                        |
 | ---                   | ---                           |
-| _elements             | Disponible                    |
+| _id                   | Disponible                    |
+| _lastUpdated          | Disponible                    |
+| _profile              | Disponible                    |
 | _has                  | Indisponible                  |
+
+### Liste des Search Result Parameters
+
+| Paramètres            | Statut                        |
+| ---                   | ---                           |
+| _sort                 | Indisponible                  |
+| _count                | Disponible                    |
+| _include              | Disponible                    |
+| _revinclude           | Disponible                    |
+| _total                | Disponible                    |
+| _elements             | Disponible                    |
+
+Pour plus d'informations sur les capacités du serveur FHIR, n'hésitez pas à consulter le Capability Statement (metadata) ainsi que le [guide d'implémentation](https://interop.esante.gouv.fr/ig/fhir/annuaire/)
+
+```sh
+GET [base]/metadata
+# récupère les capacités et spécifications du serveur FHIR
+```

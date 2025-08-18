@@ -5,3 +5,19 @@
     padding-left: 3rem;
     padding-right: 3rem;
 }
+
+.card-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title-container h3 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+.card-title-container hr {
+    flex-basis: 100%;
+    margin: 0.5rem 0;
+}
