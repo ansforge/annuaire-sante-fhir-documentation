@@ -76,7 +76,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 | Nom                               | Type      | Description                                               |
 | ---                               | ---       | ---                                                       |
 | _id                               | token     | Recherche sur l'ID technique de la ressource Organization |
-| _lastUpdated                      | date      | Renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap)|
+| _lastUpdated                      | date      |  renvoie uniquement les ressources selon la date de mises à jour et le "modifier" utilisé (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (hhttps://www.hl7.org/fhir/R4/search.html#date)  |
 | active                            | token     | Recherche selon le statut de l'organisation     |
 | address                           | string    | Recherche sur le champ adresse de l'organisation   |
 | address-city                      | string    | Recherche sur la commune de l'organisation       |

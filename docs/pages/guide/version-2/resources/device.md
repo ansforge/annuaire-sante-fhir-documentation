@@ -75,7 +75,7 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 | Nom                           | Type      | Description                                       |
 | ---                           | ---       | ---                                               |
 | _id                           | token     | Rechercher sur l'ID technique de la ressource     |
-| _lastUpdated                  | date      | renvoie uniquement les ressources qui ont été mises à jour pour la dernère fois comme spécifié par la période donnée (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://build.fhir.org/search.html#date)  |
+| _lastUpdated                  | date      | renvoie uniquement les ressources selon la date de mises à jour et le "modifier" utilisé (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://www.hl7.org/fhir/R4/search.html#date)  |
 | data-information-system       | token     | Recherche sur le système d'informations  |
 | data-registration-authority   | token     | Recherche sur l'autorité d'enregistrement |
 | identifier                    | token     | Recherche sur le numéro ARHGOS de l'équipement matériel lourd |
