@@ -14,71 +14,19 @@ subTitle: Nouvelle API V2
 
 ## <a id="one-header"></a>1) Un aperçu des changements sur l'API FHIR V2
 
-<div class="row">
-    <div class="card-title-container">
-        <h3>Mise à jour de l'API FHIR V2</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-                <li>L'API FHIR a été actualisée en cohérence avec le nouveau guide d'implémentation rédigé par l'équipe interopérabilité de l'ANS</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card-title-container">
-        <h3>Changement dans les réponses JSON et le Capability Statement</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-                <li>Les réponses JSON et le Capability Statement (metadata) ont été mises à jour</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card-title-container">
-        <h3>Alignement avec les ressources FRCore</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-               <li>L'API est désormais alignée avec les ressources FRCore</li>
-            </ul>
-        </div>
-    </div>
-</div>
-&nbsp;
-<div class="row">
-    <div class="card-title-container">
-        <h3>Réduction de la dépendance avec la solution HAPI</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-                <li>La nouvelle API FHIR réduit la dépendance à HAPI en développant des API propres à l'ANS. L'utilisation d'HAPI est </li>
-                <li>L'utilisation d'HAPI est est utilisé uniquement pour la structure des données</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card-title-container">
-        <h3>Séparation des concepts Practitioner et PractitionerRole</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-                <li>Cette nouvelle API sépare les données liés à l'exercice professionnel (Practitioner) des données liées à l'activité du professionnel (PractitionerRole)</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card-title-container">
-        <h3>Séparation des profils génériques</h3>
-        <hr aria-hidden="true">
-        <div>
-            <ul>
-               <li>Les profils génériques sont désormais divisés en profils publics et privés. Pour l'instant, cette nouvelle API publie uniquement les données publiques.</li>
-            </ul>
-        </div>
-    </div>
-</div>
+| Nouveautés sur l'API                                          | Description                                                                   |
+| ---                                                           | ---                                                                           |
+| Mise à jour de l'API FHIR V2                                  | L'API FHIR a été actualisée en cohérence avec le nouveau guide d'implémentation rédigé par l'équipe interopérabilité de l'ANS                                                                                                              |
+| Changement dans les réponses JSON et le Capability Statement  | Les réponses JSON et le Capability Statement (metadata) ont été mises à jour  |
+| Alignement avec les ressources FRCore                         | L'API est désormais alignée avec les ressources FRCore                        |
+| Réduction de la dépendance avec la solution HAPI              | Cette nouvelle version de l'API FHIR réduit la dépendance à HAPI en développant des API propres à l'ANS. Ainsi, HAPI est utilisé uniquement pour la structure des données du serveur FHIR                                               |
+| Séparation des concepts Practitioner et PractitionerRole      | Les profils génériques sont désormais divisés avec des profils différents : publics et privés. Pour l'instant, cette nouvelle API expose uniquement les données publiques.                                                             |
+
 
 &nbsp;
 
 ## <a id="two-header"></a>2) Est-ce-que les 2 versions de l'API FHIR sont toujours disponibles?
-Oui, vous pouvez appeler les deux versions de l'API FHIR. Une décommission de l'API FHIR V1 sera prévue pour Fin 2025/Début 2026. Pour plus d'explications sur la manière d'interroger les deux versions de l'API, consulter le [lien suivant pour l'API FHIR V1](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html) ou le [lien suivant pour l'API FHIR V2](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html).
+Oui, vous pouvez appeler les deux versions de l'API FHIR. Une décommission totale de l'API FHIR V1 sera prévue pour mars 2026. Pour plus d'explications sur la manière d'interroger les deux versions de l'API, consulter le [lien suivant pour l'API FHIR V1](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-1/getting-started/test-api.html) ou le [lien suivant pour l'API FHIR V2](https://ansforge.github.io/annuaire-sante-fhir-documentation/pages/guide/version-2/getting-started/test-api.html).
 <div class="wysiwyg" markdown="1">
 A noter que:
 - Le [démonstrateur API](https://portail.openfhir.annuaire.sante.fr/) utilisera par défaut la nouvelle version de l'API FHIR V2. 
@@ -108,11 +56,11 @@ Nous avons pu aussi constater que certains consommateurs peuvent conserver les I
 <div class="wysiwyg" markdown="1">
 Quelles sont les nouveautés globalement sur cette nouvelle version publiée :
 - Revue sur le format de réponse du Capability Statement (metadata)
-- Ajout de l'attribut : profile: fr-canonical
+- Ajout de l'attribut : _profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
 - Modification de plusieurs codes systèmes
-- Modification de plusieurs JDV
+- Modification de plusieurs Jeux De Valeurs (JDV)
 - Suppression de la ressource "Subscription"
 </div>
 &nbsp;
@@ -127,7 +75,7 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | cps               | Ajout des informations liées aux cartes CPx du Professionnel. Possibilité d'avoir plusieurs cartes CPx     |
 | identifier        | Ajout systématique de l'identifiant national (IDNPS)                           |
 | identifier-type   | Mise à jour du code système du type d'identifiant national de la personne physique :  https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203  |
-| name              | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex:MME) et le suffixe (ex:DR).)|
+| name              | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex : MME) et le suffixe (ex : DR) |
 | qualification     | Ajout des informations sur la catégorie professionnelle, la profession, la fonction, les savoir-faire et les types de savoir-faire.   |
 | resource          | Ajout dans le profile le profile: fr-canonical                                 |
 | telecom           | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
