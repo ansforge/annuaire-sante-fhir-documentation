@@ -19,7 +19,7 @@ subTitle: Ressources
 
 Les modificateurs des résultats de recherche (ou Modifying Search Results) correspondent à des paramètres permettant de modifier les résultats affichés par une recherche. 
 
-Vous trouverez ci-dessous la liste des paramètres de résultats de recherche pris en charge dans notre contexte.
+Vous trouverez ci-dessous la liste des modificateurs de résultats de la recherche pris en charge dans notre contexte.
 
 ### <a id="1-header"></a>1) Paramètre [_count](https://www.hl7.org/fhir/search.html#count) 
 
@@ -28,8 +28,8 @@ Il permet de contrôler le nombre maximal de ressources retournées sur une page
 **Requête:**
 
 ```sh
-GET [base]/Device?_count=10
-# Renvoie uniquement 10 équipements matériels lourds
+GET [base]/Device?_count=10000
+# Renvoie 10000 équipements matériels lourds
 ```
 
 &nbsp;
@@ -43,8 +43,9 @@ Ce paramètre indique le nombre total d'éléments qui correspondent aux critèr
 - estimate : le total affiché est une estimation
 - accurate : le total affiché est précis
 </div>
+&nbsp;
 
-NOTE| Le fait d'intégrer le paramètre _total dans la requête peut prendre du temps de traitement.
+NOTE| Le fait d'intégrer le paramètre _total dans la requête peut augmenter le temps de traitement de la requête.
 
 
 &nbsp;
@@ -55,10 +56,13 @@ NOTE| Le fait d'intégrer le paramètre _total dans la requête peut prendre du 
 GET [base]/Device?_total=none
 # Récupère les Device sans avoir le total affiché
 ```
+
+&nbsp;
+
 <p>Par défaut, l'affichage (ou non) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».</p>
 
-### <a id="3-header"></a>3) Paramètre [include](https://www.hl7.org/fhir/search.html#_include) 
+### <a id="3-header"></a>3) Paramètre [_include](https://www.hl7.org/fhir/search.html#_include) 
 
 Le paramètre **_include** permet d’afficher dans le résultat les ressources mères liées à la ressource fille. Les ressources mères sont récupérées à partir de la ressource fille. 
 
@@ -71,7 +75,7 @@ GET [base]/PractitionerRole?_include=PractitionerRole:organization
 ``` 
 &nbsp;
 
-#### <a id="4-header"></a>4) Paramètre [revinclude](https://www.hl7.org/fhir/search.html#_revinclude) 
+#### <a id="4-header"></a>4) Paramètre [_revinclude](https://www.hl7.org/fhir/search.html#_revinclude) 
 
 Le paramètre **_revinclude** permet d’afficher dans le résultat les ressources filles liées à la ressource mère. Les ressources filles sont récupérées à partir de la ressource mère. 
 
@@ -79,6 +83,10 @@ Le paramètre **_revinclude** permet d’afficher dans le résultat les ressourc
 **Exemples:**
 
 ```sh
+GET [base]/Practitioner?_revinclude=PractitionerRole:practitioner
+# Récupère les Practitioners et inclure également les PractitionerRole associées
+
+
 GET [base]/Organization?_revinclude=Organization:partof
 # Récupère les Entités géographiques (EG) et les Entités Juridiques (EJ) de rattachement
 ```
@@ -92,8 +100,8 @@ Le paramètre **_elements** permet de préciser la liste d’attributs qui doit 
 **Exemples:**
 
 ```sh
-GET [base]/Practitioner?identifier=10001766673&_elements=name
-# Récupère pour mon identifiant RPPS 10001766673 les informations liées à l'attribut name
+GET [base]/Practitioner?identifier=10001766123&_elements=name
+# Récupère pour mon identifiant RPPS 10001766123 les informations liées à l'attribut name
 
 GET [base]/PractitionerRole?_elements=telecom
 # Récupère l'ensemble des PractitionerRole et n'affiche que les informations liées à l'attribut telecom (BAL MSS)

@@ -69,7 +69,7 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 <p><strong>Paramètres de requête</strong></p>
 </td>
 <td width="54%">
-<p>_count, _include, _revinclude</p>
+<p>_count, _revinclude</p>
 </td>
 </tr>
 </tbody>
