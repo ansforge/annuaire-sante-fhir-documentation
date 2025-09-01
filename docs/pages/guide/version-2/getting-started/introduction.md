@@ -11,7 +11,7 @@ Ce site dédié à l'API FHIR Annuaire Santé est une documentation essentielle 
 ### Modèle de données FHIR
 
 FHIR est un standard d'interopérabilité conçu pour l’échange de données de santé entre les différents acteurs de l’écosystème de Santé, développé par HL7 (Health Level 7).
-En pleine croissance, il est de plus en plus utilisé en France et son usage est poussé par l’Union Européenne.
+Le standard FHIR est de plus en plus utilisé en France et son usage est poussé par l’Union Européenne.
 L’API FHIR Annuaire Santé est une API RESTFul qui a pour objectif de respecter le standard d’interopérabilité FHIR afin d’exposer toutes les données en libre accès de l’Annuaire Santé.
 
 ### Qu'est ce qu'une ressource FHIR ?

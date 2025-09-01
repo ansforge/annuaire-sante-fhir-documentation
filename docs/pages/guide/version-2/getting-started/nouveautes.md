@@ -55,13 +55,18 @@ Nous avons pu aussi constater que certains consommateurs peuvent conserver les I
 ## <a id="four-header"></a>4) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
 Quelles sont les nouveautés globalement sur cette nouvelle version publiée :
-- Revue sur le format de réponse du Capability Statement (metadata)
 - Ajout de l'attribut : _profile: fr-canonical
 - Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
 - Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
 - Modification de plusieurs codes systèmes
 - Modification de plusieurs Jeux De Valeurs (JDV)
 - Suppression de la ressource "Subscription"
+- Revue sur le format de réponse du Capability Statement (metadata). Pour plus d'informations sur les capacités du serveur FHIR, n'hésitez pas à consulter le Capability Statement ainsi que le [guide d'implémentation](https://interop.esante.gouv.fr/ig/fhir/annuaire/)
+
+```sh
+GET [base]/metadata
+# récupère les capacités et spécifications du serveur FHIR
+```
 </div>
 &nbsp;
 Nous allons voir en détail les nouveautés au niveau de chaque ressource:
@@ -120,16 +125,15 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | active                | Si la ressource est en false, les champs suivants seront présents: numéro d'autorisation ARHGOS |
 
 
-### Liste des Search Parameters communs
+### Liste des paramètres communs (Common Parameters)
 
 | Paramètres            | Statut                        |
 | ---                   | ---                           |
 | _id                   | Disponible                    |
 | _lastUpdated          | Disponible                    |
 | _profile              | Disponible                    |
-| _has                  | Indisponible                  |
 
-### Liste des Search Result Parameters
+### Liste des Search  Parameters
 
 | Paramètres            | Statut                        |
 | ---                   | ---                           |
@@ -139,10 +143,4 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | _revinclude           | Disponible                    |
 | _total                | Disponible                    |
 | _elements             | Disponible                    |
-
-Pour plus d'informations sur les capacités du serveur FHIR, n'hésitez pas à consulter le Capability Statement (metadata) ainsi que le [guide d'implémentation](https://interop.esante.gouv.fr/ig/fhir/annuaire/)
-
-```sh
-GET [base]/metadata
-# récupère les capacités et spécifications du serveur FHIR
-```
+| _has                  | Indisponible                  |

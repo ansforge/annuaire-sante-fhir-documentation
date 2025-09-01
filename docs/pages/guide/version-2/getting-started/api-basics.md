@@ -50,7 +50,7 @@ Les codes HTTP standard sont des codes de statut envoyés par un serveur en rép
 L'API est conforme à la norme REST. Vous pouvez utiliser les ressources avec les méthodes HTTP suivantes :
 <div class="wysiwyg"  markdown="1">
 - GET : lecture de données simple  (Regex Posix : \/fhir\/(v[0-9]{0,2}\/)?[a-zA-Z]{0,30} )
-- POST : lecture de données au format POST  (Regex Posix : \/fhir\/(v[0-9]{0,2}\/)?[a-zA-Z]{0,30}\/_search )
+- POST : lecture de données au format POST  (Regex Posix : \/fhir\/(v[0-9]{0,2}\/)?[a-zA-Z]{0,30}\/_search ). Cette méthode est notamment utilisée car certaines URLS peuvent atteindre la limite autorisée en nombre de caractères dan l'url.
 </div>
 Les méthodes PUT et DELETE sont interdites.
 <br />

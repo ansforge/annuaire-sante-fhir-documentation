@@ -19,7 +19,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
 
 <div class="row">
     <div class="border rounded col p-2 m-1">
-        <h3>Appel Full</h3>
+        <h3>Appels Full</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -28,7 +28,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
-        <h3>Appel Delta</h3>
+        <h3>Appels Delta</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -37,7 +37,7 @@ On peut distinguer trois types d'appels disponibles dans l'API FHIR Annuaire San
         </div>
     </div>
     <div class="border rounded col p-2 m-1">
-        <h3>Appel unitaire</h3>
+        <h3>Appels unitaires</h3>
         <hr aria-hidden="true">
         <div>
             <ul>
@@ -253,22 +253,13 @@ Le tableau suivant indique le type de modificateurs de résultat de recherche qu
 | Practitioner      | _revinclude | PractitionerRole:practitioner     |
 | PractitionerRole  | _include    | PractitionerRole:practitioner     |
 | PractitionerRole  | _include    | PractitionerRole:organization     |
-| Organization      | _include    | Organization::partof              |
+| Organization      | _include    | Organization:partof               |
 | Organization      | _revinclude | Device:organization               |
 | Organization      | _revinclude | HealthcareService:organization    |
 | Organization      | _revinclude | PractitionerRole:organization     |
 | Organization      | _include    | Device:organization               |
 | Device            | _include    | Device:organization               |
 | HealthcareService | _include    | HealthcareService:organization    |
-
-Ainsi il est possible de lier:
-<div class="wysiwyg" markdown="1">
-- A partir du Practitioner : lier avec le Practitioner
-- A partir du PractitionerRole: lier avec le Practitioner ou avec l'Organization
-- A partir de l'Organization : lier avec le PractitionerRole, le Device ou le HealthCareService
-- A partir du Device: lier avec l'Organization
-- A partir du HealthCareService : lier avec l'Organization
-</div>
 
 <br />
 Cas d'exemple: pour visualiser les exercices professionnels d'un professionnel et ses activités, il faut lancer le type d'appel suivant :
