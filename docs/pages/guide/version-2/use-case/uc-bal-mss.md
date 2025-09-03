@@ -100,7 +100,7 @@ Pour récupérer les BAL sur les Centres de Santé, il faut interroger la ressou
 </div>
 <br />
 
-Ci-dessous un tableau contenant les différents secteurs d'activités liés à chaque structure :
+Ci-dessous un tableau contenant quelques exemples de secteurs d'activités liés à chaque structure :
 
 | Structures                | Secteurs d'activités      |
 | ---                       | ---                       |
@@ -113,10 +113,10 @@ Ci-dessous un tableau contenant les différents secteurs d'activités liés à c
 **Requêtes :**
 
 ```sh
-GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40
+GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite%7CSA05&mailbox-mss:contains=%40
 # récupère les centres de santé (SA05) et qui disposent au moins d'une BAL MSS
 
-GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA25%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA29&mailbox-mss:contains=%40
+GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite%7CSA25,https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite%7CSA29&mailbox-mss:contains=%40
 # récupère les laboratoires (SA25, SA29) et qui disposent au moins d'une BAL MSS
 ```
 <br />

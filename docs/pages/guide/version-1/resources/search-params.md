@@ -127,8 +127,6 @@ foreach (var be in bundle.Entry)
 
 A la différence du modifier "exact", les performances constatées en utilisant le modifier contains et deux mots ne répondent pas dans les 30 secondes.
 
-Le modifier contains est à utiliser avec précaution car les performances avec deux mots en uti
-
 **Requête :**
 
 `GET [base]/Organization?name%3Acontains=EURL`

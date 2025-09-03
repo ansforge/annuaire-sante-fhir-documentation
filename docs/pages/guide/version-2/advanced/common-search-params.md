@@ -1,6 +1,6 @@
 ---
 layout: menu-version-2
-title: Paramètres de recherche
+title: Paramètres de recherche communs
 subTitle: Ressources
 ---
 
@@ -10,8 +10,6 @@ subTitle: Ressources
 <div class="wysiwyg" markdown="1">
 - [Paramètres de recherche disponibles](#one-header)
 - [Paramètres de type texte](#two-header)
-  - [Recherche sans modificateur](#21-header)
-  - [Recherche avec modificateur](#22-header)
 - [Paramètres de type token](#three-header)
 - [Paramètres de type date](#four-header)
 - [Paramètres combinés](#seven-header)
@@ -22,8 +20,9 @@ subTitle: Ressources
 <br />
 
 
-## <a id="one-header"></a>1) Paramètres de recherche disponibles
-Pour afficher les paramètres de recherche pris en charge par l'API, il est possible d'interroger le CapabilityStatement.
+
+## <a id="one-header"></a>1) Paramètres de recherche communs disponibles
+Pour connaitre les différents paramètres de recherche pris en charge par le serveur FHIR, il est possible d'interroger le Capability Statement (metadata).
 
 **Requête :**
 
@@ -35,12 +34,11 @@ GET [base]/metadata
 
 Les recherchers de type texte peuvent s'effectuer sur les différentes ressources disponibles.
 
-#### <a id="21-header"></a>2.1) Recherche sans modificateur
-
 **Requête :**
 
 ```sh
 `GET [base]/Organization?name=Renard`
+# Rechercher sur la raison sociale d'une structure
 ```
 
 **Exemples de code :**  
@@ -92,9 +90,11 @@ foreach (var be in bundle.Entry)
 </div>
 <br />
 
-#### <a id="22-header"></a>2.2) Recherche avec les modificateurs "contains" et "exact"
+&nbsp;
 
-**Requête :**
+Il est également possible sur des attributs de type texte (String) d'utiliser les modifiers contains et exact pour affiner la recherche : 
+
+**Requêtes :**
 
 ```sh
 GET [base]/Organization?name%3Acontains=MIGNOT
@@ -102,7 +102,6 @@ GET [base]/Organization?name%3Acontains=MIGNOT
 
 GET [base]/Organization?name%3Aexact=MIGNOT
 # Le modificateur :exact retourne les résultats qui correspondent exactement à l'ensemble du paramètre fourni, y compris la casse et les accents.
-
 ```
 
 
@@ -157,13 +156,27 @@ foreach (var be in bundle.Entry)
 
 ## <a id="three-header"></a>3) Paramètres de type [token](https://www.hl7.org/fhir/search.html#token)
 
-Le serveur supporte la recherche par code, par système ou par les deux.
+Les paramètres de recherche de type TOKEN permettent de rechercher en fonction :
+<div class="wysiwyg" markdown="1">
+- du Code Système
+- de l'identifiant (ou code)
+- ou des deux
+</div>
 
 ### Recherche par code
 
 **Requête :**
 
-`GET [base]/Organization?identifier=org-org-148`
+```sh
+GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C
+# Rechercher par rapport au code système de FINESS. Cela permettra de remonter l'ensemble des structures provenant du SI (Système d'Information) de FINESS.
+
+GET [base]/Organization?identifier=org-org-148
+# Rechercher par rapport à l'identifiant de la structure org-org-148.
+
+GET [base]/PractitionerRole?role=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R85-RolePriseCharge%2FFHIR%2FTRE-R85-RolePriseCharge%7C318
+# Rechercher par rapport au code système TRE R85 Role Prise Charge et en filtrant sur le code 318 correspondant aux Auxiliaires de vie
+```
 
 **Exemples de code :**
 

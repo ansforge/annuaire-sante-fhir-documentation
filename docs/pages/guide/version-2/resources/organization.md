@@ -82,7 +82,6 @@ Il s'agit d'une ressource qui regroupe  les données décrivant la [« structure
 | address-city                      | string    | Recherche sur la commune de l'organisation       |
 | address-postalcode                | string    | Recherche sur le code postal de l'organisation    |
 | data-information-system           | token     | Recherche sur le système d'information      |
-| data-registration-authority       | token     | Recherche sur l'autorité d'enregistrement   |
 | identifier                        | token     | Recherche sur l'identifiant de la structure       |
 | identifier-type                   | token     | Recherche sur le type d'identifiant de la structure |
 | mailbox-mss                       | string    | Recherche sur les messageries sécurisées de santé (MSS) rattachées aux organisations |
@@ -170,7 +169,8 @@ En tant que client de l'API, je souhaite trouver une structure à partir de sa r
 **Requête :**
 
 ```sh
-GET [base]/Organization?name%3Acontains=imagerie%2Ccentre
+GET [base]/Organization?name:contains=imagerie,centre
+# récupère les structures dont la raison sociale contient imagerie ou centre. Cette recherche n'est pas sensible à la casse.
 ```
 
 <br />
@@ -237,7 +237,7 @@ En tant que client de l'API, je souhaite rechercher une structure à partir de s
 
 ```sh
 GET [base]/Organization?identifier=001604103000
-# récupérer une structure dont l'identifiant est 001604103000
+# récupérer une structure dont l'identifiant de structure est 001604103000
 
 ```
 
@@ -302,9 +302,8 @@ En tant que client de l'API, je souhaite rechercher toutes les structures mises 
 
 **Requête :**
 ```sh
-`GET [base]/Organization?_lastUpdated=ge2022-08-05`
-# Récupère toutes les structures mises à jour à partir du 05 août 2022 (inclus) jusqu'à aujourd'hui
-
+GET [base]/Organization?_lastUpdated=ge2025-08-05
+# Récupère toutes les structures mises à jour à partir du 05 août 2025 (inclus) jusqu'à aujourd'hui
 ```
 <br />
 
@@ -313,7 +312,7 @@ En tant que client de l'API, je souhaite rechercher toutes les structures mises 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?_lastUpdated=ge2022-08-05T14%3A51%3A04"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?_lastUpdated=ge2025-08-05T14%3A51%3A04"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -325,7 +324,7 @@ var dateParam = new DateClientParam("_lastUpdated");
 
 var bundle = client.search()
         .forResource(Organization.class)
-        .where(dateParam.afterOrEquals().second("2022-08-05T14:51:04"))
+        .where(dateParam.afterOrEquals().second("2025-08-05T14:51:04"))
         .returnBundle(Bundle.class).execute();
 
 for(var organizationEntry : bundle.getEntry()){
@@ -342,7 +341,7 @@ for(var organizationEntry : bundle.getEntry()){
 var client = FhirTestUtils.CreateClient();
 
 var q = new SearchParams()
-  .Where("_lastUpdated=ge2022-08-05T14:51:04")
+  .Where("_lastUpdated=ge2025-08-05T14:51:04")
   .LimitTo(50);
 var bundle = client.Search<Organization>(q);
 foreach (var be in bundle.Entry)
@@ -365,7 +364,7 @@ Le champs "Type" de la ressource Organization peut contenir des informations dif
 | Type de données           | Code système                                        |
 | ---                       | ---                                                 |
 | Type d'organisation       | https://hl7.fr/ig/fhir/core/2.1.0/ValueSet-fr-core-vs-organization-type.html  | 
-| APE                       | https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5   |
+| APE/NAF                   | https://mos.esante.gouv.fr/NOS/TRE_R75-InseeNAFrev2Niveau5/FHIR/TRE-R75-InseeNAFrev2Niveau5   |
 | Catégorie Juridique       | https://mos.esante.gouv.fr/NOS/TRE_R72-FinessStatutJuridique/FHIR/TRE-R72-FinessStatutJuridique |
 | Secteur d'activité        | https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite |
 | Catégorie d'établissement | https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement |
@@ -382,17 +381,17 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C101
-# récupère les organisations qui appartiennent à la catégorie d'établissement 101 - Centre Hospitalier Régional (C.H.R.)
+GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement%7C101
+# récupère les organisations qui appartiennent à la catégorie d'établissement 101 - Centre Hospitalier Régional (C.H.R.) en indiquant la TRE
 
 GET [base]/Organization?type=GEOGRAPHICAL-ENTITY
 # récupère les organisations qui sont uniquement des entités géographiques.
 
 GET [base]/Organization?type=LEGAL-ENTITY
-# récupère les organisations qui sont uniquement des entités légales.
+# récupère les organisations qui sont uniquement des entités juridiques.
 
-GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA02
-# récupère les organisations qui font partie du secteur d'activité SA02
+GET [base]/Organization?type=https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite%7CSA02
+# récupère les organisations qui font partie du secteur d'activité SA02 en indiquant la TRE
 
 ```
 <br />

@@ -183,19 +183,6 @@ foreach (var be in bundle.Entry)
 
 `GET [base]/Practitioner?identifier=0012807590`
 
-**Réponse (simplifiée) :** 
-
-```xml
-HTTP 200 OK
-  resourceType: Bundle
-  type: searchset
-  total: 1
-  Practitioner found: id=0012807590 name=MME
-
-
-```
-<br />
-
 **Exemples de code :**
 
 <div class="code-sample">

@@ -162,15 +162,15 @@ header:
                 url: /pages/guide/version-2/resources/device.html
                 title: Device
           - page: Techniques avancées
-            url: /pages/guide/version-2/advanced/search-params.html
+            url: /pages/guide/version-2/advanced/common-search-params.html
             title: Techniques avancées
             subfolderitems:
-              - page: Search Parameters
-                url: /pages/guide/version-2/advanced/search-params.html
-                title: Search Parameters
-              - page: Search Results Parameters
+              - page: Common Search Parameters
+                url: /pages/guide/version-2/advanced/common-search-params.html
+                title: Common Search Parameters
+              - page: Modifying Search Results
                 url: /pages/guide/version-2/advanced/modifying-search-results.html
-                title: Search Results Parameters
+                title: Modifying Search Results
           - page: Cas d'utilisation
             url: /pages/guide/version-2/use-case/uc-call-type.html
             title: Cas d'utilisation
