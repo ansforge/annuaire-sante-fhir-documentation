@@ -107,10 +107,10 @@ En tant que client de l'API, je souhaite récupérer l'ensemble des données cor
 GET [base]/PractitionerRole
 # récupère l'ensemble des PractitionersRoles (incluant les actifs et les inactifs)
 
-GET [base]/PractitionerRole?_include=PractitionerRole%3Aorganization
+GET [base]/PractitionerRole?_include=PractitionerRole:organization
 # inclure les Organization qui sont référencées par les PractitionerRole (PractitionerRole + Organization)
 
-GET [base]/PractitionerRole?_include=PractitionerRole%3Apractitioner
+GET [base]/PractitionerRole?_include=PractitionerRole:practitioner
 # inclure les Practitioner qui sont référencés par les PractitionerRole (PractitionerRole + Practitioner)
 
 GET [base]/PractitionerRole?_include=*
@@ -181,7 +181,7 @@ En tant que client de l'API, je souhaite rechercher une ressource PractitionerRo
 **Requête :**
 
 ```sh
-GET [base]/PractitionerRole?_id=005-69329-7187020`
+GET [base]/PractitionerRole?_id=005-69329-7187020
 ```
 <br />
 
@@ -273,10 +273,10 @@ Lorsque vous souhaitez rechercher sur un type de données particulier, utiliser 
 
 ```sh
 
-GET [base]/PractitionerRole?role=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R85-RolePriseCharge%2FFHIR%2FTRE-R85-RolePriseCharge%7C318
+GET [base]/PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge%7C318
 # récupère dans la TRE Role Prise Charge le code 318 correspondant à la fonction "Auxiliaire de vie sociale"
 
-GET [base]/PractitionerRole?role=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R06-SectionTableauCNOP%2FFHIR%2FTRE-R06-SectionTableauCNOP%7CA
+GET [base]/PractitionerRole?role=https://mos.esante.gouv.fr/NOS/TRE_R06-SectionTableauCNOP/FHIR/TRE-R06-SectionTableauCNOP%7CA
 # récupère dans la TRE SectionTableauCNOP le code A correspondant au Pharmacien titulaire d'officine "
 
 GET [base]/PractitionerRole?mailbox-mss:contains=apycript.org

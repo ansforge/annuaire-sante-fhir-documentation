@@ -83,7 +83,6 @@ Il s'agit d'une ressource qui regroupe  les données décrivant l'[« exercice p
 | _lastUpdated                  | date    |  renvoie uniquement les ressources selon la date de mises à jour et le "modifier" utilisé (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://www.hl7.org/fhir/R4/search.html#date)   |
 | active                        | token   | Recherche sur le statut de l'exercice professionnel (ouvert ou fermé)  |
 | data-information-system       | token   | Recherche sur le système d'informations  |
-| data-registration-authority   | token   | Recherche sur l'autorité d'enregistrement |
 | family                        | string  | Recherche sur le nom d'exercice du professionnel |
 | given                         | string  | Recherche sur le prénom d'exercice du professionnel |
 | identifier                    | token   | Recherche sur l'identifiant métier du professionnel (RPPS, IDNPS - IDentifiant National du Professionnel de Santé)
@@ -551,7 +550,7 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels dont
 GET [base]/Practitioner?qualification-code=21
 # Récupère tous les professionnels dont la profession est pharmacien (code 21)
 
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_G15-ProfessionSante%2FFHIR%2FTRE-G15-ProfessionSante%7C21
+GET [base]/Practitioner?qualification-code=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante%7C21
 # Récupère tous les professionnels dont la profession est pharmacien en indiquant la TRE (Table de REférence)
 ```
 <br />
@@ -562,8 +561,11 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels dont
 **Requête :**
 
 ```sh
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R38-SpecialiteOrdinale%2FFHIR%2FTRE-R38-SpecialiteOrdinale%7CSM41
+GET [base]/Practitioner?qualification-code=SM41
 # Récupère tous les professionnels dont la spécialité est Pneumologie (SM41)
+
+GET [base]/Practitioner?qualification-code=https://mos.esante.gouv.fr/NOS/TRE_R38-SpecialiteOrdinale/FHIR/TRE-R38-SpecialiteOrdinale%7CSM41
+# Récupère tous les professionnels dont la spécialité est Pneumologie (SM41) en indiquant la TRE
 ```
 <br />
 
@@ -573,8 +575,11 @@ En tant que client de l'API, je souhaite rechercher tous les professionnels selo
 
 **Requête :**
 ```sh
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R09-CategorieProfessionnelle%2FFHIR%2FTRE-R09-CategorieProfessionnelle%7CC
+GET [base]/Practitioner?qualification-code=C
 # Récupère tous les professionnels dont la catégorie professionnelle est Civil (code: C)
+
+GET [base]/Practitioner?qualification-code=https://mos.esante.gouv.fr/NOS/TRE_R09-CategorieProfessionnelle/FHIR/TRE-R09-CategorieProfessionnelle%7CC
+# Récupère tous les professionnels dont la catégorie professionnelle est Civil (code: C) en indiquant la TRE
 ```
 <br />
 

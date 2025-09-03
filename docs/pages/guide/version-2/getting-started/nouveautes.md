@@ -55,9 +55,10 @@ Nous avons pu aussi constater que certains consommateurs peuvent conserver les I
 ## <a id="four-header"></a>4) Les nouveautés sur chaque ressource
 <div class="wysiwyg" markdown="1">
 Quelles sont les nouveautés globalement sur cette nouvelle version publiée :
-- Ajout de l'attribut : _profile: fr-canonical
-- Ajout de la source et profile dans le champ meta lorsqu'une ressource est désactivée
-- Amélioration de la recherche sur les différents champs : prénom d'exercice, nom d'exercice, adresse mail MSS, raison sociale, enseigne commerciale, etc.
+- Dans l'attribut Ressources: ajout dans l'attribut profile du profile fr-core canonical
+- Lorsqu'une ressource est désactivée : ajout de la source et profile dans le champ meta
+- Modifications importantes sur les 2 ressources Practitioner et PractitionerRole : le valueHumanName sur la ressource Practitioner est supprimé au profit de l'attribut Name dans la ressource Practitioner.
+- Regroupement des informations mail MSSanté et moyens de communication dans un attribut telecom
 - Modification de plusieurs codes systèmes
 - Modification de plusieurs Jeux De Valeurs (JDV)
 - Suppression de la ressource "Subscription"
@@ -77,12 +78,11 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | Données           | Ressource Practitioner                                                         |   
 | ---               | ---                                                                            |
 | active            | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant du professionnel (Identifiant national, RPPS) et le champ active  |
-| cps               | Ajout des informations liées aux cartes CPx du Professionnel. Possibilité d'avoir plusieurs cartes CPx     |
+| cps               | Ajout des informations liées aux cartes CPx du Professionnel. Possibilité d'avoir plusieurs cartes CPx          |
 | identifier        | Ajout systématique de l'identifiant national (IDNPS)                           |
 | identifier-type   | Mise à jour du code système du type d'identifiant national de la personne physique :  https://hl7.fr/ig/fhir/core/CodeSystem/fr-core-cs-v2-0203  |
-| name              | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex : MME) et le suffixe (ex : DR) |
-| qualification     | Ajout des informations sur la catégorie professionnelle, la profession, la fonction, les savoir-faire et les types de savoir-faire.   |
-| resource          | Ajout dans le profile le profile: fr-canonical                                 |
+| name              | Ajout de l'attribut name contenant les données du professionnel (nom d'exercice, prénom, d'exercice, le préfix (ex : MME) et le suffixe (ex : DR) )|
+| qualification     | Ajout des informations sur la catégorie professionnelle, la profession, les savoir-faire et les types de savoir-faire.   |
 | telecom           | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
 
 
@@ -91,12 +91,11 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | Données        | Ressource PractitionerRole                                                           |    
 | ---            | ---                                                                                  |
 | identifier     | Ajout d'un attribut identifier au niveau du PractitionerRole. L'identifier est également un paramètre de recherche |
-| reference      | Ajout de la référence à l'Organization                                               |
 | code           | Suppression des attributs catégorie professionnelle et Profession (déplacés dans Practitioner) |
-| cps            | Suppression des informations liées aux cartes CPx du Professionnel                   |
-| telecom       | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.) |
+| cps            | Suppression des informations liées aux cartes CPx du Professionnel (déplacés dans Practitioner) |
+| telecom        | Ajout d'un attribut telecom pour regrouper l'ensemble des informations de communication (adresse MSS, telephone, etc.)  |
 | valueHumanName | Suppression des informations liées à l'exercice professionnel du Practitioner (déplacés dans Practitioner sous l'attribut Name)  |
-| specialty      | Suppression des informations liées aux savoir-faire et aux types de savoir-faire     |
+| specialty      | Suppression des informations liées aux savoir-faire et aux types de savoir-faire (déplacés dans Practitioner) |
 
 ### Nouveautés sur Organization
 
@@ -104,9 +103,7 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | ---            | ---                                                                                  |
 | identifier     | Mise à jour du code système pour filtrer sur les structures FINESS : https://finess.esante.gouv.fr  |
 | identifier     | Mise à jour du code système pour filtrer sur les structures RPPSRang : https://rpps.esante.gouv.fr  |
-| reference      | Ajout de la référence à l'Organization                                               |
-| telecom        | Ajout d'un attribut telecom contenant l'ensemble des informations MSSanté (Type de messagerie, Type de BAL, dématérialisation, etc.). Amélioration sur l'affectation des BAL MSS sur les sites. |
-| address        | Mise à jour du Jeu de Valeur https://mos.esante.gouv.fr/NOS/JDV_J256-Pays/FHIR/JDV-J256-Pays |
+| telecom        | Ajout d'un attribut telecom contenant l'ensemble des informations de communication (adresse MSS, téléphone, adresse mail |
 | active         | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant de la structure (finess, rpps rang, etc.), name (raison sociale) et active  |
 
 
@@ -123,24 +120,3 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | ---                   | ---                                                                                  |
 | type                  | Ajout de la catégorie Activité Santaire régulée avec un binding sur la JDV : https://mos.esante.gouv.fr/NOS/JDV_J133-ActiviteSanitaireRegulee-RASS/FHIR/JDV-J133-ActiviteSanitaireRegulee-RASS     |
 | active                | Si la ressource est en false, les champs suivants seront présents: numéro d'autorisation ARHGOS |
-
-
-### Liste des paramètres communs (Common Parameters)
-
-| Paramètres            | Statut                        |
-| ---                   | ---                           |
-| _id                   | Disponible                    |
-| _lastUpdated          | Disponible                    |
-| _profile              | Disponible                    |
-
-### Liste des Search  Parameters
-
-| Paramètres            | Statut                        |
-| ---                   | ---                           |
-| _sort                 | Indisponible                  |
-| _count                | Disponible                    |
-| _include              | Disponible                    |
-| _revinclude           | Disponible                    |
-| _total                | Disponible                    |
-| _elements             | Disponible                    |
-| _has                  | Indisponible                  |

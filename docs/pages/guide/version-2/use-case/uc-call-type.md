@@ -58,79 +58,14 @@ Prenons l'exemple d'un client de l'API qui souhait récupérer l'ensemble des pr
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_G15-ProfessionSante%2FFHIR%2FTRE-G15-ProfessionSante%7C10&active=true
-# récupère l'ensemble des professionnels actifs dont la profession est médecin (code 10) en précisant le code système
-
 GET [base]/Practitioner?qualification-code=10&active=true
-# récupère l'ensemble des professionnels actifs dont la profession est médecin sans préciser le code système
+# récupère l'ensemble des professionnels actifs dont la profession est médecin
 
-GET [base]/Practitioner?qualification-code=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_G15-ProfessionSante%2FFHIR%2FTRE-G15-ProfessionSante%7C10
-# récupère l'ensemble des professionnels actifs et inactifs dont la profession est médecin (code 10).
+GET [base]/Practitioner?qualification-code=https://mos.esante.gouv.fr/NOS/TRE_G15-ProfessionSante/FHIR/TRE-G15-ProfessionSante%7C10&active=true
+# récupère l'ensemble des professionnels actifs dont la profession est médecin (code 10) en précisant le code système
 ```
 <br />
 
-
-**Exemples de code :**
-
-<div class="code-sample"> <div class="tab-content" data-name="curl"> {% highlight bash %} curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Practitioner" {% endhighlight %} </div> 
-<div class="tab-content" data-name="java"> 
-{% highlight java %} 
-// Créer un contexte FHIR pour la version R4
-var contexteFhir = FhirContext.forR4();
-// Créer un client RESTful générique pour le serveur FHIR
-var clientFhir = contexteFhir.newRestfulGenericClient("https://gateway.api.esante.gouv.fr/fhir/v2/");
-
-// Exécuter une recherche pour les rôles de praticien avec un filtre sur la spécialité
-var bundleFhir = (Bundle) clientFhir.search().forResource(PractitionerRole.class)
-        // Filtrer sur la spécialité avec le code "SM02"
-        .where(PractitionerRole.SPECIALTY.exactly().codes("SM02"))
-        // Limiter le nombre de résultats à 10
-        .count(10)
-        // Exécuter la requête
-        .execute();
-
-{% endhighlight %}
-
-</div> <div class="tab-content" data-name="python"> {% highlight python %}
-import requests from fhir.resources.fhirtypes import Bundle, PractitionerRole
-
-from fhirclient import client
-import fhirclient.r4.models.bundle as bundle
-import fhirclient.r4.models.practitionerrole as practitionerrole
-
-# Créer les paramètres de configuration pour le client FHIR
-settings = {
-    'app_id': 'my_app',
-    'api_base': 'https://gateway.api.esante.gouv.fr/fhir/v2/'
-}
-
-# Créer un client FHIR
-client_fhir = client.FHIRClient(settings=settings)
-
-# Créer une requête de recherche pour les rôles de praticien
-search = practitionerrole.PractitionerRole.where(structures={"specialty": "SM02"})
-# Limiter le nombre de résultats à 10
-search = search.limitTo(10)
-
-# Exécuter la recherche
-bundle_fhir = search.perform_resources(client_fhir.server)
-{% endhighlight %}
-
-</div> <div class="tab-content" data-name="C#"> {% highlight csharp %} 
-// Créer un client FHIR pour la version R4
-var clientFhir = new FhirClient("https://gateway.api.esante.gouv.fr/fhir/v2/");
-clientFhir.PreferredFormat = ResourceFormat.Json;
-clientFhir.PreferredReturn = Prefer.ReturnRepresentation;
-
-// Créer une requête de recherche pour les rôles de praticien
-var requete = new string[] { "PractitionerRole?specialty=SM02" };
-var query = new Uri(requete[0], UriKind.Relative);
-
-// Exécuter la recherche et limiter le nombre de résultats à 10
-var bundleFhir = clientFhir.Search<Bundle>(query, pageSize: 10);
-{% endhighlight %}
-
-</div> </div> 
 
 Si ce type d'appel est lancé, le code retourné contiendra dans la première pagination les 10 premiers éléments: 
 
@@ -160,7 +95,7 @@ Si ce type d'appel est lancé, le code retourné contiendra dans la première pa
                   ...
 ```
 <br />
-A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagination. Il suffit de préparer un script qui va permettre de récupérer l'url situé dans l'attribut link et d'appeler jusqu'à la dernière pagination:
+A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagination. Il suffit de préparer un script qui va permettre de récupérer l'url situé dans l'attribut link et d'appeler jusqu'à la dernière pagination via une méthode GET:
 <br />
 
 ```json
@@ -182,18 +117,18 @@ A la fin la réponse JSON, un lien "next" permet de consulter la prochaine pagin
 
 Nous allons montrer comment réaliser un appel delta d'une ressource pour réaliser la mise à jour des données de l'Annuaire Santé.
 
-Prenons l'exemple d'un client de l'API qui souhait mettre à jour l'ensemble des professionnels actifs et dont la profession est Médecin. Il devra interroger la ressource Practitioner.
+Prenons l'exemple d'un client de l'API qui souhaite mettre à jour l'ensemble des professionnels actifs et dont la profession est Médecin. Il devra interroger la ressource Practitioner.
 
 ```sh
-GET [base]/Practitioner?qualification-code=10&_lastUpdated=ge2025-05-27
-# récupère l'ensemble des professionnels dont la profession est médecin qui ont été mis à jour entre le 27 mai 2025 et aujourd'hui.
+GET [base]/Practitioner?qualification-code=10&_lastUpdated=ge2025-09-27
+# récupère l'ensemble des professionnels dont la profession est médecin qui ont été mis à jour entre le 27/09/2025 et aujourd'hui.
 ```
 <br />
 Cet appel delta vous permettra de remonter l'ensemble des professions qui ont été mis à jour entre la date définie et aujourd'hui. Vous pourrez ainsi constater des ressources qui vont voir des changements de statut "active = false"
 
-Note| Les appels delta ne peuvent pas excéder plus de 30 jours. Le serveur ne garde pas les mises à jour réalisées au-delà de 30 jours.
+Note| Les appels delta ne peuvent pas excéder plus de 30 jours. Le serveur ne gardera pas les mises à jour réalisées au-delà de 30 jours.
 
-Si ce type d'appel est lancé, l'appel delta remontera près de 9903 entrées qui ont été mises à jour depuis le 27 mai 2025. Le code retourné contiendra dans la première pagination les 50 premiers éléments :
+Si ce type d'appel est lancé, l'appel delta remontera près de 9903 entrées qui ont été mises à jour depuis le 27/09/2025. Le code retourné contiendra dans la première pagination les 50 premiers éléments :
 
 ```json
 {
@@ -244,7 +179,14 @@ Nous allons montrer comment réaliser un appel FULL en faisant une liaison entre
 
 <img src="img/modelisation.png" style="width:100%;">
 
-Pour réaliser la liaison entre deux ressources, vous devez utiliser les modificateurs de résultats de recherche _include ou_revinclude. Le standard FHIR propose par exemple le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
+Pour réaliser la liaison entre deux ressources, vous devez utiliser les modificateurs de résultats de recherche : _include ou_revinclude. Le standard FHIR propose par exemple le paramètre _include qui va inclure dans les résultats de réponse des éléments qui sont référencés dans la recherche principale. 
+
+Pour rappel :
+<div class="wysiwyg" markdown="1">
+- Le paramètre **_include** permet d’afficher dans le résultat les ressources mères liées à la ressource fille. Les ressources mères sont récupérées à partir de la ressource fille.
+- Le paramètre **_revinclude** permet d’afficher dans le résultat les ressources filles liées à la ressource mère. Les ressources filles sont récupérées à partir de la ressource mère. 
+</div>
+
 
 Le tableau suivant indique le type de modificateurs de résultat de recherche que vous pouvez utiliser sur chaque ressource :
 

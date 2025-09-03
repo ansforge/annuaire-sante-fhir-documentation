@@ -53,13 +53,13 @@ NOTE| Le fait d'intégrer le paramètre _total dans la requête peut augmenter l
 **Exemple de requête :**
 
 ```sh
-GET [base]/Device?_total=none
-# Récupère les Device sans avoir le total affiché
+GET [base]/Device?_total=accurate
+# Récupère le nombre total d'équipements matériels lourds. 
 ```
 
 &nbsp;
 
-<p>Par défaut, l'affichage (ou non) du total dépend principalement du temps nécessaire à son calcul. Ainsi, si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
+<p>Par défaut, l'affichage (ou non) du total dépend principalement du temps nécessaire à son calcul. Si le temps de calcul est trop important, le total ne sera pas inclus dans la réponse.
 Dans la majorité des cas, le total est affiché sauf dans certains cas particuliers, comme les recherches textuelles (champs de type string) sur de gros volumes de données. Par exemple, rechercher tous les PractitionerRole ayant un nom d'exercice contenant « Martin ».</p>
 
 ### <a id="3-header"></a>3) Paramètre [_include](https://www.hl7.org/fhir/search.html#_include) 

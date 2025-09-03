@@ -80,7 +80,6 @@ Il s'agit d'une ressource divisée en deux profils pour décrire les « [activit
 | _total                            | string    |                                                           |
 | active                            | token     | Recherche les ressources Healthcare Service actives       |
 | as-sp-data-information-system     | token     | Recherche sur le système d'information                    |
-| as-sp-data-registration-authority | token     | Recherche sur l'autorité d'enregistrement                 |
 | characteristic                    | token     | Recherche sur le type d'activité des équipements sociaux ou sur la forme d'activité des activités de soins   |
 | identifier                        | token     | Recherche sur l'identifiant des équipements sociaux ou des activités de soins        |
 | organization                      | reference | Recherche tous les équipements sociaux ou activités de soins rattachés à une structure|
@@ -102,11 +101,11 @@ En tant que client de l'API, je souhaite récupérer l'ensemble des activités d
 GET [base]/HealthcareService
 #récupère l'ensemble des HealthcareServices - activités de soins et équipements sociaux (actives et inactives)
 
-GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%2Ffhir%2Fannuaire%2FStructureDefinition%2Fas-dp-healthcareservice-social-equipment
-# récupère l'ensemble des équipements sociaux (actives et inactives)
+GET [base]/HealthcareService?_profile=https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-dp-healthcareservice-social-equipment
+# récupère l'ensemble des HealthcareServices filtrés sur le profil équipements sociaux (actives et inactives)
 
-GET [base]/HealthcareService?_profile=https%3A%2F%2Finterop.esante.gouv.fr%2Fig%2Ffhir%2Fannuaire%2FStructureDefinition%2Fas-dp-healthcareservice-healthcare-activity
-# récupère l'ensemble des activités de sooins (actives et inactives)
+GET [base]/HealthcareService?_profile=https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-dp-healthcareservice-healthcare-activity
+# récupère l'ensemble des HealthcareServices filtrés sur le profil activités de soins (actives et inactives)
 
 
 GET [base]/HealthcareService?_include=HealthcareService:organization 
@@ -169,12 +168,11 @@ En tant que client de l'API, je souhaite rechercher un service à partir de son 
 **Requête :**
 
 ```sh
-`GET [base]/HealthcareService?identifier=52-52-49883`
-# récupère le HealthcareService en fonction de son identifiant métier
-
-`GET [base]/HealthcareService?_id=004-1014485-03
+GET [base]/HealthcareService?_id=004-1014485-03
 # récupère le HealthcareService en fonction de son identifiant technique
 
+GET [base]/HealthcareService?identifier=52-52-49883
+# récupère le HealthcareService en fonction de son identifiant métier
 ```
 
 **Exemples de code :**
@@ -241,9 +239,9 @@ En tant que client de l'API, je souhaite rechercher toutes les activités de soi
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R276-FormeActivite%2FFHIR%2FTRE-R276-FormeActivite%7C07 
+GET [base]/HealthcareService?characteristic=https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite%7C07 
 # Rechercher les HealthcareService selon la forme d'activité chirurgie ambulatoire (code: 07)
-GET [base]/HealthcareService?characteristic=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R209-TypeActivite%2FFHIR%2FTRE-R209-TypeActivite%7C11 
+GET [base]/HealthcareService?characteristic=https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite%7C11 
 # Rechercher les HealthcareService selon le type d'hébergement complet ou internat (code: 11)
 ```
 <br />
@@ -320,7 +318,6 @@ GET [base]/HealthcareService?active=true
 
 GET [base]/HealthcareService?active=false 
 # Recherche les HealthcareService qui sont inactifs
-
 ```
 <br />
 
@@ -376,13 +373,13 @@ foreach (var be in bundle.Entry)
 
 #### <a id="45-header"></a>4.5 Rechercher par date de mise à jour (_lastUpdated)
 
-En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '18/08/2022' dans l'exemple ).
+En tant que client de l'API, je souhaite rechercher tous les services mis à jour depuis une certaine date ( >= '01/08/2025' dans l'exemple ).
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/HealthcareService?_lastUpdated=ge2022-08-18 
-# Rechercher les HealthcareService qui ont été mis à jour depuis le 18/08/2022 inclus
+GET [base]/HealthcareService?_lastUpdated=ge2025-08-01 
+# Rechercher les HealthcareService qui ont été mis à jour depuis le 01/08/2025 inclus
 ```
 <br />
 
@@ -392,7 +389,7 @@ GET [base]/HealthcareService?_lastUpdated=ge2022-08-18
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?_lastUpdated=ge2022-08-18"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/HealthcareService?_lastUpdated=ge2025-08-01"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
@@ -405,7 +402,7 @@ var dateParam = new DateClientParam("_lastUpdated");
 
 var bundle = client.search()
         .forResource(HealthcareService.class)
-        .where(dateParam.afterOrEquals().day("2022-08-18"))
+        .where(dateParam.afterOrEquals().day("2025-08-01"))
         .returnBundle(Bundle.class).execute();
 
 for (var healthcareServiceEntry : bundle.getEntry()) {
@@ -422,7 +419,7 @@ for (var healthcareServiceEntry : bundle.getEntry()) {
 var client = FhirTestUtils.CreateClient();
 
 var q = new SearchParams()
-   .Where("_lastUpdated=ge2022-08-18")
+   .Where("_lastUpdated=ge2025-08-01")
   .LimitTo(50);
 var bundle = client.Search<HealthcareService>(q);
 foreach (var be in bundle.Entry)

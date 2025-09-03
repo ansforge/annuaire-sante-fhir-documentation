@@ -77,7 +77,6 @@ Il s'agit d'une ressource qui regroupe  les données complémentaires FINESS por
 | _id                           | token     | Rechercher sur l'ID technique de la ressource     |
 | _lastUpdated                  | date      | renvoie uniquement les ressources selon la date de mises à jour et le "modifier" utilisé (eq, ne, gt, lt, ge, le, ap). Plus d'informations sur les [dates] (https://www.hl7.org/fhir/R4/search.html#date)  |
 | data-information-system       | token     | Recherche sur le système d'informations  |
-| data-registration-authority   | token     | Recherche sur l'autorité d'enregistrement |
 | identifier                    | token     | Recherche sur le numéro ARHGOS de l'équipement matériel lourd |
 | manufacturer                  | string    | Recherche sur la marque de l'équipement matériel lourd |
 | model                         | string    | Recherche sur le modèle de l'équipement matériel lourd |
@@ -106,48 +105,6 @@ GET [base]/Device?_include=*
 # inclure toutes les ressources qui sont référencées par les Devices (idem que la précédente requête)
 ```
 
-
-<br />
-
-**Exemples de code :**
-
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-var bundle = client.search().forResource(Device.class).returnBundle(Bundle.class).execute();
-
-for (var deviceEntry : bundle.getEntry()) {
-    // print Device data:
-    var device = (Device) deviceEntry.getResource();
-logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().getIdPart(), device.getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS").getValue());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-var client = FhirTestUtils.CreateClient();
-
-var bundle = client.Search<Device>();
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var device = be.Resource as Device;
-    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
-}
-{% endhighlight %}
-</div>
-
-</div>
-
 <br />
 
 
@@ -158,130 +115,24 @@ foreach (var be in bundle.Entry)
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?_lastUpdated=ge2022-08-07 
-# Récupère tous les Practitioners mis à jour à partir du 07 août 2022 (inclus) jusqu'à aujourd'hui
+GET [base]/Device?_lastUpdated=ge2025-08-07 
+# Récupère tous les Practitioners mis à jour à partir du 07 août 2025 (inclus) jusqu'à aujourd'hui
 ```
 <br />
 
-**Exemples de code :**
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?_lastUpdated=ge2022-08-07T14%3A51%3A04"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-// create the date search parameter :
-var dateParam = new DateClientParam("_lastUpdated");
-
-var bundle = client.search()
-.forResource(Device.class)
-.where(dateParam.afterOrEquals().second("2022-08-07T14:51:04"))
-.returnBundle(Bundle.class).execute();
-
-for (var deviceEntry : bundle.getEntry()) {
-    // print Device data:
-    var device = (Device) deviceEntry.getResource();
-    logger.info("Device found: id={} AuthorizationARHGOS={}", device.getIdElement().getIdPart(), device.getExtensionByUrl("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS").getValue());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-
-// create the client:
-var client = FhirTestUtils.CreateClient();
-
-var q = new SearchParams()
-   .Where("_lastUpdated=ge2022-08-07T14:51:04")
-  .LimitTo(50);
-var bundle = client.Search<Device>(q);
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var device = be.Resource as Device;
-    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
-}
-
-{% endhighlight %}
-</div>
-
-</div>
-
-<br />
-
-
 #### <a id="43-header"></a>4.3 Rechercher un matériel par rapport à un identifiant (_id, identifier)
 
-En tant que client de l'API, je souhaite rechercher un EML à partir de son numéro ARHGOS.
+En tant que client de l'API, je souhaite rechercher un Equipement Materiel Lourd (EML) à partir de son numéro ARHGOS.
 
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?identifier=93-93-67204
-# Rechercher les équipements en fonction de son numéro ARHGOS 93-93-67204
-
 GET [base]/Device?_id=002-4247117
 # Rechercher les équipements en fonction de l'ID technique de la ressource
 
+GET [base]/Device?identifier=93-93-67204
+# Rechercher les équipements en fonction de son numéro ARHGOS 93-93-67204
 ```
-<br />
-
-**Exemples de code :**
-
-<div class="code-sample">
-<div class="tab-content" data-name="curl">
-{% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Device?number-authorization-arhgos=93-93-67204"
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="java">
-{% highlight java %}
-// create the client:
-var client = FhirTestUtils.createClient();
-
-// create the type search parameter :
-var arhgosParam = new StringClientParam("number-authorization-arhgos");
-
-var bundle = client.search()
-        .forResource(Device.class)
-        .where(arhgosParam.contains().value("93-93-67204"))
-        .returnBundle(Bundle.class).execute();
-
-for (var deviceEntry : bundle.getEntry()) {
-    // print Organization ids:
-    var device = (Device) deviceEntry.getResource();
-    logger.info("Device found: id={} type={}", device.getIdElement().getIdPart(), device.getType().getCodingFirstRep().getCode());
-}
-{% endhighlight %}
-</div>
-<div class="tab-content" data-name="C#">
-{% highlight csharp %}
-
-// create the client:
-var client = FhirTestUtils.CreateClient();
-
-var q = new SearchParams()
-   .Where("number-authorization-arhgos=93-93-67204")
-  .LimitTo(50);
-var bundle = client.Search<Device>(q);
-foreach (var be in bundle.Entry)
-{
-    // print ids:
-    var device = be.Resource as Device;
-    Console.WriteLine($"Device found: id={device.IdElement.Value} AuthorizationARHGOS={device.Extension.FindLast(e => e.Url.Equals("https://apifhir.annuaire.sante.fr/ws-sync/exposed/structuredefinition/Device-numberAuthorizationARHGOS")).Value}");
-}
-
-{% endhighlight %}
-</div>
-
-</div>
-
 <br />
 
 
@@ -296,7 +147,7 @@ Les valeurs possibles du type EML sont disponibles dans le  référentiel [TRE_R
 **Exemples de requêtes :**
 
 ```sh
-GET [base]/Device?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R272-EquipementMaterielLourd%2FFHIR%2FTRE-R272-EquipementMaterielLourd%7C05602 
+GET [base]/Device?type=https://mos.esante.gouv.fr/NOS/TRE_R272-EquipementMaterielLourd/FHIR/TRE-R272-EquipementMaterielLourd%7C05602 
 # Rechercher les équipements en fonction du type d'équipement. L'exemple pris est de rechercher les scanographes dont le code métier est 05602.
 ```
 <br />
