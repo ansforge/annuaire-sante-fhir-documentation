@@ -103,7 +103,7 @@ Nous allons voir en détail les nouveautés au niveau de chaque ressource:
 | ---            | ---                                                                                  |
 | identifier     | Mise à jour du code système pour filtrer sur les structures FINESS : https://finess.esante.gouv.fr  |
 | identifier     | Mise à jour du code système pour filtrer sur les structures RPPSRang : https://rpps.esante.gouv.fr  |
-| telecom        | Ajout d'un attribut telecom contenant l'ensemble des informations de communication (adresse MSS, téléphone, adresse mail |
+| telecom        | Ajout d'un attribut telecom contenant l'ensemble des informations de communication (adresse MSS, téléphone, adresse mail) |
 | active         | Si la ressource est en statut false, les informations suivantes seront visibles: id de la ressource, identifiant de la structure (finess, rpps rang, etc.), name (raison sociale) et active  |
 
 
