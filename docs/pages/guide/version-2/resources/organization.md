@@ -239,6 +239,8 @@ En tant que client de l'API, je souhaite rechercher une structure à partir de s
 GET [base]/Organization?identifier=001604103000
 # récupérer une structure dont l'identifiant de structure est 001604103000
 
+GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C590064036
+# récupérer une structure appartenant au référentiel FINESS et dont l'identifiant de structure est 590064036 
 ```
 
 <br />

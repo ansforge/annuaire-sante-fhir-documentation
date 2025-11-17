@@ -26,15 +26,13 @@ Nous allons vous détailler ci-dessous comment interroger l'API pour identifier 
 En tant que client de l'API, je souhaite rechercher l'ensemble des établissements médico-sociaux. Pour cela, il faut interroger la ressource Organization en fonction des deux critères suivants:
 <div class="wysiwyg" markdown="1">
  * l'identifier doit contenir le code système https://finess.esante.gouv.fr
- * l'établissement doit appartenait aux catégories d'établissements suivantes : 159, 165, 166, 172, 175, 176, 177, 178, 180, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 197, 198, 202, 207, 209, 213, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 354, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 460, 462, 500, 501, 502, 608
+ * l'établissement doit appartenir aux catégories d'établissements suivantes : 159, 165, 166, 172, 175, 176, 177, 178, 180, 182, 183, 186, 188, 189, 190, 192, 194, 195, 196, 197, 198, 202, 207, 209, 213, 221, 236, 238, 241, 246, 247, 249, 252, 253, 255, 286, 295, 344, 354, 370, 377, 378, 379, 381, 382, 390, 395, 396, 402, 411, 418, 427, 437, 440, 441, 445, 446, 448, 449, 453, 460, 462, 500, 501, 502, 608
 </div>
 
 ```sh
-GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213
-# récupère les organisations qui ont un code système finess.esante.gouv.fr et qui les catégories d'établissements 159,165,166,172,175,176,178,180,182,183,186,188,189,190,192,194,195,196,197,198,202,207,209 et 213
+GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=159,165,166,172,175,176,177,178,180,182,183,186,188,189,190,192,194,195,196,197,198,202,207,209,213,221,236,238,241,246,247,249,252,253,255,286,295,344,354,370,377,378,379,381,382,390,395,396,402,411,418,427,437,440,441,445,446,448,449,453,460,462,500,501,502,608
+# récupère les organisations qui ont un code système finess.esante.gouv.fr et qui appartiennent aux différents catégories d'établissements de la requête (159,165,166, etc.)
 ```
-
-NOTE| Nous avons constaté que l'appel peut échouer en prenant en compte l'ensemble des catégories d'établissements. Nous vous invitons à diviser vos appels pour vous assurer de la bonne récupération des organisations. 
 
 Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissement](https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement).
 
@@ -43,6 +41,9 @@ Pour information, ces codes font partie de la TRE [TRE-R66-CategorieEtablissemen
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
+
+curl -H "ESANTE-API-KEY: d5aa2278-61af-43c1-8167-feb7c695d1e1" -X POST "https://gateway.api.esante.gouv.fr/fhir/v2/Organization/_search" -d type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C177%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213%2C221%2C236%2C238%2C241%2C246%2C247%2C249%2C252%2C253%2C255%2C286%2C295%2C344%2C354%2C370%2C377%2C378%2C379%2C381%2C382%2C390%2C395%2C396%2C402%2C411%2C418%2C427%2C437%2C440%2C441%2C445%2C446%2C448%2C449%2C453%2C460%2C462%2C500%2C501%2C502%2C608&identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C'
+
 curl -H "ESANTE-API-KEY: d5aa2278-61af-43c1-8167-feb7c695d1e1" -X POST https://gateway.api.esante.gouv.fr/fhir/v2/Organization/_search -d 'type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R66-CategorieEtablissement%2FFHIR%2FTRE-R66-CategorieEtablissement%7C159%2C165%2C166%2C172%2C175%2C176%2C178%2C180%2C182%2C183%2C186%2C188%2C189%2C190%2C192%2C194%2C195%2C196%2C197%2C198%2C202%2C207%2C209%2C213&identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C'
       
 {% endhighlight %}
@@ -171,12 +172,10 @@ Vous trouverez ainsi des réponses JSON de ce type avec le système https://fine
 
 ### <a id="two-header"></a>2. Le couloir Hôpital
 
-
-
 En tant que client de l'API, je souhaite rechercher l'ensemble des établissements sanitaires. Pour s'assurer que l'établissement ne correspond pas à un établissement médico-social:
 <div class="wysiwyg" markdown="1">
 - l'appel doit être réalisé en filtrant sur le code système de la [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/) 
-- Vérifier que chaque structure ne fasse pas partie des catégories d'établissements "médico-sociaux" (voir la liste des catégories d'établisssements dans le cas d'utilisation précédent). 
+- Vérifier que chaque structure ne FASSE PAS PARTIE des catégories d'établissements "médico-sociaux" (voir la liste des catégories d'établisssements dans le cas d'utilisation précédent). 
 - l'appel doit être réalisé sur les secteurs d'activités : 
 </div>
 
@@ -193,100 +192,89 @@ En tant que client de l'API, je souhaite rechercher l'ensemble des établissemen
 
 **Requêtes :**
 ```sh
-GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA01%2CSA02%2CSA03%2CSA04%2CSA30%2CSA34%2CSA36
-# Récupère toutes les organisations qui sont dans les secteurs d'activités suivants : SA01, SA02, SA03, SA04, SA30, SA34, SA36
+GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=SA01,SA02,SA03,SA04,SA30,SA34,SA36&type:not=159,165,166,172,175,176,177,178,180,182,183,186,188,189,190,192,194,195,196,197,198,202,207,209,213,221,236,238,241,246,247,249,252,253,255,286,295,344,354,370,377,378,379,381,382,390,395,396,402,411,418,427,437,440,441,445,446,448,449,453,460,462,500,501,502,608
+# Récupère toutes les organisations provenant du SI FINESS, qui sont dans les secteurs d'activités suivants : SA01, SA02, SA03, SA04, SA30, SA34, SA36 et qui n'appartiennent pas aux catégories d'établissement du secteur médico-social
 ```
 
+### <a id="three-header"></a>3. Le couloir Hôpital
 
+En tant que client de l'API, je souhaite rechercher l'ensemble des officines de pharmacie. Il faut interroger la ressource Organization :
+<div class="wysiwyg" markdown="1">
+ * En filtrant sur le système et le secteur d'activité de l'organisation : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39, SA65
+</div>
 
+<br />
+La liste des codes des pharmacies (ex: SA33, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
 
 
 <div class="code-sample">
-
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2?_getpages=b109ca26-32eb-416f-8c8a-fee6c6597bb9&_pageId=lZg9MO8QrAVQZoT5uxjWir7vNAEr7AGfqD_nysfrz5wl53MhYmudRGTxjJfwUVMYuYOdvQq4OASgzZbCGJjhb7EH19BN-GH2uG5r5q9ZT680D729MuB8AQowHOP0m-nlaq5JQ3eWKdOAc4z6ZlPQSKRIa2LDXto2BFdF4cEs2TVtK1uJsLVSBVq6JJElmJv5vrd0wkQaaf9H5HNBJG_W1g4gIxbflOSdm8MMyIAvA_Jm6tKvrcC9kFA5Rqn0_FawrKQJbmA2hi0ZbTJaZmaNHJSRA05shFi4vQMBSL0jqs1vo3bZCgFquO5qHyghvwrqmanzRhMjWzSGwanYS4jdpuScMd-btLsRIobeF9bNhGS3bcAVcS3a6SuUkya1H-nfd5XP957ZzPFP-hPsjHuSk4oXbbxYirHZFaKHMrdM3dmXbOdHzPsbgxA9-6RhJgwtlXzOuBToLIQ9VPQrL5F1Z0VeDkpHN50pG445m9Y6zL-YmKruLhsEvfnW0f3PgDKnIUZsFQNMmTetD7vRMlfxiPBws5J7d0HJB1WFG-Qk0n6q6hW4PStx9lsvmSS5Ggkg5At7ko005tiVj50SjbvTz9Bgj-4MfVHpmzY5og8avqHwci6Vo4iE57W4QaGuEQFKkFp2aDF6kBpY8SmKAbYGS08NjjiXqHSpsaj0PxGaS5NMX0vf69eQSd1X8HVQtFlbZubcKQs-F3wrZwp4J9a_Tfhd913wZB5wDHA1C226GfnhFQ5jx2BilMUjw-sVDb-_RmWsDYPG&_bundletype=searchset"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%SA65"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
 {% highlight java %}
 var client = createClient();
-
-// hospital:
-var bHospital = client.search().forResource(Organization.class)
-        .where(Organization.TYPE.exactly().codes("SA01","SA02","SA03","SA04","SA30","SA34","SA36"))
-        .returnBundle(Bundle.class).execute();
-var totalHospital = bHospital.getTotal();
-var typesAsStringList = Arrays.asList("159","165","166","172","175","176","177", "178","180","182","183","186","188","189","190","192","194","195","196","197","198","202","207","209","213","221","236","238","241","246","247","249","252","253","255","286","295","344","354","370","377","378","379","381","382","390","395","396","402","411","418","427","437","440","441","445","446","448","449","453","460","462","500","501","502");
-var goodElements = new ArrayList<>();
 var hasNext = true;
+Bundle orgBundle = null;
+var totalElements = 0;
 var treated = 0;
+var goodElements = new ArrayList<>();
 
-logger.info("Total results - {}", bHospital.getTotal());
+// construct radiology facility request
+try {
+    var pharmacyCodesList = Arrays.asList("SA33", "SA38", "SA39", "SA65");
+    orgBundle = client.search().forResource(Organization.class)
+            .where(Organization.TYPE.exactly().systemAndValues("https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite", pharmacyCodesList))
+            .returnBundle(Bundle.class).execute();
+
+    totalElements = orgBundle.getTotal();
+} catch (Exception e) {
+    e.printStackTrace();
+    hasNext = false;
+}
+
+logger.info("Total results - {}", totalElements);
 
 do {
-    var bundleContent = bHospital.getEntry();
-    logger.info("Treat {} entry(ies)", bundleContent.size());
+    var bundleContent = orgBundle.getEntry();
 
     for (var e : bundleContent) {
-        var org = (Organization) e.getResource();
-        var isHospital = true;
-
-        // check hospital system & code
-        for (var type : org.getType()) {
-            for (var coding : type.getCoding()) {
-                if ("https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement/FHIR/TRE-R66-CategorieEtablissement".equals(coding.getSystem()) &&
-                        typesAsStringList.contains(coding.getCode())) {
-                    isHospital = false;
-                    break;
-                }
-            }
-        }
-
-        // filter good elements
-        if(isHospital) {
+        // store the organization inside a map
+        if(e.getResource() instanceof Organization) {
+            var org = (Organization) e.getResource();
             goodElements.add(org);
+            treated++;
         }
     }
 
     // check if result has a next page
-    if (bHospital.getLink("next")!=null) {
-        bHospital = client.loadPage().byUrl(bHospital.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+    if (orgBundle.getLink("next")!=null) {
+        try {
+            orgBundle = client.loadPage().byUrl(orgBundle.getLink("next").getUrl()).andReturnBundle(Bundle.class).execute();
+        } catch (Exception e) {
+            logger.error("Error getting next page");
+            e.printStackTrace();
+            hasNext = false;
+        }
     } else {
         hasNext = false;
     }
 
-    treated += bundleContent.size();
-    logger.info("Progress treated - {} / {}", treated, bHospital.getTotal());
+    logger.info("Progress treated - {} / {}", treated, totalElements);
 } while (hasNext);
 
-logger.info("Total global - {}", totalHospital);
-logger.info("Total Hospital - {}", goodElements.size());
+logger.info("Total organization - {}", goodElements.size());
 {% endhighlight %}
 </div>
-
 </div>
-
 <br />
 
 
+<!-- # TODO
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 3. Le couloir Biologie Médicale
+### 4. Le couloir Biologie Médicale
 
 Afin de récupérer les établissements de biologie ayant des médecins ou pharmaciens exerçants, nous devons interroger l'endpoint Organization :
 <div class="wysiwyg" markdown="1">
@@ -815,4 +803,4 @@ logger.info("Total organization - {}", goodElements.size());
 
 <br />
 
-
+ -->
