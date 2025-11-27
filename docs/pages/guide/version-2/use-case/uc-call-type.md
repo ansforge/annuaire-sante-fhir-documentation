@@ -231,9 +231,3 @@ GET [base]/Organization?_revinclude=PractitionerRole:organization
 # Exemple avec la première requête pour récupérer les organisations et remonter les activités associées.
 ```
  <br />
-La requête _has permettrait également de faire ce type de requête mais n'est pour le moment pas implémenté dans l'API FHIR V2.
-
-```sh
-GET [base]/Practitioner?_has:PractitionerRole:practitioner:organization.address-postalcode=78
-```
-

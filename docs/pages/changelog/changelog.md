@@ -7,7 +7,7 @@ Le changelog  documente les modifications associées à une version de l’API F
 
 <div style="display: flex; justify-content: center;">
   <p style="background-color: #ffcccc; border:1px solid grey; padding: 10px; max-width: 790px;">
-    Nous vous informons qu'à partir de déc. 2025/janv. 2026, les appels à l'API FHIR redirigeront par défaut sur la version 2. Le décommissionnement de l'API FHIR Version 1 sera effectif à partir du 31 mars 2026.
+    Nous vous informons qu'à partir de déc. 2025/janv. 2026, les appels à l'API FHIR redirigeront par défaut sur la version 2. Le décommissionnement de l'API FHIR Version 1 sera effectif à partir du juillet 2026.
   </p>
 </div>
 
@@ -16,7 +16,7 @@ Le changelog  documente les modifications associées à une version de l’API F
 
 | Version API Annuaire Santé   | Version FHIR  | Version IG | Date début | Disponible jusqu'à |
 | ---                          | ---           | ---        | ---        | ---                |
-| Version 1 (Beta)             | R4            | <a href="https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0">0.1.0</a> - trial use | 5 septembre 2022  | Mars 2026                   |
+| Version 1 (Beta)             | R4            | <a href="https://interop.esante.gouv.fr/ig/fhir/annuaire/0.1.0">0.1.0</a> - trial use | 5 septembre 2022  | Juillet 2026                   |
 | Version 2                                 | R4            | <a href="https://interop.esante.gouv.fr/ig/fhir/annuaire">1.1.0</a>             | 28 Avril 2025               | TBD                   |
 
 **Notes de livraison**
