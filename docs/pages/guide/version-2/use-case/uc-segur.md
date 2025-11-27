@@ -8,10 +8,10 @@ Le Ségur du Numérique en Santé s’articule autour de 6 types de d'acteurs ap
 <div class="wysiwyg" markdown="1">
 - [Couloir Médico-social](#one-header)
 - [Couloir Hôpital](#two-header)
-- [Couloir Médecin de ville](#three-header)
+- [Couloir Officine](#three-header)
 - [Couloir Biologie médicale](#four-header)
 - [Couloir Radiologie](#five-header)
-- [Couloir Officine](#six-header)
+- [Couloir Médecin de ville](#six-header)
 </div>
 <br />
 
@@ -168,7 +168,7 @@ Vous trouverez ainsi des réponses JSON de ce type avec le système https://fine
                     },
 
 ```
-
+<br />
 
 ### <a id="two-header"></a>2. Le couloir Hôpital
 
@@ -195,22 +195,37 @@ En tant que client de l'API, je souhaite rechercher l'ensemble des établissemen
 GET [base]/Organization?identifier=https%3A%2F%2Ffiness.esante.gouv.fr%7C&type=SA01,SA02,SA03,SA04,SA30,SA34,SA36&type:not=159,165,166,172,175,176,177,178,180,182,183,186,188,189,190,192,194,195,196,197,198,202,207,209,213,221,236,238,241,246,247,249,252,253,255,286,295,344,354,370,377,378,379,381,382,390,395,396,402,411,418,427,437,440,441,445,446,448,449,453,460,462,500,501,502,608
 # Récupère toutes les organisations provenant du SI FINESS, qui sont dans les secteurs d'activités suivants : SA01, SA02, SA03, SA04, SA30, SA34, SA36 et qui n'appartiennent pas aux catégories d'établissement du secteur médico-social
 ```
+<br />
 
-### <a id="three-header"></a>3. Le couloir Hôpital
+### <a id="three-header"></a>3. Le couloir Officine
 
-En tant que client de l'API, je souhaite rechercher l'ensemble des officines de pharmacie. Il faut interroger la ressource Organization :
+En tant que client de l'API, je souhaite rechercher l'ensemble des structures appartenant au couloir Officine. Il faut interroger la ressource Organization :
 <div class="wysiwyg" markdown="1">
- * En filtrant sur le système et le secteur d'activité de l'organisation : https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, SA33, SA38, SA39, SA65
+- l'appel doit être réalisé en filtrant sur le code système de la [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/) 
+- l'appel doit être réalisé sur les secteurs d'activités : 
 </div>
 
-<br />
-La liste des codes des pharmacies (ex: SA33, etc...) se trouve dans le référentiel : [TRE-R02-SecteurActivite](https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite/)
+| Code  | Libellé Secteur d'activité                        |
+| ---   | ---                                               |
+| SA33  | Pharmacie d'officine                              |
+| SA38  | Pharmacie minière                                 |
+| SA39  | Pharmacie mutualiste                              |
+| SA65  | Antenne de pharmacie                              |
 
+<br />
+
+```sh
+GET [base]/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA65
+# récupère les organisations appartenant aux secteurs d'activités du couloir Officine en filtrant sur le code système des secteurs d'activités
+
+GET [base]/Organization?type=SA33,SA38,SA39,SA65
+# récupère les organisations appartenant aux secteurs d'activités du couloir Officine.
+```
 
 <div class="code-sample">
 <div class="tab-content" data-name="curl">
 {% highlight bash %}
-curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39%2Chttps%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%SA65"
+curl -H "ESANTE-API-KEY: {{site.ans.api_key }}" "{{site.ans.api_url}}/fhir/v2/Organization?type=https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA33,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA38,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA39,https%3A%2F%2Fmos.esante.gouv.fr%2FNOS%2FTRE_R02-SecteurActivite%2FFHIR%2FTRE-R02-SecteurActivite%7CSA65"
 {% endhighlight %}
 </div>
 <div class="tab-content" data-name="java">
