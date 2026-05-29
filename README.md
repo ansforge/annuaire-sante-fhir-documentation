@@ -28,7 +28,7 @@ Le modèle est disponible ici : https://interop.esante.gouv.fr/ig/fhir/annuaire
 * Portail API FHIR : https://portail.openfhir.annuaire.sante.fr/
 * Wiki : https://github.com/ansforge/annuaire-sante-fhir-documentation/wiki/
 * Code source Github : https://github.com/ansforge/annuaire-sante-fhir-serveur/
-* API statuts : https://status.annuaire-sante.esante.gouv.fr/
+* API statuts : https://status.esante.gouv.fr/
 
 ## CI/CD
 Les pipelines de ce repository permettent de :

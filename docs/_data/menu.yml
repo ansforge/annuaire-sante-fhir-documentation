@@ -206,6 +206,6 @@ header:
       - page: Code source de l'API
         url: https://github.com/ansforge/annuaire-sante-fhir-serveur
       - page: Météo des services de l'Annuaire Santé
-        url: https://status.annuaire-sante.esante.gouv.fr
+        url: https://status.esante.gouv.fr
       - page: Questions sur la documentation
         url: https://github.com/ansforge/annuaire-sante-fhir-documentation/issues
