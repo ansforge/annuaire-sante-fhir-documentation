@@ -34,10 +34,11 @@ Les 5 ressources disponibles sur l'API FHIR Annuaire Santé sont les suivantes:
 
 ### Météo des services de l'Annuaire Santé
 
-<img src="img/meteo-services-api.png" style="width:100%;">
+<img src="img/meteoapifhir.png" style="width:100%;">
 
-Il est possible de consulter la page [Météo des services de l'Annuaire Santé](https://status.esante.gouv.fr/){:target="_blank"} afin de vérifier si l'API FHIR Annuaire Santé est opérationnelle ou non.
-Il est également possible de s'abonner pour être notifié lorsque le statut de l'API FHIR Annuaire Santé est mis à jour (situé en bas de l'écran)
+Il est possible de consulter la page [Météo des services de l'Annuaire Santé](https://status.esante.gouv.fr/){:target="_blank"} dans la section "Annuaire Santé (RASS) afin de vérifier si l'API FHIR Annuaire Santé est opérationnelle ou non.
+Il est également possible de recevoir les mises à jour en cliquant sur le 
+s'abonner pour être notifié lorsque le statut de l'API FHIR Annuaire Santé est mis à jour (situé en bas de l'écran)
 
-<img src="img/meteo-services-abonner.png" style="width:100%;">
+<img src="img/meteo.png" style="width:100%;">
 
