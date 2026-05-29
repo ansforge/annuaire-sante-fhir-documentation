@@ -31,7 +31,7 @@ NOTE | Pour plus d'informations sur la MSSanté, [cliquez ici](https://mailiz.ms
 
 
 ## <a id="one-header"></a>1. Récupérer les BAL sur chaque ressource
-Les types de BAL se retrouvent principalement principalement sur les ressources suivantes:
+Les types de BAL se retrouvent principalement sur les ressources suivantes:
 <div class="wysiwyg" markdown="1">
 * Practitioner: on retrouve les BAL Personnelles et Cabinet qui sont associées uniquement à un identifiant RPPS ;
 * PractitionerRole : on retrouve les BAL Personnelles et Cabinet qui sont associées à un identifiant RPPS et à une structure.
