@@ -57,7 +57,7 @@ Dans le menu "Application" dans l'onglet "Souscriptions", vous pourrez retrouver
 </div>
 &nbsp;
 
-NOTE | L’application Gravitee applique une limitation de 1000 appels par minute (soit environ 16 appels par seconde) par application pour l’API FHIR Annuaire Santé.
+NOTE | L’application Gravitee applique une limitation de 17 appels par seconde par application pour l’API FHIR Annuaire Santé.
 
 
 ## <a id="three-header"></a> Aller plus loin
