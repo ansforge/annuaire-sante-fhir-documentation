@@ -184,19 +184,9 @@ Les cookies ont différentes fonctionnalités. Ils ont pour but d’enregistrer 
 
 ### 6.2 Nos cookies
 
-L’Annuaire santé est conçu pour être particulièrement attentif aux besoins des visiteurs. À cet égard, il y est fait usage de cookies.
+Le Site ne dépose aucun cookie lors de sa consultation : aucun cookie de mesure d’audience, de publicité ou de suivi n’est utilisé.
 
-Les informations collectées sont à l’usage exclusif de l’Agence du Numérique en Santé ou de ses prestataires techniques, et ne sont en aucun cas cédées à des tiers.
-
-Le Site utilise les cookies suivants :
-- Des cookies strictement nécessaires au fonctionnement du Site :
-  - Le Site utilise des « cookies techniques », plus précisément des cookies de session, qui sont strictement nécessaires à son fonctionnement. Ces cookies sont conservés pendant la durée de connexion au Site.
-
-Liste complète des cookies utilisés sur le Site :
-
-| Nom | Type | Finalité | Durée de conservation |
-| --- | --- | --- | --- |
-| XSRF-TOKEN | Cookies de session | Assurer la sécurité contre les attaques CSRF | Ces cookies sont conservés pendant la durée de connexion au Site. |
+Seul un cookie de préférence d’affichage (`contrast`) peut être déposé, uniquement si l’Utilisateur modifie le contraste via l’outil d’accessibilité du Site. Ce cookie sert exclusivement à mémoriser ce choix, n’est pas soumis à consentement et est conservé 180 jours.
 
 ## 7. Spécificités de l’API FHIR
 
