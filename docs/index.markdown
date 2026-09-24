@@ -82,8 +82,8 @@ En intégrant l'API Annuaire Santé dans votre système d'information, vous pouv
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#folder' | relative_url }}"></use></svg><br/>
-        <span  class="doc-section-title"><a href="./pages/hub.html">Cas d'utilisation : </a></span>
-        Les cas d'utilisation pouvant vous servir d'inspiration pour vos développements.
+        <span  class="doc-section-title"><a href="https://github.com/ansforge/annuaire-sante-fhir-serveur" target="_blank">Code source de l'API : </a></span>
+        Consultez le code source de l'API sur GitHub.
     </div>
     <div class="col col-12 col-md-3">
         <svg class="svg-icon svg-edit" aria-hidden="true" focusable="false"><use xlink:href="{{ '/assets/ans/svg-icons/icon-sprite.svg#view-projection' | relative_url }}"></use></svg><br/>
